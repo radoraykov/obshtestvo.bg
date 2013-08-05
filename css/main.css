@@ -143,11 +143,12 @@ h1 {
     margin: 0;
     padding: 0;
     text-shadow: 0 3px 1px #242e36;
-    font: bold 60px/60px "Myriad Pro","obshtestvo bold", sans-serif;
+    font: bold 60px/60px "Myriad Pro", "obshtestvo bold", sans-serif;
     height: 60px;
 }
 h2, a.contact, #content ul {
-    font:normal 20px/28px "Myriad Pro Light", "obshtestvo light", sans-serif;
+    font:normal 20px/28px "obshtestvo light", "Myriad Pro", sans-serif;
+  	font-weight:100;
 }
 h2 {
     margin: 0;
