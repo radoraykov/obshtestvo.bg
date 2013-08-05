@@ -147,7 +147,7 @@ h1 {
     height: 60px;
 }
 h2, a.contact, #content ul {
-    font:normal 20px/28px "Myriad Pro Light", "obshtestvo bold", sans-serif;
+    font:normal 20px/28px "Myriad Pro Light", "obshtestvo light", sans-serif;
 }
 h2 {
     margin: 0;
