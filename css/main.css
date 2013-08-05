@@ -148,7 +148,8 @@ h1 {
 }
 h2, a.contact, #content ul {
     font:normal 20px/28px "obshtestvo light", "Myriad Pro", sans-serif;
-  	font-weight:100;
+    font-weight:normal;
+    -webkit-font-smoothing:antialiased;
 }
 h2 {
     margin: 0;
