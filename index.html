@@ -1,42 +1,400 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Общество - модерни, технологични подходи за България</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
-        <link rel="stylesheet" href="css/fonts.css">
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/main.css">
-        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
-    </head>
-    <body>
-        <div class="center-helper"></div>
-        <div id="content" class="loaded">
-            <h1 title="Общество">obshtestvo.bg</h1>
-            <h2 id="aim">Целта ни е да развием гражданска активност и да намалим несправедливостите в България чрез модерни, технологични подходи.</h2>
-            <section class="projects">
-                <h2 id="active">Проекти, над които работим в момента:</h2>
-                <ul>
-                    <li><a href="https://github.com/obshtestvo/rating-gov-representatives#readme" title="Кой как гласува, какви бизнеси има, с кого е подобен">Профили на народни представители</a></li>
-                    <li><a href="https://github.com/obshtestvo/knowyourmp#readme" title="Игра, имаща за цел да запознае гражданите с хората, които формално ги управляват">Опознай депутата</a></li>
-                    <li><a href="https://github.com/obshtestvo/recycle#readme" title="Сайт-карта на места за рециклиране">RE:CYCLE</a></li>
-                    <li><a href="https://github.com/obshtestvo/alaveteli-bulgaria#readme" title="Интеграция на сайт за заявления за достъп до информация по интернет">Alaveteli</a></li>
-                    <li class="all"><a href="https://github.com/obshtestvo">виж всички</a></li>
-                </ul>
-            </section>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Общество - модерни, технологични подходи за България</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--<link rel="stylesheet" href="css/fonts.css">-->
+    <!--<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Open+Sans:300italic,400,300,700' rel='stylesheet' type='text/css'>-->
+    <link rel="stylesheet" type="text/css" href="semantic/packaged/css/semantic.css">
+    <link href="slider/jquery.bxslider.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+</head>
+<body>
+<div class="container">
+
+    <h1 class="ui header title">
+        <img src="img/logo.png" alt="Общество" width="230px" class="ui medium"/>
+        <!--<i class="add small green icon"></i>-->
+        <!--<div class="circular ui teal button you">теб</div>-->
+        <!--<span class="sub header floated left">Се радваме и създаваме</span>-->
+    </h1>
+
+    <!--<div class="ui secondary menu header-menu">-->
+    <!--<a class="item">-->
+    <!--Friends-->
+    <!--</a>-->
+    <!--<a class="item">-->
+    <!--Messages-->
+    <!--</a>-->
+    <!--<a class="item">-->
+    <!--Friends-->
+    <!--</a>-->
+    <!--</div>-->
+</div>
+
+<div class="ui blue inverted segment">
+    <div class="container">
+
+        <!--<div class="ui right red corner label">-->
+        <!--<i class="heart icon"></i>-->
+        <!--</div>-->
+        <div class="ui celled grid">
+            <div class="row">
+                <div class="three wide column">
+                    <h2 class="ui header">
+                        <p>Работилница за дигитални приложения, които улесняват и активизират гражданина.</p>
+
+                        <div class="ui buttons">
+                            <div class="ui red button">
+                                <i class="users icon"></i>
+                                Включи се
+                            </div>
+                            <div class="ui teal button">
+                                <i class="unordered list icon"></i>
+                                Виж проектите ни
+                            </div>
+                        </div>
+                        <div class="ui promo-user-size images">
+                            <img class="ui image" width="50px"
+                                 src="http://graph.facebook.com/compusbg/picture?width=50&height=50">
+                            <img class="ui image" width="50px"
+                                 src="http://graph.facebook.com/alex.milanov/picture?width=50&height=50">
+                            <img class="ui image" width="50px"
+                                 src="http://graph.facebook.com/stavri.lavrov/picture?width=50&height=50">
+                            <img class="ui image" width="50px"
+                                 src="http://graph.facebook.com/bozhidar.bozhanov/picture?width=50&height=50">
+                            <img class="ui image" width="50px"
+                                 src="http://graph.facebook.com/botodorov/picture?width=50&height=50">
+                            <img class="ui image" width="50px"
+                                 src="http://graph.facebook.com/boyan.yurukov/picture?width=50&height=50">
+                            <a class="you" href="#" class="you" title="Вкючи се">Ти</a>
+                        </div>
+                    </h2>
+                </div>
+                <div class="one wide column">
+                    <p>Правим приложенията така, че да дават „мегдан“ на нас участниците, да сме свободни и да
+                        вършим интересни неща.</p>
+
+                    <div class="mini ui button">
+                        Как работим <i class="right arrow icon"></i>
+                    </div>
+                    <p>Целим <strong>пълна</strong> отвореност, <strong>приятна</strong> достъпност,
+                        <strong>цялостна</strong> прозрачност</p>
+
+                    <div class="mini ui button">
+                        Как ще ги постигнем<i class="right arrow icon"></i>
+                    </div>
+                </div>
+            </div>
         </div>
-        <footer>
-            <a class="contact loaded" href="mailto:info@obshtestvo.bg"><span>info@obshtestvo.bg</span></a>
-        </footer>
-        <div id="veil"></div>
-        <script src="js/vendor/jquery-1.9.1.min.js"></script>
-        <script src="js/spin.min.js"></script>
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
-    </body>
+        <h2 class="ui header">
+            <i class="lightbulb icon"></i>
+            Проекти над които работим
+        </h2>
+        <ul class="bxslider"  style="color:black;">
+            <li>
+                <div class="slide" style="height: 400px;">
+                    <div class="ui basic segment">
+                        <h3 class="ui header">
+                            IskamDaZnam.bg
+                        </h3>
+                        <p>Портал за изпращане и публикуване на заявления за достъп до публична информация.</p>
+                    </div>
+                    <div class="ui three column grid basic segment teal inverted">
+                        <div class="column">
+                            <div class="ui basic segment">
+                                <h4 class="ui header">
+                                    Как?
+                                </h4>
+                                <div class="ui ordered list">
+                                    <div class="item">Петър влиза в iskamdaznam.bg</div>
+                                    <div class="item">Избира държавен орган, който иска да получи информация</div>
+                                    <div class="item">Клика на "Подай заявление"</div>
+                                    <div class="item more" ><div class="ui green mini button "><i class="right arrow icon"></i>
+                                        Още</div></div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="ui basic segment">
+                                <h4 class="ui header">
+                                    Защо?
+                                </h4>
+                                <div class="ui ordered list">
+                                    <div class="item">Повишава информираността за Правото на достъп до информация</div>
+                                    <div class="item">Улеснява гражданина като предлага целия процес под формата на уеб приложение</div>
+                                    <div class="item more" ><div class="ui green mini button "><i class="right arrow icon"></i>
+                                        Още</div></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="ui basic segment">
+                                <h4 class="ui header">
+                                    Кой?
+                                </h4>
+
+                                <div class="ui promo-user-size images">
+                                    <img class="ui image" width="50px"
+                                         src="http://graph.facebook.com/compusbg/picture?width=50&height=50">
+                                    <img class="ui image" width="50px"
+                                         src="http://graph.facebook.com/alex.milanov/picture?width=50&height=50">
+                                    <img class="ui image" width="50px"
+                                         src="http://graph.facebook.com/stavri.lavrov/picture?width=50&height=50">
+                                </div>
+                                <div class="ui teal mini labeled icon button">
+                                    <i class="off icon"></i>
+                                    Включи се
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                <!--<div class="ui segment" style="height:400px; color: #000;">-->
+                    <!--<img class="ui image circular" src="alaveteli.jpg" alt="" height="350px" style="float:right"/>-->
+
+                    <!--<p>ИскамДаЗнам дава улеснява изпращането на "Заявления за достъп до публична информация" по интернет.-->
+                       <!--Пести време на потребителя като поддръжа списък с органите, до които връзка. </p>-->
+                    <!--<p>Пести време и на държавните органи като публикува отговорите на заявленията така, че вместо нови-->
+                        <!--заявления да бъдат  </p>-->
+                    <!--<p>Повишава информираността за Правото на достъп до информация</p>-->
+                    <!--<div class="ui  mini labeled icon buttons">-->
+                        <!--<div class="ui green button">-->
+                            <!--<i class="right arrow icon"></i>-->
+                            <!--Прочети още-->
+                        <!--</div>-->
+                        <!--<div class="ui teal button">-->
+                            <!--<i class="off icon"></i>-->
+                            <!--Включи се-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                </div>
+
+            </li>
+            <li>
+                <div style="height:250px"></div>
+            </li>
+        </ul>
+    </div>
+</div>
+<!--<div class="ui inverted green  menu">-->
+<!--<a class="item active">-->
+<!--<i class="grid layout icon"></i> Проекти <div class="ui label">4</div>-->
+<!--</a>-->
+<!--<a class="item">-->
+<!--<i class="info icon"></i> За нас-->
+<!--</a>-->
+<!--<div class="right menu">-->
+<!--<div class="borderless vertically fitted item">-->
+<!--<div class="ui icon input">-->
+<!--<input type="text" placeholder="Search...">-->
+<!--<i class="search link icon"></i>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="ui dropdown item">-->
+<!--Language <i class="dropdown icon"></i>-->
+<!--<div class="menu ui transition hidden">-->
+<!--<a class="item">English</a>-->
+<!--<a class="item">Russian</a>-->
+<!--<a class="item">Spanish</a>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<div class="container">
+
+    <h2 class="ui header">
+        <i class="exchange icon"></i>
+        Искаме да работим заедно с
+    </h2>
+
+    <div class="ui three column grid">
+        <div class="equal height row">
+            <div class="column">
+                <div class="ui icon header">
+                    <i class="circular sitemap icon"></i>Държавната администрация
+                    <div class="sub header">Да подсилим опитите за приветливи публични услуги</div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="ui icon header">
+                    <i class="circular briefcase icon"></i>Корпорации
+                    <div class="sub header">Да отпуснем служителите с нашинте мотивационни лагери и своевременно това
+                        да бъде <a
+                                href="http://bg.wikipedia.org/wiki/%D0%9A%D0%BE%D1%80%D0%BF%D0%BE%D1%80%D0%B0%D1%82%D0%B8%D0%B2%D0%BD%D0%B0_%D1%81%D0%BE%D1%86%D0%B8%D0%B0%D0%BB%D0%BD%D0%B0_%D0%BE%D1%82%D0%B3%D0%BE%D0%B2%D0%BE%D1%80%D0%BD%D0%BE%D1%81%D1%82">CSR</a>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="ui icon header">
+                    <i class="circular gift icon"></i>Донори
+                    <!--Тука иконката да е на 2 части: едната част: corporate, другата чисто донорство (подаръче-->
+                    <div class="sub header">Да поддържаме каузата жива чрез подпомагане от корпорации или фондове</div>
+                </div>
+            </div>
+        </div>
+        <div class="equal height row">
+            <div class="column">
+                <div class="ui fluid button">
+                    Можем да помогнем<i class="right arrow icon"></i>
+                </div>
+            </div>
+            <div class="column">
+                <div class="ui fluid button">
+                    Какво предлагаме <i class="right arrow icon"></i>
+                </div>
+            </div>
+            <div class="column">
+                <div class="ui fluid button">
+                    Защо заслужаваме <i class="right arrow icon"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="ui  secondary inverted blue segment">
+    <div class="container">
+        <h2 class="ui header">
+            <i class="rss icon"></i>
+            Какво ново около Общество?
+        </h2>
+
+        <div class="ui divided list">
+            <div class="item">
+                <div class="right floated tiny blue ui button">Още инфо</div>
+                <img src="http://graph.facebook.com/stavri.lavrov/picture?width=50&height=50">
+
+                <div class="content">
+                    <div class="header">TarnovoConf</div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="right floated tiny blue ui button">Още инфо</div>
+                <img src="http://graph.facebook.com/stavri.lavrov/picture?width=50&height=50">
+
+                <div class="content">
+                    <div class="header">Партньорство с IPED.bg</div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="right floated tiny blue ui button">Още инфо</div>
+                <img src="http://graph.facebook.com/stavri.lavrov/picture?width=50&height=50">
+
+                <div class="content">
+                    <div class="header">Среща с Алек от Timeheroes</div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="right floated tiny blue ui button">Още инфо</div>
+                <img src="http://graph.facebook.com/stavri.lavrov/picture?width=50&height=50">
+
+                <div class="content">
+                    <div class="header">Не успяваме да се свържем с Градът си ти</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container projects">
+    <h2 class="ui header">
+        <i class="lightbulb icon"></i>
+        Проекти над които се работи
+    </h2>
+
+    <div class="ui four column middle aligned grid projects">
+        <div class="center aligned column">
+            <p><img src="upload/deputati.jpg" class="ui circular medium image" alt=""/></p>
+            <h4 class="ui header">
+                Отворен Парламент
+            </h4>
+
+            <p>Актуална информация за активноста на Българския парламент.</p>
+
+            <div class="ui vertical mini labeled icon buttons">
+                <div class="ui fluid  green button">
+                    <i class="right arrow icon"></i>
+                    Прочети още
+                </div>
+                <div class="ui teal button">
+                    <i class="github icon"></i>
+                    Включи се
+                </div>
+            </div>
+        </div>
+        <div class="center aligned column">
+            <p><img src="upload/recycle.jpg" class="ui circular medium image" alt=""/></p>
+            <h4 class="ui green header">
+                RE:CYCLE
+            </h4>
+
+            <p>Карта с за това къде да рециклираш батерии, бутилки, хартия, кола.</p>
+
+            <div class="ui vertical mini labeled icon buttons">
+                <div class="ui  green button">
+                    <i class="right arrow icon"></i>
+                    Прочети още
+                </div>
+                <div class="ui teal button">
+                    <i class="rocket icon"></i>
+                    Искам и аз
+                </div>
+            </div>
+        </div>
+        <div class="center aligned column">
+            <p><img src="upload/alaveteli.jpg" class="ui circular medium image" alt=""/></p>
+            <h4 class="ui purple header">
+                ЗДдИ по интернет
+            </h4>
+
+            <p>Портал за изпращане и публикуване на заявления за доступ до публична информация.</p>
+
+            <div class="ui vertical mini labeled icon buttons">
+                <div class="ui  green button">
+                    <i class="right arrow icon"></i>
+                    Прочети още
+                </div>
+                <div class="ui teal button">
+                    <i class="off icon"></i>
+                    Включи се
+                </div>
+            </div>
+        </div>
+        <div class="column center aligned more ">
+            <h4 class="ui header">
+                Има още...
+            </h4>
+
+            <div class="ui huge red labeled icon button">
+                <i class="right arrow icon"></i>
+                Всички
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="js/vendor/jquery-1.9.1.min.js"></script>
+<script src="slider/jquery.bxslider.min.js"></script>
+<script src="semantic/packaged/javascript/semantic.js"></script>
+<!--<script src="js/spin.min.js"></script>-->
+<!--<script src="js/plugins.js"></script>-->
+<script src="js/main.js"></script>
+</body>
 </html>
