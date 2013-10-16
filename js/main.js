@@ -1,4 +1,5 @@
 $(function() {
+    var s = skrollr.init();
 //    var $veil = $('#veil')
 //    new Spinner({
 //        top: 'invalid',
@@ -27,5 +28,10 @@ $(function() {
 })
 
 $(document).ready(function(){
-    $('.bxslider').bxSlider();
+    $('.bxslider').bxSlider({
+    	auto: true,
+    	pause: 6000,
+  		autoControls: true
+    });
+
 });

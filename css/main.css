@@ -127,13 +127,20 @@ a.you {
     
 }
 .ui.header.title {
+    position: relative;
     /*display: inline-block;*/
     /*font-size: 0.7em;*/
     text-align: center;
+    margin-top: 70px;
+    margin-bottom: 70px;
 }
 .ui.header.title .icon {
     display: inline;
     font-size: 0.7em;
+}
+
+.ui.header.title img {
+    position: relative;
 }
 
 .ui.celled.grid,
@@ -166,10 +173,6 @@ a.you {
 .grid.projects .column.more .header {
     font-style: italic;
 }
-
-ol.ui.list li.more:before, .ui.ordered.list .item.more:before {
-    content: '...';
-}
 .bx-wrapper .bx-viewport {
     border:0;
 }
@@ -177,6 +180,9 @@ ol.ui.list li.more:before, .ui.ordered.list .item.more:before {
 .bxslider .grid.ui.basic.segment {
     padding-top:20px;
     padding-bottom:20px;
+}
+.bx-next, .bx-prev {
+    display: none;
 }
 /* ==========================================================================
    Helper classes
