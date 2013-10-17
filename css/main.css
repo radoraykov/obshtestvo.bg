@@ -151,6 +151,9 @@ a.you {
     width:100%;
     left:0;
 }
+.sticky .ui.menu .item {
+    /*font-size: 11px;*/
+}
 
 .opacitywrap {
     position: relative;
@@ -159,8 +162,8 @@ a.you {
 .sticky .menu {
     position: relative;
     left:50%;
-    width:810px;
-    margin-left: -405px;
+    width:910px;
+    margin-left: -455px;
 }
 
 .ui.celled.grid,
