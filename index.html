@@ -23,59 +23,88 @@
 </head>
 <body>
 
-<!---webkit-transform: scale(0.7);-->
-<!---moz-transform: scale(0.7);-->
-<!---o-transform: scale(0.7);-->
-<!---ms-transform: scale(0.7);-->
-<!--transform: scale(0.7);-->
-<!---webkit-transition: all 0.4s cubic-bezier(1.000, 0.835, 0.000, 0.945);-->
-<!---moz-transition: all 0.4s cubic-bezier(1.000, 0.835, 0.000, 0.945);-->
-<!---o-transition: all 0.4s cubic-bezier(1.000, 0.835, 0.000, 0.945);-->
-<!--transition: all 0.4s cubic-bezier(1.000, 0.835, 0.000, 0.945);-->
-<!--opacity:0.2;-->
-<!--}-->
-<!--.visible {-->
-<!---webkit-transform: scale(1);-->
-<!---moz-transform: scale(1);-->
-<!---o-transform: scale(1);-->
-<!---ms-transform: scale(1);-->
-<!--transform: scale(1);-->
-<div class="container">
-    <h1 class="ui header title" data-0="top:0px" data-200="top:90px">
-        <img src="img/logoleft.png" alt="Общество" class="ui " data-0="width:36px;left:0px"
-             data-180="width:80px;left:-400px"/>
-        <div class="ui secondary menu" style="display: inline-block;width:0; transform: scale(0.00); height: 40px; overflow: hidden;"  data-0="width:0px;transform: scale(0.00);" data-180="width:600px;transform: scale(1.00);">
-            <a class="item">
-                info@obshtestvo.bg
-            </a>
-            <a class="item">
-                Отчети &amp; Статистики
-            </a>
-            <a class="item">
-                Удари едно рамо/Дари/"Евала Общество"
-            </a>
-            <a class="item">
-                Преса/Медийни изяви
-            </a>
-            <a class="item">
-                Събития
-            </a>
-            <a class="item">
-                Нямаш време да четеш? - питай ни
-            </a>
-            <a class="item">
-                Open Data
-            </a>
-            <a class="item">
-                Blog/Какво ново
-            </a>
-            <a class="item">
-                Ресурси за участници
-            </a>
+
+<!--<a class="item">-->
+    <!--Отчети &amp; Статистики-->
+<!--</a>-->
+<!--<a class="item">-->
+    <!--Удари едно рамо/Дари/"Евала Общество"-->
+<!--</a>-->
+<!--<a class="item">-->
+    <!--Нямаш време да четеш? - питай ни-->
+<!--</a>-->
+<!--<a class="item">-->
+    <!--Open Data-->
+<!--</a>-->
+<!--<a class="item">-->
+    <!--Ресурси за участници-->
+<!--</a>-->
+
+
+<div class="sticky"
+     data-0="
+        transform: scale(0.4);
+        opacity:0;
+        top:115px; "
+     data-200="
+        transform: scale(1.00);
+        opacity:1;
+        background: rgba(140, 218, 248, 0.0);
+        top:0;"
+     data-300="
+
+        opacity:0.8;
+        background: rgba(140, 218, 248, 1.0);"
+
+>
+    <div class="ui secondary menu">
+        <a class="item">
+            info@obshtestvo.bg
+        </a>
+        <a class="item">
+            Отчети
+        </a>
+        <a class="item">
+            Дари
+        </a>
+        <div class="item"
+             data-0="transform: scale(0.3); opacity:0; "
+             data-210="transform: scale(1.00); opacity:1; "
+        >
+            <img src="img/logomini.png" alt="" height="16px"/>
         </div>
-        <img src="img/logomiddle.png" alt="Общество" class="ui" data-0="width:199px;" data-180="width:0px;"/>
-        <img src="img/logoright.png" alt="Общество" class="ui" data-0="width:40px;right:0px"
-             data-180="width:80px;right:-400px"/>
+        <a class="item">
+            По медийте
+        </a>
+        <a class="item">
+            Събития
+        </a>
+        <a class="item">
+            Blog/Какво ново
+        </a>
+    </div>
+</div>
+<div class="container">
+    <h1 class="ui header title" data-0="top:0px" data-170="top:80px">
+        <img src="img/logoleft.png"
+             alt="Общество"
+             class="ui"
+             data-0="height:40px; left:0px; opacity:1;"
+             data-170="height:80px;left:-600px; opacity:0.01;"
+        /><span class="opacitywrap"
+                data-0="opacity:1; top:0px; "
+                data-130="opacity:0; top:10px"
+            ><img src="img/logomiddle.png"
+             alt="Общество"
+             class="ui"
+             data-0="height:40px; opacity:1; left:0px;"
+             data-170="height:0px; opacity:0.1; left:-40;"
+        /></span><img src="img/logoright.png"
+                   alt="Общество"
+                   class="ui"
+                   data-0="height:40px; right:0px; opacity:1;"
+                   data-170="height:80px; right:-600px; opacity:0.01;"
+            />
         <!--<i class="add small green icon"></i>-->
         <!--<div class="circular ui teal button you">теб</div>-->
         <!--<span class="sub header floated left">Се радваме и създаваме</span>-->
@@ -462,7 +491,7 @@
         Идеята ни не е радикална
     </h2>
 
-    <div class="ui four column middle aligned grid projects">
+    <div class="ui four column aligned grid projects">
         <div class="center aligned column">
             <p><img src="upload/code-for-america.jpg" class="ui medium image" alt=""/></p>
             <h4 class="ui header">
@@ -471,16 +500,7 @@
 
             <p>Организация в Америка с подобна цел.</p>
 
-            <div class="ui vertical mini labeled icon buttons">
-                <div class="ui fluid  green button">
-                    <i class="right arrow icon"></i>
-                    Прочети още
-                </div>
-                <div class="ui teal button">
-                    <i class="github icon"></i>
-                    Включи се
-                </div>
-            </div>
+
         </div>
         <div class="center aligned column">
             <p><img src="upload/mysociety.png" class="ui  medium image" alt=""/></p>
@@ -490,16 +510,6 @@
 
             <p>Организация в Великобритания с подобна цел.</p>
 
-            <div class="ui vertical mini labeled icon buttons">
-                <div class="ui  green button">
-                    <i class="right arrow icon"></i>
-                    Прочети още
-                </div>
-                <div class="ui teal button">
-                    <i class="rocket icon"></i>
-                    Искам и аз
-                </div>
-            </div>
         </div>
         <div class="center aligned column">
             <p><img src="upload/weareawhatwedo.jpg" class="ui medium image" alt=""/></p>
@@ -509,32 +519,12 @@
 
             <p>Още една организация в Великобритания с подобна цел.</p>
 
-            <div class="ui vertical mini labeled icon buttons">
-                <div class="ui  green button">
-                    <i class="right arrow icon"></i>
-                    Прочети още
-                </div>
-                <div class="ui teal button">
-                    <i class="off icon"></i>
-                    Включи се
-                </div>
-            </div>
         </div>
         <div class="center aligned column">
             <p><img src="upload/sunlight.png" class="ui medium image" alt=""/></p>
 
             <p>Още една организация в Америка с подобна цел.</p>
 
-            <div class="ui vertical mini labeled icon buttons">
-                <div class="ui  green button">
-                    <i class="right arrow icon"></i>
-                    Прочети още
-                </div>
-                <div class="ui teal button">
-                    <i class="off icon"></i>
-                    Включи се
-                </div>
-            </div>
         </div>
     </div>
 </div>

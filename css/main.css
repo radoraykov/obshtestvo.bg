@@ -131,8 +131,8 @@ a.you {
     /*display: inline-block;*/
     /*font-size: 0.7em;*/
     text-align: center;
-    margin-top: 70px;
-    margin-bottom: 70px;
+    margin-top: 100px;
+    margin-bottom: 100px;
 }
 .ui.header.title .icon {
     display: inline;
@@ -141,6 +141,26 @@ a.you {
 
 .ui.header.title img {
     position: relative;
+    display: inline-block;
+}
+
+.sticky {
+    position: fixed;
+    height: 33px;
+    z-index: 99999;
+    width:100%;
+    left:0;
+}
+
+.opacitywrap {
+    position: relative;
+    display: inline-block;
+}
+.sticky .menu {
+    position: relative;
+    left:50%;
+    width:810px;
+    margin-left: -405px;
 }
 
 .ui.celled.grid,

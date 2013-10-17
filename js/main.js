@@ -1,5 +1,12 @@
 $(function() {
-    var s = skrollr.init();
+    var $menu = $('.sticky');
+    var s = skrollr.init({
+        render: function(data) {
+//           if ($menu.css('opacity')==1) {
+//               $menu.css('top', 0)
+//           }
+        }
+    });
 //    var $veil = $('#veil')
 //    new Spinner({
 //        top: 'invalid',
