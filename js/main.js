@@ -36,9 +36,12 @@ $(function() {
 
 $(document).ready(function(){
     $('.bxslider').bxSlider({
-    	auto: true,
-    	pause: 6000,
+//    	auto: true,
+//    	pause: 6000,
   		autoControls: true
     });
+    $('.ui.dropdown')
+        .dropdown()
+    ;
 
 });

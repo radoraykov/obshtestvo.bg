@@ -14,7 +14,8 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--<link rel="stylesheet" href="css/fonts.css">-->
-    <!--<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Open+Sans:300italic,400,300,700' rel='stylesheet' type='text/css'>-->
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Open+Sans:300italic,400,300,700&subset=latin,cyrillic'
+          rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="semantic/packaged/css/semantic.css">
     <link href="slider/jquery.bxslider.css" rel="stylesheet"/>
     <link rel="stylesheet" href="css/normalize.css">
@@ -49,46 +50,54 @@
      data-200="
         transform: scale(1.00);
         opacity:1;
-        background: rgba(140, 218, 248, 0.0);
+        background: rgba(255, 255, 255, 1.0);
+        box-shadow:  2px 2px 7px rgba(50, 50, 50, 0.0);
+        border-bottom:4px solid rgba(238, 238, 238, 0);
+
         top:0;"
      data-250="
-        background: rgba(140, 218, 248, 1.0);"
-
->
+        box-shadow:  2px 2px 7px rgba(50, 50, 50, 0.18);
+        border-bottom:4px solid rgba(238, 238, 238, 1);
+        "
+        >
     <div class="ui secondary menu">
-        <a class="item">
-            <i class="mail icon"></i>
-            Нещо неясно?
-        </a>
-        <a class="item">
-            <i class="thumbs up icon"></i>
-            Подкрепи ни
-        </a>
+        <div class="ui dropdown item" style="margin-left: 260px">
+            <i class="icon reorder"></i>
+            Всичко за нас
+
+            <div class="menu">
+                <a class="item" href="https://www.facebook.com/groups/obshtestvo/events/">
+                    <i class="calendar icon"></i>
+                    Събития
+                </a>
+                <a class="item"><i class="video icon"></i> Публични изяви</a>
+                <a class="item"><i class="chart basic icon"></i> Отчети</a>
+                <a class="item"><i class="book icon"></i> Проекти</a>
+                <a class="item"><i class="book icon"></i> Контакти</a>
+            </div>
+        </div>
         <div class="item"
              data-0="transform: scale(0.3); opacity:0; "
              data-210="transform: scale(1.00); opacity:1; "
                 >
             <img src="img/logomini.png" alt="" height="16px"/>
         </div>
-        <a class="item">
-            <i class="book icon"></i>
-            Отчети
+        <a class="item" href="support.html">
+            Подкрепи ни
+        </a>
+        <a class="item floated right"
+           data-230="transform: scale(0.9); opacity:0; "
+           data-260="transform: scale(1.00); opacity:1; "
+           href="mailto:info@obshtestvo.bg" style="font-size: 12px;line-height: 20px; color:#608C9C;">
+            <i class="mail icon"></i>
+            info@obshtestvo.bg
         </a>
         <a class="item">
-            <i class="video icon"></i>
-            По медийте
-        </a>
-        <a class="item">
-            <i class="calendar icon"></i>
-            Събития
-        </a>
-        <a class="item">
-            <i class="align justify icon"></i>
-            Блог
+
         </a>
     </div>
 </div>
-<div class="container">
+<div class="container header">
     <h1 class="ui header title" data-0="top:0px" data-170="top:80px">
         <img src="img/logoleft.png"
              alt="Общество"
@@ -125,50 +134,46 @@
 
 
 <div class="ui blue inverted segment basic">
-<div class="container">
+<div class="container greeter">
 
 <!--<div class="ui right red corner label">-->
 <!--<i class="heart icon"></i>-->
 <!--</div>-->
-<div class="ui celled grid">
+<div class="ui celled grid" style="margin-top: 20px; margin-bottom: 50px;">
     <div class="row">
         <div class="three wide column">
             <h2 class="ui header">
                 <p>Работилница за дигитални приложения, които улесняват и активизират гражданина.</p>
-
-                <div class="ui buttons">
-                    <a href="inner.html" class="ui red button" style="padding-right: 28px; padding-left: 28px;">
-                        <i class="community basic icon"></i>
-                        Включи се
-                    </a>
-                    <a href="inner.html" class="ui teal button" style="padding-right: 28px; padding-left: 28px;">
-                        <i class="settings icon"></i>
-                        Виж какво точно правим
-                    </a>
-                </div>
-                <div class="ui promo-user-size images">
-                    <img class="ui image" width="50px"
-                         src="http://graph.facebook.com/compusbg/picture?width=50&height=50">
-                    <img class="ui image" width="50px"
-                         src="http://graph.facebook.com/alex.milanov/picture?width=50&height=50">
-                    <img class="ui image" width="50px"
-                         src="http://graph.facebook.com/stavri.lavrov/picture?width=50&height=50">
-                    <img class="ui image" width="50px"
-                         src="http://graph.facebook.com/bozhidar.bozhanov/picture?width=50&height=50">
-                    <img class="ui image" width="50px"
-                         src="http://graph.facebook.com/botodorov/picture?width=50&height=50">
-                    <img class="ui image" width="50px"
-                         src="http://graph.facebook.com/boyan.yurukov/picture?width=50&height=50">
-                    <img class="ui image" width="50px"
-                         src="http://graph.facebook.com/vbachev/picture?width=50&height=50">
-                    <img class="ui image" width="50px"
-                         src="http://graph.facebook.com/vlood/picture?width=50&height=50">
-                    <a class="you" href="#" class="you" title="Вкючи се">Ти</a>
-                    <div class="ui label large" style="background: none">
-                        + 28 <i class="ui icon user"></i>
-                    </div>
-                </div>
             </h2>
+            <div class="ui buttons">
+                <a href="inner.html" class="ui red button" style="padding-right: 28px; padding-left: 28px;">
+                    <i class="community basic icon"></i>
+                    Включи се
+                </a>
+                <a href="inner.html" class="ui teal button" style="padding-right: 28px; padding-left: 28px;">
+                    <i class="settings icon"></i>
+                    Какво правим
+                </a>
+            </div>
+            <div class="ui promo-user-size images">
+                <img class="ui image" width="50px"
+                     src="http://graph.facebook.com/compusbg/picture?width=50&height=50">
+                <img class="ui image" width="50px"
+                     src="http://graph.facebook.com/alex.milanov/picture?width=50&height=50">
+                <img class="ui image" width="50px"
+                     src="http://graph.facebook.com/stavri.lavrov/picture?width=50&height=50">
+                <img class="ui image" width="50px"
+                     src="http://graph.facebook.com/bozhidar.bozhanov/picture?width=50&height=50">
+                <img class="ui image" width="50px"
+                     src="http://graph.facebook.com/botodorov/picture?width=50&height=50">
+                <img class="ui image" width="50px"
+                     src="http://graph.facebook.com/boyan.yurukov/picture?width=50&height=50">
+                <a class="you" href="#" class="you" title="Вкючи се">Ти</a>
+
+                <div class="ui label large" style="background: none">
+                    + 28 <i class="ui icon user"></i>
+                </div>
+            </div>
         </div>
         <div class="one wide column">
             <p>Правим приложенията така, че да има „мегдан“ за нас участниците, да сме свободни и да
@@ -192,7 +197,7 @@
 </h2>
 <ul class="bxslider" style="color:black;">
 <li>
-    <div class="slide" style="height: 400px;">
+    <div class="slide" style="height: 320px;">
         <div class="ui basic segment">
             <h3 class="ui header">
                 <a href="">IskamDaZnam.bg</a>
@@ -200,7 +205,7 @@
 
             <p>Портал за изпращане и публикуване на заявления за достъп до публична информация.</p>
         </div>
-        <div class="ui three column grid basic segment teal inverted">
+        <div class="ui three column grid basic segment blue  inverted">
             <div class="column">
                 <div class="ui basic segment">
                     <h4 class="ui header">
@@ -292,8 +297,9 @@
     </div>
 
 </li>
+<!--
 <li>
-    <div class="slide" style="height: 400px;">
+    <div class="slide" style="">
         <div class="ui basic segment">
             <h3 class="ui header">
                 <a href="inner.html">RE:CYCLE</a>
@@ -302,7 +308,7 @@
             <p>Карта и търсачка на това къде да рециклираш батерии, хартия, метал, бутилки; къде да дадеш колата за
                 scrap.</p>
         </div>
-        <div class="ui three column grid basic segment teal inverted">
+        <div class="ui three column grid basic segment blue inverted">
             <div class="column">
                 <div class="ui basic segment">
                     <h4 class="ui header">
@@ -394,6 +400,7 @@
         </div>
     </div>
 </li>
+-->
 </ul>
 </div>
 </div>
@@ -433,18 +440,33 @@
         </div>
         <div class="equal height row">
             <div class="column">
-                <div class="ui fluid button">
-                    Можем да помогнем<i class="right arrow icon"></i>
+                <div class="ui vertical fluid buttons">
+                    <div class="ui button">
+                        Можем да помогнем<i class="right arrow icon"></i>
+                    </div>
+                    <div class="ui mini button" style="background: #f6f6f6;">
+                        Директна връзка<i class="right arrow icon"></i>
+                    </div>
                 </div>
             </div>
             <div class="column">
-                <div class="ui fluid button">
-                    Какво предлагаме <i class="right arrow icon"></i>
+                <div class="ui vertical fluid buttons">
+                    <div class="ui button">
+                        Какво предлагаме <i class="right arrow icon"></i>
+                    </div>
+                    <div class="ui mini button" style="background: #f6f6f6;">
+                        Директна връзка<i class="right arrow icon"></i>
+                    </div>
                 </div>
             </div>
             <div class="column">
-                <div class="ui fluid button">
-                    Защо заслужаваме <i class="right arrow icon"></i>
+                <div class="ui vertical fluid buttons">
+                    <div class="ui fluid button">
+                        Защо заслужаваме <i class="right arrow icon"></i>
+                    </div>
+                    <div class="ui mini button" style="background: #f6f6f6;">
+                        Подкрепете ни <i class="right arrow icon"></i>
+                    </div>
                 </div>
             </div>
         </div>

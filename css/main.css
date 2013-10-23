@@ -97,7 +97,7 @@ body {
 }
 
 .container {
-    width: 915px;
+    width: 1170px;
     margin: 0px auto;
 }
 
@@ -131,14 +131,40 @@ a.you {
     /*display: inline-block;*/
     /*font-size: 0.7em;*/
     text-align: center;
+    height:100px;
     margin-top: 100px;
-    margin-bottom: 100px;
+    margin-bottom: 45px;
 }
 .ui.header.title .icon {
     display: inline;
     font-size: 0.7em;
 }
+.ui.inverted.blue.segment  {
+    background:#168eba !important;
+}
+.ui.inverted.blue.segment.secondary  {
+    background:#5FC7EC !important;
+}
 
+.greeter .ui.button {
+    background: #29A8DA;
+    color:#fff;
+}
+.greeter .ui.teal.buttons .button, .ui.teal.button {
+    background:#165690;
+}
+.greeter .ui.teal.buttons .button, .ui.red.button {
+    background:#46AD53;
+}
+.sticky .dropdown .menu {
+    width:150px
+}
+.bx-wrapper .bx-viewport {
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow:none;
+    border: none;
+}
 .ui.header.title img {
     position: relative;
     display: inline-block;
@@ -146,10 +172,14 @@ a.you {
 
 .sticky {
     position: fixed;
+    z-index: 2;
     height: 33px;
-    z-index: 99999;
     width:100%;
     left:0;
+}
+.container.header {
+    position: relative;
+    z-index: 3;
 }
 .sticky .ui.menu .item {
     /*font-size: 11px;*/
