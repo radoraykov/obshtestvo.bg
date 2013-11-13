@@ -10,6 +10,7 @@
     <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
 
     <link rel="stylesheet" type="text/css" href="static/css/lib/normalize.css">
+    <link rel="stylesheet" type="text/css" href="static/css/font-awesome.css">
     <link rel="stylesheet" href="static/css/app.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
 </head>
@@ -26,7 +27,7 @@
         <div class="container">
             <ul class="clearfix stripped">
                 <li><a href="wip.html">Всичко за нас</a></li>
-                <li><a href="/" class="logo">Obshtestvo.bg</a></li>
+                <li class="logo"><a href="/">Obshtestvo.bg</a></li>
                 <li><a href="wip.html">Подкрепи ни</a></li>
             </ul>
         </div>
@@ -37,7 +38,7 @@
     <header class="masthead">
         <h1><a class="logo" href="/"><img src="static/img/logo.png" alt="Obshtestvo.bg - Civic Hacking в България"/></a></h1>
         <p class="subtitle">Независими създатели на електронни инструменти за информираност с функция: удобна, приятна и лесна връзка
-            </br> държава <i class="icon exchange"></i> гражданин
+            </br> държава <i class="icon exchange"></i>  <i class="fa fa-exchange"></i> гражданин
         </p>
         <ul class="important-actions stripped">
             <li class="join">Включи се</li>
@@ -47,9 +48,11 @@
             <ul class="quick-info stripped">
                 <li class="aims">
                     Целим
-                    <strong>пълна</strong> отвореност,
-                    <strong>приятна</strong> достъпност,
-                    <strong>комфортна</strong> гражданска активност
+                    <ul class="stripped">
+                        <li><strong>пълна</strong> отвореност,</li>
+                        <li><strong>приятна</strong> достъпност,</li>
+                        <li><strong>комфортна</strong> гражданска активност,</li>
+                    </ul>
                     <a class="more" href="wip.html">Как ще ги постигнем</a>
                 </li>
                 <li class="act">
@@ -70,36 +73,36 @@
     <section id="projects">
         <h2>Проекти</h2>
         <div class="slider">
-            <article class="item">
+            <article class="item clearfix   ">
                 <header>
                     <h3><a href="wip.html">IskamDaZnam.bg</a></h3>
                     <p>Портал за изпращане и публикуване на заявления за достъп до публична информация.</p>
                 </header>
                 <section class="how">
-                    <h3>
+                    <h4>
                         Как
-                    </h3>
-                    <ul>
-                        <li><i class="browser icon"></i>Петър влиза в iskamdaznam.bg</li>
-                        <li><i class="bullseye outline icon"></i>Избира държавен орган, който иска да получи информация</li>
-                        <li><i class="hand up outline icon"></i>Клика на "Подай заявление"</li>
-                        <li><a class="more" href="wip.html"><i class="eclipse icon"></i>още <i class="right arrow icon"></i></a></li>
+                    </h4>
+                    <ul class="stripped">
+                        <li><i class="fa fa-list-alt"></i>Петър влиза в iskamdaznam.bg</li>
+                        <li><i class="fa fa-dot-circle-o"></i>Избира държавен орган, който иска да получи информация</li>
+                        <li><i class="fa fa-hand-o-up"></i>Клика на "Подай заявление"</li>
+                        <li><a class="more" href="wip.html"><i class="eclipse icon"></i>още <i class="fa fa-chevron-right"></i></a></li>
                     </ul>
                 </section>
                 <section class="why">
-                    <h3>
+                    <h4>
                         Защо
-                        <ul>
-                            <li><i class="hand right outline icon"></i>Повишава информираността за Правото на достъп до информация</li>
-                            <li><a class="more" href="wip.html"><i class="eclipse icon"></i>още <i class="right arrow icon"></i></a></li>
-                        </ul>
-                    </h3>
+                    </h4>
+                    <ul class="stripped">
+                        <li><i class="fa fa-hand-o-right"></i>Повишава информираността за Правото на достъп до информация</li>
+                        <li><a class="more" href="wip.html"><i class="eclipse icon"></i>още <i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
                 </section>
                 <section class="who">
-                    <h3>
+                    <h4>
                         Кой
-                    </h3>
-                    <ul>
+                    </h4>
+                    <ul class="stripped clearfix">
                         <li><img width="35px" src="http://graph.facebook.com/compusbg/picture?width=35&amp;height=35"></li>
                         <li><img width="35px" src="http://graph.facebook.com/compusbg/picture?width=35&amp;height=35"></li>
                         <li><img width="35px" src="http://graph.facebook.com/compusbg/picture?width=35&amp;height=35"></li>
@@ -113,7 +116,7 @@
 
 
     <section id="forces">
-        <h2 class="divider exchange">По проектите желаем да работим заедно с</h2>
+        <h2 class="divider"><i class="fa fa-exchange"></i> По проектите желаем да работим заедно с </h2>
     </section>
 
 
@@ -128,7 +131,7 @@
     <section id="related-organisations">
         <h2 class="divider globe">Идеята не е радикална</h2>
         <p>По света има успешни аналози на това което правим. Всеки един действащ локално.</p>
-        <ul>
+        <ul class="stripped clearfix">
             <li>
                 <a href="http://codeforamerica.org/"><img src="upload/code-for-america.jpg" alt="Code For America лого"/></a>
                 <p>САЩ</p>
@@ -146,7 +149,7 @@
                 <p>Великобритания</p>
             </li>
         </ul>
-        <a class="more" href="wip.html"><i class="eclipse icon"></i>още <i class="right arrow icon"></i></a>
+        <a class="more" href="wip.html"><i class="eclipse icon"></i>още <i class="fa fa-chevron-right"></i></a>
     </section>
 
 

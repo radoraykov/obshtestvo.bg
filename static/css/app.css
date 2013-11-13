@@ -100,6 +100,7 @@ textarea {
 
 
 body {
+    font-family: "Myriad Pro", "Verdana", sans-serif;
 }
 
 ul.stripped {
@@ -119,6 +120,15 @@ nav.main {
 nav.main > div {
     background: white;
 }
+nav.main li.logo a {
+    height:20px;
+    width:22px;
+    background: url("../img/logo-mini.png") no-repeat top left;
+    overflow: hidden;
+    text-indent: -9999em;
+    display: block;
+    margin: 0 10px;
+}
 nav.main ul {
     margin: 0 auto;
     width:400px;
@@ -126,6 +136,12 @@ nav.main ul {
 }
 nav.main ul li {
     float:left
+}
+
+nav.main ul > li > a {
+    text-decoration: none;
+    color: #94a8af;
+    font-size: 17px;
 }
 
 header.masthead {
@@ -145,16 +161,29 @@ header.masthead h1 {
 }
 
 header.masthead .subtitle {
-    font: normal 21.55px "Myriad Pro", "Verdana", sans-serif;
+    font-size: 21px;
+    font-weight: normal;
     color: white;
     display: inline-block;
     max-width: 442px;
+}
+i.icon {
+    opacity: 1;
+}
+i.icon.circle.dot:before {
+    content: "\f192";
+}
+header.masthead i.fa {
+    font-size: 19px;
+    display: inline-block;
+    margin: 0 3px;
 }
 
 
 header.masthead .quick-info li {
     display: inline-block;
     width:300px;
+    vertical-align: top;
 }
 
 
@@ -165,7 +194,46 @@ header.masthead .quick-info li.aims {
 header.masthead .quick-info li.act {
     text-align: left;
 }
+header.masthead .quick-info li.act p {
+    padding: 0;
+    margin:0;
+}
 
+
+.home .slider article > section {
+    float:left;
+}
+.home .slider article .who ul li {
+    float:left;
+}
+
+.divider {
+    font-size: 22px;
+    font-weight: normal;
+    color: #c7c7c7;
+    padding: 0 0 24px 0;
+    border-bottom: 1px solid #e5e5e5;
+    text-align: center;
+    position: relative;
+}
+
+.divider i.fa {
+    font-size: 30px;
+    color:#dfe0e0;
+    background: #fff;
+    padding: 0 6px;
+    position: absolute;
+    top:38px;
+    left:50%;
+}
+
+.divider i.fa.fa-exchange {
+    margin-left: -20px;
+}
+
+.home #related-organisations ul li {
+    float:left;
+}
 
 
 /* Примерни media queries, в които се пише код за браузър със специфична резолюция или размер на пиксела */
