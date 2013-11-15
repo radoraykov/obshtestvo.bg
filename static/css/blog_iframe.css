@@ -4,7 +4,7 @@ body, html {
     font-family: "Myriad Pro", "Verdana", sans-serif;
     -webkit-font-smoothing:antialiased;
     font-size: 17px;
-    line-height: 21px;
+    line-height: 20px;
 }
 ul {
     padding: 0;
@@ -14,9 +14,28 @@ ul {
 li {
     padding-bottom: 17px;
 }
+a {
+    text-decoration: none;
+}
 li a {
     color:#94a8af;
-    text-decoration: none;
+}
+a.more .eclipse {
+    color:#94a8af;
+    font-weight: normal;
+    font-size: 19.38px;
+}
+a.more {
+    font-size: 15px;
+    text-transform: uppercase;
+    font-weight: bold;
+    line-height: 16px;
+    color: #2296c1;
+}
+a.more .fa {
+    font-size: 11px;
+    font-weight: normal;
+    color: #c6d7dd;
 }
 li span {
     color:#d0d0d0;
