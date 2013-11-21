@@ -36,6 +36,8 @@ a.more .fa {
     font-size: 11px;
     font-weight: normal;
     color: #c6d7dd;
+    position: relative;
+    top:-1px;
 }
 li span {
     color:#d0d0d0;

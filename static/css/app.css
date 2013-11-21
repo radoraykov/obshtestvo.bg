@@ -290,16 +290,6 @@ header.masthead .quick-info li.act p {
 .home #projects header {
     text-align: center;
 }
-
-.home #projects header .heading {
-    margin:0;
-    padding-top: 25px;
-}
-.home #projects header .heading a {
-    font-size: 31.21px;
-    color: #061e27;
-    text-decoration: none;
-}
 .home #projects header p {
     font-size: 17px;
     color: #94a8af;
@@ -323,7 +313,7 @@ header.masthead .quick-info li.act p {
     position: relative;
     top:-5px
 }
-.home .slider article ul li a.more  {
+a.continue.more  {
     font-size: 15px;
     text-decoration: none;
     text-transform: uppercase;
@@ -331,10 +321,20 @@ header.masthead .quick-info li.act p {
     line-height: 16px;
     color: #2296c1;
 }
-.home .slider article ul li a.more .fa {
+a.continue.more .fa {
     font-size: 11px;
     font-weight: normal;
+    position: relative;
+    top:-1px;
     color: #c6d7dd;
+}
+
+a.continue.more .eclipse {
+    color:#94a8af;
+    font-weight: normal;
+    font-size: 19.38px;
+    display: inline-block;
+    padding-right: 5px;
 }
 .home .slider article > section {
     float:left;
@@ -501,6 +501,19 @@ header.masthead .quick-info li.act p {
     text-align: center;
 }
 
+.section-heading-secondary {
+    margin:0;
+    padding-top: 25px;
+    font-size: 31.21px;
+    color: #061e27;
+    text-align: center;
+}
+
+.section-heading-secondary a {
+    text-decoration: none;
+    color: #061e27;
+}
+
 .divider {
     padding-bottom:24px;
     border-bottom: 1px solid #e5e5e5;
@@ -525,15 +538,6 @@ header.masthead .quick-info li.act p {
 }
 .divider i.fa.fa-flag {
     margin-left: -25px;
-}
-
-.home #related-organisations ul li {
-    float:left;
-}
-
-
-.home #related-organisations ul li {
-    float:left;
 }
 
 
@@ -598,12 +602,16 @@ header.masthead .quick-info li.act p {
 .home #forces .force.rows2x2 p {
     padding-top:44px;
 }
+.home #forces .force.rows2x2 .heading {
+    padding-bottom:40px;
+}
 
 .home #forces .force.rows1x3 p {
-    padding-top:10px;
+    padding-top:20px;
 }
 .home #forces .force.rows1x3 .heading {
-    padding-top:63px;
+    padding-top:73px;
+    padding-bottom:73px;
 }
 
 .home #forces li.more a {
@@ -646,12 +654,47 @@ header.masthead .quick-info li.act p {
     margin-left: 3px;
 }
 
+.home #civic-hacking-product header {
+    padding-top: 13px;
+    padding-bottom: 23px;
+}
+.home #civic-hacking-product .map {
+    height: 467px;
+    width: 61.16%;
+    overflow: auto;
+    background: url("../img/home-map.png") no-repeat;
+    float:left;
+    margin-left: 8.5%;
+}
+
+
+.home #civic-hacking-product .text-overlay {
+    margin-left:16%;
+    margin-top: 24%;
+    color:#fff;
+    max-width: 62%;
+    font-size: 17px;
+    line-height: 20px;
+    text-align: center;
+}
+
+
+.home #civic-hacking-product .text-overlay p {
+    margin: 20px 0;
+}
+
 .home #civic-hacking-product iframe.blog {
+    margin-top: 70px;
+    margin-left: 3%;
     height: 400px;
-    float:right;
+    width: 23%;
+    float:left;
 }
 .home #civic-hacking-product .fa-rss {
     font-size: 62.46px;
+    float:left;
+    margin-top: 186px;
+    margin-left: -0.77%;
 }
 
 footer {
@@ -682,6 +725,42 @@ footer .sep i.logo {
     top:-10px
 }
 
+.home #related-organisations {
+    text-align: center;
+}
+
+.home #related-organisations p.subtitle {
+    color: #94a8af;
+    text-align: center;
+    font-size: 17px;
+    max-width: 431px;
+    display: inline-block;
+    line-height: 21px;
+    padding-top: 0;
+    margin-top: 11px;
+}
+
+
+.home #related-organisations ul li {
+    text-align: left;
+    float:left;
+    width:20%;
+    margin-left: 5%;
+    margin-bottom: 22px;
+    margin-top: 48px;
+    color: #94a8af;
+    font-weight: bold;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+.home #related-organisations ul li a {
+    height: 80px;
+    display: block;
+}
+
+footer {
+    padding-top: 100px;
+}
 footer p {
     font-size: 17px;
     line-height: 21px;
