@@ -544,7 +544,7 @@ header.masthead .quick-info li.act p {
 .home #forces .heading {
     font-size: 70.8px;
     font-weight: bold;
-    line-height: 79.01px;
+    line-height: 66px;
     color:#108eba;
     float:left;
     width:45.75%;
@@ -555,6 +555,11 @@ header.masthead .quick-info li.act p {
 .home #forces .heading {
     padding-top: 50px;
     padding-bottom: 50px;
+}
+
+.home #forces .force {
+    padding-top: 33px;
+    padding-bottom: 30px;
 }
 
 .home #forces .odd ul,
@@ -577,10 +582,28 @@ header.masthead .quick-info li.act p {
     margin-left: 4.25%;
 }
 
-.home #forces p {
+.home #forces .force p {
     font-size: 24px;
-    color: #6a8890;
+    color: #94a8af;
     line-height: 29px;
+    margin:0;
+    padding-bottom: 15px;
+}
+
+
+.home #forces .force.even p {
+    color: #6a8890;
+}
+
+.home #forces .force.rows2x2 p {
+    padding-top:44px;
+}
+
+.home #forces .force.rows1x3 p {
+    padding-top:10px;
+}
+.home #forces .force.rows1x3 .heading {
+    padding-top:63px;
 }
 
 .home #forces li.more a {
