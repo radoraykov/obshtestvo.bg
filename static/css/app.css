@@ -120,6 +120,15 @@ ul.stripped {
     list-style-type: none;
 }
 
+dl.stripped {
+    margin:0;
+}
+
+
+dl.stripped dd {
+    margin:0;
+}
+
 nav.main {
     position: fixed;
     width: 100%;
@@ -166,6 +175,11 @@ header.masthead {
     padding-top: 193px;
     padding-bottom: 53px;
     text-align: center;
+}
+
+
+.wip header.masthead {
+    padding-top: 100px;
 }
 
 header.masthead h1 {
@@ -362,6 +376,7 @@ a.continue.more .eclipse {
     background-color: #1b3640 ;
     background-repeat: no-repeat;
     text-align: center;
+    -webkit-border-radius: 50%; /* Android ≤ 1.6, iOS 1-3.2, Safari 3-4 */
     border-radius: 50%;
     letter-spacing: -0.07em;
 }
@@ -484,7 +499,9 @@ a.continue.more .eclipse {
 .home .slider-nav .indicator .light {
     background:#108eba;
     position: absolute;
-    border-radius: 50%;
+    -webkit-border-radius: 50%; /* Android ≤ 1.6, iOS 1-3.2, Safari 3-4 */
+    border-radius: 50%; /* Android 2.1+, Chrome, Firefox 4+, IE 9+, iOS 4+, Opera 10.50+, Safari 5+ */
+    background-clip: padding-box; /* Android 2.2+, Chrome, Firefox 4+, IE 9+, iOS 4+, Opera 10.50+, Safari 4+ */
     width:10px;
     height: 10px;
     display: block;
@@ -617,8 +634,9 @@ a.continue.more .eclipse {
 
 .home #forces li.more a {
     display: inline-block;
-    padding: 6px 10px;
+    padding: 12px 10px 8px;
     font-size: 15px;
+    line-height: 15px;
     font-weight: bold;
     text-transform: uppercase;
     color: white;
@@ -697,6 +715,59 @@ a.continue.more .eclipse {
     float:left;
     margin-top: 186px;
     margin-left: -0.77%;
+}
+
+.wip #info {
+    text-align: center;
+}
+.wip #info p.subtitle {
+    font-size: 17px;
+    color: #94a8af;
+    max-width: 497px;
+    display: inline-block;
+    margin: 0 0 0 0;
+    padding-bottom: 32px;
+}
+.wip #info dl {
+    padding-bottom: 30px;
+}
+.wip #info dl a {
+    color: #2296C1;
+    text-decoration: none;
+}
+.wip #info dl a:hover {
+    text-decoration: underline;
+}
+
+.wip #info dt,
+.wip #info dd {
+    float:left;
+    text-align: left;
+    width:50%;
+    height:80px
+}
+.wip #info .contact dt,
+.wip #info .contact  dd {
+    height:30px
+}
+.wip #info .contact p {
+    margin: 0;
+    padding-left: 2%;
+}
+.wip #info dt {
+    text-align: right;
+}
+.wip #info dt h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: normal;
+    padding-right: 2%;
+    max-width: 200px;
+    display: inline-block;
+    color:#1B3640;
+}
+.wip #info dd ul {
+    padding-left: 2%;
 }
 
 footer {
