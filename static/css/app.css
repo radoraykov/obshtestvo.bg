@@ -739,6 +739,14 @@ a.continue.more .eclipse {
     text-decoration: underline;
 }
 
+.wip .section-heading {
+    color: #108EBA;
+    font-size: 35px;
+    letter-spacing: -0.07em;
+    line-height: 66px;
+    font-weight: bold;
+}
+
 .wip #info dt,
 .wip #info dd {
     float:left;
