@@ -186,6 +186,12 @@ header.masthead {
     padding-top: 100px;
 }
 
+
+.wip header.masthead i.fa {
+    font-size: 30px;
+    color:#94A8AF;
+}
+
 header.masthead h1 {
     margin:0;
     padding: 0;
@@ -195,6 +201,11 @@ header.masthead h1 {
     margin:0;
     padding: 0;
 }
+
+.wip header.masthead h1 {
+    padding-top: 20px;
+}
+
 
 header.masthead .subtitle {
     padding-top: 9px;
