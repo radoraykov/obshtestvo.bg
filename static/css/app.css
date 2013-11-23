@@ -170,7 +170,11 @@ nav.main ul > li > a {
 }
 
 header.masthead {
-    background: #2a4650;
+    background: #2a4650 url("../img/header-bg.jpg") no-repeat bottom center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
     color:#fff;
     padding-top: 193px;
     padding-bottom: 53px;
@@ -421,7 +425,11 @@ a.continue.more .eclipse {
 }
 .home .slider article .who ul li {
     float:left;
+    padding-top: 1px;
     padding-left: 1px;
+}
+.home .slider article .who ul li.break {
+    clear:left
 }
 .home .slider article .who ul li:first-child img {
     -webkit-border-radius: 2px 0px 0px 2px;
