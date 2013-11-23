@@ -457,7 +457,8 @@ a.continue.more .eclipse {
     text-transform: uppercase;
     float:left;
     background: #67b925;
-    padding: 12px 20px 0 20px;
+    padding: 12px 16px 0 16
+    px;
     color:#fff;
     height: 23px;
     -webkit-border-radius: 0px 2px 2px 0px;
