@@ -59,7 +59,7 @@ function initHome() {
             $fixedSliderNav.removeClass('hidden')
             setTimeout(function () {
                 $fixedSliderNav.removeClass('waiting')
-            }, 0)
+            }, 5)
         } else {
             $fixedSliderNav.addClass('waiting')
             $fixedSliderNav.bind("webkitTransitionEnd.fix transitionend.fix oTransitionEnd.fix", function () {
@@ -79,7 +79,7 @@ function initHome() {
             $fixedSliderNav.removeClass('hidden')
             setTimeout(function () {
                 $fixedSliderNav.removeClass('waiting')
-            }, 0)
+            }, 5)
         }
     }, { offset: 100})
 }
