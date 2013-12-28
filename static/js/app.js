@@ -48,4 +48,38 @@ function initHome() {
             slider.trigger('owl.next');
         }
     })
+
+    var $fixedNav = $('nav.main')
+    var $fixedSliderNav = $fixedNav.find('.slider-nav-wrapper')
+
+
+    $('#projects .slider-nav').waypoint(function (dir) {
+        if (dir == 'down') {
+            $fixedSliderNav.unbind('.fix')
+            $fixedSliderNav.removeClass('hidden')
+            setTimeout(function () {
+                $fixedSliderNav.removeClass('waiting')
+            }, 0)
+        } else {
+            $fixedSliderNav.addClass('waiting')
+            $fixedSliderNav.bind("webkitTransitionEnd.fix transitionend.fix oTransitionEnd.fix", function () {
+                $fixedSliderNav.addClass('hidden')
+            });
+        }
+    })
+
+    $('#forces').waypoint(function (dir) {
+        if (dir == 'down') {
+            $fixedSliderNav.addClass('waiting')
+            $fixedSliderNav.bind("webkitTransitionEnd.fix transitionend.fix oTransitionEnd.fix", function () {
+                $fixedSliderNav.addClass('hidden')
+            });
+        } else {
+            $fixedSliderNav.unbind('.fix')
+            $fixedSliderNav.removeClass('hidden')
+            setTimeout(function () {
+                $fixedSliderNav.removeClass('waiting')
+            }, 0)
+        }
+    }, { offset: 100})
 }

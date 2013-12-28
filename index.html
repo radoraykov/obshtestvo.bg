@@ -28,11 +28,23 @@
 
 <nav class="main">
     <div class="container">
-        <ul class="clearfix stripped">
-            <li><a href="wip.html">Всичко за нас</a></li>
-            <li class="logo"><a href="/">Obshtestvo.bg</a></li>
-            <li><a href="wip.html">Подкрепи ни</a></li>
-        </ul>
+        <div class="layout">
+            <ul class="clearfix stripped">
+                <li><a href="wip.html">Всичко за нас</a></li>
+                <li class="logo"><a href="/">Obshtestvo.bg</a></li>
+                <li><a href="wip.html">Подкрепи ни</a></li>
+            </ul>
+            <div class="slider-nav-wrapper basic-transition hidden waiting">
+                <div class="slider-nav clearfix">
+                    <span class="nav prev"><i class="fa fa-arrow-left"></i><span class="text hidden">Виж предишния проект</span></span>
+                <span class="indicator">
+                    <img src="static/img/home-slider-indicator-bg.png" alt="" class="scope"/>
+                    <span class="light center"></span>
+                </span>
+                    <span class="nav next active"><i class="fa fa-arrow-right"></i><span class="text hidden">Виж следващия проект</span></span>
+                </div>
+            </div>
+        </div>
     </div>
 </nav>
 
@@ -582,6 +594,7 @@
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="static/js/lib/owl-carousel/owl.carousel.min.js"></script>
+<script src="static/js/lib/waypoints.js"></script>
 <script src="static/js/app.js"></script>
 
 </body>
