@@ -1,22 +1,14 @@
 {% extends "layout.html" %}
-{% load staticfiles %}
-{% load restful %}
-{% block headTag %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/lib/normalize.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'lib/uniform/themes/default/css/uniform.default.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'css/fonts.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'css/app.css' %}">
-{% endblock %}
 {% block content %}
-<div class="home container">
+<div class="{{page}} container">
 
 <nav class="main">
     <div class="container">
         <div class="layout">
             <ul class="clearfix stripped">
-                <li><a href="wip.html">Всичко за нас</a></li>
+                <li><a href="{% url 'wip' %}">Всичко за нас</a></li>
                 <li class="logo"><a href="/">Obshtestvo.bg</a></li>
-                <li><a href="wip.html">Подкрепи ни</a></li>
+                <li><a href="{% url 'wip' %}">Подкрепи ни</a></li>
             </ul>
             <div class="slider-nav-wrapper basic-transition hidden waiting">
                 <div class="slider-nav clearfix">
@@ -45,8 +37,8 @@
         <span class="connection">държава <i class="fa fa-exchange"></i> гражданин</span>
     </p>
     <ul class="important-actions stripped">
-        <li class="join"><a href="wip.html">Включи се</a></li>
-        <li class="learn"><a href="wip.html">Какво правим</a></li>
+        <li class="join"><a href="{% url 'wip' %}">Включи се</a></li>
+        <li class="learn"><a href="{% url 'wip' %}">Какво правим</a></li>
     </ul>
     <aside>
         <ul class="quick-info stripped">
@@ -57,7 +49,7 @@
                     <li><strong>приятна</strong> достъпност</li>
                     <li>и <strong>комфорт</strong> в гражданската активност</li>
                 </ul>
-                <a class="more" href="wip.html">Как ще ги постигнем</a>
+                <a class="more" href="{% url 'wip' %}">Как ще ги постигнем</a>
             </li>
             <li class="act">
                 <p>
@@ -66,7 +58,7 @@
                     че да има “мегдан” за нас участниците,
                     да сме свободни и да вършим интересни неща
                 </p>
-                <a class="more" href="wip.html">Как работим</a>
+                <a class="more" href="{% url 'wip' %}">Как работим</a>
             </li>
         </ul>
     </aside>
@@ -88,7 +80,7 @@
 <div class="slider">
 <article class="item clearfix">
     <header>
-        <h3 class="heading section-heading-secondary"><a href="wip.html">Open Parliament</a></h3>
+        <h3 class="heading section-heading-secondary"><a href="{% url 'wip' %}">Open Parliament</a></h3>
 
         <p>Профили и мониторинг на активността в парламента</p>
     </header>
@@ -108,7 +100,7 @@
                 <p>Клика на "Къде е властта"</p></li>
             <li class="action"><i class="eclipse bullet">...</i>
 
-                <p><a class="more continue" href="wip.html bullet">още <i class="fa fa-chevron-right"></i></a></p></li>
+                <p><a class="more continue" href="{% url 'wip' %}">още <i class="fa fa-chevron-right"></i></a></p></li>
         </ul>
     </section>
     <section class="why">
@@ -124,7 +116,7 @@
                 <p>Улеснява достъпа и анализата на обществена информация за парламента</p></li>
             <li class="action"><i class="eclipse bullet">...</i>
 
-                <p><a class="more continue" href="wip.html">още <i class="fa fa-chevron-right"></i></a></p></li>
+                <p><a class="more continue" href="{% url 'wip' %}">още <i class="fa fa-chevron-right"></i></a></p></li>
         </ul>
     </section>
     <section class="who">
@@ -140,13 +132,13 @@
                      title="Станимир Савов"></li>
             <li><img width="35px" src="http://graph.facebook.com/anton.stoychev.12/picture?width=35&amp;height=35"
                      title="Антон Стойчев"></li>
-            <li class="action"><a href="wip.html">Включи се</a></li>
+            <li class="action"><a href="{% url 'wip' %}">Включи се</a></li>
         </ul>
     </section>
 </article>
 <article class="item clearfix">
     <header>
-        <h3 class="heading section-heading-secondary"><a href="wip.html">Pitaigi.bg</a></h3>
+        <h3 class="heading section-heading-secondary"><a href="{% url 'wip' %}">Pitaigi.bg</a></h3>
 
         <p>Портал за изпращане и публикуване на заявления за достъп до публична информация.</p>
     </header>
@@ -166,7 +158,7 @@
                 <p>Клика на "Подай заявление"</p></li>
             <li class="action"><i class="eclipse bullet">...</i>
 
-                <p><a class="more continue" href="wip.html bullet">още <i class="fa fa-chevron-right"></i></a></p></li>
+                <p><a class="more continue" href="{% url 'wip' %}">още <i class="fa fa-chevron-right"></i></a></p></li>
         </ul>
     </section>
     <section class="why">
@@ -182,7 +174,7 @@
                 <p>Улеснява гражданина като предлага целия процес под формата на уеб приложение</p></li>
             <li class="action"><i class="eclipse bullet">...</i>
 
-                <p><a class="more continue" href="wip.html">още <i class="fa fa-chevron-right"></i></a></p></li>
+                <p><a class="more continue" href="{% url 'wip' %}">още <i class="fa fa-chevron-right"></i></a></p></li>
         </ul>
     </section>
     <section class="who">
@@ -201,13 +193,13 @@
             <li class="break"><img width="35px"
                                    src="http://graph.facebook.com/anton.stoychev.12/picture?width=35&amp;height=35"
                                    title="Антон Стойчев"></li>
-            <li class="action"><a href="wip.html">Включи се</a></li>
+            <li class="action"><a href="{% url 'wip' %}">Включи се</a></li>
         </ul>
     </section>
 </article>
 <article class="item clearfix">
     <header>
-        <h3 class="heading section-heading-secondary"><a href="wip.html">Grada.me</a></h3>
+        <h3 class="heading section-heading-secondary"><a href="{% url 'wip' %}">Grada.me</a></h3>
 
         <p>Платформа за разрешаването на проблемите от градската среда.</p>
     </header>
@@ -227,7 +219,7 @@
                 <p>Прави снимка на сградата</p></li>
             <li class="action"><i class="eclipse bullet">...</i>
 
-                <p><a class="more continue" href="wip.html bullet">още <i class="fa fa-chevron-right"></i></a></p></li>
+                <p><a class="more continue" href="{% url 'wip' %}">още <i class="fa fa-chevron-right"></i></a></p></li>
         </ul>
     </section>
     <section class="why">
@@ -243,7 +235,7 @@
                 <p>Спомага за съществуването на един по-изправен град</p></li>
             <li class="action"><i class="eclipse bullet">...</i>
 
-                <p><a class="more continue" href="wip.html">още <i class="fa fa-chevron-right"></i></a></p></li>
+                <p><a class="more continue" href="{% url 'wip' %}">още <i class="fa fa-chevron-right"></i></a></p></li>
         </ul>
     </section>
     <section class="who">
@@ -266,13 +258,13 @@
                                    title="Алекс Миланов"></li>
             <li><img width="35px" src="http://graph.facebook.com/anton.stoychev.12/picture?width=35&amp;height=35"
                      title="Антон Стойчев"></li>
-            <li class="action"><a href="wip.html">Включи се</a></li>
+            <li class="action"><a href="{% url 'wip' %}">Включи се</a></li>
         </ul>
     </section>
 </article>
 <article class="item clearfix">
     <header>
-        <h3 class="heading section-heading-secondary"><a href="wip.html">RE:CYCLE</a></h3>
+        <h3 class="heading section-heading-secondary"><a href="{% url 'wip' %}">RE:CYCLE</a></h3>
 
         <p>Карта и търсачака с пунктове, депа, места за хвърляне на батерии, скрап, и други.</p>
     </header>
@@ -292,7 +284,7 @@
                 <p>Показват му се близките до него пунктове за рециклиране на хартия</p></li>
             <li class="action"><i class="eclipse bullet">...</i>
 
-                <p><a class="more continue" href="wip.html bullet">още <i class="fa fa-chevron-right"></i></a></p></li>
+                <p><a class="more continue" href="{% url 'wip' %}">още <i class="fa fa-chevron-right"></i></a></p></li>
         </ul>
     </section>
     <section class="why">
@@ -308,7 +300,7 @@
                 <p>Увеличаване на рециклираните материали</p></li>
             <li class="action"><i class="eclipse bullet">...</i>
 
-                <p><a class="more continue" href="wip.html">още <i class="fa fa-chevron-right"></i></a></p></li>
+                <p><a class="more continue" href="{% url 'wip' %}">още <i class="fa fa-chevron-right"></i></a></p></li>
         </ul>
     </section>
     <section class="who">
@@ -322,13 +314,13 @@
                      title="Кристиян Господинов"></li>
             <li><img width="35px" src="http://graph.facebook.com/anton.stoychev.12/picture?width=35&amp;height=35"
                      title="Антон Стойчев"></li>
-            <li class="action"><a href="wip.html">Включи се</a></li>
+            <li class="action"><a href="{% url 'wip' %}">Включи се</a></li>
         </ul>
     </section>
 </article>
 <article class="item clearfix">
     <header>
-        <h3 class="heading section-heading-secondary"><a href="wip.html">Опознай депутата</a></h3>
+        <h3 class="heading section-heading-secondary"><a href="{% url 'wip' %}">Опознай депутата</a></h3>
 
         <p>Игра, в която трябва да се познае от коя партия е всеки депутат.</p>
     </header>
@@ -348,7 +340,7 @@
                 <p>Петър избира партия за показания депутат</p></li>
             <li class="action"><i class="eclipse bullet">...</i>
 
-                <p><a class="more continue" href="wip.html bullet">още <i class="fa fa-chevron-right"></i></a></p></li>
+                <p><a class="more continue" href="{% url 'wip' %}">още <i class="fa fa-chevron-right"></i></a></p></li>
         </ul>
     </section>
     <section class="why">
@@ -364,7 +356,7 @@
                 <p>Повишава информираността за народните представители</p></li>
             <li class="action"><i class="eclipse bullet">...</i>
 
-                <p><a class="more continue" href="wip.html">още <i class="fa fa-chevron-right"></i></a></p></li>
+                <p><a class="more continue" href="{% url 'wip' %}">още <i class="fa fa-chevron-right"></i></a></p></li>
         </ul>
     </section>
     <section class="who">
@@ -380,13 +372,13 @@
                      title="Петя Райковска"></li>
             <li><img width="35px" src="http://graph.facebook.com/angel.velikov.370/picture?width=35&amp;height=35"
                      title="Ангел Великов"></li>
-            <li class="action"><a href="wip.html">Включи се</a></li>
+            <li class="action"><a href="{% url 'wip' %}">Включи се</a></li>
         </ul>
     </section>
 </article>
 <article class="item clearfix">
     <header>
-        <h3 class="heading section-heading-secondary"><a href="wip.html">Howto.bg</a></h3>
+        <h3 class="heading section-heading-secondary"><a href="{% url 'wip' %}">Howto.bg</a></h3>
 
         <p>Официален сайт на гражданина с Въпроси &amp; Отговори по често задавани теми</p>
     </header>
@@ -406,7 +398,7 @@
                 <p>Избира въпрос от резултатите и гласува за един от отговорите</p></li>
             <li class="action"><i class="eclipse bullet">...</i>
 
-                <p><a class="more continue" href="wip.html bullet">още <i class="fa fa-chevron-right"></i></a></p></li>
+                <p><a class="more continue" href="{% url 'wip' %}">още <i class="fa fa-chevron-right"></i></a></p></li>
         </ul>
     </section>
     <section class="why">
@@ -422,7 +414,7 @@
                 <p>Улеснява ежедневието на българските жители</p></li>
             <li class="action"><i class="eclipse bullet">...</i>
 
-                <p><a class="more continue" href="wip.html">още <i class="fa fa-chevron-right"></i></a></p></li>
+                <p><a class="more continue" href="{% url 'wip' %}">още <i class="fa fa-chevron-right"></i></a></p></li>
         </ul>
     </section>
     <section class="who">
@@ -434,7 +426,7 @@
                      title="Николай Александренко"></li>
             <li><img width="35px" src="http://graph.facebook.com/anton.stoychev.12/picture?width=35&amp;height=35"
                      title="Антон Стойчев"></li>
-            <li class="action"><a href="wip.html">Включи се</a></li>
+            <li class="action"><a href="{% url 'wip' %}">Включи се</a></li>
     </section>
 </article>
 </div>
@@ -453,8 +445,9 @@
 
                 <p>Да подсилим опитите за приветливи публични услуги</p>
                 <ul class="stripped">
-                    <li class="more"><a href="wip.html">Как можем да помогнем</a></li>
-                    <li class="contact"><a href="wip.html">Директна връзка <i class="fa fa-chevron-right"></i></a></li>
+                    <li class="more"><a href="{% url 'wip' %}">Как можем да помогнем</a></li>
+                    <li class="contact"><a href="{% url 'wip' %}">Директна връзка <i
+                            class="fa fa-chevron-right"></i></a></li>
                 </ul>
             </div>
         </li>
@@ -464,8 +457,9 @@
 
                 <p>Да отпуснем служителите с нашите мотивационни лагери и своевременно<br/> това да бъде CSR</p>
                 <ul class="stripped">
-                    <li class="more"><a href="wip.html">Какво предлагаме</a></li>
-                    <li class="contact"><a href="wip.html">Директна връзка <i class="fa fa-chevron-right"></i></a></li>
+                    <li class="more"><a href="{% url 'wip' %}">Какво предлагаме</a></li>
+                    <li class="contact"><a href="{% url 'wip' %}">Директна връзка <i
+                            class="fa fa-chevron-right"></i></a></li>
                 </ul>
             </div>
         </li>
@@ -475,8 +469,9 @@
 
                 <p>Да поддържаме каузата жива чрез<br/> подпомагане от корпорации, фондове<br/> или crowdfunding</p>
                 <ul class="stripped">
-                    <li class="more"><a href="wip.html">Защо заслужаваме</a></li>
-                    <li class="contact"><a href="wip.html">Директна връзка <i class="fa fa-chevron-right"></i></a></li>
+                    <li class="more"><a href="{% url 'wip' %}">Защо заслужаваме</a></li>
+                    <li class="contact"><a href="{% url 'wip' %}">Директна връзка <i
+                            class="fa fa-chevron-right"></i></a></li>
                 </ul>
             </div>
         </li>
@@ -486,8 +481,9 @@
 
                 <p>Да правим проектите по-силни и<br/> обменяме опит</p>
                 <ul class="stripped">
-                    <li class="more"><a href="wip.html">Какъв е процеса</a></li>
-                    <li class="contact"><a href="wip.html">Директна връзка <i class="fa fa-chevron-right"></i></a></li>
+                    <li class="more"><a href="{% url 'wip' %}">Какъв е процеса</a></li>
+                    <li class="contact"><a href="{% url 'wip' %}">Директна връзка <i
+                            class="fa fa-chevron-right"></i></a></li>
                 </ul>
             </div>
         </li>
@@ -545,7 +541,8 @@
                 <p>Великобритания</p>
             </li>
         </ul>
-        <a class="more continue" href="wip.html"><i class="eclipse">...</i> още <i class="fa fa-chevron-right"></i></a>
+        <a class="more continue" href="{% url 'wip' %}"><i class="eclipse">...</i> още <i
+                class="fa fa-chevron-right"></i></a>
     </section>
 </div>
 
