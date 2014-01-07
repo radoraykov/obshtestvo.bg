@@ -1,7 +1,0 @@
-server {
-    listen          80;
-    server_name     www.obshtestvo.bg;
-
-    index index.html;
-    root /home/ubuntu/projects/obshtestvo.bg/;
-}

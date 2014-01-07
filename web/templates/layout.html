@@ -1,0 +1,33 @@
+{% load staticfiles %}<!DOCTYPE html>
+<html class="no-js" lang="bg">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Общество - модерни, технологични подходи за България | Начална страница</title>
+    <meta name="description" content="Civic Hacking в България">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
+    <link rel="icon" type="image/png" href="http://www.obshtestvo.bg/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/lib/normalize.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/fonts.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/app.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/lib/owl-carousel/owl.carousel.css' %}">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+    {% block headTag %}{% endblock %}
+</head>
+<body>
+<!--[if lt IE 8]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+{% block content %}{% endblock %}
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="{% static 'js/lib/owl-carousel/owl.carousel.min.js' %}"></script>
+<script src="{% static 'js/lib/waypoints.js' %}"></script>
+<script src="{% static 'js/app.js' %}"></script>
+</body>
+</html>
