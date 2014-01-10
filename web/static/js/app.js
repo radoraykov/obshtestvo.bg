@@ -30,7 +30,8 @@ function initHome() {
         paginationSpeed: 400,
         singleItem: true,
         afterAction: function () {
-            $fixedProjectNameHelper.html($(this.owl.owlItems[this.owl.visibleItems[0]]).find('header .heading').text())
+            var projectName = $(this.owl.owlItems[this.owl.visibleItems[0]]).find('header .heading').text()
+            $fixedProjectNameHelper.html(projectName)
             if (this.owl.currentItem == 0) {
                 $prevTrigger.removeClass('active');
             } else if (this.owl.currentItem == slidesCount - 1) {
@@ -39,6 +40,9 @@ function initHome() {
                 $prevTrigger.addClass('active');
                 $nextTrigger.addClass('active');
             }
+            setTimeout(function () {
+                $.waypoints('refresh');
+            }, 500)
         }
         // "singleItem:true" is a shortcut for:
         // items : 1,
@@ -61,105 +65,128 @@ function initHome() {
     })
 
 
-    $('#projects .slider-nav').waypoint(function (dir) {
+    // Fixed slider navigation
+
+    var $projectsPanel = $('#projects');
+    var $forcesPanel = $('#forces');
+    var $projectsSliderNav = $projectsPanel.find('.slider-nav')
+    var afterTransition = function ($el, callback) {
+        $el.bind("webkitTransitionEnd.fix transitionend.fix oTransitionEnd.fix", function () {
+            if ($.isFunction(callback)) callback();
+        });
+    }
+    var hideAfterTransition = function ($el, callback) {
+        afterTransition($el, function () {
+            $el.addClass('hidden')
+            if ($.isFunction(callback)) callback();
+        })
+    }
+    var showAnimated = function ($el, callback) {
+        $el.removeClass('hidden')
+        setTimeout(function () {
+            $el.removeClass('waiting')
+            if ($.isFunction(callback)) callback();
+        }, 30)
+    }
+    var speedUpAnimationAfterTransition = function ($el) {
+        $el.bind("webkitTransitionEnd.fix transitionend.fix oTransitionEnd.fix", function () {
+            $el.removeClass('basic-transition-slow')
+            $el.addClass('basic-transition')
+        });
+    }
+
+    var showFixedSliderNav = function () {
+        $fixedSliderNav.unbind('.fix')
+        $fixedSliderNav.removeClass('hidden')
+        showAnimated($fixedSliderNav);
+    }
+    var hideFixedSliderNav = function () {
+        $fixedSliderNav.unbind('.fix')
+        hideAfterTransition($fixedSliderNav)
+        $fixedSliderNav.addClass('waiting')
+    }
+
+    var showFixedProjectName = function () {
+        $fixedProjectName.unbind('.fix')
+        speedUpAnimationAfterTransition($fixedProjectName)
+        showAnimated($fixedProjectName);
+    }
+
+    var hideFixedProjectName = function () {
+        $fixedProjectName.unbind('.fix')
+        hideAfterTransition($fixedProjectName, function () {
+            //slows animation down
+            $fixedProjectName.removeClass('basic-transition')
+            $fixedProjectName.addClass('basic-transition-slow')
+        })
+        $fixedProjectName.addClass('waiting')
+    }
+
+    $projectsSliderNav.waypoint(function (dir) {
         if (dir == 'down') {
-            $fixedSliderNav.unbind('.fix')
-            $fixedSliderNav.removeClass('hidden')
-            setTimeout(function () {
-                $fixedSliderNav.removeClass('waiting')
-            }, 30)
+            showFixedSliderNav()
         } else {
-            $fixedSliderNav.addClass('waiting')
-            $fixedSliderNav.bind("webkitTransitionEnd.fix transitionend.fix oTransitionEnd.fix", function () {
-                $fixedSliderNav.addClass('hidden')
-            });
+            hideFixedSliderNav()
         }
     }, { offset: 60})
 
-    $('#projects .slider-nav').waypoint(function (dir) {
+    $projectsSliderNav.waypoint(function (dir) {
         if (dir == 'down') {
-            $fixedProjectName.unbind('.fix')
-            $fixedProjectName.bind("webkitTransitionEnd.fix transitionend.fix oTransitionEnd.fix", function () {
-                $fixedProjectName.removeClass('basic-transition-slow')
-                $fixedProjectName.addClass('basic-transition')
-            });
-            $fixedProjectName.removeClass('hidden')
-            setTimeout(function () {
-                $fixedProjectName.removeClass('waiting')
-            }, 30)
+            showFixedProjectName()
         } else {
-            $fixedProjectName.unbind('.fix')
-            $fixedProjectName.bind("webkitTransitionEnd.fix transitionend.fix oTransitionEnd.fix", function () {
-                $fixedProjectName.addClass('hidden')
-                $fixedProjectName.removeClass('basic-transition')
-                $fixedProjectName.addClass('basic-transition-slow')
-            });
-            $fixedProjectName.addClass('waiting')
+            hideFixedProjectName()
         }
     }, { offset: -20})
 
-    $('#forces').waypoint(function (dir) {
+    $forcesPanel.waypoint(function (dir) {
         if (dir == 'down') {
-            $fixedSliderNav.addClass('waiting')
-            $fixedSliderNav.bind("webkitTransitionEnd.fix transitionend.fix oTransitionEnd.fix", function () {
-                $fixedSliderNav.addClass('hidden')
-            });
-            $fixedProjectName.unbind('.fix')
-            $fixedProjectName.bind("webkitTransitionEnd.fix transitionend.fix oTransitionEnd.fix", function () {
-                $fixedProjectName.addClass('hidden')
-                $fixedProjectName.removeClass('basic-transition')
-                $fixedProjectName.addClass('basic-transition-slow')
-            });
-            $fixedProjectName.addClass('waiting')
+            hideFixedSliderNav()
+            hideFixedProjectName()
         } else {
-            $fixedSliderNav.unbind('.fix')
-            $fixedSliderNav.removeClass('hidden')
-            setTimeout(function () {
-                $fixedSliderNav.removeClass('waiting')
-            }, 30)
-            $fixedProjectName.unbind('.fix')
-            $fixedProjectName.bind("webkitTransitionEnd.fix transitionend.fix oTransitionEnd.fix", function () {
-                $fixedProjectName.removeClass('basic-transition-slow')
-                $fixedProjectName.addClass('basic-transition')
-            });
-            $fixedProjectName.removeClass('hidden')
-            setTimeout(function () {
-                $fixedProjectName.removeClass('waiting')
-            }, 30)
+            showFixedSliderNav()
+            showFixedProjectName()
         }
     }, { offset: 100})
 
 
-    var $sub = $('.sub');
+    var $body = $('body');
+    var $sub = $fixedNav.find('.sub');
     var $darkBackground = $sub.find('.dark');
     var $lightBackground = $sub.find('.light');
     var $aboutLink = $fixedNav.find('li.about a');
     var $topLinks = $fixedNav.find('ul.top > li > a').not($aboutLink);
     var $subLinks = $sub.find('a');
+    var subLinksDOM = $subLinks.get();
     var menuActive = false;
+    var automaticMenuHide = false;
+
     var hideSubMenu = function () {
+        $sub.unbind('.fix')
         $sub.addClass('waiting')
         $fixedNav.find('ul.top').removeClass('about')
+        hideAfterTransition($sub)
         menuActive = false;
     }
-    $('body').on('click', function (e) {
-        if ((!$aboutLink.is(e.target) && $subLinks.get().indexOf(e.target) == -1) && menuActive) {
+
+    var showSubMenu = function () {
+        menuActive = true;
+        $sub.unbind('.fix')
+        showAnimated($sub, function () {
+            $fixedNav.find('ul.top').addClass('about')
+        })
+    }
+    $body.on('mousedown', function (e) {
+        if ((!$aboutLink.is(e.target) && subLinksDOM.indexOf(e.target) == -1) && menuActive) {
             hideSubMenu();
         }
     })
     $aboutLink.click(function (e) {
         e.preventDefault();
         if (!menuActive) {
-            $sub.removeClass('waiting')
-            $fixedNav.find('ul.top').addClass('about')
-            menuActive = true;
+            showSubMenu();
         } else {
             hideSubMenu();
         }
-    })
-    $subLinks.click(function (e) {
-        e.preventDefault();
-        console.log('asdasd')
     })
     $topLinks.click(function (e) {
         if (menuActive) {
@@ -168,8 +195,7 @@ function initHome() {
         }
     })
 
-
-    $('#projects').waypoint(function (dir) {
+    $projectsPanel.waypoint(function (dir) {
         if (dir == 'down') {
             $sub.addClass('light')
             $darkBackground.addClass('hidden');
@@ -180,5 +206,34 @@ function initHome() {
             $lightBackground.addClass('hidden');
         }
     }, { offset: 125})
+
+
+    $projectsSliderNav.waypoint(function (dir) {
+        if (dir == 'down') {
+            if (menuActive) {
+                hideSubMenu();
+                automaticMenuHide = true;
+            }
+        } else {
+            if (automaticMenuHide) {
+                showSubMenu()
+                automaticMenuHide = false;
+            }
+        }
+    }, { offset: 60})
+
+    $forcesPanel.waypoint(function (dir) {
+        if (dir == 'down') {
+            if (automaticMenuHide) {
+                showSubMenu()
+                automaticMenuHide = false;
+            }
+        } else {
+            if (menuActive) {
+                hideSubMenu();
+                automaticMenuHide = true;
+            }
+        }
+    }, { offset: 100})
 
 }
