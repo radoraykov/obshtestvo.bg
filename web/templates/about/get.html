@@ -1,79 +1,56 @@
 {% extends "layout.html" %}
 {% block content %}
-<div class="{{page}} container">
-
+<div class="inner {{page}} container">
 <nav class="main">
     <div class="container">
         <div class="layout">
-            <ul class="clearfix stripped top basic-transition-mid">
-                <li class="about">
-                    <a href="{% url 'about' %}" class="basic-transition-mid"><i class="fi flaticon-list23"></i> Всичко
-                        за нас</a>
-                </li>
-                <li class="logo basic-transition-mid"><a href="/">Obshtestvo.bg</a></li>
-                <li class="basic-transition-mid"><a href="{% url 'wip' %}">Подкрепи ни</a></li>
+            <ul class="clearfix stripped">
+                <li><a href="{% url 'about' %}">Всичко за нас</a></li>
+                <li class="logo"><a href="/">Obshtestvo.bg</a></li>
+                <li><a href="{% url 'wip' %}">Подкрепи ни</a></li>
             </ul>
             <div class="slider-nav-wrapper basic-transition hidden waiting">
                 <div class="slider-nav clearfix">
-                    <span class="nav prev"><i class="fi flaticon-arrow462"></i><span class="text hidden">Виж предишния проект</span></span>
-                <span class="indicator">
-                    <img src="static/img/home-slider-indicator-bg.png" alt="" class="scope"/>
-                    <span class="light center"></span>
-                </span>
-                    <span class="nav next active"><i class="fi flaticon-arrow465"></i><span class="text hidden">Виж следващия проект</span></span>
+                    <span class="nav prev"><i class="fa fa-arrow-left"></i><span class="text hidden">Виж предишния проект</span></span>
+                    <span class="indicator">
+                        <img src="static/img/home-slider-indicator-bg.png" alt="" class="scope"/>
+                        <span class="light center"></span>
+                    </span>
+                    <span class="nav next active"><i class="fa fa-arrow-right"></i><span class="text hidden">Виж следващия проект</span></span>
                 </div>
             </div>
             <div class="title-holder basic-transition-slow hidden waiting">
                 <span class="helper"></span>
             </div>
         </div>
-        <div class="sub  basic-transition-mid waiting">
-            <div class="dark"></div>
-            <div class="light hidden"></div>
-            <ul class=" stripped">
-                <li class="basic-transition-mid"><a href="#">По медиите</a></li>
-                <li class="basic-transition-mid"><a href="#">Отчети</a></li>
-                <li class="basic-transition-mid"><a href="#">Събития</a></li>
-            </ul>
-        </div>
     </div>
 </nav>
-
-
 <header class="masthead">
-    <h1><a class="logo" href="/"><img src="static/img/logo.png" alt="Obshtestvo.bg - Civic Hacking в България"/></a>
-    </h1>
+    <div class="layout">
+        <div class="screen">
+            <img src="upload/screen/about.png" alt=""/>
 
-    <p class="subtitle">Независими създатели на електронни инструменти за информираност с функция: удобна, приятна и
-        лесна връзка
-        <span class="connection">държава <i class="fi flaticon-exchange1"></i> гражданин</span>
-    </p>
-    <ul class="important-actions stripped">
-        <li class="join"><a href="{% url 'wip' %}">Включи се</a></li>
-        <li class="learn"><a href="{% url 'wip' %}">Какво правим</a></li>
-    </ul>
-    <aside>
-        <ul class="quick-info stripped">
-            <li class="aims">
-                Целим
-                <ul class="stripped">
-                    <li><strong>пълна</strong> отвореност</li>
-                    <li><strong>приятна</strong> достъпност</li>
-                    <li>и <strong>комфорт</strong> в гражданската активност</li>
+            <div class="toc">
+                <strong>Съдържание</strong>
+                <ul>
+                    <li><a href="#">описание, концепция</a></li>
+                    <li><a href="#">описание, концепция</a></li>
+                    <li><a href="#">описание, концепция</a></li>
+                    <li><a href="#">описание, концепция</a></li>
                 </ul>
-                <a class="more" href="{% url 'wip' %}">Как ще ги постигнем</a>
-            </li>
-            <li class="act">
-                <p>
-                    Правим
-                    приложения така,
-                    че да има “мегдан” за нас участниците,
-                    да сме свободни и да вършим интересни неща
-                </p>
-                <a class="more" href="{% url 'wip' %}">Как работим</a>
+            </div>
+        </div>
+        <ul class="important-actions stripped">
+            <li class="join"><a href="{% url 'wip' %}">Подкрепи проекта</a></li>
+            <li class="learn"><a href="{% url 'wip' %}">Включи се</a></li>
+            <li class="learn"><a href="{% url 'wip' %}">
+                <span class="label">Виж прототипа</span>
+                http://recycle.obshtestvo.bg/
+            </a>
             </li>
         </ul>
-    </aside>
+        <h1>Опознай Депутата</h1>
+    </div>
 </header>
 
 
@@ -82,14 +59,12 @@
 <h2 class="section-heading">Проекти</h2>
 
 <div class="slider-nav clearfix">
-    <span class="nav prev"><i class="fi flaticon-arrow462"></i><span
-            class="text hidden">Виж предишния проект</span></span>
+    <span class="nav prev"><i class="fa fa-arrow-left"></i><span class="text hidden">Виж предишния проект</span></span>
                 <span class="indicator">
                     <img src="static/img/home-slider-indicator-bg.png" alt="" class="scope"/>
                     <span class="light center"></span>
                 </span>
-    <span class="nav next active"><i class="fi flaticon-arrow465"></i><span
-            class="text hidden">Виж следващия проект</span></span>
+    <span class="nav next active"><i class="fa fa-arrow-right"></i><span class="text hidden">Виж следващия проект</span></span>
 </div>
 <div class="slider">
 <article class="item clearfix">
@@ -103,19 +78,18 @@
             Как
         </h4>
         <ul class="stripped">
-            <li><i class="fi flaticon-browser18 bullet"></i>
+            <li><i class="fa fa-list-alt bullet"></i>
 
                 <p>Петър влиза в openparliament.bg</p></li>
-            <li><i class="fi flaticon-target6 bullet"></i>
+            <li><i class="fa fa-dot-circle-o bullet"></i>
 
                 <p>Разглежда статистики и анализа на активността в парламента</p></li>
-            <li><i class="fi flaticon-mouse3 bullet"></i>
+            <li><i class="fa fa-hand-o-up bullet"></i>
 
                 <p>Клика на "Къде е властта"</p></li>
             <li class="action"><i class="eclipse bullet">...</i>
 
-                <p><a class="more continue" href="{% url 'wip' %}">още <i class="fi flaticon-chevron18"></i></a></p>
-            </li>
+                <p><a class="more continue" href="{% url 'wip' %}">още <i class="fa fa-chevron-right"></i></a></p></li>
         </ul>
     </section>
     <section class="why">
@@ -123,16 +97,15 @@
             Защо
         </h4>
         <ul class="stripped">
-            <li><i class="fi flaticon-finger6 bullet"></i>
+            <li><i class="fa fa-hand-o-right bullet"></i>
 
                 <p>Повишава информираността за хората и действията в парламента</p></li>
-            <li><i class="fi flaticon-finger6 bullet"></i>
+            <li><i class="fa fa-hand-o-right bullet"></i>
 
                 <p>Улеснява достъпа и анализата на обществена информация за парламента</p></li>
             <li class="action"><i class="eclipse bullet">...</i>
 
-                <p><a class="more continue" href="{% url 'wip' %}">още <i class="fi flaticon-chevron18"></i></a></p>
-            </li>
+                <p><a class="more continue" href="{% url 'wip' %}">още <i class="fa fa-chevron-right"></i></a></p></li>
         </ul>
     </section>
     <section class="who">
@@ -163,19 +136,18 @@
             Как
         </h4>
         <ul class="stripped">
-            <li><i class="fi flaticon-browser18 bullet"></i>
+            <li><i class="fa fa-list-alt bullet"></i>
 
                 <p>Петър влиза в pitaigi.bg</p></li>
-            <li><i class="fi flaticon-browser18fi flaticon-target6 bullet"></i>
+            <li><i class="fa fa-dot-circle-o bullet"></i>
 
                 <p>Избира държавен орган, който иска да получи информация</p></li>
-            <li><i class="fi flaticon-mouse3 bullet"></i>
+            <li><i class="fa fa-hand-o-up bullet"></i>
 
                 <p>Клика на "Подай заявление"</p></li>
             <li class="action"><i class="eclipse bullet">...</i>
 
-                <p><a class="more continue" href="{% url 'wip' %}">още <i class="fi flaticon-chevron18"></i></a></p>
-            </li>
+                <p><a class="more continue" href="{% url 'wip' %}">още <i class="fa fa-chevron-right"></i></a></p></li>
         </ul>
     </section>
     <section class="why">
@@ -183,16 +155,15 @@
             Защо
         </h4>
         <ul class="stripped">
-            <li><i class="fi flaticon-finger6 bullet"></i>
+            <li><i class="fa fa-hand-o-right bullet"></i>
 
                 <p>Повишава информираността за Правото на достъп до информация</p></li>
-            <li><i class="fi flaticon-finger6 bullet"></i>
+            <li><i class="fa fa-hand-o-right bullet"></i>
 
                 <p>Улеснява гражданина като предлага целия процес под формата на уеб приложение</p></li>
             <li class="action"><i class="eclipse bullet">...</i>
 
-                <p><a class="more continue" href="{% url 'wip' %}">още <i class="fi flaticon-chevron18"></i></a></p>
-            </li>
+                <p><a class="more continue" href="{% url 'wip' %}">още <i class="fa fa-chevron-right"></i></a></p></li>
         </ul>
     </section>
     <section class="who">
@@ -226,19 +197,18 @@
             Как
         </h4>
         <ul class="stripped">
-            <li><i class="fi flaticon-eye50  bullet"></i>
+            <li><i class="fa fa-eye  bullet"></i>
 
                 <p>Петър се прибира след работа и забелязва опасна сграда</p></li>
-            <li><i class="fi flaticon-start1 bullet"></i>
+            <li><i class="fa fa-caret-square-o-right bullet"></i>
 
                 <p>Пуска приложението Grada.me през телефона си</p></li>
-            <li><i class="fi flaticon-small35 bullet"></i>
+            <li><i class="fa fa-camera bullet"></i>
 
                 <p>Прави снимка на сградата</p></li>
             <li class="action"><i class="eclipse bullet">...</i>
 
-                <p><a class="more continue" href="{% url 'wip' %}">още <i class="fi flaticon-chevron18"></i></a></p>
-            </li>
+                <p><a class="more continue" href="{% url 'wip' %}">още <i class="fa fa-chevron-right"></i></a></p></li>
         </ul>
     </section>
     <section class="why">
@@ -246,16 +216,15 @@
             Защо
         </h4>
         <ul class="stripped">
-            <li><i class="fi flaticon-finger6 bullet"></i>
+            <li><i class="fa fa-hand-o-right bullet"></i>
 
                 <p>Мотивира и улеснява участието на гражданите в благоустройството на града им </p></li>
-            <li><i class="fi flaticon-finger6 bullet"></i>
+            <li><i class="fa fa-hand-o-right bullet"></i>
 
                 <p>Спомага за съществуването на един по-изправен град</p></li>
             <li class="action"><i class="eclipse bullet">...</i>
 
-                <p><a class="more continue" href="{% url 'wip' %}">още <i class="fi flaticon-chevron18"></i></a></p>
-            </li>
+                <p><a class="more continue" href="{% url 'wip' %}">още <i class="fa fa-chevron-right"></i></a></p></li>
         </ul>
     </section>
     <section class="who">
@@ -293,19 +262,18 @@
             Как
         </h4>
         <ul class="stripped">
-            <li><i class="fi flaticon-ripped bullet"></i>
+            <li><i class="fa fa-trash-o bullet"></i>
 
                 <p>Петър има насъбрани стари списания, вестници и изписани тетрадки</p></li>
-            <li><i class="fi flaticon-search4 bullet"></i>
+            <li><i class="fa fa-search bullet"></i>
 
                 <p>Влиза в RE:CYCLE и търси "хартия" </p></li>
-            <li><i class="fi flaticon-map25 bullet"></i>
+            <li><i class="fa fa-map-marker bullet"></i>
 
                 <p>Показват му се близките до него пунктове за рециклиране на хартия</p></li>
             <li class="action"><i class="eclipse bullet">...</i>
 
-                <p><a class="more continue" href="{% url 'wip' %}">още <i class="fi flaticon-chevron18"></i></a></p>
-            </li>
+                <p><a class="more continue" href="{% url 'wip' %}">още <i class="fa fa-chevron-right"></i></a></p></li>
         </ul>
     </section>
     <section class="why">
@@ -313,16 +281,15 @@
             Защо
         </h4>
         <ul class="stripped">
-            <li><i class="fi flaticon-finger6 bullet"></i>
+            <li><i class="fa fa-hand-o-right bullet"></i>
 
                 <p>Дава възможност да се намери място за гарантирано рециклиране, за разлика от кофите</p></li>
-            <li><i class="fi flaticon-finger6 bullet"></i>
+            <li><i class="fa fa-hand-o-right bullet"></i>
 
                 <p>Увеличаване на рециклираните материали</p></li>
             <li class="action"><i class="eclipse bullet">...</i>
 
-                <p><a class="more continue" href="{% url 'wip' %}">още <i class="fi flaticon-chevron18"></i></a></p>
-            </li>
+                <p><a class="more continue" href="{% url 'wip' %}">още <i class="fa fa-chevron-right"></i></a></p></li>
         </ul>
     </section>
     <section class="who">
@@ -351,19 +318,18 @@
             Как
         </h4>
         <ul class="stripped">
-            <li><i class="fi flaticon-browser18 bullet"></i>
+            <li><i class="fa fa-list-alt bullet"></i>
 
                 <p>Петър влиза в сайта и започва нова игра</p></li>
-            <li><i class="fi flaticon-bust bullet"></i>
+            <li><i class="fa fa-user bullet"></i>
 
                 <p>Показва му се снимка и име на народен представител</p></li>
-            <li><i class="fi flaticon-browser18fi flaticon-target6 bullet"></i>
+            <li><i class="fa fa-dot-circle-o bullet"></i>
 
                 <p>Петър избира партия за показания депутат</p></li>
             <li class="action"><i class="eclipse bullet">...</i>
 
-                <p><a class="more continue" href="{% url 'wip' %}">още <i class="fi flaticon-chevron18"></i></a></p>
-            </li>
+                <p><a class="more continue" href="{% url 'wip' %}">още <i class="fa fa-chevron-right"></i></a></p></li>
         </ul>
     </section>
     <section class="why">
@@ -371,16 +337,15 @@
             Защо
         </h4>
         <ul class="stripped">
-            <li><i class="fi flaticon-finger6 bullet"></i>
+            <li><i class="fa fa-hand-o-right bullet"></i>
 
                 <p>Замисля гражданите за своите познания над важни теми</p></li>
-            <li><i class="fi flaticon-finger6 bullet"></i>
+            <li><i class="fa fa-hand-o-right bullet"></i>
 
                 <p>Повишава информираността за народните представители</p></li>
             <li class="action"><i class="eclipse bullet">...</i>
 
-                <p><a class="more continue" href="{% url 'wip' %}">още <i class="fi flaticon-chevron18"></i></a></p>
-            </li>
+                <p><a class="more continue" href="{% url 'wip' %}">още <i class="fa fa-chevron-right"></i></a></p></li>
         </ul>
     </section>
     <section class="who">
@@ -411,19 +376,18 @@
             Как
         </h4>
         <ul class="stripped">
-            <li><i class="fi flaticon-browser18 bullet"></i>
+            <li><i class="fa fa-list-alt bullet"></i>
 
                 <p>Петър влиза в howto.bg</p></li>
-            <li><i class="fi flaticon-search4 bullet"></i>
+            <li><i class="fa fa-search bullet"></i>
 
                 <p>Търси информация по тема, която го интересува</p></li>
-            <li><i class="fi flaticon-thumbs26 bullet"></i>
+            <li><i class="fa fa-thumbs-o-up bullet"></i>
 
                 <p>Избира въпрос от резултатите и гласува за един от отговорите</p></li>
             <li class="action"><i class="eclipse bullet">...</i>
 
-                <p><a class="more continue" href="{% url 'wip' %}">още <i class="fi flaticon-chevron18"></i></a></p>
-            </li>
+                <p><a class="more continue" href="{% url 'wip' %}">още <i class="fa fa-chevron-right"></i></a></p></li>
         </ul>
     </section>
     <section class="why">
@@ -431,16 +395,15 @@
             Защо
         </h4>
         <ul class="stripped">
-            <li><i class="fi flaticon-finger6 bullet"></i>
+            <li><i class="fa fa-hand-o-right bullet"></i>
 
                 <p>Дава възможността за централно "информационно бюро" с оценка над предлаганата информация</p></li>
-            <li><i class="fi flaticon-finger6 bullet"></i>
+            <li><i class="fa fa-hand-o-right bullet"></i>
 
                 <p>Улеснява ежедневието на българските жители</p></li>
             <li class="action"><i class="eclipse bullet">...</i>
 
-                <p><a class="more continue" href="{% url 'wip' %}">още <i class="fi flaticon-chevron18"></i></a></p>
-            </li>
+                <p><a class="more continue" href="{% url 'wip' %}">още <i class="fa fa-chevron-right"></i></a></p></li>
         </ul>
     </section>
     <section class="who">
@@ -462,19 +425,18 @@
 
 <section id="forces" class="slice">
     <div class="layout">
-        <h2 class="divider section-heading"><i class="fi flaticon-exchange1"></i> По проектите желаем да работим заедно
-            с </h2>
+        <h2 class="divider section-heading"><i class="fa fa-exchange"></i> По проектите желаем да работим заедно с </h2>
     </div>
     <ul class="stripped">
         <li class="odd clearfix rows2x2 force">
             <div class="layout">
                 <h3 class="heading">Държавната<br/>Администрация</h3>
 
-                <p>Да подсилим опитите за <br/> приветливи публични услуги</p>
+                <p>Да подсилим опитите за приветливи публични услуги</p>
                 <ul class="stripped">
                     <li class="more"><a href="{% url 'wip' %}">Как можем да помогнем</a></li>
                     <li class="contact"><a href="{% url 'wip' %}">Директна връзка <i
-                            class="fi flaticon-chevron18"></i></a></li>
+                            class="fa fa-chevron-right"></i></a></li>
                 </ul>
             </div>
         </li>
@@ -486,7 +448,7 @@
                 <ul class="stripped">
                     <li class="more"><a href="{% url 'wip' %}">Какво предлагаме</a></li>
                     <li class="contact"><a href="{% url 'wip' %}">Директна връзка <i
-                            class="fi flaticon-chevron18"></i></a></li>
+                            class="fa fa-chevron-right"></i></a></li>
                 </ul>
             </div>
         </li>
@@ -498,7 +460,7 @@
                 <ul class="stripped">
                     <li class="more"><a href="{% url 'wip' %}">Защо заслужаваме</a></li>
                     <li class="contact"><a href="{% url 'wip' %}">Директна връзка <i
-                            class="fi flaticon-chevron18"></i></a></li>
+                            class="fa fa-chevron-right"></i></a></li>
                 </ul>
             </div>
         </li>
@@ -510,7 +472,7 @@
                 <ul class="stripped">
                     <li class="more"><a href="{% url 'wip' %}">Какъв е процеса</a></li>
                     <li class="contact"><a href="{% url 'wip' %}">Директна връзка <i
-                            class="fi flaticon-chevron18"></i></a></li>
+                            class="fa fa-chevron-right"></i></a></li>
                 </ul>
             </div>
         </li>
@@ -519,7 +481,7 @@
 
 <div class="layout">
     <section id="civic-hacking-product" class="slice clearfix">
-        <h2 class="divider section-heading"><i class="fi flaticon-shipka1"></i>С които да градим</h2>
+        <h2 class="divider section-heading"><i class="fa fa-flag"></i>С които да градим</h2>
         <header>
             <h3 class="section-heading-secondary">Макет на България от бъдещето</h3>
         </header>
@@ -532,7 +494,7 @@
                     бюрократични процедури – приятно изживяване.</p>
             </div>
         </div>
-        <i class="fi flaticon-rss25 rotate-45"></i>
+        <i class="fa fa-rss fa-rotate-45"></i>
         <iframe src="http://status.obshtestvo.bg/latest.html" frameborder="0" class="blog"></iframe>
     </section>
 </div>
@@ -540,7 +502,7 @@
 
 <div class="layout">
     <section id="related-organisations" class="slice">
-        <h2 class="divider section-heading"><i class="fi flaticon-earth17"></i>Идеята не е радикална</h2>
+        <h2 class="divider section-heading"><i class="fa fa-globe"></i>Идеята не е радикална</h2>
 
         <p class="subtitle">По света има успешни аналози на това което правим. Всеки един действащ локално.</p>
         <ul class="stripped clearfix">
@@ -569,7 +531,7 @@
             </li>
         </ul>
         <a class="more continue" href="{% url 'wip' %}"><i class="eclipse">...</i> още <i
-                class="fi flaticon-chevron18"></i></a>
+                class="fa fa-chevron-right"></i></a>
     </section>
 </div>
 
@@ -580,7 +542,7 @@
 
     <p>Независими създатели на електронни инструменти<br/>за информираност с функция: <strong>удобна</strong>, <strong>приятна</strong>
         и <strong>лесна</strong> връзка
-        <br/><span class="connection">държава <i class="fi flaticon-exchange1"></i> гражданин</span>
+        <br/><span class="connection">държава <i class="fa fa-exchange"></i> гражданин</span>
     </p>
     <aside>
         <ul class="quick-contacts stripped">
