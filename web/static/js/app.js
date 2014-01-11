@@ -245,6 +245,7 @@ function initHome() {
             $fixedProjectNameHelper.html(projectName)
             if (this.owl.currentItem == 0) {
                 $prevTrigger.removeClass('active');
+                $nextTrigger.addClass('active');
             } else if (this.owl.currentItem == slidesCount - 1) {
                 $nextTrigger.removeClass('active');
             } else {
