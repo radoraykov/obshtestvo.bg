@@ -128,12 +128,26 @@ body {
     color: #dfe0e0;
 }
 
+.home #forces li.contact a,
+.home #forces li.contact a .fi,
+a.continue.more .fi,
+a.continue.more,
+.button b,
+.button,
 .basic-transition {
     -webkit-transition: all 100ms ease-in-out;
     -moz-transition: all 100ms ease-in-out;
     -ms-transition: all 100ms ease-in-out;
     -o-transition: all 100ms ease-in-out;
     transition: all 100ms ease-in-out;
+}
+
+.basic-transition-2x {
+    -webkit-transition: all 150ms ease-in-out;
+    -moz-transition: all 150ms ease-in-out;
+    -ms-transition: all 150ms ease-in-out;
+    -o-transition: all 150ms ease-in-out;
+    transition: all 150ms ease-in-out;
 }
 
 .basic-transition-slow {
@@ -144,6 +158,7 @@ body {
     transition: all 400ms ease-in-out;
 }
 
+.button.standard:after,
 .basic-transition-mid {
     -webkit-transition: all 300ms ease-in-out;
     -moz-transition: all 300ms ease-in-out;
@@ -234,6 +249,10 @@ nav.main ul.top > li > a {
     display: inline-block;
 }
 
+nav.main ul.top > li > a:hover {
+    color: #4FB2D4;
+}
+
 header.masthead {
     background: #2a4650 url("../img/header-bg.jpg") no-repeat bottom center;
     -webkit-background-size: cover;
@@ -246,18 +265,21 @@ header.masthead {
     text-align: center;
 }
 
+.inner header.masthead {
+    background-position: center top;
+    padding-top: 106px;
+    padding-bottom: 0;
+}
+
 .wip header.masthead {
     padding-top: 100px;
 }
 
 .wip header.masthead i.fi {
-    font-size: 30px;
+    font-size: 40px;
+    position: relative;
+    left: 8px;
     color: #94A8AF;
-}
-
-header.masthead h1 {
-    margin: 0;
-    padding: 0;
 }
 
 header.masthead h1 {
@@ -286,31 +308,205 @@ header.masthead .subtitle .connection {
     padding-left: 22px;
 }
 
-header.masthead .important-actions a {
+header.masthead .project-actions li {
+    float: left;
+    padding-right: 2px;
+    padding-top: 11px;
+}
+
+.button {
     display: inline-block;
-    padding: 11px 10px 9px 10px;
-    font-size: 15px;
-    line-height: 15px;
-    font-weight: 700;
+    position: relative;
+    z-index: 1;
     text-transform: uppercase;
+    font-weight: 700;
     color: white;
     text-decoration: none;
     letter-spacing: -0.025em;
-    min-width: 130px;
-    margin-bottom: 1px;
     -webkit-border-radius: 2px; /* Android ≤ 1.6, iOS 1-3.2, Safari 3-4 */
     border-radius: 2px; /* Android 2.1+, Chrome, Firefox 4+, IE 9+, iOS 4+, Opera 10.50+, Safari 5+ */
-
     /* useful if you don't want a bg color from leaking outside the border: */
     background-clip: padding-box; /* Android 2.2+, Chrome, Firefox 4+, IE 9+, iOS 4+, Opera 10.50+, Safari 4+ */
 }
 
-header.masthead .important-actions li.join a {
+.button b {
+    display: inline-block;
+    position: relative;
+    font-weight: 700;
+}
+
+header.masthead .project-actions li.see .button,
+.button.standard {
+    padding: 11px 10px 9px 10px;
+    font-size: 15px;
+    line-height: 15px;
+}
+
+.button.small {
+    font-weight: 900;
+    font-size: 14px;
+    line-height: 14px;
+    padding: 11px 16px 1px 16px;
+    height: 23px;
+}
+
+.project-actions .button {
+    min-width: inherit;
+    padding-top: 10px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.important-actions .button {
+    min-width: 130px;
+    margin-bottom: 1px;
+}
+
+.button.green {
     background: #7bc142;
 }
 
-header.masthead .important-actions li.learn a {
+.button.blue {
     background: #2296c1;
+}
+
+.button:active {
+    border-radius: 1px;
+}
+
+.button.single:active {
+    border-radius: 1px;
+    top: 1px;
+}
+
+.button.green:focus,
+.button.green:hover,
+    /*.no-csstransitions.no-generatedcontent .button.green:hover,*/
+.button.green:after {
+    background: #469704;
+}
+
+.button.green:active {
+    background: #CAE0B9;
+    color: #469704;
+}
+
+.button.blue:focus,
+    /*.no-csstransitions.no-generatedcontent .button.blue:hover,*/
+.button.blue:hover,
+.button.blue:after {
+    background: #197A9E;
+}
+
+.button.blue:active {
+    background: #97C1D1;
+    color: #197A9E;
+}
+
+.button:active b {
+    top: 1px;
+}
+
+.button.small:active b {
+    top: 0;
+    left: 2px;
+}
+
+.important-actions .button:active {
+    padding-right: 8px;
+    padding-left: 8px;
+    top: 2px;
+}
+
+.important-actions .button.green:active {
+    top: -2px;
+}
+
+.important-actions .button:active b {
+    top: 0;
+}
+
+.button:active:after {
+    display: none;
+}
+
+.button:after {
+    display: none;
+
+    pointer-events: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 2px;
+    content: '';
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    left: 0;
+    top: -5px;
+    z-index: -1;
+    /*top: -100%;*/
+    /*line-height: 1.2;*/
+    /*content: attr(data-hover);*/
+    /*text-align: center;*/
+
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    opacity: 0;
+}
+
+.no-touch .button:hover:after {
+    /*top:0;*/
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+    padding-top: 0;
+    padding-bottom: 0;
+    top: 0;
+}
+
+.no-touch .button:hover b {
+    /*-webkit-transform: translateY(300%);*/
+    /*-moz-transform: translateY(300%);*/
+    /*-ms-transform: translateY(300%);*/
+    /*transform: translateY(300%);*/
+}
+
+header.masthead .project-actions li.see .button {
+    font-size: 14px;
+    text-transform: none;
+    letter-spacing: 0;
+    color: #b0bfc5;
+    padding-top: 2px;
+    position: relative;
+    font-weight: normal;
+    left: 1px;
+}
+
+header.masthead .project-actions li.see .button:focus,
+header.masthead .project-actions li.see .button:hover {
+    color: #fff;
+}
+
+header.masthead .project-actions li.see .button .label {
+    display: block;
+    text-transform: uppercase;
+    color: #2296c1;
+    font-size: 13px;
+    font-weight: 900;
+    position: relative;
+    left: -1px;
+}
+
+header.masthead .project-actions li.see .button:focus .label,
+header.masthead .project-actions li.see .button:hover .label {
+    color: #4ACEFF;
 }
 
 header.masthead aside {
@@ -342,8 +538,16 @@ header.masthead aside .aims a.more {
     color: #2296c1;
 }
 
+header.masthead aside .aims a.more:hover {
+    color: #4ACEFF;
+}
+
 header.masthead aside .act a.more {
     color: #7bc142;
+}
+
+header.masthead aside .act a.more:hover {
+    color: #96E257;
 }
 
 header.masthead i.fi {
@@ -413,6 +617,7 @@ a.continue.more {
     font-weight: 700;
     line-height: 16px;
     color: #2296c1;
+    position: relative;
 }
 
 a.continue.more .fi {
@@ -421,6 +626,26 @@ a.continue.more .fi {
     position: relative;
     top: -1px;
     color: #c6d7dd;
+}
+
+a.continue.more:hover {
+    color: #4ACEFF;
+}
+
+a.continue.more:hover .fi {
+    color: #2296c1;
+    left: -2px
+}
+
+a.continue.more:active {
+    left: 3px;
+}
+
+a.continue.more:active .fi {
+    color: #4ACEFF;
+    -webkit-transform: scale(1.2);
+    left: 1px;
+    top: -1px
 }
 
 a.continue.more .eclipse {
@@ -528,27 +753,18 @@ a.continue.more .eclipse {
     background-clip: padding-box; /* Android 2.2+, Chrome, Firefox 4+, IE 9+, iOS 4+, Opera 10.50+, Safari 4+ */
 }
 
-.home .slider article .who ul li.action a {
-    font-weight: 900;
-    text-decoration: none;
-    font-size: 14px;
-    line-height: 14px;
-    text-transform: uppercase;
+.home .slider article .who ul li.action .button {
     float: left;
-    background: #67b925;
-    padding: 11px 16px 1px 16px;
-    color: #fff;
-    height: 23px;
     -webkit-border-radius: 0px 2px 2px 0px;
     -moz-border-radius: 0px 2px 2px 0px;
     border-radius: 0px 2px 2px 0px;
-    /* useful if you don't want a bg color from leaking outside the border: */
-    background-clip: padding-box; /* Android 2.2+, Chrome, Firefox 4+, IE 9+, iOS 4+, Opera 10.50+, Safari 4+ */
+    letter-spacing: 0;
 }
 
 .home .slider-nav {
     border-top: 1px solid #e5e5e5;
     position: relative;
+    margin: 0 2% 0 2%;
 }
 
 .home nav.main .slider-nav-wrapper {
@@ -586,12 +802,33 @@ a.continue.more .eclipse {
     width: 41px;
     height: 31px;
     top: -16px;
+    user-select: none;
+    -moz-user-select: none;
 }
 
 .home .slider-nav span.nav.active {
     cursor: pointer;
     color: #061e27;
     border-color: #b4c1c6;
+}
+
+.home .slider-nav span.nav.active:hover {
+    color: #108eba;
+    border-color: #9DC9D8;
+    background: #DDEAF8;
+}
+
+.home .slider-nav span.nav.active:active {
+    background: #b3d4fc;
+    border-color: #b3d4fc;
+}
+
+.home .slider-nav span.nav.next.active:active {
+    left: 2px;
+}
+
+.home .slider-nav span.nav.prev.active:active {
+    left: -2px;
 }
 
 .home .slider-nav span.nav.prev {
@@ -606,6 +843,15 @@ a.continue.more .eclipse {
     font-size: 30.61px;
     vertical-align: top;
     margin-top: 5px;
+    position: relative;
+}
+
+.home .slider-nav span.nav.next.active:active .fi {
+    left: 0.06em;
+}
+
+.home .slider-nav span.nav.prev.active:active .fi {
+    left: -0.06em;
 }
 
 .home nav.main .layout {
@@ -811,30 +1057,12 @@ a.continue.more .eclipse {
     padding-bottom: 73px;
 }
 
-.home #forces li.more a {
-    display: inline-block;
-    padding: 11px 10px 9px;
-    font-size: 15px;
-    line-height: 15px;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: white;
-    background: #7bc142;
-    text-decoration: none;
-    letter-spacing: -0.025em;
-    -webkit-border-radius: 2px; /* Android ≤ 1.6, iOS 1-3.2, Safari 3-4 */
-    border-radius: 2px; /* Android 2.1+, Chrome, Firefox 4+, IE 9+, iOS 4+, Opera 10.50+, Safari 5+ */
-    /* useful if you don't want a bg color from leaking outside the border: */
-    background-clip: padding-box; /* Android 2.2+, Chrome, Firefox 4+, IE 9+, iOS 4+, Opera 10.50+, Safari 4+ */
-}
-
 .home #forces li.contact {
     padding-top: 14px;
 }
 
 .home #forces .even li.contact {
-    position: relative;
-    right: 5px
+    right: -5px
 }
 
 .home #forces li.contact a {
@@ -843,6 +1071,7 @@ a.continue.more .eclipse {
     text-transform: uppercase;
     color: #2296c1;
     text-decoration: none;
+    position: relative;
 }
 
 .home #forces li.contact a .fi {
@@ -850,8 +1079,27 @@ a.continue.more .eclipse {
     font-weight: normal;
     color: #a5bec4;
     position: relative;
-    top: -1px;
     left: -1px
+}
+
+.home #forces li.contact a:hover {
+    color: #4ACEFF;
+}
+
+.home #forces li.contact a:hover .fi {
+    color: #2296c1;
+    left: -3px
+}
+
+.home #forces li.contact a:active {
+    left: 2px;
+}
+
+.home #forces li.contact a:active .fi {
+    color: #4ACEFF;
+    -webkit-transform: scale(1.2);
+    left: 1px;
+    top: -1px
 }
 
 .home #civic-hacking-product header {
@@ -1094,8 +1342,86 @@ nav.main .sub.waiting li {
     color: #0e526b;
 }
 
+.inner .masthead #sidebar {
+    width: 50%;
+    left: 0;
+    top: 156px;
+    position: absolute;
+}
+
+.inner .masthead #sidebar.fixed {
+    position: fixed;
+    top: 92px
+}
+
+.inner .masthead #sidebar .screen-wrapper {
+    /*position: absolute;*/
+    /*left: 3.6%;*/
+    /*right: 3.6%;*/
+    max-width: 710px;
+    float: right;
+}
+
+.inner .masthead #sidebar .screen {
+    /*position: absolute;*/
+    /*left: 3.6%;*/
+    /*right: 3.6%;*/
+    margin-right: 4.22%;
+    margin-left: 4.22%;
+    text-align: right;
+    overflow: hidden;
+    max-width: 710px;
+    float: right;
+}
+
+.inner .masthead #sidebar .screen img {
+    width: 120%;
+    max-width: 710px;
+}
+
+.inner .masthead #sidebar .toc {
+    clear: both;
+    float: right;
+    text-align: right;
+    min-width: 710px;
+    margin-right: 2.95%;
+    margin-left: 2.95%;
+}
+
+.inner .masthead .head {
+    width: 50%;
+    float: left;
+    margin-left: 50%;
+    text-align: left;
+    max-width: 710px;
+}
+
+.inner .masthead .head .menu-wrapper {
+    margin-right: 4.22%;
+    margin-left: 4.22%;
+}
+
+.inner .masthead .head h1 {
+    clear: both;
+    margin-left: 4.22%;
+    margin-right: 4.22%;
+    color: #108eba;
+}
+
+.inner .masthead .head h1.wide {
+    clear: both;
+    margin-left: 4.22%;
+    color: #108eba;
+    line-height: 1em;
+    letter-spacing: -0.05em;
+    padding-bottom: 25px;
+    padding-top: 15px;
+    font-size: 64px;
+}
+
 footer {
     padding-top: 100px;
+    clear: both;
 }
 
 footer p {
@@ -1145,6 +1471,18 @@ footer .quick-contacts li .heading {
 footer .quick-contacts li a {
     color: #94a8af;
     text-decoration: none;
+}
+
+.half-layout {
+    width: 50%;
+    margin-left: 50%;
+    float: left;
+    max-width: 710px;
+}
+
+.half-layout .padder {
+    margin-left: 4.22%;
+    margin-right: 4.22%;
 }
 
 /* Примерни media queries, в които се пише код за браузър със специфична резолюция или размер на пиксела */

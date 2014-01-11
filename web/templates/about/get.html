@@ -1,60 +1,42 @@
 {% extends "layout.html" %}
 {% block content %}
-<div class="inner {{page}} container">
-<nav class="main">
-    <div class="container">
-        <div class="layout">
-            <ul class="clearfix stripped">
-                <li><a href="{% url 'about' %}">Всичко за нас</a></li>
-                <li class="logo"><a href="/">Obshtestvo.bg</a></li>
-                <li><a href="{% url 'wip' %}">Подкрепи ни</a></li>
+<header class="masthead clearfix">
+    <div id="sidebar">
+        <div class="screen-wrapper">
+            <div class="screen">
+                <img src="/upload/project-preview.png" alt=""/>
+            </div>
+        </div>
+        <div class="toc">
+            <strong>Съдържание</strong>
+            <ul class="stripped">
+                <li><a href="#">описание, концепция</a></li>
+                <li><a href="#">описание, концепция</a></li>
+                <li><a href="#">описание, концепция</a></li>
+                <li><a href="#">описание, концепция</a></li>
             </ul>
-            <div class="slider-nav-wrapper basic-transition hidden waiting">
-                <div class="slider-nav clearfix">
-                    <span class="nav prev"><i class="fa fa-arrow-left"></i><span class="text hidden">Виж предишния проект</span></span>
-                    <span class="indicator">
-                        <img src="static/img/home-slider-indicator-bg.png" alt="" class="scope"/>
-                        <span class="light center"></span>
-                    </span>
-                    <span class="nav next active"><i class="fa fa-arrow-right"></i><span class="text hidden">Виж следващия проект</span></span>
-                </div>
-            </div>
-            <div class="title-holder basic-transition-slow hidden waiting">
-                <span class="helper"></span>
-            </div>
         </div>
     </div>
-</nav>
-<header class="masthead">
-    <div class="layout">
-        <div class="screen">
-            <img src="upload/screen/about.png" alt=""/>
-
-            <div class="toc">
-                <strong>Съдържание</strong>
-                <ul>
-                    <li><a href="#">описание, концепция</a></li>
-                    <li><a href="#">описание, концепция</a></li>
-                    <li><a href="#">описание, концепция</a></li>
-                    <li><a href="#">описание, концепция</a></li>
-                </ul>
-            </div>
+    <div class="head">
+        <div class="menu-wrapper">
+            <ul class="project-actions stripped">
+                <li class="support"><a href="{% url 'wip' %}" class="button standard blue"><b>Подкрепи проекта</b></a>
+                </li>
+                <li class="join"><a href="{% url 'wip' %}" class="button standard green"><b>Включи се</b></a></li>
+                <li class="see"><a href="{% url 'wip' %}" class="button">
+                    <span class="label basic-transition">Виж прототипа</span>
+                    http://recycle.obshtestvo.bg/
+                </a>
+                </li>
+            </ul>
         </div>
-        <ul class="important-actions stripped">
-            <li class="join"><a href="{% url 'wip' %}">Подкрепи проекта</a></li>
-            <li class="learn"><a href="{% url 'wip' %}">Включи се</a></li>
-            <li class="learn"><a href="{% url 'wip' %}">
-                <span class="label">Виж прототипа</span>
-                http://recycle.obshtestvo.bg/
-            </a>
-            </li>
-        </ul>
-        <h1>Опознай Депутата</h1>
+        <h1 class="wide">Опознай Депутата</h1>
     </div>
 </header>
 
 
-<div class="layout">
+<div class="half-layout">
+<div class="padder">
 <section id="projects" class="slice">
 <h2 class="section-heading">Проекти</h2>
 
@@ -534,7 +516,7 @@
                 class="fa fa-chevron-right"></i></a>
     </section>
 </div>
-
+</div>
 
 <footer>
     <div class="sep"><i class="logo"></i></div>
@@ -563,6 +545,5 @@
         </ul>
     </aside>
 </footer>
-</div>
 {% endblock %}
 

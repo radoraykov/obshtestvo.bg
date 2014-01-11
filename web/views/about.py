@@ -6,5 +6,5 @@ from restful.decorators import restful_view_templates
 class AboutView(View):
     def get(self, request):
         return {
-            "page": "about",
+            "page": "inner about",
         }

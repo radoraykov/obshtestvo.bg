@@ -1,44 +1,5 @@
 {% extends "layout.html" %}
 {% block content %}
-<div class="{{page}} container">
-
-<nav class="main">
-    <div class="container">
-        <div class="layout">
-            <ul class="clearfix stripped top basic-transition-mid">
-                <li class="about">
-                    <a href="{% url 'about' %}" class="basic-transition-mid"><i class="fi flaticon-list23"></i> Всичко
-                        за нас</a>
-                </li>
-                <li class="logo basic-transition-mid"><a href="/">Obshtestvo.bg</a></li>
-                <li class="basic-transition-mid"><a href="{% url 'wip' %}">Подкрепи ни</a></li>
-            </ul>
-            <div class="slider-nav-wrapper basic-transition hidden waiting">
-                <div class="slider-nav clearfix">
-                    <span class="nav prev"><i class="fi flaticon-arrow462"></i><span class="text hidden">Виж предишния проект</span></span>
-                <span class="indicator">
-                    <img src="static/img/home-slider-indicator-bg.png" alt="" class="scope"/>
-                    <span class="light center"></span>
-                </span>
-                    <span class="nav next active"><i class="fi flaticon-arrow465"></i><span class="text hidden">Виж следващия проект</span></span>
-                </div>
-            </div>
-            <div class="title-holder basic-transition-slow hidden waiting">
-                <span class="helper"></span>
-            </div>
-        </div>
-        <div class="sub  basic-transition-mid waiting hidden">
-            <div class="dark"></div>
-            <div class="light hidden"></div>
-            <ul class=" stripped">
-                <li class="basic-transition-mid"><a href="#">По медиите</a></li>
-                <li class="basic-transition-mid"><a href="#">Отчети</a></li>
-                <li class="basic-transition-mid"><a href="#">Събития</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
 
 <header class="masthead">
     <h1><a class="logo" href="/"><img src="static/img/logo.png" alt="Obshtestvo.bg - Civic Hacking в България"/></a>
@@ -49,8 +10,8 @@
         <span class="connection">държава <i class="fi flaticon-exchange1"></i> гражданин</span>
     </p>
     <ul class="important-actions stripped">
-        <li class="join"><a href="{% url 'wip' %}">Включи се</a></li>
-        <li class="learn"><a href="{% url 'wip' %}">Какво правим</a></li>
+        <li class="join"><a href="{% url 'wip' %}" class="button standard green"><b>Включи се</b></a></li>
+        <li class="learn"><a href="{% url 'wip' %}" class="button standard blue"><b>Какво правим</b></a></li>
     </ul>
     <aside>
         <ul class="quick-info stripped">
@@ -82,13 +43,13 @@
 <h2 class="section-heading">Проекти</h2>
 
 <div class="slider-nav clearfix">
-    <span class="nav prev"><i class="fi flaticon-arrow462"></i><span
+    <span class="nav prev basic-transition"><i class="fi flaticon-arrow462 "></i><span
             class="text hidden">Виж предишния проект</span></span>
                 <span class="indicator">
                     <img src="static/img/home-slider-indicator-bg.png" alt="" class="scope"/>
                     <span class="light center"></span>
                 </span>
-    <span class="nav next active"><i class="fi flaticon-arrow465"></i><span
+    <span class="nav next active basic-transition"><i class="fi flaticon-arrow465 "></i><span
             class="text hidden">Виж следващия проект</span></span>
 </div>
 <div class="slider">
@@ -148,7 +109,7 @@
                      title="Станимир Савов"></li>
             <li><img width="35px" src="http://graph.facebook.com/anton.stoychev.12/picture?width=35&amp;height=35"
                      title="Антон Стойчев"></li>
-            <li class="action"><a href="{% url 'wip' %}">Включи се</a></li>
+            <li class="action"><a href="{% url 'wip' %}" class="button small green"><b>Включи се</b></a></li>
         </ul>
     </section>
 </article>
@@ -211,7 +172,7 @@
             <li class="break"><img width="35px"
                                    src="http://graph.facebook.com/anton.stoychev.12/picture?width=35&amp;height=35"
                                    title="Антон Стойчев"></li>
-            <li class="action"><a href="{% url 'wip' %}">Включи се</a></li>
+            <li class="action"><a href="{% url 'wip' %}" class="button small green"><b>Включи се</b></a></li>
         </ul>
     </section>
 </article>
@@ -278,7 +239,7 @@
                                    title="Алекс Миланов"></li>
             <li><img width="35px" src="http://graph.facebook.com/anton.stoychev.12/picture?width=35&amp;height=35"
                      title="Антон Стойчев"></li>
-            <li class="action"><a href="{% url 'wip' %}">Включи се</a></li>
+            <li class="action"><a href="{% url 'wip' %}" class="button small green"><b>Включи се</b></a></li>
         </ul>
     </section>
 </article>
@@ -336,7 +297,7 @@
                      title="Кристиян Господинов"></li>
             <li><img width="35px" src="http://graph.facebook.com/anton.stoychev.12/picture?width=35&amp;height=35"
                      title="Антон Стойчев"></li>
-            <li class="action"><a href="{% url 'wip' %}">Включи се</a></li>
+            <li class="action"><a href="{% url 'wip' %}" class="button small green"><b>Включи се</b></a></li>
         </ul>
     </section>
 </article>
@@ -396,7 +357,7 @@
                      title="Петя Райковска"></li>
             <li><img width="35px" src="http://graph.facebook.com/angel.velikov.370/picture?width=35&amp;height=35"
                      title="Ангел Великов"></li>
-            <li class="action"><a href="{% url 'wip' %}">Включи се</a></li>
+            <li class="action"><a href="{% url 'wip' %}" class="button small green"><b>Включи се</b></a></li>
         </ul>
     </section>
 </article>
@@ -452,7 +413,7 @@
                      title="Николай Александренко"></li>
             <li><img width="35px" src="http://graph.facebook.com/anton.stoychev.12/picture?width=35&amp;height=35"
                      title="Антон Стойчев"></li>
-            <li class="action"><a href="{% url 'wip' %}">Включи се</a></li>
+            <li class="action"><a href="{% url 'wip' %}" class="button small green"><b>Включи се</b></a></li>
     </section>
 </article>
 </div>
@@ -472,7 +433,8 @@
 
                 <p>Да подсилим опитите за <br/> приветливи публични услуги</p>
                 <ul class="stripped">
-                    <li class="more"><a href="{% url 'wip' %}">Как можем да помогнем</a></li>
+                    <li class="more"><a href="{% url 'wip' %}" class="button standard green single"><b>Как можем да
+                        помогнем</b></a></li>
                     <li class="contact"><a href="{% url 'wip' %}">Директна връзка <i
                             class="fi flaticon-chevron18"></i></a></li>
                 </ul>
@@ -484,7 +446,8 @@
 
                 <p>Да отпуснем служителите с нашите мотивационни лагери и своевременно<br/> това да бъде CSR</p>
                 <ul class="stripped">
-                    <li class="more"><a href="{% url 'wip' %}">Какво предлагаме</a></li>
+                    <li class="more"><a href="{% url 'wip' %}" class="button standard green single"><b>Какво
+                        предлагаме</b></a></li>
                     <li class="contact"><a href="{% url 'wip' %}">Директна връзка <i
                             class="fi flaticon-chevron18"></i></a></li>
                 </ul>
@@ -496,7 +459,8 @@
 
                 <p>Да поддържаме каузата жива чрез<br/> подпомагане от корпорации, фондове<br/> или crowdfunding</p>
                 <ul class="stripped">
-                    <li class="more"><a href="{% url 'wip' %}">Защо заслужаваме</a></li>
+                    <li class="more"><a href="{% url 'wip' %}" class="button standard green single"><b>Защо
+                        заслужаваме</b></a></li>
                     <li class="contact"><a href="{% url 'wip' %}">Директна връзка <i
                             class="fi flaticon-chevron18"></i></a></li>
                 </ul>
@@ -508,7 +472,8 @@
 
                 <p>Да правим проектите по-силни и<br/> обменяме опит</p>
                 <ul class="stripped">
-                    <li class="more"><a href="{% url 'wip' %}">Какъв е процеса</a></li>
+                    <li class="more"><a href="{% url 'wip' %}" class="button standard green single"><b>Какъв е
+                        процеса</b></a></li>
                     <li class="contact"><a href="{% url 'wip' %}">Директна връзка <i
                             class="fi flaticon-chevron18"></i></a></li>
                 </ul>
@@ -601,6 +566,5 @@
         </ul>
     </aside>
 </footer>
-</div>
 {% endblock %}
 
