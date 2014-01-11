@@ -66,8 +66,9 @@ function initNav() {
         $sub.unbind('.fix')
         $sub.addClass('waiting')
         $fixedNav.find('ul.top').removeClass('about')
-        hideAfterTransition($sub)
-        menuActive = false;
+        hideAfterTransition($sub, function () {
+            menuActive = false;
+        })
     }
 
     var showSubMenu = function () {
@@ -139,6 +140,77 @@ function initNav() {
     }, { offset: 100})
 }
 
+
+function ProgressBar($parent) {
+    this.time = 7;
+    this.$parent = $parent;
+}
+ProgressBar.prototype = {
+    time: undefined,
+    isPause: false,
+    tick: undefined,
+    percentTime: undefined,
+    $progressBar: undefined,
+    $bar: undefined,
+    $parent: undefined,
+    $elem: undefined,
+    moved: function () {
+        //clear interval
+        clearTimeout(this.tick);
+        //start again
+        this.start();
+    },
+    pauseOnDragging: function () {
+        this.isPause = true;
+    },
+    init: function ($elem) {
+        var self = this;
+        self.$elem = $elem;
+        self.$elem.on('mouseover', function () {
+            self.isPause = true;
+        })
+        self.$elem.on('mouseout', function () {
+            self.isPause = false;
+        })
+        self.$elem.on('mouseup', function () {
+            self.isPause = false;
+        })
+        self.build(self.$parent)
+        self.start()
+    },
+    _interval: function () {
+        if (this.isPause === false) {
+            this.percentTime += 1 / this.time;
+            $('.slider-nav .progress .bar').css({
+                width: this.percentTime + "%"
+            });
+            //if percentTime is equal or greater than 100
+            if (this.percentTime >= 100) {
+                //slide to next item
+                this.$elem.trigger('owl.next')
+            }
+        }
+    },
+    start: function () {
+        var self = this;
+        //reset timer
+        this.percentTime = 0;
+        this.isPause = false;
+        //run interval every 0.01 second
+        this.tick = setInterval(function () {
+            self._interval()
+        }, 10);
+    },
+    build: function ($parent) {
+        this.$progressBar = $("<div>", {
+            class: "progress"
+        });
+        this.$bar = $("<div>", {
+            class: "bar"
+        });
+        this.$progressBar.append(this.$bar).prependTo($parent);
+    }
+}
 function initHome() {
     var $slider = $(".slider");
     var $slides = $slider.find('.item')
@@ -149,14 +221,25 @@ function initHome() {
     var $fixedSliderNav = $fixedNav.find('.slider-nav-wrapper')
     var $fixedProjectName = $fixedNav.find('.title-holder')
     var $fixedProjectNameHelper = $fixedProjectName.find('.helper')
+    // Fixed slider navigation
+    var $projectsPanel = $('#projects');
+    var $forcesPanel = $('#forces');
+    var $projectsSliderNav = $projectsPanel.find('.slider-nav')
 
+    var progress = new ProgressBar($('#projects .slider-nav'));
     var slider = $slider.owlCarousel({
         navigation: false,
         pagination: false,
         autoHeight: true,
-        slideSpeed: 400,
+        slideSpeed: 500,
         paginationSpeed: 400,
         singleItem: true,
+        // "singleItem:true" is a shortcut for:
+        // items : 1,
+        // itemsDesktop : false,
+        // itemsDesktopSmall : false,
+        // itemsTablet: false,
+        // itemsMobile : false
         afterAction: function () {
             var projectName = $(this.owl.owlItems[this.owl.visibleItems[0]]).find('header .heading').text()
             $fixedProjectNameHelper.html(projectName)
@@ -171,13 +254,17 @@ function initHome() {
             setTimeout(function () {
                 $.waypoints('refresh');
             }, 500)
+        },
+        afterInit: function ($elem) {
+            progress.init($elem)
+            $fixedSliderNav.find('.slider-nav').append($projectsPanel.find('.progress').clone())
+        },
+        afterMove: function () {
+            progress.moved()
+        },
+        startDragging: function () {
+            progress.pauseOnDragging()
         }
-        // "singleItem:true" is a shortcut for:
-        // items : 1,
-        // itemsDesktop : false,
-        // itemsDesktopSmall : false,
-        // itemsTablet: false,
-        // itemsMobile : false
 
     });
     // Custom Navigation Events
@@ -200,14 +287,9 @@ function initHome() {
             '-ms-user-select': 'none',
             'user-select': 'none'
         }).bind('selectstart', function () {
+            ;
             return false;
         });
-
-
-    // Fixed slider navigation
-    var $projectsPanel = $('#projects');
-    var $forcesPanel = $('#forces');
-    var $projectsSliderNav = $projectsPanel.find('.slider-nav')
 
     var showFixedSliderNav = function () {
         $fixedSliderNav.unbind('.fix')
@@ -242,7 +324,7 @@ function initHome() {
         } else {
             hideFixedSliderNav()
         }
-    }, { offset: 60})
+    }, { offset: 50})
 
     $projectsSliderNav.waypoint(function (dir) {
         if (dir == 'down') {
@@ -255,8 +337,10 @@ function initHome() {
     $forcesPanel.waypoint(function (dir) {
         if (dir == 'down') {
             hideFixedSliderNav()
+            progress.isPause = true;
             hideFixedProjectName()
         } else {
+            progress.isPause = false;
             showFixedSliderNav()
             showFixedProjectName()
         }

@@ -37,6 +37,7 @@ a.more {
     font-weight: 700;
     line-height: 16px;
     color: #2296c1;
+    position: relative;
 }
 
 a.more .fi {

@@ -712,6 +712,17 @@ header.masthead .quick-info li.act p {
     padding-bottom: 62px;
 }
 
+.slider-nav .progress {
+    position: relative;
+    margin-top: -1px;
+    z-index: 1
+}
+
+.slider-nav .progress .bar {
+    height: 1px;
+    background: #108eba;
+}
+
 .home .slider article {
     font-size: 17px;
     line-height: 21px;
@@ -965,6 +976,7 @@ a.continue.more .eclipse {
     background: #fff;
     padding-top: 24px;
     opacity: 1;
+    z-index: 3;
 }
 
 .home nav.main .slider-nav-wrapper.waiting {
@@ -986,6 +998,7 @@ a.continue.more .eclipse {
     text-align: center;
     line-height: 41px;
     color: #e2e7e9;
+    z-index: 2;
 }
 
 .home nav.main .slider-nav span.nav {
@@ -1061,6 +1074,7 @@ a.continue.more .eclipse {
     margin-left: -11px;
     display: block;
     background: #fff;
+    z-index: 2;
 }
 
 .home .slider-nav .indicator .scope {
@@ -1093,6 +1107,7 @@ a.continue.more .eclipse {
     font-weight: 700;
     font-size: 22px;
     opacity: 1;
+    z-index: 4;
 }
 
 .home nav.main .title-holder .helper {
