@@ -911,8 +911,6 @@ a.continue.more .eclipse {
     width: 41px;
     height: 31px;
     top: -16px;
-    user-select: none;
-    -moz-user-select: none;
 }
 
 .home .slider-nav span.nav.active {
@@ -1102,33 +1100,77 @@ a.continue.more .eclipse {
     text-align: right;
 }
 
+.home #forces .force {
+    padding-top: 33px;
+    padding-bottom: 30px;
+    overflow: hidden;
+}
+
+.home #forces .even {
+    background: #e9eced;
+}
+
 .home #forces .heading {
     font-size: 70.8px;
-    line-height: 66px;
-    color: #108eba;
+    line-height: 0.93em;
     float: left;
     width: 45.75%;
     text-align: right;
     margin: 0;
+    letter-spacing: -0.05em;
+}
+
+.home #forces .heading a {
+    color: #108eba;
+    display: inline-block;
+    text-decoration: none;
+    position: relative;
+    z-index: 1;
 }
 
 .home #forces .heading {
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 70px;
+    padding-bottom: 70px;
 }
 
-.home #forces .heading:hover {
-    color: #4ACEFF;
+.home #forces .heading span {
+    position: absolute;
+    bottom: -2.2em;
+    display: block;
+    width: 100%;
+    color: #7bc142;
+    font-size: 37px;
+    line-height: 1em;
+    letter-spacing: -0.05em;
+    text-align: center;
+    opacity: 0;
 }
 
-.home #forces .force {
-    padding-top: 33px;
-    padding-bottom: 30px;
+.home #forces .heading a:hover {
+    color: #08aee8;
+    top: -0.35em;
 }
 
-.home #forces .odd ul,
-.home #forces .odd {
-    text-align: left;
+.home #forces .heading a:hover span {
+    opacity: 1;
+    bottom: -2em;
+}
+
+.home #forces .heading a:active span {
+    bottom: -1.7em;
+    line-height: 0.9em;
+    opacity: 1;
+    color: #469704;
+}
+
+.home #forces .heading a:active {
+    top: -0.4em;
+    color: #197A9E;
+}
+
+.home #forces .heading span strong {
+    display: block;
+    color: #c7c7c7;
 }
 
 .home #forces .odd .heading {
@@ -1136,15 +1178,16 @@ a.continue.more .eclipse {
     margin-right: 4.25%;
 }
 
-.home #forces .even {
-    background: #e9eced;
-}
-
 .home #forces .even .heading {
     float: right;
     text-align: left;
     padding-left: 4.25%;
     margin-left: 4.25%;
+}
+
+.home #forces .odd ul,
+.home #forces .odd {
+    text-align: left;
 }
 
 .home #forces .force p {
@@ -1163,13 +1206,10 @@ a.continue.more .eclipse {
     padding-top: 20px;
 }
 
-.home #forces .force .heading {
-    letter-spacing: -0.05em;
-}
-
 .home #forces .force.rows2x2 .heading {
     padding-bottom: 40px;
     padding-top: 15px;
+    height: 132px;
 }
 
 .home #forces .force.rows1x3 p {

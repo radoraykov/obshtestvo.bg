@@ -6,6 +6,7 @@ $(function () {
     initNav();
 
     var $sidebar = $('#sidebar')
+    if ($sidebar.length == 0) return;
     var elementPosition = $sidebar.offset();
 
     $(window).scroll(function () {
