@@ -37,6 +37,94 @@
 
 <div class="half-layout">
 <div class="padder">
+<div class="txt">
+<section id="concept">
+    <p>Карта с пунктове, депа, места са хвърляне на батерии, скрап, и (ако има) други. Всеки посетител ще има
+        възможността да добави нов пункт. Вече има идеи за допълнителни функционалности в бъдещи версии.</p>
+
+    <p>Вярваме, че много хора не харесват условията, в които живеят - разбити улици, липсващо или неработещо осветление,
+        занемарени зелени площи, нерегламентирани сметища …
+        информация и попълване на формуляри.</p>
+
+    <p>Сигналите ще достигат отговорните държавни органи, но също така ще свързват заинтересованите, от решение на
+        проблема, граждани - тези споделящи блок, квартал, град или маршрут.</p>
+
+    <p>Ще присъстват социални инструменти, които ще позволят на всеки да:</p>
+    <ul>
+        <li>Види проблемите на неговата улица, квартал</li>
+        <li>Да намери, съседи, които също искат да оправят тези проблеми</li>
+    </ul>
+
+
+</section>
+<section id="who">
+    <h2 class="heading">Кой</h2>
+
+    <p class="subtitle">Екипът зад RE:CYCLE. Кой разработва проекта? Кой ни помага?</p>
+    <ul class="stripped">
+        <li>
+            <img width="35px" src="http://graph.facebook.com/kattodeva/picture?width=35&amp;height=35"
+                 title="Екатерина Тодева">
+            <strong class="name">Екатерина Тодева</strong>
+            <strong class="position">Дизайн, идеи</strong>
+        </li>
+        <li>
+            <img width="35px" src="http://graph.facebook.com/kattodeva/picture?width=35&amp;height=35"
+                 title="Екатерина Тодева">
+            <strong class="name">Екатерина Тодева</strong>
+            <strong class="position">Дизайн, идеи</strong>
+        </li>
+    </ul>
+    <form class="join" action="{% url 'wip' %}">
+        <label for="joinPosition">И аз искам да се включа с</label>
+        <select name="position" id="joinPosition">
+            <option value="дизайн">дизайн</option>
+        </select>
+        <input type="text" name="email" id="joinEmail"/>
+        <input type="submit" value="Брой ме"/>
+    </form>
+    <div class="info work">
+        <h3 class="heading">Работни процес протича чрез:</h3>
+        <ul class="channels stripped">
+            <li class="facebook">
+                <h4>Facebook група за дискусия и ръководство</h4>
+
+                <p class="subtitle">
+                    <a href="http://recycle.obshtestvo.bg/">http://recycle.obshtestvo.bg/</a>
+                </p>
+            </li>
+            <li class="github">
+                <h4>Файлове на проекта запазени в GitHub хранилище </h4>
+
+                <p class="subtitle">
+                    <a href="http://recycle.obshtestvo.bg/">http://recycle.obshtestvo.bg/</a>
+                </p>
+            </li>
+        </ul>
+    </div>
+    <div class="info partners">
+        <h3 class="heading">Съдействат ни:</h3>
+        <ul class="partners stripped">
+            <li class="facebook">
+                <img src="static/img/logos/mysociety.png"
+                     alt="mySociety лого"
+                     class="basic-transition"/>
+                <h4>GreenTech</h4>
+
+                <p class="subtitle">
+                    <a href="http://recycle.obshtestvo.bg/">http://recycle.obshtestvo.bg/</a>
+                </p>
+            </li>
+            <li class="github">
+                <h4>Файлове на проекта запазени в GitHub хранилище </h4>
+
+                <p class="subtitle">
+                    Добавят местата за рециклиране
+                </p>
+            </li>
+        </ul>
+    </div>
+</section>
 <section id="projects" class="slice">
 <h2 class="section-heading">Проекти</h2>
 
@@ -515,6 +603,7 @@
         <a class="more continue" href="{% url 'wip' %}"><i class="eclipse">...</i> още <i
                 class="fa fa-chevron-right"></i></a>
     </section>
+</div>
 </div>
 </div>
 
