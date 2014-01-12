@@ -181,7 +181,7 @@ ProgressBar.prototype = {
     _interval: function () {
         if (this.isPause === false) {
             this.percentTime += 1 / this.time;
-            $('.slider-nav .progress .bar').css({
+            this.$bar.css({
                 width: this.percentTime + "%"
             });
             //if percentTime is equal or greater than 100
@@ -209,6 +209,7 @@ ProgressBar.prototype = {
             class: "bar"
         });
         this.$progressBar.append(this.$bar).prependTo($parent);
+        this.$bar = $parent.find('.progress .bar')
     }
 }
 function initHome() {
@@ -258,7 +259,10 @@ function initHome() {
         },
         afterInit: function ($elem) {
             progress.init($elem)
-            $fixedSliderNav.find('.slider-nav').append($projectsPanel.find('.progress').clone())
+            var $progressBarClone = $projectsPanel.find('.progress').clone();
+            $fixedSliderNav.find('.slider-nav').append($progressBarClone)
+            progress.$bar = $('.progress .bar')
+
         },
         afterMove: function () {
             progress.moved()
