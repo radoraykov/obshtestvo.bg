@@ -338,12 +338,17 @@ function initHome() {
     $forcesPanel.waypoint(function (dir) {
         if (dir == 'down') {
             hideFixedSliderNav()
-            progress.isPause = true;
             hideFixedProjectName()
         } else {
-            progress.isPause = false;
             showFixedSliderNav()
             showFixedProjectName()
         }
     }, { offset: 100})
+    $forcesPanel.waypoint(function (dir) {
+        if (dir == 'down') {
+            progress.isPause = true;
+        } else {
+            progress.isPause = false;
+        }
+    }, { offset: 300})
 }
