@@ -10,6 +10,25 @@
 {% endblock %}
 {% block content %}
     <header class="masthead clearfix">
+        <div class="head">
+            <div class="menu-wrapper">
+                <ul class="project-actions stripped">
+                    <li class="support"><a href="{% url 'wip' %}"
+                                           class="button standard blue"><b>Подкрепи
+                        проекта</b></a>
+                    </li>
+                    <li class="join"><a href="{% url 'wip' %}"
+                                        class="button standard green"><b>Включи се</b></a>
+                    </li>
+                    <li class="see"><a href="{% url 'wip' %}" class="button">
+                        <span class="label basic-transition">Виж прототипа</span>
+                        http://recycle.obshtestvo.bg/
+                    </a>
+                    </li>
+                </ul>
+            </div>
+            <h1 class="wide">Опознай Депутата</h1>
+        </div>
         <div id="sidebar">
             <div class="screen-wrapper">
                 <div class="screen basic-transition-2x">
@@ -29,25 +48,6 @@
                     </li>
                 </ul>
             </div>
-        </div>
-        <div class="head">
-            <div class="menu-wrapper">
-                <ul class="project-actions stripped">
-                    <li class="support"><a href="{% url 'wip' %}"
-                                           class="button standard blue"><b>Подкрепи
-                        проекта</b></a>
-                    </li>
-                    <li class="join"><a href="{% url 'wip' %}"
-                                        class="button standard green"><b>Включи се</b></a>
-                    </li>
-                    <li class="see"><a href="{% url 'wip' %}" class="button">
-                        <span class="label basic-transition">Виж прототипа</span>
-                        http://recycle.obshtestvo.bg/
-                    </a>
-                    </li>
-                </ul>
-            </div>
-            <h1 class="wide">Опознай Депутата</h1>
         </div>
     </header>
 
