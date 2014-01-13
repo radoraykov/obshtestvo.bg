@@ -5,8 +5,8 @@ $(function () {
     }
     initNav();
 
-    var $sidebar = $('#sidebar')
     var $footer = $('footer')
+    var $sidebar = $('#sidebar')
     if ($sidebar.length == 0) return;
     var elementPosition = $sidebar.offset();
 
@@ -41,6 +41,11 @@ $(function () {
     $(window).resize(function () {
         sidebarBottomFix(true);
     });
+
+    $('#joinPosition').select2({
+        'containerCssClass': 'joinPosition select2'
+    })
+
 });
 
 var afterTransition = function ($el, callback) {
@@ -161,6 +166,21 @@ function initNav() {
                 hideSubMenu();
                 automaticMenuHide = true;
             }
+        }
+    }, { offset: 100})
+
+
+    var $sidebar = $('#sidebar')
+    if ($sidebar.length == 0) return;
+    $('.half-layout').waypoint(function (dir) {
+        if (dir == 'down') {
+            $sub.addClass('light')
+            $darkBackground.addClass('hidden');
+            $lightBackground.removeClass('hidden');
+        } else {
+            $sub.removeClass('light')
+            $darkBackground.removeClass('hidden');
+            $lightBackground.addClass('hidden');
         }
     }, { offset: 100})
 }

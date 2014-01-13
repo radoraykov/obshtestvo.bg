@@ -13,11 +13,12 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/lib/normalize.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/lib/flaticon.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/fonts.css' %}">
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'css/lib/owl-carousel/owl.carousel.css' %}">
+    {% block headTag %}{% endblock %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/app.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/lib/owl-carousel/owl.carousel.css' %}">
     <!--<script src="{% static 'js/lib/modernizr.custom.js' %}"></script>-->
     <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
-    {% block headTag %}{% endblock %}
 </head>
 <body>
 <!--[if lt IE 8]>
@@ -25,30 +26,37 @@
     your browser</a> to improve your experience.</p>
 <![endif]-->
 
-<div class="{{page}} container">
+<div class="{{ page }} container">
 
     <nav class="main">
         <div class="container">
             <div class="layout">
                 <ul class="clearfix stripped top basic-transition-mid">
                     <li class="about">
-                        <a href="{% url 'about' %}" class="basic-transition-mid"><i class="fi flaticon-list23"></i>
+                        <a href="{% url 'about' %}" class="basic-transition-mid"><i
+                                class="fi flaticon-list23"></i>
                             Всичко
                             за нас</a>
                     </li>
-                    <li class="logo basic-transition-mid"><a href="/" title="Начална страница"
-                                                             class="basic-transition-2x">Obshtestvo.bg</a></li>
-                    <li class="basic-transition-mid"><a href="{% url 'wip' %}">Подкрепи ни</a></li>
+                    <li class="logo basic-transition-mid"><a href="/"
+                                                             title="Начална страница"
+                                                             class="basic-transition-2x">Obshtestvo.bg</a>
+                    </li>
+                    <li class="basic-transition-mid"><a href="{% url 'wip' %}">Подкрепи
+                        ни</a></li>
                 </ul>
                 <div class="slider-nav-wrapper basic-transition hidden waiting">
                     <div class="slider-nav clearfix">
-                        <span class="nav prev basic-transition"><i class="fi flaticon-arrow462"></i><span
+                        <span class="nav prev basic-transition round"><i
+                                class="fi flaticon-arrow462"></i><span
                                 class="text hidden">Виж предишния проект</span></span>
                 <span class="indicator">
-                    <img src="static/img/home-slider-indicator-bg.png" alt="" class="scope"/>
+                    <img src="static/img/home-slider-indicator-bg.png" alt=""
+                         class="scope"/>
                     <span class="light center"></span>
                 </span>
-                        <span class="nav next active basic-transition"><i class="fi flaticon-arrow465"></i><span
+                        <span class="nav next active basic-transition round"><i
+                                class="fi flaticon-arrow465"></i><span
                                 class="text hidden">Виж следващия проект</span></span>
                     </div>
                 </div>
@@ -75,6 +83,7 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="{% static 'js/lib/owl-carousel/owl.carousel.min.js' %}"></script>
 <script src="{% static 'js/lib/waypoints.js' %}"></script>
+{% block footerTag %}{% endblock %}
 <script src="{% static 'js/app.js' %}"></script>
 </body>
 </html>

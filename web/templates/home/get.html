@@ -1,598 +1,692 @@
 {% extends "layout.html" %}
 {% block content %}
 
-<header class="masthead">
-    <h1><a class="logo" href="/"><img src="static/img/logo.png" alt="Obshtestvo.bg - Civic Hacking в България"/></a>
-    </h1>
+    <header class="masthead">
+        <h1><a class="logo" href="/"><img src="static/img/logo.png"
+                                          alt="Obshtestvo.bg - Civic Hacking в България"/></a>
+        </h1>
 
-    <p class="subtitle">Независими създатели на електронни инструменти за информираност с функция: удобна, приятна и
-        лесна връзка
-        <span class="connection">държава <i class="fi flaticon-exchange1"></i> гражданин</span>
-    </p>
-    <ul class="important-actions stripped">
-        <li class="join"><a href="{% url 'wip' %}" class="button standard green"><b>Включи се</b></a></li>
-        <li class="learn"><a href="{% url 'wip' %}" class="button standard blue"><b>Какво правим</b></a></li>
-    </ul>
-    <aside>
-        <ul class="quick-info stripped">
-            <li class="aims">
-                <div class="txt">
-                    Целим
-                    <ul class="stripped">
-                        <li><strong>пълна</strong> отвореност</li>
-                        <li><strong>приятна</strong> достъпност</li>
-                        <li>и <strong>комфорт</strong> в гражданската активност</li>
-                    </ul>
-                </div>
-                <a class="more" href="{% url 'wip' %}">Как ще ги постигнем</a>
-            </li>
-            <li class="act">
-                <div class="txt">
-                    <p>
-                        Правим
-                        приложения така,
-                        че да има “мегдан” за нас участниците,
-                        да сме свободни и да вършим интересни неща
-                    </p>
-                </div>
-                <a class="more" href="{% url 'wip' %}">Как работим</a>
-            </li>
+        <p class="subtitle">Независими създатели на електронни инструменти за
+            информираност с функция: удобна, приятна и
+            лесна връзка
+            <span class="connection">държава <i class="fi flaticon-exchange1"></i> гражданин</span>
+        </p>
+        <ul class="important-actions stripped">
+            <li class="join"><a href="{% url 'wip' %}" class="button standard green"><b>Включи
+                се</b></a></li>
+            <li class="learn"><a href="{% url 'wip' %}" class="button standard blue"><b>Какво
+                правим</b></a></li>
         </ul>
-    </aside>
-</header>
+        <aside>
+            <ul class="quick-info stripped">
+                <li class="aims">
+                    <div class="txt">
+                        Целим
+                        <ul class="stripped">
+                            <li><strong>пълна</strong> отвореност</li>
+                            <li><strong>приятна</strong> достъпност</li>
+                            <li>и <strong>комфорт</strong> в гражданската активност</li>
+                        </ul>
+                    </div>
+                    <a class="more" href="{% url 'wip' %}">Как ще ги постигнем</a>
+                </li>
+                <li class="act">
+                    <div class="txt">
+                        <p>
+                            Правим
+                            приложения така,
+                            че да има “мегдан” за нас участниците,
+                            да сме свободни и да вършим интересни неща
+                        </p>
+                    </div>
+                    <a class="more" href="{% url 'wip' %}">Как работим</a>
+                </li>
+            </ul>
+        </aside>
+    </header>
 
 
-<div class="layout">
-<section id="projects" class="slice">
-<h2 class="section-heading">Проекти</h2>
+    <div class="layout">
+    <section id="projects" class="slice">
+    <h2 class="section-heading">Проекти</h2>
 
-<div class="slider-nav clearfix">
-    <span class="nav prev basic-transition"><i class="fi flaticon-arrow462 "></i><span
+    <div class="slider-nav clearfix">
+    <span class="nav prev basic-transition round"><i
+            class="fi flaticon-arrow462 "></i><span
             class="text hidden">Виж предишния проект</span></span>
                 <span class="indicator">
-                    <img src="static/img/home-slider-indicator-bg.png" alt="" class="scope"/>
+                    <img src="static/img/home-slider-indicator-bg.png" alt=""
+                         class="scope"/>
                     <span class="light center"></span>
                 </span>
-    <span class="nav next active basic-transition"><i class="fi flaticon-arrow465 "></i><span
+    <span class="nav next active basic-transition round"><i
+            class="fi flaticon-arrow465 "></i><span
             class="text hidden">Виж следващия проект</span></span>
-</div>
-<div class="slider">
-<article class="item clearfix">
-    <header>
-        <h3 class="heading section-heading-secondary"><a href="{% url 'wip' %}">Open Parliament</a></h3>
-
-        <p>Профили и мониторинг на активността в парламента</p>
-    </header>
-    <section class="how">
-        <h4 class="heading">
-            <a href="wip.html" class="basic-transition"><b>Как</b></a>
-        </h4>
-        <ul class="stripped">
-            <li><i class="fi flaticon-browser18 bullet"></i>
-
-                <p>Петър влиза в openparliament.bg</p></li>
-            <li><i class="fi flaticon-target6 bullet"></i>
-
-                <p>Разглежда статистики и анализа на активността в парламента</p></li>
-            <li><i class="fi flaticon-mouse3 bullet"></i>
-
-                <p>Клика на "Къде е властта"</p></li>
-            <li class="action"><i class="eclipse bullet">...</i>
-
-                <p><a class="more continue" href="{% url 'wip' %}">още <i class="fi flaticon-chevron18"></i></a></p>
-            </li>
-        </ul>
-    </section>
-    <section class="why">
-        <h4 class="heading">
-            <a href="wip.html" class="basic-transition"><b>Защо</b></a>
-        </h4>
-        <ul class="stripped">
-            <li><i class="fi flaticon-finger6 bullet"></i>
-
-                <p>Повишава информираността за хората и действията в парламента</p></li>
-            <li><i class="fi flaticon-finger6 bullet"></i>
-
-                <p>Улеснява достъпа и анализата на обществена информация за парламента</p></li>
-            <li class="action"><i class="eclipse bullet">...</i>
-
-                <p><a class="more continue" href="{% url 'wip' %}">още <i class="fi flaticon-chevron18"></i></a></p>
-            </li>
-        </ul>
-    </section>
-    <section class="who">
-        <h4 class="heading">
-            <a href="wip.html" class="basic-transition"><b>Кой</b></a>
-        </h4>
-        <ul class="stripped clearfix">
-            <li><img width="35px" src="http://graph.facebook.com/kattodeva/picture?width=35&amp;height=35"
-                     title="Екатерина Тодева"></li>
-            <li><img width="35px" src="http://graph.facebook.com/vbachev/picture?width=35&amp;height=35"
-                     title="Васил Бачев"></li>
-            <li><img width="35px" src="http://graph.facebook.com/stanshaochow/picture?width=35&amp;height=35"
-                     title="Станимир Савов"></li>
-            <li><img width="35px" src="http://graph.facebook.com/anton.stoychev.12/picture?width=35&amp;height=35"
-                     title="Антон Стойчев"></li>
-            <li class="action"><a href="{% url 'wip' %}" class="button small green"><b>Включи се</b></a></li>
-        </ul>
-    </section>
-</article>
-<article class="item clearfix">
-    <header>
-        <h3 class="heading section-heading-secondary"><a href="{% url 'wip' %}">Pitaigi.bg</a></h3>
-
-        <p>Портал за изпращане и публикуване на заявления за достъп до публична информация.</p>
-    </header>
-    <section class="how">
-        <h4 class="heading">
-            <a href="wip.html" class="basic-transition"><b>Как</b></a>
-        </h4>
-        <ul class="stripped">
-            <li><i class="fi flaticon-browser18 bullet"></i>
-
-                <p>Петър влиза в pitaigi.bg</p></li>
-            <li><i class="fi flaticon-browser18fi flaticon-target6 bullet"></i>
-
-                <p>Избира държавен орган, който иска да получи информация</p></li>
-            <li><i class="fi flaticon-mouse3 bullet"></i>
-
-                <p>Клика на "Подай заявление"</p></li>
-            <li class="action"><i class="eclipse bullet">...</i>
-
-                <p><a class="more continue" href="{% url 'wip' %}">още <i class="fi flaticon-chevron18"></i></a></p>
-            </li>
-        </ul>
-    </section>
-    <section class="why">
-        <h4 class="heading">
-            <a href="wip.html" class="basic-transition"><b>Защо</b></a>
-        </h4>
-        <ul class="stripped">
-            <li><i class="fi flaticon-finger6 bullet"></i>
-
-                <p>Повишава информираността за Правото на достъп до информация</p></li>
-            <li><i class="fi flaticon-finger6 bullet"></i>
-
-                <p>Улеснява гражданина като предлага целия процес под формата на уеб приложение</p></li>
-            <li class="action"><i class="eclipse bullet">...</i>
-
-                <p><a class="more continue" href="{% url 'wip' %}">още <i class="fi flaticon-chevron18"></i></a></p>
-            </li>
-        </ul>
-    </section>
-    <section class="who">
-        <h4 class="heading">
-            <a href="wip.html" class="basic-transition"><b>Кой</b></a>
-        </h4>
-        <ul class="stripped clearfix">
-            <li><img width="35px" src="http://graph.facebook.com/elitsa.mateva/picture?width=35&amp;height=35"
-                     title="Елица Матеева"></li>
-            <li><img width="35px" src="http://graph.facebook.com/100006137442736/picture?width=35&amp;height=35"
-                     title="Валентин Ласков"></li>
-            <li><img width="35px" src="http://graph.facebook.com/s2gatev/picture?width=35&amp;height=35"
-                     title="Станислав Гатев"></li>
-            <li><img width="35px" src="http://graph.facebook.com/mitio/picture?width=35&amp;height=35"
-                     title="Димитър Димитров"></li>
-            <li class="break"><img width="35px"
-                                   src="http://graph.facebook.com/anton.stoychev.12/picture?width=35&amp;height=35"
-                                   title="Антон Стойчев"></li>
-            <li class="action"><a href="{% url 'wip' %}" class="button small green"><b>Включи се</b></a></li>
-        </ul>
-    </section>
-</article>
-<article class="item clearfix">
-    <header>
-        <h3 class="heading section-heading-secondary"><a href="{% url 'wip' %}">Grada.me</a></h3>
-
-        <p>Платформа за разрешаването на проблемите от градската среда.</p>
-    </header>
-    <section class="how">
-        <h4 class="heading">
-            <a href="wip.html" class="basic-transition"><b>Как</b></a>
-        </h4>
-        <ul class="stripped">
-            <li><i class="fi flaticon-eye50  bullet"></i>
-
-                <p>Петър се прибира след работа и забелязва опасна сграда</p></li>
-            <li><i class="fi flaticon-start1 bullet"></i>
-
-                <p>Пуска приложението Grada.me през телефона си</p></li>
-            <li><i class="fi flaticon-small35 bullet"></i>
-
-                <p>Прави снимка на сградата</p></li>
-            <li class="action"><i class="eclipse bullet">...</i>
-
-                <p><a class="more continue" href="{% url 'wip' %}">още <i class="fi flaticon-chevron18"></i></a></p>
-            </li>
-        </ul>
-    </section>
-    <section class="why">
-        <h4 class="heading">
-            <a href="wip.html" class="basic-transition"><b>Защо</b></a>
-        </h4>
-        <ul class="stripped">
-            <li><i class="fi flaticon-finger6 bullet"></i>
-
-                <p>Мотивира и улеснява участието на гражданите в благоустройството на града им </p></li>
-            <li><i class="fi flaticon-finger6 bullet"></i>
-
-                <p>Спомага за съществуването на един по-изправен град</p></li>
-            <li class="action"><i class="eclipse bullet">...</i>
-
-                <p><a class="more continue" href="{% url 'wip' %}">още <i class="fi flaticon-chevron18"></i></a></p>
-            </li>
-        </ul>
-    </section>
-    <section class="who">
-        <h4 class="heading">
-            <a href="wip.html" class="basic-transition"><b>Кой</b></a>
-        </h4>
-        <ul class="stripped clearfix">
-            <li><img width="35px" src="http://graph.facebook.com/nikolai.aleksandrenko/picture?width=35&amp;height=35"
-                     title="Николай Александренко"></li>
-            <li><img width="35px" src="http://graph.facebook.com/grgkostadinov/picture?width=35&amp;height=35"
-                     title="Георги Костадинов"></li>
-            <li><img width="35px" src="http://graph.facebook.com/ivanvpenchev/picture?width=35&amp;height=35"
-                     title="Иван Пенчев"></li>
-            <li><img width="35px" src="http://graph.facebook.com/achebg/picture?width=35&amp;height=35"
-                     title="Ангел Георгиев"></li>
-            <li><img width="35px" src="http://graph.facebook.com/dimitar.danailov/picture?width=35&amp;height=35"
-                     title="Димитър Данаилов"></li>
-            <li class="break"><img width="35px"
-                                   src="http://graph.facebook.com/alex.milanov/picture?width=35&amp;height=35"
-                                   title="Алекс Миланов"></li>
-            <li><img width="35px" src="http://graph.facebook.com/anton.stoychev.12/picture?width=35&amp;height=35"
-                     title="Антон Стойчев"></li>
-            <li class="action"><a href="{% url 'wip' %}" class="button small green"><b>Включи се</b></a></li>
-        </ul>
-    </section>
-</article>
-<article class="item clearfix">
-    <header>
-        <h3 class="heading section-heading-secondary"><a href="{% url 'wip' %}">RE:CYCLE</a></h3>
-
-        <p>Карта и търсачака с пунктове, депа, места за хвърляне на батерии, скрап, и други.</p>
-    </header>
-    <section class="how">
-        <h4 class="heading">
-            <a href="wip.html" class="basic-transition"><b>Как</b></a>
-        </h4>
-        <ul class="stripped">
-            <li><i class="fi flaticon-ripped bullet"></i>
-
-                <p>Петър има насъбрани стари списания, вестници и изписани тетрадки</p></li>
-            <li><i class="fi flaticon-search4 bullet"></i>
-
-                <p>Влиза в RE:CYCLE и търси "хартия" </p></li>
-            <li><i class="fi flaticon-map25 bullet"></i>
-
-                <p>Показват му се близките до него пунктове за рециклиране на хартия</p></li>
-            <li class="action"><i class="eclipse bullet">...</i>
-
-                <p><a class="more continue" href="{% url 'wip' %}">още <i class="fi flaticon-chevron18"></i></a></p>
-            </li>
-        </ul>
-    </section>
-    <section class="why">
-        <h4 class="heading">
-            <a href="wip.html" class="basic-transition"><b>Защо</b></a>
-        </h4>
-        <ul class="stripped">
-            <li><i class="fi flaticon-finger6 bullet"></i>
-
-                <p>Дава възможност да се намери място за гарантирано рециклиране, за разлика от кофите</p></li>
-            <li><i class="fi flaticon-finger6 bullet"></i>
-
-                <p>Увеличаване на рециклираните материали</p></li>
-            <li class="action"><i class="eclipse bullet">...</i>
-
-                <p><a class="more continue" href="{% url 'wip' %}">още <i class="fi flaticon-chevron18"></i></a></p>
-            </li>
-        </ul>
-    </section>
-    <section class="who">
-        <h4 class="heading">
-            <a href="wip.html" class="basic-transition"><b>Кой</b></a>
-        </h4>
-        <ul class="stripped clearfix">
-            <li><img width="35px" src="http://graph.facebook.com/dimitar.raykov/picture?width=35&amp;height=35"
-                     title="Димитър Райков"></li>
-            <li><img width="35px" src="http://graph.facebook.com/krisgosp/picture?width=35&amp;height=35"
-                     title="Кристиян Господинов"></li>
-            <li><img width="35px" src="http://graph.facebook.com/anton.stoychev.12/picture?width=35&amp;height=35"
-                     title="Антон Стойчев"></li>
-            <li class="action"><a href="{% url 'wip' %}" class="button small green"><b>Включи се</b></a></li>
-        </ul>
-    </section>
-</article>
-<article class="item clearfix">
-    <header>
-        <h3 class="heading section-heading-secondary"><a href="{% url 'wip' %}">Опознай депутата</a></h3>
-
-        <p>Игра, в която трябва да се познае от коя партия е всеки депутат.</p>
-    </header>
-    <section class="how">
-        <h4 class="heading">
-            <a href="wip.html" class="basic-transition"><b>Как</b></a>
-        </h4>
-        <ul class="stripped">
-            <li><i class="fi flaticon-browser18 bullet"></i>
-
-                <p>Петър влиза в сайта и започва нова игра</p></li>
-            <li><i class="fi flaticon-bust bullet"></i>
-
-                <p>Показва му се снимка и име на народен представител</p></li>
-            <li><i class="fi flaticon-browser18fi flaticon-target6 bullet"></i>
-
-                <p>Петър избира партия за показания депутат</p></li>
-            <li class="action"><i class="eclipse bullet">...</i>
-
-                <p><a class="more continue" href="{% url 'wip' %}">още <i class="fi flaticon-chevron18"></i></a></p>
-            </li>
-        </ul>
-    </section>
-    <section class="why">
-        <h4 class="heading">
-            <a href="wip.html" class="basic-transition"><b>Защо</b></a>
-        </h4>
-        <ul class="stripped">
-            <li><i class="fi flaticon-finger6 bullet"></i>
-
-                <p>Замисля гражданите за своите познания над важни теми</p></li>
-            <li><i class="fi flaticon-finger6 bullet"></i>
-
-                <p>Повишава информираността за народните представители</p></li>
-            <li class="action"><i class="eclipse bullet">...</i>
-
-                <p><a class="more continue" href="{% url 'wip' %}">още <i class="fi flaticon-chevron18"></i></a></p>
-            </li>
-        </ul>
-    </section>
-    <section class="who">
-        <h4 class="heading">
-            <a href="wip.html" class="basic-transition"><b>Кой</b></a>
-        </h4>
-        <ul class="stripped clearfix">
-            <li><img width="35px" src="http://graph.facebook.com/mitio/picture?width=35&amp;height=35"
-                     title="Димитър Димитров"></li>
-            <li><img width="35px" src="http://graph.facebook.com/hambai/picture?width=35&amp;height=35"
-                     title="Камен Станев"></li>
-            <li><img width="35px" src="http://graph.facebook.com/petyaraykovska/picture?width=35&amp;height=35"
-                     title="Петя Райковска"></li>
-            <li><img width="35px" src="http://graph.facebook.com/angel.velikov.370/picture?width=35&amp;height=35"
-                     title="Ангел Великов"></li>
-            <li class="action"><a href="{% url 'wip' %}" class="button small green"><b>Включи се</b></a></li>
-        </ul>
-    </section>
-</article>
-<article class="item clearfix">
-    <header>
-        <h3 class="heading section-heading-secondary"><a href="{% url 'wip' %}">Howto.bg</a></h3>
-
-        <p>Официален сайт на гражданина с Въпроси &amp; Отговори по често задавани теми</p>
-    </header>
-    <section class="how">
-        <h4 class="heading">
-            <a href="wip.html" class="basic-transition"><b>Как</b></a>
-        </h4>
-        <ul class="stripped">
-            <li><i class="fi flaticon-browser18 bullet"></i>
-
-                <p>Петър влиза в howto.bg</p></li>
-            <li><i class="fi flaticon-search4 bullet"></i>
-
-                <p>Търси информация по тема, която го интересува</p></li>
-            <li><i class="fi flaticon-thumbs26 bullet"></i>
-
-                <p>Избира въпрос от резултатите и гласува за един от отговорите</p></li>
-            <li class="action"><i class="eclipse bullet">...</i>
-
-                <p><a class="more continue" href="{% url 'wip' %}">още <i class="fi flaticon-chevron18"></i></a></p>
-            </li>
-        </ul>
-    </section>
-    <section class="why">
-        <h4 class="heading">
-            <a href="wip.html" class="basic-transition"><b>Защо</b></a>
-        </h4>
-        <ul class="stripped">
-            <li><i class="fi flaticon-finger6 bullet"></i>
-
-                <p>Дава възможността за централно "информационно бюро" с оценка над предлаганата информация</p></li>
-            <li><i class="fi flaticon-finger6 bullet"></i>
-
-                <p>Улеснява ежедневието на българските жители</p></li>
-            <li class="action"><i class="eclipse bullet">...</i>
-
-                <p><a class="more continue" href="{% url 'wip' %}">още <i class="fi flaticon-chevron18"></i></a></p>
-            </li>
-        </ul>
-    </section>
-    <section class="who">
-        <h4 class="heading">
-            <a href="wip.html" class="basic-transition"><b>Кой</b></a>
-        </h4>
-        <ul class="stripped clearfix">
-            <li><img width="35px" src="http://graph.facebook.com/nikolai.aleksandrenko/picture?width=35&amp;height=35"
-                     title="Николай Александренко"></li>
-            <li><img width="35px" src="http://graph.facebook.com/anton.stoychev.12/picture?width=35&amp;height=35"
-                     title="Антон Стойчев"></li>
-            <li class="action"><a href="{% url 'wip' %}" class="button small green"><b>Включи се</b></a></li>
-        </ul>
-    </section>
-</article>
-</div>
-</section>
-</div>
-
-
-<section id="forces" class="slice">
-    <div class="layout">
-        <h2 class="divider section-heading"><i class="fi flaticon-exchange1"></i> По проектите желаем да работим заедно
-            с </h2>
     </div>
-    <ul class="stripped">
-        <li class="odd clearfix rows2x2 force">
-            <div class="layout">
-                <h3 class="heading"
-                        ><a
-                        href="wip.html"
-                        class="basic-transition-2x"
-                        >Държавната<br/>
-                    Администрация
+    <div class="slider">
+    <article class="item clearfix">
+        <header>
+            <h3 class="heading section-heading-secondary"><a href="{% url 'wip' %}">Open
+                Parliament</a></h3>
+
+            <p>Профили и мониторинг на активността в парламента</p>
+        </header>
+        <section class="how">
+            <h4 class="heading">
+                <a href="wip.html" class="basic-transition"><b>Как</b></a>
+            </h4>
+            <ul class="stripped">
+                <li><i class="fi flaticon-browser18 bullet"></i>
+
+                    <p>Петър влиза в openparliament.bg</p></li>
+                <li><i class="fi flaticon-target6 bullet"></i>
+
+                    <p>Разглежда статистики и анализа на активността в парламента</p></li>
+                <li><i class="fi flaticon-mouse3 bullet"></i>
+
+                    <p>Клика на "Къде е властта"</p></li>
+                <li class="action"><i class="eclipse bullet">...</i>
+
+                    <p><a class="more continue" href="{% url 'wip' %}">още <i
+                            class="fi flaticon-chevron18"></i></a></p>
+                </li>
+            </ul>
+        </section>
+        <section class="why">
+            <h4 class="heading">
+                <a href="wip.html" class="basic-transition"><b>Защо</b></a>
+            </h4>
+            <ul class="stripped">
+                <li><i class="fi flaticon-finger6 bullet"></i>
+
+                    <p>Повишава информираността за хората и действията в парламента</p>
+                </li>
+                <li><i class="fi flaticon-finger6 bullet"></i>
+
+                    <p>Улеснява достъпа и анализата на обществена информация за
+                        парламента</p></li>
+                <li class="action"><i class="eclipse bullet">...</i>
+
+                    <p><a class="more continue" href="{% url 'wip' %}">още <i
+                            class="fi flaticon-chevron18"></i></a></p>
+                </li>
+            </ul>
+        </section>
+        <section class="who">
+            <h4 class="heading">
+                <a href="wip.html" class="basic-transition"><b>Кой</b></a>
+            </h4>
+            <ul class="stripped clearfix">
+                <li><img width="35px"
+                         src="http://graph.facebook.com/kattodeva/picture?width=35&amp;height=35"
+                         title="Екатерина Тодева"></li>
+                <li><img width="35px"
+                         src="http://graph.facebook.com/vbachev/picture?width=35&amp;height=35"
+                         title="Васил Бачев"></li>
+                <li><img width="35px"
+                         src="http://graph.facebook.com/stanshaochow/picture?width=35&amp;height=35"
+                         title="Станимир Савов"></li>
+                <li><img width="35px"
+                         src="http://graph.facebook.com/anton.stoychev.12/picture?width=35&amp;height=35"
+                         title="Антон Стойчев"></li>
+                <li class="action"><a href="{% url 'wip' %}"
+                                      class="button small green"><b>Включи се</b></a></li>
+            </ul>
+        </section>
+    </article>
+    <article class="item clearfix">
+        <header>
+            <h3 class="heading section-heading-secondary"><a href="{% url 'wip' %}">Pitaigi.bg</a>
+            </h3>
+
+            <p>Портал за изпращане и публикуване на заявления за достъп до публична
+                информация.</p>
+        </header>
+        <section class="how">
+            <h4 class="heading">
+                <a href="wip.html" class="basic-transition"><b>Как</b></a>
+            </h4>
+            <ul class="stripped">
+                <li><i class="fi flaticon-browser18 bullet"></i>
+
+                    <p>Петър влиза в pitaigi.bg</p></li>
+                <li><i class="fi flaticon-browser18fi flaticon-target6 bullet"></i>
+
+                    <p>Избира държавен орган, който иска да получи информация</p></li>
+                <li><i class="fi flaticon-mouse3 bullet"></i>
+
+                    <p>Клика на "Подай заявление"</p></li>
+                <li class="action"><i class="eclipse bullet">...</i>
+
+                    <p><a class="more continue" href="{% url 'wip' %}">още <i
+                            class="fi flaticon-chevron18"></i></a></p>
+                </li>
+            </ul>
+        </section>
+        <section class="why">
+            <h4 class="heading">
+                <a href="wip.html" class="basic-transition"><b>Защо</b></a>
+            </h4>
+            <ul class="stripped">
+                <li><i class="fi flaticon-finger6 bullet"></i>
+
+                    <p>Повишава информираността за Правото на достъп до информация</p>
+                </li>
+                <li><i class="fi flaticon-finger6 bullet"></i>
+
+                    <p>Улеснява гражданина като предлага целия процес под формата на уеб
+                        приложение</p></li>
+                <li class="action"><i class="eclipse bullet">...</i>
+
+                    <p><a class="more continue" href="{% url 'wip' %}">още <i
+                            class="fi flaticon-chevron18"></i></a></p>
+                </li>
+            </ul>
+        </section>
+        <section class="who">
+            <h4 class="heading">
+                <a href="wip.html" class="basic-transition"><b>Кой</b></a>
+            </h4>
+            <ul class="stripped clearfix">
+                <li><img width="35px"
+                         src="http://graph.facebook.com/elitsa.mateva/picture?width=35&amp;height=35"
+                         title="Елица Матеева"></li>
+                <li><img width="35px"
+                         src="http://graph.facebook.com/100006137442736/picture?width=35&amp;height=35"
+                         title="Валентин Ласков"></li>
+                <li><img width="35px"
+                         src="http://graph.facebook.com/s2gatev/picture?width=35&amp;height=35"
+                         title="Станислав Гатев"></li>
+                <li><img width="35px"
+                         src="http://graph.facebook.com/mitio/picture?width=35&amp;height=35"
+                         title="Димитър Димитров"></li>
+                <li class="break"><img width="35px"
+                                       src="http://graph.facebook.com/anton.stoychev.12/picture?width=35&amp;height=35"
+                                       title="Антон Стойчев"></li>
+                <li class="action"><a href="{% url 'wip' %}"
+                                      class="button small green"><b>Включи се</b></a></li>
+            </ul>
+        </section>
+    </article>
+    <article class="item clearfix">
+        <header>
+            <h3 class="heading section-heading-secondary"><a href="{% url 'wip' %}">Grada.me</a>
+            </h3>
+
+            <p>Платформа за разрешаването на проблемите от градската среда.</p>
+        </header>
+        <section class="how">
+            <h4 class="heading">
+                <a href="wip.html" class="basic-transition"><b>Как</b></a>
+            </h4>
+            <ul class="stripped">
+                <li><i class="fi flaticon-eye50  bullet"></i>
+
+                    <p>Петър се прибира след работа и забелязва опасна сграда</p></li>
+                <li><i class="fi flaticon-start1 bullet"></i>
+
+                    <p>Пуска приложението Grada.me през телефона си</p></li>
+                <li><i class="fi flaticon-small35 bullet"></i>
+
+                    <p>Прави снимка на сградата</p></li>
+                <li class="action"><i class="eclipse bullet">...</i>
+
+                    <p><a class="more continue" href="{% url 'wip' %}">още <i
+                            class="fi flaticon-chevron18"></i></a></p>
+                </li>
+            </ul>
+        </section>
+        <section class="why">
+            <h4 class="heading">
+                <a href="wip.html" class="basic-transition"><b>Защо</b></a>
+            </h4>
+            <ul class="stripped">
+                <li><i class="fi flaticon-finger6 bullet"></i>
+
+                    <p>Мотивира и улеснява участието на гражданите в благоустройството на
+                        града им </p></li>
+                <li><i class="fi flaticon-finger6 bullet"></i>
+
+                    <p>Спомага за съществуването на един по-изправен град</p></li>
+                <li class="action"><i class="eclipse bullet">...</i>
+
+                    <p><a class="more continue" href="{% url 'wip' %}">още <i
+                            class="fi flaticon-chevron18"></i></a></p>
+                </li>
+            </ul>
+        </section>
+        <section class="who">
+            <h4 class="heading">
+                <a href="wip.html" class="basic-transition"><b>Кой</b></a>
+            </h4>
+            <ul class="stripped clearfix">
+                <li><img width="35px"
+                         src="http://graph.facebook.com/nikolai.aleksandrenko/picture?width=35&amp;height=35"
+                         title="Николай Александренко"></li>
+                <li><img width="35px"
+                         src="http://graph.facebook.com/grgkostadinov/picture?width=35&amp;height=35"
+                         title="Георги Костадинов"></li>
+                <li><img width="35px"
+                         src="http://graph.facebook.com/ivanvpenchev/picture?width=35&amp;height=35"
+                         title="Иван Пенчев"></li>
+                <li><img width="35px"
+                         src="http://graph.facebook.com/achebg/picture?width=35&amp;height=35"
+                         title="Ангел Георгиев"></li>
+                <li><img width="35px"
+                         src="http://graph.facebook.com/dimitar.danailov/picture?width=35&amp;height=35"
+                         title="Димитър Данаилов"></li>
+                <li class="break"><img width="35px"
+                                       src="http://graph.facebook.com/alex.milanov/picture?width=35&amp;height=35"
+                                       title="Алекс Миланов"></li>
+                <li><img width="35px"
+                         src="http://graph.facebook.com/anton.stoychev.12/picture?width=35&amp;height=35"
+                         title="Антон Стойчев"></li>
+                <li class="action"><a href="{% url 'wip' %}"
+                                      class="button small green"><b>Включи се</b></a></li>
+            </ul>
+        </section>
+    </article>
+    <article class="item clearfix">
+        <header>
+            <h3 class="heading section-heading-secondary"><a href="{% url 'wip' %}">RE:CYCLE</a>
+            </h3>
+
+            <p>Карта и търсачака с пунктове, депа, места за хвърляне на батерии, скрап, и
+                други.</p>
+        </header>
+        <section class="how">
+            <h4 class="heading">
+                <a href="wip.html" class="basic-transition"><b>Как</b></a>
+            </h4>
+            <ul class="stripped">
+                <li><i class="fi flaticon-ripped bullet"></i>
+
+                    <p>Петър има насъбрани стари списания, вестници и изписани
+                        тетрадки</p></li>
+                <li><i class="fi flaticon-search4 bullet"></i>
+
+                    <p>Влиза в RE:CYCLE и търси "хартия" </p></li>
+                <li><i class="fi flaticon-map25 bullet"></i>
+
+                    <p>Показват му се близките до него пунктове за рециклиране на
+                        хартия</p></li>
+                <li class="action"><i class="eclipse bullet">...</i>
+
+                    <p><a class="more continue" href="{% url 'wip' %}">още <i
+                            class="fi flaticon-chevron18"></i></a></p>
+                </li>
+            </ul>
+        </section>
+        <section class="why">
+            <h4 class="heading">
+                <a href="wip.html" class="basic-transition"><b>Защо</b></a>
+            </h4>
+            <ul class="stripped">
+                <li><i class="fi flaticon-finger6 bullet"></i>
+
+                    <p>Дава възможност да се намери място за гарантирано рециклиране, за
+                        разлика от кофите</p></li>
+                <li><i class="fi flaticon-finger6 bullet"></i>
+
+                    <p>Увеличаване на рециклираните материали</p></li>
+                <li class="action"><i class="eclipse bullet">...</i>
+
+                    <p><a class="more continue" href="{% url 'wip' %}">още <i
+                            class="fi flaticon-chevron18"></i></a></p>
+                </li>
+            </ul>
+        </section>
+        <section class="who">
+            <h4 class="heading">
+                <a href="wip.html" class="basic-transition"><b>Кой</b></a>
+            </h4>
+            <ul class="stripped clearfix">
+                <li><img width="35px"
+                         src="http://graph.facebook.com/dimitar.raykov/picture?width=35&amp;height=35"
+                         title="Димитър Райков"></li>
+                <li><img width="35px"
+                         src="http://graph.facebook.com/krisgosp/picture?width=35&amp;height=35"
+                         title="Кристиян Господинов"></li>
+                <li><img width="35px"
+                         src="http://graph.facebook.com/anton.stoychev.12/picture?width=35&amp;height=35"
+                         title="Антон Стойчев"></li>
+                <li class="action"><a href="{% url 'wip' %}"
+                                      class="button small green"><b>Включи се</b></a></li>
+            </ul>
+        </section>
+    </article>
+    <article class="item clearfix">
+        <header>
+            <h3 class="heading section-heading-secondary"><a href="{% url 'wip' %}">Опознай
+                депутата</a></h3>
+
+            <p>Игра, в която трябва да се познае от коя партия е всеки депутат.</p>
+        </header>
+        <section class="how">
+            <h4 class="heading">
+                <a href="wip.html" class="basic-transition"><b>Как</b></a>
+            </h4>
+            <ul class="stripped">
+                <li><i class="fi flaticon-browser18 bullet"></i>
+
+                    <p>Петър влиза в сайта и започва нова игра</p></li>
+                <li><i class="fi flaticon-bust bullet"></i>
+
+                    <p>Показва му се снимка и име на народен представител</p></li>
+                <li><i class="fi flaticon-browser18fi flaticon-target6 bullet"></i>
+
+                    <p>Петър избира партия за показания депутат</p></li>
+                <li class="action"><i class="eclipse bullet">...</i>
+
+                    <p><a class="more continue" href="{% url 'wip' %}">още <i
+                            class="fi flaticon-chevron18"></i></a></p>
+                </li>
+            </ul>
+        </section>
+        <section class="why">
+            <h4 class="heading">
+                <a href="wip.html" class="basic-transition"><b>Защо</b></a>
+            </h4>
+            <ul class="stripped">
+                <li><i class="fi flaticon-finger6 bullet"></i>
+
+                    <p>Замисля гражданите за своите познания над важни теми</p></li>
+                <li><i class="fi flaticon-finger6 bullet"></i>
+
+                    <p>Повишава информираността за народните представители</p></li>
+                <li class="action"><i class="eclipse bullet">...</i>
+
+                    <p><a class="more continue" href="{% url 'wip' %}">още <i
+                            class="fi flaticon-chevron18"></i></a></p>
+                </li>
+            </ul>
+        </section>
+        <section class="who">
+            <h4 class="heading">
+                <a href="wip.html" class="basic-transition"><b>Кой</b></a>
+            </h4>
+            <ul class="stripped clearfix">
+                <li><img width="35px"
+                         src="http://graph.facebook.com/mitio/picture?width=35&amp;height=35"
+                         title="Димитър Димитров"></li>
+                <li><img width="35px"
+                         src="http://graph.facebook.com/hambai/picture?width=35&amp;height=35"
+                         title="Камен Станев"></li>
+                <li><img width="35px"
+                         src="http://graph.facebook.com/petyaraykovska/picture?width=35&amp;height=35"
+                         title="Петя Райковска"></li>
+                <li><img width="35px"
+                         src="http://graph.facebook.com/angel.velikov.370/picture?width=35&amp;height=35"
+                         title="Ангел Великов"></li>
+                <li class="action"><a href="{% url 'wip' %}"
+                                      class="button small green"><b>Включи се</b></a></li>
+            </ul>
+        </section>
+    </article>
+    <article class="item clearfix">
+        <header>
+            <h3 class="heading section-heading-secondary"><a href="{% url 'wip' %}">Howto.bg</a>
+            </h3>
+
+            <p>Официален сайт на гражданина с Въпроси &amp; Отговори по често задавани
+                теми</p>
+        </header>
+        <section class="how">
+            <h4 class="heading">
+                <a href="wip.html" class="basic-transition"><b>Как</b></a>
+            </h4>
+            <ul class="stripped">
+                <li><i class="fi flaticon-browser18 bullet"></i>
+
+                    <p>Петър влиза в howto.bg</p></li>
+                <li><i class="fi flaticon-search4 bullet"></i>
+
+                    <p>Търси информация по тема, която го интересува</p></li>
+                <li><i class="fi flaticon-thumbs26 bullet"></i>
+
+                    <p>Избира въпрос от резултатите и гласува за един от отговорите</p>
+                </li>
+                <li class="action"><i class="eclipse bullet">...</i>
+
+                    <p><a class="more continue" href="{% url 'wip' %}">още <i
+                            class="fi flaticon-chevron18"></i></a></p>
+                </li>
+            </ul>
+        </section>
+        <section class="why">
+            <h4 class="heading">
+                <a href="wip.html" class="basic-transition"><b>Защо</b></a>
+            </h4>
+            <ul class="stripped">
+                <li><i class="fi flaticon-finger6 bullet"></i>
+
+                    <p>Дава възможността за централно "информационно бюро" с оценка над
+                        предлаганата информация</p></li>
+                <li><i class="fi flaticon-finger6 bullet"></i>
+
+                    <p>Улеснява ежедневието на българските жители</p></li>
+                <li class="action"><i class="eclipse bullet">...</i>
+
+                    <p><a class="more continue" href="{% url 'wip' %}">още <i
+                            class="fi flaticon-chevron18"></i></a></p>
+                </li>
+            </ul>
+        </section>
+        <section class="who">
+            <h4 class="heading">
+                <a href="wip.html" class="basic-transition"><b>Кой</b></a>
+            </h4>
+            <ul class="stripped clearfix">
+                <li><img width="35px"
+                         src="http://graph.facebook.com/nikolai.aleksandrenko/picture?width=35&amp;height=35"
+                         title="Николай Александренко"></li>
+                <li><img width="35px"
+                         src="http://graph.facebook.com/anton.stoychev.12/picture?width=35&amp;height=35"
+                         title="Антон Стойчев"></li>
+                <li class="action"><a href="{% url 'wip' %}"
+                                      class="button small green"><b>Включи се</b></a></li>
+            </ul>
+        </section>
+    </article>
+    </div>
+    </section>
+    </div>
+
+
+    <section id="forces" class="slice">
+        <div class="layout">
+            <h2 class="divider section-heading"><i class="fi flaticon-exchange1"></i> По
+                проектите желаем да работим заедно
+                с </h2>
+        </div>
+        <ul class="stripped">
+            <li class="odd clearfix rows2x2 force">
+                <div class="layout">
+                    <h3 class="heading"
+                            ><a
+                            href="wip.html"
+                            class="basic-transition-2x"
+                            >Държавната<br/>
+                        Администрация
                         <span class="subtitle basic-transition-mid"><strong title="и"
                                 >+</strong> Общество</span
                                 ></a
-                        ></h3>
+                            ></h3>
 
-                <p>Да подсилим опитите за <br/> приветливи публични услуги</p>
-                <ul class="stripped">
-                    <li class="more"><a href="{% url 'wip' %}" class="button standard green single"><b>Как можем да
-                        помогнем</b></a></li>
-                    <li class="contact"><a href="{% url 'wip' %}">Директна връзка <i
-                            class="fi flaticon-chevron18"></i></a></li>
-                </ul>
-            </div>
-        </li>
-        <li class="even clearfix rows1x3 force">
-            <div class="layout">
-                <h3 class="heading"><a href="wip.html" class=" basic-transition-2x">Корпорации
+                    <p>Да подсилим опитите за <br/> приветливи публични услуги</p>
+                    <ul class="stripped">
+                        <li class="more"><a href="{% url 'wip' %}"
+                                            class="button standard green single"><b>Как
+                            можем да
+                            помогнем</b></a></li>
+                        <li class="contact"><a href="{% url 'wip' %}">Директна връзка <i
+                                class="fi flaticon-chevron18"></i></a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="even clearfix rows1x3 force">
+                <div class="layout">
+                    <h3 class="heading"><a href="wip.html" class=" basic-transition-2x">Корпорации
                         <span class="subtitle basic-transition-mid"><strong title="и"
                                 >+</strong> Общество</span
                                 ></a></h3>
 
-                <p>Да отпуснем служителите с нашите мотивационни лагери и своевременно<br/> това да бъде CSR</p>
-                <ul class="stripped">
-                    <li class="more"><a href="{% url 'wip' %}" class="button standard green single"><b>Какво
-                        предлагаме</b></a></li>
-                    <li class="contact"><a href="{% url 'wip' %}">Директна връзка <i
-                            class="fi flaticon-chevron18"></i></a></li>
-                </ul>
-            </div>
-        </li>
-        <li class="odd clearfix rows1x3 force">
-            <div class="layout">
-                <h3 class="heading"><a href="wip.html" class=" basic-transition-2x">Донори
+                    <p>Да отпуснем служителите с нашите мотивационни лагери и своевременно<br/>
+                        това да бъде CSR</p>
+                    <ul class="stripped">
+                        <li class="more"><a href="{% url 'wip' %}"
+                                            class="button standard green single"><b>Какво
+                            предлагаме</b></a></li>
+                        <li class="contact"><a href="{% url 'wip' %}">Директна връзка <i
+                                class="fi flaticon-chevron18"></i></a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="odd clearfix rows1x3 force">
+                <div class="layout">
+                    <h3 class="heading"><a href="wip.html" class=" basic-transition-2x">Донори
                         <span class="subtitle basic-transition-mid"><strong title="и"
                                 >+</strong> Общество</span
                                 ></a></h3>
 
-                <p>Да поддържаме каузата жива чрез<br/> подпомагане от корпорации, фондове<br/> или crowdfunding</a></p>
-                <ul class="stripped">
-                    <li class="more"><a href="{% url 'wip' %}" class="button standard green single"><b>Защо
-                        заслужаваме</b></a></li>
-                    <li class="contact"><a href="{% url 'wip' %}">Директна връзка <i
-                            class="fi flaticon-chevron18"></i></a></li>
-                </ul>
-            </div>
-        </li>
-        <li class="even clearfix rows2x2 force">
-            <div class="layout">
-                <h3 class="heading"><a href="wip.html" class=" basic-transition-2x">Партниращи<br/>организации
+                    <p>Да поддържаме каузата жива чрез<br/> подпомагане от корпорации,
+                        фондове<br/> или crowdfunding</a></p>
+                    <ul class="stripped">
+                        <li class="more"><a href="{% url 'wip' %}"
+                                            class="button standard green single"><b>Защо
+                            заслужаваме</b></a></li>
+                        <li class="contact"><a href="{% url 'wip' %}">Директна връзка <i
+                                class="fi flaticon-chevron18"></i></a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="even clearfix rows2x2 force">
+                <div class="layout">
+                    <h3 class="heading"><a href="wip.html" class=" basic-transition-2x">Партниращи<br/>организации
                         <span class="subtitle basic-transition-mid"><strong title="и"
                                 >+</strong> Общество</span
                                 ></a></h3>
 
-                <p>Да правим проектите по-силни и<br/> обменяме опит</p>
-                <ul class="stripped">
-                    <li class="more"><a href="{% url 'wip' %}" class="button standard green single"><b>Какъв е
-                        процеса</b></a></li>
-                    <li class="contact"><a href="{% url 'wip' %}">Директна връзка <i
-                            class="fi flaticon-chevron18"></i></a></li>
-                </ul>
-            </div>
-        </li>
-    </ul>
-</section>
-
-<div class="layout">
-    <section id="civic-hacking-product" class="slice clearfix">
-        <h2 class="divider section-heading"><i class="fi flaticon-shipka1"></i>С които да градим</h2>
-        <header>
-            <h3 class="section-heading-secondary">Макет на България от бъдещето</h3>
-        </header>
-        <div class="map">
-            <div class="text-overlay">
-                <p>На една по-добре комуникираща държава.</p>
-
-                <p>Чрез работата ни желаем да покажем на хората в България какво е възможно с нови технологии, какво е
-                    възможно едно правителство да бъде и да работи, как изкуство и технологии могат да направят от
-                    бюрократични процедури – приятно изживяване.</p>
-            </div>
-        </div>
-        <i class="fi flaticon-rss25 rotate-45"></i>
-        <iframe src="http://status.obshtestvo.bg/latest.html" frameborder="0" class="blog"></iframe>
-    </section>
-</div>
-
-
-<div class="layout">
-    <section id="related-organisations" class="slice">
-        <h2 class="divider section-heading"><i class="fi flaticon-earth17"></i>Идеята не е радикална</h2>
-
-        <p class="subtitle">По света има успешни аналози на това което правим. Всеки един действащ локално.</p>
-        <ul class="stripped clearfix">
-            <li>
-                <a href="http://codeforamerica.org/" class="basic-transition-2x"><img
-                        src="static/img/logos/codeforamerica.png" class="basic-transition"
-                        alt="Code For America лого"/></a>
-
-                <p>САЩ</p>
-            </li>
-            <li>
-                <a href="http://sunlightfoundation.com/" class="basic-transition"><img
-                        src="static/img/logos/sunlight-foundatioin.png" class="basic-transition"
-                        alt="Sunlight foundation лого"/></a>
-
-                <p>САЩ</p>
-            </li>
-            <li>
-                <a href="http://www.mysociety.org/" class="basic-transition"><img src="static/img/logos/mysociety.png"
-                                                                                  alt="mySociety лого"
-                                                                                  class="basic-transition"/></a>
-
-                <p>Великобритания</p>
-            </li>
-            <li>
-                <a href="http://wearewhatwedo.org/" class="basic-transition"><img
-                        src="static/img/logos/wearewhatwedo.png" class="basic-transition"
-                        alt="WeAreWhatWeDo лого"/></a>
-
-                <p>Великобритания</p>
+                    <p>Да правим проектите по-силни и<br/> обменяме опит</p>
+                    <ul class="stripped">
+                        <li class="more"><a href="{% url 'wip' %}"
+                                            class="button standard green single"><b>Какъв
+                            е
+                            процеса</b></a></li>
+                        <li class="contact"><a href="{% url 'wip' %}">Директна връзка <i
+                                class="fi flaticon-chevron18"></i></a></li>
+                    </ul>
+                </div>
             </li>
         </ul>
-        <a class="more continue" href="{% url 'wip' %}"><i class="eclipse">...</i> още <i
-                class="fi flaticon-chevron18"></i></a>
     </section>
-</div>
+
+    <div class="layout">
+        <section id="civic-hacking-product" class="slice clearfix">
+            <h2 class="divider section-heading"><i class="fi flaticon-shipka1"></i>С които
+                да градим</h2>
+            <header>
+                <h3 class="section-heading-secondary">Макет на България от бъдещето</h3>
+            </header>
+            <div class="map">
+                <div class="text-overlay">
+                    <p>На една по-добре комуникираща държава.</p>
+
+                    <p>Чрез работата ни желаем да покажем на хората в България какво е
+                        възможно с нови технологии, какво е
+                        възможно едно правителство да бъде и да работи, как изкуство и
+                        технологии могат да направят от
+                        бюрократични процедури – приятно изживяване.</p>
+                </div>
+            </div>
+            <i class="fi flaticon-rss25 rotate-45"></i>
+            <iframe src="http://status.obshtestvo.bg/latest.html" frameborder="0"
+                    class="blog"></iframe>
+        </section>
+    </div>
 
 
-<footer>
-    <div class="sep"><i class="logo"></i></div>
-    <img class="logo-alternative" src="static/img/logo-alternative.png" alt="Фондация Obshtestvo.bg"/>
+    <div class="layout">
+        <section id="related-organisations" class="slice">
+            <h2 class="divider section-heading"><i class="fi flaticon-earth17"></i>Идеята
+                не е радикална</h2>
 
-    <p>Независими създатели на електронни инструменти<br/>за информираност с функция: <strong>удобна</strong>, <strong>приятна</strong>
-        и <strong>лесна</strong> връзка
-        <br/><span class="connection">държава <i class="fi flaticon-exchange1"></i> гражданин</span>
-    </p>
-    <aside>
-        <ul class="quick-contacts stripped">
-            <li class="online">
-                <h2 class="heading">По мрежата</h2>
-                <ul class="stripped">
-                    <li><a href="https://github.com/obshtestvo">GitHub</a></li>
-                    <li><a href="https://www.facebook.com/groups/obshtestvo/">Facebook</a></li>
-                </ul>
-            </li>
-            <li class="contact">
-                <h2 class="heading">Контакти</h2>
-                <ul class="stripped">
-                    <li>09889 640 57</li>
-                    <li><a href="mailto:info@obshtestvo.bg">info@obshtestvo.bg</a></li>
-                </ul>
-            </li>
-        </ul>
-    </aside>
-</footer>
+            <p class="subtitle">По света има успешни аналози на това което правим. Всеки
+                един действащ локално.</p>
+            <ul class="stripped clearfix">
+                <li>
+                    <a href="http://codeforamerica.org/"
+                       class="basic-transition-2x round"><img
+                            src="static/img/logos/codeforamerica.png"
+                            class="basic-transition"
+                            alt="Code For America лого"/></a>
+
+                    <p>САЩ</p>
+                </li>
+                <li>
+                    <a href="http://sunlightfoundation.com/"
+                       class="basic-transition-2x round"><img
+                            src="static/img/logos/sunlight-foundatioin.png"
+                            class="basic-transition"
+                            alt="Sunlight foundation лого"/></a>
+
+                    <p>САЩ</p>
+                </li>
+                <li>
+                    <a href="http://www.mysociety.org/" class="basic-transition-2x round"><img
+                            src="static/img/logos/mysociety.png"
+                            alt="mySociety лого"
+                            class="basic-transition"/></a>
+
+                    <p>Великобритания</p>
+                </li>
+                <li>
+                    <a href="http://wearewhatwedo.org/" class="basic-transition-2x round"><img
+                            src="static/img/logos/wearewhatwedo.png"
+                            class="basic-transition"
+                            alt="WeAreWhatWeDo лого"/></a>
+
+                    <p>Великобритания</p>
+                </li>
+            </ul>
+            <a class="more continue" href="{% url 'wip' %}"><i class="eclipse">...</i> още
+                <i
+                        class="fi flaticon-chevron18"></i></a>
+        </section>
+    </div>
+
+
+    <footer>
+        <div class="sep"><i class="logo"></i></div>
+        <img class="logo-alternative" src="static/img/logo-alternative.png"
+             alt="Фондация Obshtestvo.bg"/>
+
+        <p>Независими създатели на електронни инструменти<br/>за информираност с функция:
+            <strong>удобна</strong>, <strong>приятна</strong>
+            и <strong>лесна</strong> връзка
+            <br/><span class="connection">държава <i class="fi flaticon-exchange1"></i> гражданин</span>
+        </p>
+        <aside>
+            <ul class="quick-contacts stripped">
+                <li class="online">
+                    <h2 class="heading">По мрежата</h2>
+                    <ul class="stripped">
+                        <li><a href="https://github.com/obshtestvo">GitHub</a></li>
+                        <li>
+                            <a href="https://www.facebook.com/groups/obshtestvo/">Facebook</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="contact">
+                    <h2 class="heading">Контакти</h2>
+                    <ul class="stripped">
+                        <li>09889 640 57</li>
+                        <li><a href="mailto:info@obshtestvo.bg">info@obshtestvo.bg</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </aside>
+    </footer>
 {% endblock %}
 

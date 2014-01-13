@@ -1,243 +1,290 @@
 {% extends "layout.html" %}
+{% load staticfiles %}
+{% block headTag %}
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'css/lib/select2/select2.css' %}">
+{% endblock %}
+{% block footerTag %}
+    <script src="{% static 'js/lib/select2/select2.min.js' %}"></script>
+    <script src="{% static 'js/lib/select2/select2_locale_bg.js' %}"></script>
+{% endblock %}
 {% block content %}
-<header class="masthead clearfix">
-    <div id="sidebar">
-        <div class="screen-wrapper">
-            <div class="screen">
-                <img src="/upload/project-preview.png" alt=""/>
+    <header class="masthead clearfix">
+        <div id="sidebar">
+            <div class="screen-wrapper">
+                <div class="screen basic-transition-2x">
+                    <img src="/upload/project-preview.png" alt=""/>
+                </div>
             </div>
-        </div>
-        <div class="toc">
-            <strong>Съдържание</strong>
-            <ul class="stripped">
-                <li><a href="#">описание, концепция</a></li>
-                <li><a href="#">екип, включване, партньори (<em>кой</em>)</a></li>
-                <li><a href="#">мотиви, доводи за подкрепа (<em>защо</em>)</a></li>
-                <li><a href="#">примерна употреба (<em>как</em>)</a></li>
-            </ul>
-        </div>
-    </div>
-    <div class="head">
-        <div class="menu-wrapper">
-            <ul class="project-actions stripped">
-                <li class="support"><a href="{% url 'wip' %}"
-                                       class="button standard blue"><b>Подкрепи
-                    проекта</b></a>
-                </li>
-                <li class="join"><a href="{% url 'wip' %}"
-                                    class="button standard green"><b>Включи се</b></a>
-                </li>
-                <li class="see"><a href="{% url 'wip' %}" class="button">
-                    <span class="label basic-transition">Виж прототипа</span>
-                    http://recycle.obshtestvo.bg/
-                </a>
-                </li>
-            </ul>
-        </div>
-        <h1 class="wide">Опознай Депутата</h1>
-    </div>
-</header>
-
-
-<div class="half-layout">
-    <div class="padder">
-        <article class="txt">
-            <section id="concept" class="main">
-                <div class="bg-reset">
-                    <p>Карта с пунктове, депа, места са хвърляне на батерии, скрап, и (ако
-                        има) други. Всеки посетител ще има
-                        възможността да добави нов пункт. Вече има идеи за допълнителни
-                        функционалности в бъдещи версии.</p>
-
-                    <p>Вярваме, че много хора не харесват условията, в които живеят -
-                        разбити
-                        улици, липсващо или неработещо осветление,
-                        занемарени зелени площи, нерегламентирани сметища …
-                        информация и попълване на формуляри.</p>
-
-                    <p>Сигналите ще достигат отговорните държавни органи, но също така ще
-                        свързват заинтересованите, от решение на
-                        проблема, граждани - тези споделящи блок, квартал, град или
-                        маршрут.</p>
-
-                    <p>Ще присъстват социални инструменти, които ще позволят на всеки
-                        да:</p>
-                    <ul>
-                        <li>Види проблемите на неговата улица, квартал</li>
-                        <li>Да намери, съседи, които също искат да оправят тези проблеми
-                        </li>
-                    </ul>
-                </div>
-            </section>
-            <section id="who" class="main">
-                <div class="bg-reset">
-                    <header>
-                        <h2 class="heading">Кой</h2>
-
-                        <p class="subtitle">Екипът зад RE:CYCLE. Кой разработва проекта?
-                            Кой
-                            ни помага?</p>
-                    </header>
-
-                    <ul class="stripped team clearfix">
-                        <li class="clearfix">
-                            <img width="35px"
-                                 src="http://graph.facebook.com/kattodeva/picture?width=35&amp;height=35"
-                                 title="Екатерина Тодева">
-                            <strong class="name">Екатерина Тодева</strong>
-                            <strong class="position">Дизайн, идеи</strong>
-                        </li>
-                        <li class="clearfix">
-                            <img width="35px"
-                                 src="http://graph.facebook.com/kattodeva/picture?width=35&amp;height=35"
-                                 title="Екатерина Тодева">
-                            <strong class="name">Екатерина Тодева</strong>
-                            <strong class="position">Дизайн, идеи</strong>
-                        </li>
-                    </ul>
-                    <form class="join" action="{% url 'wip' %}">
-                        <label for="joinPosition">И аз искам да се включа с</label>
-                        <select name="position" id="joinPosition">
-                            <option value="дизайн">дизайн</option>
-                        </select>
-                        <input type="text" name="email" id="joinEmail"
-                               placeholder="email адрес (за връзка)"/>
-                        <button type="submit" class="button small green"><b>Брой ме</b>
-                        </button>
-                    </form>
-                    <div class="info work">
-                        <h3 class="heading">Работни процес протича чрез:</h3>
-                        <ul class="channels stripped">
-                            <li class="facebook">
-                                <h4>Facebook група за дискусия и ръководство</h4>
-
-                                <p class="subtitle">
-                                    <a href="http://recycle.obshtestvo.bg/">http://recycle.obshtestvo.bg/</a>
-                                </p>
-                            </li>
-                            <li class="github">
-                                <h4>Файлове на проекта запазени в GitHub хранилище </h4>
-
-                                <p class="subtitle">
-                                    <a href="http://recycle.obshtestvo.bg/">http://recycle.obshtestvo.bg/</a>
-                                </p>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="info partners">
-                        <h3 class="heading">Съдействат ни:</h3>
-                        <ul class="partners stripped">
-                            <li class="facebook">
-                                <img src="static/img/logos/mysociety.png"
-                                     alt="mySociety лого"
-                                     class="basic-transition"/>
-                                <h4>GreenTech</h4>
-
-                                <p class="subtitle">
-                                    <a href="http://recycle.obshtestvo.bg/">http://recycle.obshtestvo.bg/</a>
-                                </p>
-                            </li>
-                            <li class="github">
-                                <h4>Файлове на проекта запазени в GitHub хранилище </h4>
-
-                                <p class="subtitle">
-                                    Добавят местата за рециклиране
-                                </p>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-            <section id="why" class="main">
-                <div class="bg-reset">
-                    <header>
-                        <h2 class="heading">Защо </h2>
-
-                        <p class="subtitle">Защо започнахме проекта? Каква е ползата от
-                            RE:CYCLE?
-                            Защо заслужава финансиране?</p>
-                    </header>
-                    <ul class="stripped reasons">
-                        <li><i class="fi flaticon-finger6 bullet"></i>
-
-                            <p>Повишава информираността за Правото на достъп до
-                                информация</p>
-                        </li>
-                        <li><i class="fi flaticon-finger6 bullet"></i>
-
-                            <p>Улеснява гражданина като предлага целия процес под формата
-                                на
-                                уеб приложение</p></li>
-                    </ul>
-                    <div class="alert financing">
-                        <i class="fi flaticon-ripped"></i>
-
-                        <p>Проектът RE:CYCLE е без никакво финансиране</p>
-                    </div>
-                    <a class="button standard green" href="wip.html"><b>Подкрепи
-                        проекта</b></a>
-                </div>
-            </section>
-            <section id="how" class="main">
-                <div class="bg-reset">
-                    <header>
-                        <h2 class="heading">Как</h2>
-
-                        <p class="subtitle">Примерна употреба. Как се ползва
-                            RE:CYCLE? </p>
-                    </header>
-
-                    <ul class="stripped steps">
-                        <li><i class="fi flaticon-ripped bullet"></i>
-
-                            <p>Петър има насъбрани стари списания, вестници и изписани
-                                тетрадки</p></li>
-                        <li><i class="fi flaticon-search4 bullet"></i>
-
-                            <p>Влиза в RE:CYCLE и търси "хартия" </p></li>
-                        <li><i class="fi flaticon-map25 bullet"></i>
-
-                            <p>Показват му се близките до него пунктове за рециклиране на
-                                хартия</p></li>
-                    </ul>
-                    <a class="button standard blue" href="wip.html"><b>Виж
-                        прототипа</b></a>
-                </div>
-            </section>
-        </article>
-    </div>
-</div>
-
-<footer>
-    <div class="sep"><i class="logo"></i></div>
-    <img class="logo-alternative" src="static/img/logo-alternative.png"
-         alt="Фондация Obshtestvo.bg"/>
-
-    <p>Независими създатели на електронни инструменти<br/>за информираност с функция:
-        <strong>удобна</strong>, <strong>приятна</strong>
-        и <strong>лесна</strong> връзка
-        <br/><span class="connection">държава <i
-                class="fa fa-exchange"></i> гражданин</span>
-    </p>
-    <aside>
-        <ul class="quick-contacts stripped">
-            <li class="online">
-                <h2 class="heading">По мрежата</h2>
+            <div class="toc">
+                <strong>Съдържание</strong>
                 <ul class="stripped">
-                    <li><a href="https://github.com/obshtestvo">GitHub</a></li>
-                    <li><a href="https://www.facebook.com/groups/obshtestvo/">Facebook</a>
+                    <li><a href="#" class="basic-transition-2x">описание, концепция</a>
+                    </li>
+                    <li><a href="#who" class="basic-transition-2x">екип, включване,
+                        партньори (<em>кой</em>)</a></li>
+                    <li><a href="#why" class="basic-transition-2x">мотиви, доводи за
+                        подкрепа (<em>защо</em>)</a></li>
+                    <li><a href="#how" class="basic-transition-2x">примерна употреба (<em>как</em>)</a>
                     </li>
                 </ul>
-            </li>
-            <li class="contact">
-                <h2 class="heading">Контакти</h2>
-                <ul class="stripped">
-                    <li>09889 640 57</li>
-                    <li><a href="mailto:info@obshtestvo.bg">info@obshtestvo.bg</a></li>
+            </div>
+        </div>
+        <div class="head">
+            <div class="menu-wrapper">
+                <ul class="project-actions stripped">
+                    <li class="support"><a href="{% url 'wip' %}"
+                                           class="button standard blue"><b>Подкрепи
+                        проекта</b></a>
+                    </li>
+                    <li class="join"><a href="{% url 'wip' %}"
+                                        class="button standard green"><b>Включи се</b></a>
+                    </li>
+                    <li class="see"><a href="{% url 'wip' %}" class="button">
+                        <span class="label basic-transition">Виж прототипа</span>
+                        http://recycle.obshtestvo.bg/
+                    </a>
+                    </li>
                 </ul>
-            </li>
-        </ul>
-    </aside>
-</footer>
-{% endblock %}
+            </div>
+            <h1 class="wide">Опознай Депутата</h1>
+        </div>
+    </header>
 
+
+    <div class="half-layout">
+        <div class="padder">
+            <article class="txt">
+                <section id="concept" class="main">
+                    <div class="bg-reset">
+                        <p>Карта с пунктове, депа, места са хвърляне на батерии, скрап, и
+                            (акоима) други. Всеки посетител ще има
+                            възможността да добави нов пункт. Вече има идеи за
+                            допълнителни функционалности в бъдещи версии.</p>
+
+                        <p>Вярваме, че много хора не харесват условията, в които живеят -
+                            разбити улици, липсващо или неработещо осветление,
+                            занемарени зелени площи, нерегламентирани сметища …
+                            информация и попълване на формуляри.</p>
+
+                        <p>Сигналите ще достигат отговорните държавни органи, но също така
+                            ще свързват заинтересованите, от решение на
+                            проблема, граждани - тези споделящи блок, квартал, град или
+                            маршрут.</p>
+
+                        <p>Ще присъстват социални инструменти, които ще позволят на всеки
+                            да:</p>
+                        <ul>
+                            <li>Види проблемите на неговата улица, квартал</li>
+                            <li>Да намери, съседи, които също искат да оправят тези
+                                проблеми
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+                <section id="who" class="main">
+                    <div class="bg-reset">
+                        <header>
+                            <h2 class="heading">Кой</h2>
+
+                            <p class="subtitle">Екипът зад RE:CYCLE. Кой разработва
+                                проекта?
+                                Кой
+                                ни помага?</p>
+                        </header>
+
+                        <ul class="stripped team clearfix">
+                            <li class="clearfix">
+                                <img width="35px"
+                                     src="http://graph.facebook.com/kattodeva/picture?width=35&amp;height=35"
+                                     title="Екатерина Тодева">
+                                <strong class="name">Екатерина Тодева</strong>
+                                <strong class="position">Дизайн, идеи</strong>
+                            </li>
+                            <li class="clearfix">
+                                <img width="35px"
+                                     src="http://graph.facebook.com/kattodeva/picture?width=35&amp;height=35"
+                                     title="Екатерина Тодева">
+                                <strong class="name">Екатерина Тодева</strong>
+                                <strong class="position">Дизайн, идеи</strong>
+                            </li>
+                        </ul>
+                        <form class="join" action="{% url 'wip' %}">
+                            <label for="joinPosition" class="joinPosition">И аз искам да
+                                се включа с</label>
+                            <select name="position" id="joinPosition"
+                                    data-placeholder="дизайн, маркетинг,  ръководство..."
+                                    class="round basic-transition-2x" multiple>
+                                <option value="дизайн">дизайн</option>
+                                <option value="код">код</option>
+                                <option value="бизнес">бизнес план</option>
+                            </select>
+                            <input type="text" name="email" id="joinEmail"
+                                   class="round basic-transition-2x"
+                                   placeholder="email адрес (за връзка)"/>
+                            <button type="submit" class="button small green"><b>Брой
+                                ме</b>
+                            </button>
+                        </form>
+                        <div class="info work">
+                            <h3 class="heading">Работният процес протича чрез:</h3>
+                            <ul class="channels stripped">
+                                <li class="facebook">
+                                    <a href="#" class="basic-transition">
+                                        <i class="fi flaticon-facebook8 basic-transition"></i>
+                                        <h4>Facebook група за дискусия и ръководство</h4>
+
+                                        <p class="subtitle">
+                                            <span class="url">http://recycle.obshtestvo.bg/</span>
+                                        </p>
+                                    </a>
+                                </li>
+                                <li class="github">
+                                    <a href="#" class="basic-transition">
+                                        <i class="fi flaticon-social44 round basic-transition""></i>
+                                        <h4>Файлове на проекта запазени в GitHub
+                                            хранилище </h4>
+
+                                        <p class="subtitle">
+                                            <span class="url">http://recycle.obshtestvo.bg/</span>
+                                        </p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="info partners">
+                            <h3 class="heading">Съдействат ни:</h3>
+                            <ul class="partners stripped">
+                                <li class="">
+                                    <a href="#">
+                                        <img src="static/img/logos/codeforamerica.png"
+                                             alt="mySociety лого"
+                                             class="basic-transition"/>
+                                        <h4>GreenTech</h4>
+
+                                        <p class="subtitle">
+                                            Добавят местата за рециклиране
+                                        </p>
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a href="#">
+                                        <img src="static/img/logos/mysociety.png"
+                                             alt="mySociety лого"
+                                             class="basic-transition"/>
+                                        <h4>GreenTech</h4>
+
+                                        <p class="subtitle">
+                                            Добавят местата за рециклиране
+                                        </p>
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a href="#">
+                                        <img src="static/img/logos/codeforamerica.png"
+                                             alt="mySociety лого"
+                                             class="basic-transition"/>
+                                        <h4>GreenTech</h4>
+
+                                        <p class="subtitle">
+                                            Добавят местата за рециклиране
+                                        </p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <section id="why" class="main">
+                    <div class="bg-reset">
+                        <header>
+                            <h2 class="heading">Защо </h2>
+
+                            <p class="subtitle">Защо започнахме проекта? Каква е ползата
+                                от RE:CYCLE? Защо заслужава финансиране?</p>
+                        </header>
+                        <ul class="stripped reasons">
+                            <li><i class="fi flaticon-finger6 bullet"></i>
+
+                                <p>Повишава информираността за Правото на достъп до
+                                    информация</p>
+                            </li>
+                            <li><i class="fi flaticon-finger6 bullet"></i>
+
+                                <p>Улеснява гражданина като предлага целия процес под
+                                    формата на уеб приложение</p></li>
+                        </ul>
+                        <div class="alert financing">
+                            <i class="fi flaticon-warning18"></i>
+
+                            <p>Проектът RE:CYCLE е без никакво финансиране</p>
+                        </div>
+                        <a class="button standard green action" href="wip.html"><b>Подкрепи
+                            проекта</b></a>
+                    </div>
+                </section>
+                <section id="how" class="main">
+                    <div class="bg-reset">
+                        <header>
+                            <h2 class="heading">Как</h2>
+
+                            <p class="subtitle">Примерна употреба. Как се ползва
+                                RE:CYCLE? </p>
+                        </header>
+
+                        <ul class="stripped steps">
+                            <li><i class="fi flaticon-ripped bullet"></i>
+
+                                <p>Петър има насъбрани стари списания, вестници и изписани
+                                    тетрадки</p></li>
+                            <li><i class="fi flaticon-search4 bullet"></i>
+
+                                <p>Влиза в RE:CYCLE и търси "хартия" </p></li>
+                            <li><i class="fi flaticon-map25 bullet"></i>
+
+                                <p>Показват му се близките до него пунктове за рециклиране
+                                    на
+                                    хартия</p></li>
+                        </ul>
+                        <a class="button standard blue action" href="wip.html"><b>Виж
+                            прототипа</b></a>
+                    </div>
+                </section>
+            </article>
+        </div>
+    </div>
+
+    <footer>
+        <div class="sep"><i class="logo"></i></div>
+        <img class="logo-alternative" src="static/img/logo-alternative.png"
+             alt="Фондация Obshtestvo.bg"/>
+
+        <p>Независими създатели на електронни инструменти<br/>за информираност с функция:
+            <strong>удобна</strong>, <strong>приятна</strong>
+            и <strong>лесна</strong> връзка
+            <br/><span class="connection">държава <i
+                    class="fa fa-exchange"></i> гражданин</span>
+        </p>
+        <aside>
+            <ul class="quick-contacts stripped">
+                <li class="online">
+                    <h2 class="heading">По мрежата</h2>
+                    <ul class="stripped">
+                        <li><a href="https://github.com/obshtestvo">GitHub</a></li>
+                        <li>
+                            <a href="https://www.facebook.com/groups/obshtestvo/">Facebook</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="contact">
+                    <h2 class="heading">Контакти</h2>
+                    <ul class="stripped">
+                        <li>09889 640 57</li>
+                        <li><a href="mailto:info@obshtestvo.bg">info@obshtestvo.bg</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </aside>
+    </footer>
+{% endblock %}
