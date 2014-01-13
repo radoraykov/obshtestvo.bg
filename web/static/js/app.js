@@ -6,15 +6,40 @@ $(function () {
     initNav();
 
     var $sidebar = $('#sidebar')
+    var $footer = $('footer')
     if ($sidebar.length == 0) return;
     var elementPosition = $sidebar.offset();
 
+    var sidebarBottomFix = function (isResize) {
+        var scrollTop = $(window).scrollTop();
+        var abstop = $sidebar.outerHeight() + 92 + $footer.outerHeight();
+        var scrollPass = ($(document).height() - scrollTop) < abstop
+        var shouldFix = isResize || !$sidebar.hasClass('bottom-hit');
+        if (scrollPass && shouldFix) {
+            $sidebar.addClass('bottom-hit')
+            $sidebar.css({
+                position: 'absolute',
+                top: $footer.offset().top - $sidebar.outerHeight() + 'px'
+            })
+        } else if (!scrollPass) {
+            $sidebar.removeClass('bottom-hit')
+            $sidebar.css({
+                position: '',
+                top: ''
+            })
+        }
+    }
     $(window).scroll(function () {
-        if ($(window).scrollTop() > elementPosition.top - 92) {
+        var scrolledPass = $(window).scrollTop() > elementPosition.top - 92;
+        if (scrolledPass && !$sidebar.hasClass('fixed')) {
             $sidebar.addClass('fixed')
-        } else {
+        } else if (!scrolledPass && $sidebar.hasClass('fixed')) {
             $sidebar.removeClass('fixed')
         }
+        sidebarBottomFix(false);
+    });
+    $(window).resize(function () {
+        sidebarBottomFix(true);
     });
 });
 

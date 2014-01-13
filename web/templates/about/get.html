@@ -11,18 +11,22 @@
             <strong>Съдържание</strong>
             <ul class="stripped">
                 <li><a href="#">описание, концепция</a></li>
-                <li><a href="#">описание, концепция</a></li>
-                <li><a href="#">описание, концепция</a></li>
-                <li><a href="#">описание, концепция</a></li>
+                <li><a href="#">екип, включване, партньори (<em>кой</em>)</a></li>
+                <li><a href="#">мотиви, доводи за подкрепа (<em>защо</em>)</a></li>
+                <li><a href="#">примерна употреба (<em>как</em>)</a></li>
             </ul>
         </div>
     </div>
     <div class="head">
         <div class="menu-wrapper">
             <ul class="project-actions stripped">
-                <li class="support"><a href="{% url 'wip' %}" class="button standard blue"><b>Подкрепи проекта</b></a>
+                <li class="support"><a href="{% url 'wip' %}"
+                                       class="button standard blue"><b>Подкрепи
+                    проекта</b></a>
                 </li>
-                <li class="join"><a href="{% url 'wip' %}" class="button standard green"><b>Включи се</b></a></li>
+                <li class="join"><a href="{% url 'wip' %}"
+                                    class="button standard green"><b>Включи се</b></a>
+                </li>
                 <li class="see"><a href="{% url 'wip' %}" class="button">
                     <span class="label basic-transition">Виж прототипа</span>
                     http://recycle.obshtestvo.bg/
@@ -36,584 +40,184 @@
 
 
 <div class="half-layout">
-<div class="padder">
-<div class="txt">
-<section id="concept">
-    <p>Карта с пунктове, депа, места са хвърляне на батерии, скрап, и (ако има) други. Всеки посетител ще има
-        възможността да добави нов пункт. Вече има идеи за допълнителни функционалности в бъдещи версии.</p>
+    <div class="padder">
+        <article class="txt">
+            <section id="concept" class="main">
+                <div class="bg-reset">
+                    <p>Карта с пунктове, депа, места са хвърляне на батерии, скрап, и (ако
+                        има) други. Всеки посетител ще има
+                        възможността да добави нов пункт. Вече има идеи за допълнителни
+                        функционалности в бъдещи версии.</p>
 
-    <p>Вярваме, че много хора не харесват условията, в които живеят - разбити улици, липсващо или неработещо осветление,
-        занемарени зелени площи, нерегламентирани сметища …
-        информация и попълване на формуляри.</p>
+                    <p>Вярваме, че много хора не харесват условията, в които живеят -
+                        разбити
+                        улици, липсващо или неработещо осветление,
+                        занемарени зелени площи, нерегламентирани сметища …
+                        информация и попълване на формуляри.</p>
 
-    <p>Сигналите ще достигат отговорните държавни органи, но също така ще свързват заинтересованите, от решение на
-        проблема, граждани - тези споделящи блок, квартал, град или маршрут.</p>
+                    <p>Сигналите ще достигат отговорните държавни органи, но също така ще
+                        свързват заинтересованите, от решение на
+                        проблема, граждани - тези споделящи блок, квартал, град или
+                        маршрут.</p>
 
-    <p>Ще присъстват социални инструменти, които ще позволят на всеки да:</p>
-    <ul>
-        <li>Види проблемите на неговата улица, квартал</li>
-        <li>Да намери, съседи, които също искат да оправят тези проблеми</li>
-    </ul>
+                    <p>Ще присъстват социални инструменти, които ще позволят на всеки
+                        да:</p>
+                    <ul>
+                        <li>Види проблемите на неговата улица, квартал</li>
+                        <li>Да намери, съседи, които също искат да оправят тези проблеми
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section id="who" class="main">
+                <div class="bg-reset">
+                    <header>
+                        <h2 class="heading">Кой</h2>
 
+                        <p class="subtitle">Екипът зад RE:CYCLE. Кой разработва проекта?
+                            Кой
+                            ни помага?</p>
+                    </header>
 
-</section>
-<section id="who">
-    <h2 class="heading">Кой</h2>
+                    <ul class="stripped team clearfix">
+                        <li class="clearfix">
+                            <img width="35px"
+                                 src="http://graph.facebook.com/kattodeva/picture?width=35&amp;height=35"
+                                 title="Екатерина Тодева">
+                            <strong class="name">Екатерина Тодева</strong>
+                            <strong class="position">Дизайн, идеи</strong>
+                        </li>
+                        <li class="clearfix">
+                            <img width="35px"
+                                 src="http://graph.facebook.com/kattodeva/picture?width=35&amp;height=35"
+                                 title="Екатерина Тодева">
+                            <strong class="name">Екатерина Тодева</strong>
+                            <strong class="position">Дизайн, идеи</strong>
+                        </li>
+                    </ul>
+                    <form class="join" action="{% url 'wip' %}">
+                        <label for="joinPosition">И аз искам да се включа с</label>
+                        <select name="position" id="joinPosition">
+                            <option value="дизайн">дизайн</option>
+                        </select>
+                        <input type="text" name="email" id="joinEmail"
+                               placeholder="email адрес (за връзка)"/>
+                        <button type="submit" class="button small green"><b>Брой ме</b>
+                        </button>
+                    </form>
+                    <div class="info work">
+                        <h3 class="heading">Работни процес протича чрез:</h3>
+                        <ul class="channels stripped">
+                            <li class="facebook">
+                                <h4>Facebook група за дискусия и ръководство</h4>
 
-    <p class="subtitle">Екипът зад RE:CYCLE. Кой разработва проекта? Кой ни помага?</p>
-    <ul class="stripped">
-        <li>
-            <img width="35px" src="http://graph.facebook.com/kattodeva/picture?width=35&amp;height=35"
-                 title="Екатерина Тодева">
-            <strong class="name">Екатерина Тодева</strong>
-            <strong class="position">Дизайн, идеи</strong>
-        </li>
-        <li>
-            <img width="35px" src="http://graph.facebook.com/kattodeva/picture?width=35&amp;height=35"
-                 title="Екатерина Тодева">
-            <strong class="name">Екатерина Тодева</strong>
-            <strong class="position">Дизайн, идеи</strong>
-        </li>
-    </ul>
-    <form class="join" action="{% url 'wip' %}">
-        <label for="joinPosition">И аз искам да се включа с</label>
-        <select name="position" id="joinPosition">
-            <option value="дизайн">дизайн</option>
-        </select>
-        <input type="text" name="email" id="joinEmail"/>
-        <input type="submit" value="Брой ме"/>
-    </form>
-    <div class="info work">
-        <h3 class="heading">Работни процес протича чрез:</h3>
-        <ul class="channels stripped">
-            <li class="facebook">
-                <h4>Facebook група за дискусия и ръководство</h4>
+                                <p class="subtitle">
+                                    <a href="http://recycle.obshtestvo.bg/">http://recycle.obshtestvo.bg/</a>
+                                </p>
+                            </li>
+                            <li class="github">
+                                <h4>Файлове на проекта запазени в GitHub хранилище </h4>
 
-                <p class="subtitle">
-                    <a href="http://recycle.obshtestvo.bg/">http://recycle.obshtestvo.bg/</a>
-                </p>
-            </li>
-            <li class="github">
-                <h4>Файлове на проекта запазени в GitHub хранилище </h4>
+                                <p class="subtitle">
+                                    <a href="http://recycle.obshtestvo.bg/">http://recycle.obshtestvo.bg/</a>
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="info partners">
+                        <h3 class="heading">Съдействат ни:</h3>
+                        <ul class="partners stripped">
+                            <li class="facebook">
+                                <img src="static/img/logos/mysociety.png"
+                                     alt="mySociety лого"
+                                     class="basic-transition"/>
+                                <h4>GreenTech</h4>
 
-                <p class="subtitle">
-                    <a href="http://recycle.obshtestvo.bg/">http://recycle.obshtestvo.bg/</a>
-                </p>
-            </li>
-        </ul>
+                                <p class="subtitle">
+                                    <a href="http://recycle.obshtestvo.bg/">http://recycle.obshtestvo.bg/</a>
+                                </p>
+                            </li>
+                            <li class="github">
+                                <h4>Файлове на проекта запазени в GitHub хранилище </h4>
+
+                                <p class="subtitle">
+                                    Добавят местата за рециклиране
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section id="why" class="main">
+                <div class="bg-reset">
+                    <header>
+                        <h2 class="heading">Защо </h2>
+
+                        <p class="subtitle">Защо започнахме проекта? Каква е ползата от
+                            RE:CYCLE?
+                            Защо заслужава финансиране?</p>
+                    </header>
+                    <ul class="stripped reasons">
+                        <li><i class="fi flaticon-finger6 bullet"></i>
+
+                            <p>Повишава информираността за Правото на достъп до
+                                информация</p>
+                        </li>
+                        <li><i class="fi flaticon-finger6 bullet"></i>
+
+                            <p>Улеснява гражданина като предлага целия процес под формата
+                                на
+                                уеб приложение</p></li>
+                    </ul>
+                    <div class="alert financing">
+                        <i class="fi flaticon-ripped"></i>
+
+                        <p>Проектът RE:CYCLE е без никакво финансиране</p>
+                    </div>
+                    <a class="button standard green" href="wip.html"><b>Подкрепи
+                        проекта</b></a>
+                </div>
+            </section>
+            <section id="how" class="main">
+                <div class="bg-reset">
+                    <header>
+                        <h2 class="heading">Как</h2>
+
+                        <p class="subtitle">Примерна употреба. Как се ползва
+                            RE:CYCLE? </p>
+                    </header>
+
+                    <ul class="stripped steps">
+                        <li><i class="fi flaticon-ripped bullet"></i>
+
+                            <p>Петър има насъбрани стари списания, вестници и изписани
+                                тетрадки</p></li>
+                        <li><i class="fi flaticon-search4 bullet"></i>
+
+                            <p>Влиза в RE:CYCLE и търси "хартия" </p></li>
+                        <li><i class="fi flaticon-map25 bullet"></i>
+
+                            <p>Показват му се близките до него пунктове за рециклиране на
+                                хартия</p></li>
+                    </ul>
+                    <a class="button standard blue" href="wip.html"><b>Виж
+                        прототипа</b></a>
+                </div>
+            </section>
+        </article>
     </div>
-    <div class="info partners">
-        <h3 class="heading">Съдействат ни:</h3>
-        <ul class="partners stripped">
-            <li class="facebook">
-                <img src="static/img/logos/mysociety.png"
-                     alt="mySociety лого"
-                     class="basic-transition"/>
-                <h4>GreenTech</h4>
-
-                <p class="subtitle">
-                    <a href="http://recycle.obshtestvo.bg/">http://recycle.obshtestvo.bg/</a>
-                </p>
-            </li>
-            <li class="github">
-                <h4>Файлове на проекта запазени в GitHub хранилище </h4>
-
-                <p class="subtitle">
-                    Добавят местата за рециклиране
-                </p>
-            </li>
-        </ul>
-    </div>
-</section>
-<section id="projects" class="slice">
-<h2 class="section-heading">Проекти</h2>
-
-<div class="slider-nav clearfix">
-    <span class="nav prev"><i class="fa fa-arrow-left"></i><span class="text hidden">Виж предишния проект</span></span>
-                <span class="indicator">
-                    <img src="static/img/home-slider-indicator-bg.png" alt="" class="scope"/>
-                    <span class="light center"></span>
-                </span>
-    <span class="nav next active"><i class="fa fa-arrow-right"></i><span class="text hidden">Виж следващия проект</span></span>
-</div>
-<div class="slider">
-<article class="item clearfix">
-    <header>
-        <h3 class="heading section-heading-secondary"><a href="{% url 'wip' %}">Open Parliament</a></h3>
-
-        <p>Профили и мониторинг на активността в парламента</p>
-    </header>
-    <section class="how">
-        <h4 class="heading">
-            Как
-        </h4>
-        <ul class="stripped">
-            <li><i class="fa fa-list-alt bullet"></i>
-
-                <p>Петър влиза в openparliament.bg</p></li>
-            <li><i class="fa fa-dot-circle-o bullet"></i>
-
-                <p>Разглежда статистики и анализа на активността в парламента</p></li>
-            <li><i class="fa fa-hand-o-up bullet"></i>
-
-                <p>Клика на "Къде е властта"</p></li>
-            <li class="action"><i class="eclipse bullet">...</i>
-
-                <p><a class="more continue" href="{% url 'wip' %}">още <i class="fa fa-chevron-right"></i></a></p></li>
-        </ul>
-    </section>
-    <section class="why">
-        <h4 class="heading">
-            Защо
-        </h4>
-        <ul class="stripped">
-            <li><i class="fa fa-hand-o-right bullet"></i>
-
-                <p>Повишава информираността за хората и действията в парламента</p></li>
-            <li><i class="fa fa-hand-o-right bullet"></i>
-
-                <p>Улеснява достъпа и анализата на обществена информация за парламента</p></li>
-            <li class="action"><i class="eclipse bullet">...</i>
-
-                <p><a class="more continue" href="{% url 'wip' %}">още <i class="fa fa-chevron-right"></i></a></p></li>
-        </ul>
-    </section>
-    <section class="who">
-        <h4 class="heading">
-            Кой
-        </h4>
-        <ul class="stripped clearfix">
-            <li><img width="35px" src="http://graph.facebook.com/kattodeva/picture?width=35&amp;height=35"
-                     title="Екатерина Тодева"></li>
-            <li><img width="35px" src="http://graph.facebook.com/vbachev/picture?width=35&amp;height=35"
-                     title="Васил Бачев"></li>
-            <li><img width="35px" src="http://graph.facebook.com/stanshaochow/picture?width=35&amp;height=35"
-                     title="Станимир Савов"></li>
-            <li><img width="35px" src="http://graph.facebook.com/anton.stoychev.12/picture?width=35&amp;height=35"
-                     title="Антон Стойчев"></li>
-            <li class="action"><a href="{% url 'wip' %}">Включи се</a></li>
-        </ul>
-    </section>
-</article>
-<article class="item clearfix">
-    <header>
-        <h3 class="heading section-heading-secondary"><a href="{% url 'wip' %}">Pitaigi.bg</a></h3>
-
-        <p>Портал за изпращане и публикуване на заявления за достъп до публична информация.</p>
-    </header>
-    <section class="how">
-        <h4 class="heading">
-            Как
-        </h4>
-        <ul class="stripped">
-            <li><i class="fa fa-list-alt bullet"></i>
-
-                <p>Петър влиза в pitaigi.bg</p></li>
-            <li><i class="fa fa-dot-circle-o bullet"></i>
-
-                <p>Избира държавен орган, който иска да получи информация</p></li>
-            <li><i class="fa fa-hand-o-up bullet"></i>
-
-                <p>Клика на "Подай заявление"</p></li>
-            <li class="action"><i class="eclipse bullet">...</i>
-
-                <p><a class="more continue" href="{% url 'wip' %}">още <i class="fa fa-chevron-right"></i></a></p></li>
-        </ul>
-    </section>
-    <section class="why">
-        <h4 class="heading">
-            Защо
-        </h4>
-        <ul class="stripped">
-            <li><i class="fa fa-hand-o-right bullet"></i>
-
-                <p>Повишава информираността за Правото на достъп до информация</p></li>
-            <li><i class="fa fa-hand-o-right bullet"></i>
-
-                <p>Улеснява гражданина като предлага целия процес под формата на уеб приложение</p></li>
-            <li class="action"><i class="eclipse bullet">...</i>
-
-                <p><a class="more continue" href="{% url 'wip' %}">още <i class="fa fa-chevron-right"></i></a></p></li>
-        </ul>
-    </section>
-    <section class="who">
-        <h4 class="heading">
-            Кой
-        </h4>
-        <ul class="stripped clearfix">
-            <li><img width="35px" src="http://graph.facebook.com/elitsa.mateva/picture?width=35&amp;height=35"
-                     title="Елица Матеева"></li>
-            <li><img width="35px" src="http://graph.facebook.com/100006137442736/picture?width=35&amp;height=35"
-                     title="Валентин Ласков"></li>
-            <li><img width="35px" src="http://graph.facebook.com/s2gatev/picture?width=35&amp;height=35"
-                     title="Станислав Гатев"></li>
-            <li><img width="35px" src="http://graph.facebook.com/mitio/picture?width=35&amp;height=35"
-                     title="Димитър Димитров"></li>
-            <li class="break"><img width="35px"
-                                   src="http://graph.facebook.com/anton.stoychev.12/picture?width=35&amp;height=35"
-                                   title="Антон Стойчев"></li>
-            <li class="action"><a href="{% url 'wip' %}">Включи се</a></li>
-        </ul>
-    </section>
-</article>
-<article class="item clearfix">
-    <header>
-        <h3 class="heading section-heading-secondary"><a href="{% url 'wip' %}">Grada.me</a></h3>
-
-        <p>Платформа за разрешаването на проблемите от градската среда.</p>
-    </header>
-    <section class="how">
-        <h4 class="heading">
-            Как
-        </h4>
-        <ul class="stripped">
-            <li><i class="fa fa-eye  bullet"></i>
-
-                <p>Петър се прибира след работа и забелязва опасна сграда</p></li>
-            <li><i class="fa fa-caret-square-o-right bullet"></i>
-
-                <p>Пуска приложението Grada.me през телефона си</p></li>
-            <li><i class="fa fa-camera bullet"></i>
-
-                <p>Прави снимка на сградата</p></li>
-            <li class="action"><i class="eclipse bullet">...</i>
-
-                <p><a class="more continue" href="{% url 'wip' %}">още <i class="fa fa-chevron-right"></i></a></p></li>
-        </ul>
-    </section>
-    <section class="why">
-        <h4 class="heading">
-            Защо
-        </h4>
-        <ul class="stripped">
-            <li><i class="fa fa-hand-o-right bullet"></i>
-
-                <p>Мотивира и улеснява участието на гражданите в благоустройството на града им </p></li>
-            <li><i class="fa fa-hand-o-right bullet"></i>
-
-                <p>Спомага за съществуването на един по-изправен град</p></li>
-            <li class="action"><i class="eclipse bullet">...</i>
-
-                <p><a class="more continue" href="{% url 'wip' %}">още <i class="fa fa-chevron-right"></i></a></p></li>
-        </ul>
-    </section>
-    <section class="who">
-        <h4 class="heading">
-            Кой
-        </h4>
-        <ul class="stripped clearfix">
-            <li><img width="35px" src="http://graph.facebook.com/nikolai.aleksandrenko/picture?width=35&amp;height=35"
-                     title="Николай Александренко"></li>
-            <li><img width="35px" src="http://graph.facebook.com/grgkostadinov/picture?width=35&amp;height=35"
-                     title="Георги Костадинов"></li>
-            <li><img width="35px" src="http://graph.facebook.com/ivanvpenchev/picture?width=35&amp;height=35"
-                     title="Иван Пенчев"></li>
-            <li><img width="35px" src="http://graph.facebook.com/achebg/picture?width=35&amp;height=35"
-                     title="Ангел Георгиев"></li>
-            <li><img width="35px" src="http://graph.facebook.com/dimitar.danailov/picture?width=35&amp;height=35"
-                     title="Димитър Данаилов"></li>
-            <li class="break"><img width="35px"
-                                   src="http://graph.facebook.com/alex.milanov/picture?width=35&amp;height=35"
-                                   title="Алекс Миланов"></li>
-            <li><img width="35px" src="http://graph.facebook.com/anton.stoychev.12/picture?width=35&amp;height=35"
-                     title="Антон Стойчев"></li>
-            <li class="action"><a href="{% url 'wip' %}">Включи се</a></li>
-        </ul>
-    </section>
-</article>
-<article class="item clearfix">
-    <header>
-        <h3 class="heading section-heading-secondary"><a href="{% url 'wip' %}">RE:CYCLE</a></h3>
-
-        <p>Карта и търсачака с пунктове, депа, места за хвърляне на батерии, скрап, и други.</p>
-    </header>
-    <section class="how">
-        <h4 class="heading">
-            Как
-        </h4>
-        <ul class="stripped">
-            <li><i class="fa fa-trash-o bullet"></i>
-
-                <p>Петър има насъбрани стари списания, вестници и изписани тетрадки</p></li>
-            <li><i class="fa fa-search bullet"></i>
-
-                <p>Влиза в RE:CYCLE и търси "хартия" </p></li>
-            <li><i class="fa fa-map-marker bullet"></i>
-
-                <p>Показват му се близките до него пунктове за рециклиране на хартия</p></li>
-            <li class="action"><i class="eclipse bullet">...</i>
-
-                <p><a class="more continue" href="{% url 'wip' %}">още <i class="fa fa-chevron-right"></i></a></p></li>
-        </ul>
-    </section>
-    <section class="why">
-        <h4 class="heading">
-            Защо
-        </h4>
-        <ul class="stripped">
-            <li><i class="fa fa-hand-o-right bullet"></i>
-
-                <p>Дава възможност да се намери място за гарантирано рециклиране, за разлика от кофите</p></li>
-            <li><i class="fa fa-hand-o-right bullet"></i>
-
-                <p>Увеличаване на рециклираните материали</p></li>
-            <li class="action"><i class="eclipse bullet">...</i>
-
-                <p><a class="more continue" href="{% url 'wip' %}">още <i class="fa fa-chevron-right"></i></a></p></li>
-        </ul>
-    </section>
-    <section class="who">
-        <h4 class="heading">
-            Кой
-        </h4>
-        <ul class="stripped clearfix">
-            <li><img width="35px" src="http://graph.facebook.com/dimitar.raykov/picture?width=35&amp;height=35"
-                     title="Димитър Райков"></li>
-            <li><img width="35px" src="http://graph.facebook.com/krisgosp/picture?width=35&amp;height=35"
-                     title="Кристиян Господинов"></li>
-            <li><img width="35px" src="http://graph.facebook.com/anton.stoychev.12/picture?width=35&amp;height=35"
-                     title="Антон Стойчев"></li>
-            <li class="action"><a href="{% url 'wip' %}">Включи се</a></li>
-        </ul>
-    </section>
-</article>
-<article class="item clearfix">
-    <header>
-        <h3 class="heading section-heading-secondary"><a href="{% url 'wip' %}">Опознай депутата</a></h3>
-
-        <p>Игра, в която трябва да се познае от коя партия е всеки депутат.</p>
-    </header>
-    <section class="how">
-        <h4 class="heading">
-            Как
-        </h4>
-        <ul class="stripped">
-            <li><i class="fa fa-list-alt bullet"></i>
-
-                <p>Петър влиза в сайта и започва нова игра</p></li>
-            <li><i class="fa fa-user bullet"></i>
-
-                <p>Показва му се снимка и име на народен представител</p></li>
-            <li><i class="fa fa-dot-circle-o bullet"></i>
-
-                <p>Петър избира партия за показания депутат</p></li>
-            <li class="action"><i class="eclipse bullet">...</i>
-
-                <p><a class="more continue" href="{% url 'wip' %}">още <i class="fa fa-chevron-right"></i></a></p></li>
-        </ul>
-    </section>
-    <section class="why">
-        <h4 class="heading">
-            Защо
-        </h4>
-        <ul class="stripped">
-            <li><i class="fa fa-hand-o-right bullet"></i>
-
-                <p>Замисля гражданите за своите познания над важни теми</p></li>
-            <li><i class="fa fa-hand-o-right bullet"></i>
-
-                <p>Повишава информираността за народните представители</p></li>
-            <li class="action"><i class="eclipse bullet">...</i>
-
-                <p><a class="more continue" href="{% url 'wip' %}">още <i class="fa fa-chevron-right"></i></a></p></li>
-        </ul>
-    </section>
-    <section class="who">
-        <h4 class="heading">
-            Кой
-        </h4>
-        <ul class="stripped clearfix">
-            <li><img width="35px" src="http://graph.facebook.com/mitio/picture?width=35&amp;height=35"
-                     title="Димитър Димитров"></li>
-            <li><img width="35px" src="http://graph.facebook.com/hambai/picture?width=35&amp;height=35"
-                     title="Камен Станев"></li>
-            <li><img width="35px" src="http://graph.facebook.com/petyaraykovska/picture?width=35&amp;height=35"
-                     title="Петя Райковска"></li>
-            <li><img width="35px" src="http://graph.facebook.com/angel.velikov.370/picture?width=35&amp;height=35"
-                     title="Ангел Великов"></li>
-            <li class="action"><a href="{% url 'wip' %}">Включи се</a></li>
-        </ul>
-    </section>
-</article>
-<article class="item clearfix">
-    <header>
-        <h3 class="heading section-heading-secondary"><a href="{% url 'wip' %}">Howto.bg</a></h3>
-
-        <p>Официален сайт на гражданина с Въпроси &amp; Отговори по често задавани теми</p>
-    </header>
-    <section class="how">
-        <h4 class="heading">
-            Как
-        </h4>
-        <ul class="stripped">
-            <li><i class="fa fa-list-alt bullet"></i>
-
-                <p>Петър влиза в howto.bg</p></li>
-            <li><i class="fa fa-search bullet"></i>
-
-                <p>Търси информация по тема, която го интересува</p></li>
-            <li><i class="fa fa-thumbs-o-up bullet"></i>
-
-                <p>Избира въпрос от резултатите и гласува за един от отговорите</p></li>
-            <li class="action"><i class="eclipse bullet">...</i>
-
-                <p><a class="more continue" href="{% url 'wip' %}">още <i class="fa fa-chevron-right"></i></a></p></li>
-        </ul>
-    </section>
-    <section class="why">
-        <h4 class="heading">
-            Защо
-        </h4>
-        <ul class="stripped">
-            <li><i class="fa fa-hand-o-right bullet"></i>
-
-                <p>Дава възможността за централно "информационно бюро" с оценка над предлаганата информация</p></li>
-            <li><i class="fa fa-hand-o-right bullet"></i>
-
-                <p>Улеснява ежедневието на българските жители</p></li>
-            <li class="action"><i class="eclipse bullet">...</i>
-
-                <p><a class="more continue" href="{% url 'wip' %}">още <i class="fa fa-chevron-right"></i></a></p></li>
-        </ul>
-    </section>
-    <section class="who">
-        <h4 class="heading">
-            Кой
-        </h4>
-        <ul class="stripped clearfix">
-            <li><img width="35px" src="http://graph.facebook.com/nikolai.aleksandrenko/picture?width=35&amp;height=35"
-                     title="Николай Александренко"></li>
-            <li><img width="35px" src="http://graph.facebook.com/anton.stoychev.12/picture?width=35&amp;height=35"
-                     title="Антон Стойчев"></li>
-            <li class="action"><a href="{% url 'wip' %}">Включи се</a></li>
-    </section>
-</article>
-</div>
-</section>
-</div>
-
-
-<section id="forces" class="slice">
-    <div class="layout">
-        <h2 class="divider section-heading"><i class="fa fa-exchange"></i> По проектите желаем да работим заедно с </h2>
-    </div>
-    <ul class="stripped">
-        <li class="odd clearfix rows2x2 force">
-            <div class="layout">
-                <h3 class="heading">Държавната<br/>Администрация</h3>
-
-                <p>Да подсилим опитите за приветливи публични услуги</p>
-                <ul class="stripped">
-                    <li class="more"><a href="{% url 'wip' %}">Как можем да помогнем</a></li>
-                    <li class="contact"><a href="{% url 'wip' %}">Директна връзка <i
-                            class="fa fa-chevron-right"></i></a></li>
-                </ul>
-            </div>
-        </li>
-        <li class="even clearfix rows1x3 force">
-            <div class="layout">
-                <h3 class="heading">Корпорации</h3>
-
-                <p>Да отпуснем служителите с нашите мотивационни лагери и своевременно<br/> това да бъде CSR</p>
-                <ul class="stripped">
-                    <li class="more"><a href="{% url 'wip' %}">Какво предлагаме</a></li>
-                    <li class="contact"><a href="{% url 'wip' %}">Директна връзка <i
-                            class="fa fa-chevron-right"></i></a></li>
-                </ul>
-            </div>
-        </li>
-        <li class="odd clearfix rows1x3 force">
-            <div class="layout">
-                <h3 class="heading">Донори</h3>
-
-                <p>Да поддържаме каузата жива чрез<br/> подпомагане от корпорации, фондове<br/> или crowdfunding</p>
-                <ul class="stripped">
-                    <li class="more"><a href="{% url 'wip' %}">Защо заслужаваме</a></li>
-                    <li class="contact"><a href="{% url 'wip' %}">Директна връзка <i
-                            class="fa fa-chevron-right"></i></a></li>
-                </ul>
-            </div>
-        </li>
-        <li class="even clearfix rows2x2 force">
-            <div class="layout">
-                <h3 class="heading">Партниращи<br/>организации</h3>
-
-                <p>Да правим проектите по-силни и<br/> обменяме опит</p>
-                <ul class="stripped">
-                    <li class="more"><a href="{% url 'wip' %}">Какъв е процеса</a></li>
-                    <li class="contact"><a href="{% url 'wip' %}">Директна връзка <i
-                            class="fa fa-chevron-right"></i></a></li>
-                </ul>
-            </div>
-        </li>
-    </ul>
-</section>
-
-<div class="layout">
-    <section id="civic-hacking-product" class="slice clearfix">
-        <h2 class="divider section-heading"><i class="fa fa-flag"></i>С които да градим</h2>
-        <header>
-            <h3 class="section-heading-secondary">Макет на България от бъдещето</h3>
-        </header>
-        <div class="map">
-            <div class="text-overlay">
-                <p>На една по-добре комуникираща държава.</p>
-
-                <p>Чрез работата ни желаем да покажем на хората в България какво е възможно с нови технологии, какво е
-                    възможно едно правителство да бъде и да работи, как изкуство и технологии могат да направят от
-                    бюрократични процедури – приятно изживяване.</p>
-            </div>
-        </div>
-        <i class="fa fa-rss fa-rotate-45"></i>
-        <iframe src="http://status.obshtestvo.bg/latest.html" frameborder="0" class="blog"></iframe>
-    </section>
-</div>
-
-
-<div class="layout">
-    <section id="related-organisations" class="slice">
-        <h2 class="divider section-heading"><i class="fa fa-globe"></i>Идеята не е радикална</h2>
-
-        <p class="subtitle">По света има успешни аналози на това което правим. Всеки един действащ локално.</p>
-        <ul class="stripped clearfix">
-            <li>
-                <a href="http://codeforamerica.org/"><img src="static/img/logos/codeforamerica.png"
-                                                          alt="Code For America лого"/></a>
-
-                <p>САЩ</p>
-            </li>
-            <li>
-                <a href="http://sunlightfoundation.com/"><img src="static/img/logos/sunlight-foundatioin.png"
-                                                              alt="Sunlight foundation лого"/></a>
-
-                <p>САЩ</p>
-            </li>
-            <li>
-                <a href="http://www.mysociety.org/"><img src="static/img/logos/mysociety.png" alt="mySociety лого"/></a>
-
-                <p>Великобритания</p>
-            </li>
-            <li>
-                <a href="http://wearewhatwedo.org/"><img src="static/img/logos/wearewhatwedo.png"
-                                                         alt="WeAreWhatWeDo лого"/></a>
-
-                <p>Великобритания</p>
-            </li>
-        </ul>
-        <a class="more continue" href="{% url 'wip' %}"><i class="eclipse">...</i> още <i
-                class="fa fa-chevron-right"></i></a>
-    </section>
-</div>
-</div>
 </div>
 
 <footer>
     <div class="sep"><i class="logo"></i></div>
-    <img class="logo-alternative" src="static/img/logo-alternative.png" alt="Фондация Obshtestvo.bg"/>
+    <img class="logo-alternative" src="static/img/logo-alternative.png"
+         alt="Фондация Obshtestvo.bg"/>
 
-    <p>Независими създатели на електронни инструменти<br/>за информираност с функция: <strong>удобна</strong>, <strong>приятна</strong>
+    <p>Независими създатели на електронни инструменти<br/>за информираност с функция:
+        <strong>удобна</strong>, <strong>приятна</strong>
         и <strong>лесна</strong> връзка
-        <br/><span class="connection">държава <i class="fa fa-exchange"></i> гражданин</span>
+        <br/><span class="connection">държава <i
+                class="fa fa-exchange"></i> гражданин</span>
     </p>
     <aside>
         <ul class="quick-contacts stripped">
@@ -621,7 +225,8 @@
                 <h2 class="heading">По мрежата</h2>
                 <ul class="stripped">
                     <li><a href="https://github.com/obshtestvo">GitHub</a></li>
-                    <li><a href="https://www.facebook.com/groups/obshtestvo/">Facebook</a></li>
+                    <li><a href="https://www.facebook.com/groups/obshtestvo/">Facebook</a>
+                    </li>
                 </ul>
             </li>
             <li class="contact">
