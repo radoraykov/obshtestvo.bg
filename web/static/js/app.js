@@ -50,9 +50,6 @@ $(function () {
     var $toc = $sidebar.find('.toc')
     var $headclone = $('.head').clone().addClass('hidden waiting').addClass('basic-transition-2x')
     $headclone.appendTo($sidebar.find('.nav'))
-    setTimeout(function () {
-    }, 2000)
-
 
     $('.half-layout').waypoint(function (dir) {
         if (dir == 'down') {
@@ -73,7 +70,20 @@ $(function () {
             $headclone.addClass('waiting')
             hideAfterTransition($headclone)
         }
-    })
+    }, {offset: -150})
+
+    var $step2 = $sidebar.find('.step2')
+    if ($step2.length == 0) return;
+    $('.half-layout').waypoint(function (dir) {
+        if (dir == 'down') {
+            $step2.unbind('.fix')
+            showAnimated($step2)
+        } else {
+            $step2.unbind('.fix')
+            $step2.addClass('waiting')
+            hideAfterTransition($step2)
+        }
+    }, {offset: -400})
 });
 
 var afterTransition = function ($el, callback) {

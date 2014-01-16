@@ -1736,6 +1736,92 @@ nav.main .sub.waiting li {
     max-width: 710px;
 }
 
+.inner.about .masthead #sidebar .screen img.logo {
+    width: 80%;
+    max-width: 293px;
+}
+
+.inner.about .masthead #sidebar .screen {
+    position: relative;
+}
+
+.inner.about .masthead #sidebar .screen .step.waiting {
+    opacity: 0;
+}
+
+.inner.about .masthead #sidebar .screen .step2 {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.inner.about .masthead #sidebar .screen .overlay {
+    position: absolute;
+    font-size: 17px;
+    line-height: 1.2em;
+}
+
+.inner.about .masthead #sidebar .screen .step1 .overlay {
+    background: rgba(16, 142, 186, 0.82);
+    text-align: center;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding-top: 18.37%;
+}
+
+.inner.about .masthead #sidebar .screen .step2 .overlay {
+    top: 0;
+    bottom: 0;
+    right: 0;
+    text-align: left;
+    max-width: 390px;
+    width: 55%;
+}
+
+.inner.about .masthead #sidebar .screen .step1 strong.name {
+    display: block;
+    font-weight: normal;
+    padding-top: 2.69%;
+    padding-bottom: 1.84%;
+}
+
+.inner.about .masthead #sidebar .screen .step1 li {
+    width: 200px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.inner.about .masthead #sidebar .screen .step1 li em {
+    width: 50px;
+    float: left;
+    padding-right: 4px;
+    color: #d1f2fc;
+    text-align: right;
+    font-style: normal;
+}
+
+.inner.about .masthead #sidebar .screen .step2 strong.title {
+    display: block;
+    line-height: 33px;
+    letter-spacing: -0.05em;
+    font-size: 36px;
+    font-weight: bold;
+    margin-top: 41%
+}
+
+.inner.about .masthead #sidebar .screen .step2 p {
+    line-height: 20.45px;
+    font-size: 20.45px;
+    max-resolution: 302px;
+    margin-top: 3%;
+    max-width: 302px;
+    color: #1b3640;
+}
+
 .inner .masthead #sidebar .nav {
     position: relative;
     clear: both;
