@@ -557,6 +557,10 @@ header.masthead .project-actions li.see .button:after {
     color: #377086;
 }
 
+header.masthead #sidebar .project-actions li.see .button:after {
+    color: #E3E9EB;
+}
+
 header.masthead .project-actions li.see .button:hover:after {
     opacity: 1;
     right: -58px;
@@ -578,11 +582,21 @@ header.masthead .project-actions li.see .button:hover {
     color: #fff;
 }
 
+header.masthead #sidebar .project-actions li.see .button:focus,
+header.masthead #sidebar .project-actions li.see .button:hover {
+    color: #6FCCEE;
+}
+
 header.masthead .project-actions li.see .button:active:after {
     color: #2296c1;
     right: -60px;
 }
 
+header.masthead #sidebar .project-actions li.see .button:active:after {
+    color: #6FCCEE;
+}
+
+header.masthead #sidebar .project-actions li.see .button:active,
 header.masthead .project-actions li.see .button:active {
     color: #2296c1;
     left: 3px;
@@ -1722,6 +1736,11 @@ nav.main .sub.waiting li {
     max-width: 710px;
 }
 
+.inner .masthead #sidebar .nav {
+    position: relative;
+    clear: both;
+}
+
 .inner .masthead #sidebar .toc {
     clear: both;
     float: right;
@@ -1732,6 +1751,11 @@ nav.main .sub.waiting li {
     margin-left: 3.6%;
     margin-top: 24px;
     background: #fff;
+    opacity: 1;
+}
+
+.inner .masthead #sidebar .toc.waiting {
+    opacity: 0;
 }
 
 .inner .masthead #sidebar .toc strong {
@@ -1810,6 +1834,25 @@ nav.main .sub.waiting li {
     max-width: 710px;
 }
 
+.inner .masthead #sidebar .head {
+    position: absolute;
+    width: 100%;
+    right: 0;
+    margin-top: 13px;
+    max-width: 530px;
+    opacity: 1;
+    margin-left: 0;
+    float: right;
+}
+
+.inner .masthead #sidebar .head.waiting {
+    opacity: 0;
+}
+
+.inner .masthead #sidebar .head.static {
+    position: static;
+}
+
 .inner .masthead .head .menu-wrapper {
     margin-right: 4.22%;
     margin-left: 4.22%;
@@ -1831,6 +1874,11 @@ nav.main .sub.waiting li {
     padding-bottom: 25px;
     padding-top: 11px;
     font-size: 64px;
+}
+
+.inner .masthead #sidebar .head h1.wide {
+    font-size: 39px;
+    padding-top: 2px;
 }
 
 .inner .toc strong {
@@ -2176,6 +2224,10 @@ nav.main .sub.waiting li {
     line-height: 14px;
 }
 
+.select2-container-multi .select2-choices .select2-search-field input.select2-default {
+    font-style: italic;
+}
+
 .select2-results {
     margin: 0;
     font-size: 14px;
@@ -2202,12 +2254,6 @@ nav.main .sub.waiting li {
     font-style: italic;
     font-size: 14px;
     color: #a4a3a3;
-}
-
-.select2-container-multi .select2-choices .select2-search-field input.select2-default {
-    font-style: italic;
-    height: 15px;
-    font-size: 14px;
 }
 
 .select2-container-multi .select2-search-choice-close,

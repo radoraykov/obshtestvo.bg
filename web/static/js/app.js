@@ -46,6 +46,34 @@ $(function () {
         'containerCssClass': 'joinPosition select2'
     })
 
+
+    var $toc = $sidebar.find('.toc')
+    var $headclone = $('.head').clone().addClass('hidden waiting').addClass('basic-transition-2x')
+    $headclone.appendTo($sidebar.find('.nav'))
+    setTimeout(function () {
+    }, 2000)
+
+
+    $('.half-layout').waypoint(function (dir) {
+        if (dir == 'down') {
+            $headclone.unbind('.fix')
+            $toc.unbind('.fix')
+            showAnimated($headclone, function () {
+                afterTransition($headclone, function () {
+                    $headclone.addClass('static')
+                })
+            })
+            $toc.addClass('waiting')
+            hideAfterTransition($toc)
+        } else {
+            $headclone.unbind('.fix')
+            $headclone.removeClass('static')
+            $toc.unbind('.fix')
+            showAnimated($toc)
+            $headclone.addClass('waiting')
+            hideAfterTransition($headclone)
+        }
+    })
 });
 
 var afterTransition = function ($el, callback) {
@@ -183,6 +211,7 @@ function initNav() {
             $lightBackground.addClass('hidden');
         }
     }, { offset: 100})
+
 }
 
 
@@ -343,7 +372,6 @@ function initHome() {
 
     var showFixedSliderNav = function () {
         $fixedSliderNav.unbind('.fix')
-        $fixedSliderNav.removeClass('hidden')
         showAnimated($fixedSliderNav);
     }
     var hideFixedSliderNav = function () {

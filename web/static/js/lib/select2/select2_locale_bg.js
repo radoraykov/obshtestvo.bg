@@ -8,8 +8,8 @@
 
     $.extend($.fn.select2.defaults, {
         formatNoMatches: function (e) {
-            console.log(e, this);
-            return "Хм, пробвай с нещо друго";
+            var hasMore = this.element.find(':not(option:selected)').length > 0
+            return hasMore ? "Хм, пробвай с нещо друго" : "Това е, ще помагаш със всичко!";
         },
         formatInputTooShort: function (input, min) {
             var n = min - input.length;
