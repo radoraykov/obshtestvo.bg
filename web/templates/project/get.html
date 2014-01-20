@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% load staticfiles %}
+{% block headTag %}
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'css/lib/select2/select2.css' %}">
+{% endblock %}
+{% block footerTag %}
+    <script src="{% static 'js/lib/select2/select2.min.js' %}"></script>
+    <script src="{% static 'js/lib/select2/select2_locale_bg.js' %}"></script>
+    <script src="{% static 'js/lib/jquery.validate.js' %}"></script>
+    <script src="{% static 'js/lib/jquery.blockUI.js' %}"></script>
+    <script src="{% static 'js/lib/jquery.animateContentSwitch.js' %}"></script>
+    <script src="{% static 'js/lib/md5.js' %}"></script>
+    <script src="{% static 'js/lib/spin.js' %}"></script>
+{% endblock %}
+{% block content %}
+    {% include '_header_inner.html' with screen_tmpl="project/_screen.html" headnav_tmpl="project/_headnav.html" toc_tmpl="project/_toc.html" page_title=project.name %}
+    <div class="half-layout">
+        <div class="padder">
+            <article class="txt">
+                {% with 'project/fakedb/_'|add:project.slug|add:".html" as template %}
+                    {% include template %}
+                {% endwith %}
+            </article>
+        </div>
+    </div>
+{% endblock %}

@@ -1,5 +1,6 @@
+# coding=utf-8
 # Django settings for mysite project.
-
+from django.utils.datastructures import SortedDict
 from server.settings_app import *
 
 DEBUG = True
@@ -138,4 +139,76 @@ CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
     }
+}
+
+MEMBER_POSITIONS = {
+    "design": "дизайн",
+    "code": "код",
+    "business analysis": "бизнес анализа",
+    "copyright": "копирайт",
+    "pr": "PR",
+}
+
+FAKE_DB = SortedDict()
+FAKE_DB["openparliament"] = {
+    "name": "Отворен Парламент",
+    "name_full": "Отворен Парламент",
+    "fb_group": "https://www.facebook.com/groups/obshtestvo.parlament/",
+    "repo": "https://github.com/obshtestvo/rating-gov-representatives",
+    "homepage": 1,
+    "slug": "openparliament"
+}
+FAKE_DB["pitaigi"] = {
+    "name": "Pitaigi.bg",
+    "name_full": "Pitaigi.bg (Питай ги)",
+    "url": "http://foi.obshtestvo.bg/",
+    "fb_group": "https://www.facebook.com/groups/pitaigi.bg/",
+    "repo": "https://github.com/obshtestvo/alaveteli-bulgaria",
+    "homepage": 2,
+    "slug": "pitaigi"
+}
+FAKE_DB["grada.me"] = {
+    "name": "Grada.me",
+    "name_full": "Grada.me (Града ми)",
+    "url": "http://www.grada.me/",
+    "fb_group": "https://www.facebook.com/groups/obshtestvo.reallife.bug.tracker/",
+    "repo": "rrrrrrrr",
+    "homepage": 3,
+    "slug": "grada.me"
+}
+FAKE_DB["recycle"] = {
+    "name": "RE:CYCLE",
+    "name_full": "RE:CYCLE",
+    "url": "http://recycle.obshtestvo.bg/",
+    "fb_group": "https://www.facebook.com/groups/obshtestvo.recycle/",
+    "repo": "https://github.com/obshtestvo/recycle",
+    "homepage": 4,
+    "slug": "recycle"
+}
+FAKE_DB["knowyourmp"] = {
+    "name": "Опознай депутата",
+    "name_full": "Alerts",
+    "url": "http://deputati.obshtestvo.bg/",
+    "fb_group": "https://www.facebook.com/groups/567844279938127/",
+    "repo": "https://github.com/obshtestvo/knowyourmp",
+    "homepage": 5,
+    "slug": "knowyourmp"
+}
+FAKE_DB["howto"] = {
+    "name": "Howto.bg",
+    "name_full": "Howto.bg (Как да ... в България)",
+    "url": "http://www.howto.bg/",
+    "homepage": 6,
+    "fb_group": "https://www.facebook.com/groups/oficialen.sait.na.grazhdanina.qna/",
+    "repo": "rrrrrrrr",
+    "slug": "howto"
+}
+FAKE_DB["alerts"] = {
+    "name": "Alerts",
+    "name_full": "Alerts",
+    "url": "http://alerts.obshtestvo.bg/",
+    "repo": "https://github.com/obshtestvo/state-alerts",
+    "fb_group": "asdad",
+    "homepage": False,
+    "slug": "alerts"
 }

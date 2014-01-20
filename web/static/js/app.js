@@ -45,6 +45,9 @@ $(function () {
     $('#joinPosition').select2({
         'containerCssClass': 'joinPosition select2'
     })
+    $('#joinPosition').change(function () {
+        $(this).valid();
+    });
 
 
     var $toc = $sidebar.find('.toc')
@@ -439,3 +442,157 @@ function initHome() {
         }
     }, { offset: 300})
 }
+
+var AjaxForm = function ($container, extraValidationOptions) {
+    this.$container = $container;
+    this._activateValidation(extraValidationOptions);
+    this._ajaxify()
+}
+
+$.extend($.validator.messages, {
+    required: "Без това няма как",
+    remote: "Моля, въведете правилната стойност.",
+    email: "Май не е точния email.",
+    url: "Моля, въведете валидно URL.",
+    date: "Моля, въведете валидна дата.",
+    dateISO: "Моля, въведете валидна дата (ISO).",
+    number: "Моля, въведете валиден номер.",
+    digits: "Моля, въведете само цифри.",
+    creditcard: "Моля, въведете валиден номер на кредитна карта.",
+    equalTo: "Моля, въведете същата стойност отново.",
+    extension: "Моля, въведете стойност с валидно разширение.",
+    maxlength: $.validator.format("Моля, въведете повече от {0} символа."),
+    minlength: $.validator.format("Моля, въведете поне {0} символа."),
+    rangelength: $.validator.format("Моля, въведете стойност с дължина между {0} и {1} символа."),
+    range: $.validator.format("Моля, въведете стойност между {0} и {1}."),
+    max: $.validator.format("Моля, въведете стойност по-малка или равна на {0}."),
+    min: $.validator.format("Моля, въведете стойност по-голяма или равна на {0}.")
+});
+AjaxForm.prototype = {
+    $container: null,
+
+    block: function () {
+        this.$container.block({
+            message: null,
+            overlayCSS: {
+                backgroundColor: 'rgba(255, 255, 255, 0.6)',
+                opacity: 1
+            }
+        });
+        var $veil = this.$container.find('.blockOverlay');
+        this._genSpinner().spin($veil.get(0))
+    },
+
+    unblock: function () {
+        this.$container.unblock();
+    },
+
+    _genSpinner: function () {
+        return new Spinner({
+            top: 'auto',
+            left: 'auto',
+            lines: 15, // The number of lines to draw
+            length: 0, // The length of each line
+            width: 5, // The line thickness
+            radius: 4, // The radius of the inner circle
+            corners: 1, // Corner roundness (0..1)
+            color: '#000', // #rgb or #rrggbb
+            speed: 1, // Rounds per second
+            trail: 31, // Afterglow percentage
+            shadow: false, // Whether to render a shadow
+            hwaccel: true // Whether to use hardware acceleration
+        })
+    },
+
+    _switchContent: function ($hide, $show, speed, final) {
+        var self = this;
+        var $container = self.$container.find('.animation-container');
+
+        var toggleFixedHeight = function ($el, isFixed) {
+            if (isFixed) {
+                $el.height($el.height() + 'px');
+                $el.css('overflow', 'hidden');
+            } else {
+                $el.css('height', '');
+                $el.css('overflow', 'auto');
+            }
+        }
+        toggleFixedHeight($container, true)
+        $container.animateContentSwitch($hide, $show, {
+            speed: speed,
+            width: false,
+            beforeShow: function (show) {
+                // do stuff when both slides are hidden
+                show();
+            },
+            final: function () {
+                toggleFixedHeight($container, false)
+                if ($.isFunction(final)) {
+                    final()
+                }
+            }
+        });
+    },
+
+    _ajaxify: function () {
+        var self = this;
+        var $form = self.$container;
+        var handler = function (e) {
+            e.preventDefault();
+            if (!$form.valid()) {
+                return false;
+            }
+            self.block();
+            $.ajax({
+                type: $form.find('input[name="X-Method"]').val() || $form.attr('method'),
+                url: $form.attr('action'),
+                data: $form.serialize(),
+                dataType: "json",
+                success: function (data) {
+                    $form.css({
+                        "background-image": 'url(http://www.gravatar.com/avatar/' + md5($form.find('#joinEmail').val()) + '.jpg?s=35&d=http%3A%2F%2Fwww.obshtestvo.bg%2Fstatic%2Fimg%2Fuser-silhouette.png)'
+                    })
+                    $form.find('.msg').html(data.Status)
+                    $form.addClass('success')
+                },
+                error: function (xhr, status, err) {
+                    $form.find('.msg').html(data.Status)
+                    $form.addClass('error')
+                },
+                complete: function () {
+                    self.unblock();
+                    self._switchContent($form.find('.controls'), $form.find('.msg'), 100)
+                }
+            });
+        };
+        $form.find('button').click(handler)
+        $form.submit(handler);
+    },
+
+    _activateValidation: function (extraValidationOptions) {
+        var self = this;
+        var $form = self.$container;
+        $form.validate($.extend({}, {
+            errorPlacement: function ($err, $el) {
+                $err.appendTo($el.siblings('span.' + $el.attr('name') + '.err'))
+            }
+        }, extraValidationOptions));
+    }
+}
+
+/**
+ * Booting application.
+ *
+ * Waiting for various processes or services to finish loading and then trigger the correct actions
+ */
+// Wait for DOM
+var initialisingDOM = $.Deferred()
+$(function () {
+    initialisingDOM.resolve()
+})
+// When DOM is ready
+$.when(initialisingDOM).then(function () {
+    var $form = $('form.join');
+    $form.find('.msg.hide').css('display', 'none').removeClass('hide')
+    var joinForm = new AjaxForm($form)
+});

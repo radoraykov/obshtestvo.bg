@@ -1,0 +1,179 @@
+<section id="concept" class="main">
+    <div class="bg-reset">
+        <p>Карта с пунктове, депа, места са хвърляне на батерии, скрап, и
+            (акоима) други. Всеки посетител ще има
+            възможността да добави нов пункт. Вече има идеи за
+            допълнителни функционалности в бъдещи версии.</p>
+
+        <p>Вярваме, че много хора не харесват условията, в които живеят -
+            разбити улици, липсващо или неработещо осветление,
+            занемарени зелени площи, нерегламентирани сметища …
+            информация и попълване на формуляри.</p>
+
+        <p>Сигналите ще достигат отговорните държавни органи, но също така
+            ще свързват заинтересованите, от решение на
+            проблема, граждани - тези споделящи блок, квартал, град или
+            маршрут.</p>
+
+        <p>Ще присъстват социални инструменти, които ще позволят на всеки
+            да:</p>
+        <ul>
+            <li>Види проблемите на неговата улица, квартал</li>
+            <li>Да намери, съседи, които също искат да оправят тези
+                проблеми
+            </li>
+        </ul>
+    </div>
+</section>
+<section id="who" class="main">
+    <div class="bg-reset">
+        <header>
+            <h2 class="heading">Кой</h2>
+
+            <p class="subtitle">Екипът зад {{ project.name }}. Кой разработва
+                проекта?
+                Кой
+                ни помага?</p>
+        </header>
+
+        <ul class="stripped team clearfix">
+            <li class="clearfix">
+                <img width="35px"
+                     src="http://graph.facebook.com/kattodeva/picture?width=35&amp;height=35"
+                     title="Екатерина Тодева">
+                <strong class="name">Екатерина Тодева</strong>
+                <strong class="position">Дизайн, идеи</strong>
+            </li>
+            <li class="clearfix">
+                <img width="35px"
+                     src="http://graph.facebook.com/kattodeva/picture?width=35&amp;height=35"
+                     title="Екатерина Тодева">
+                <strong class="name">Екатерина Тодева</strong>
+                <strong class="position">Дизайн, идеи</strong>
+            </li>
+        </ul>
+        {% include 'project/_join.html' %}
+        <div class="info work">
+            <h3 class="heading">Работният процес протича чрез:</h3>
+            <ul class="channels stripped">
+                <li class="facebook">
+                    <a href="{{ project.fb_group }}" class="basic-transition">
+                        <i class="fi flaticon-facebook8 basic-transition"></i>
+                        <h4>Facebook група за дискусия и координиране</h4>
+
+                        <p class="subtitle">
+                            <span class="url">{{ project.fb_group }}</span>
+                        </p>
+                    </a>
+                </li>
+                <li class="github">
+                    <a href="{{ project.repo }}" class="basic-transition">
+                        <i class="fi flaticon-social44 round basic-transition"></i>
+                        <h4>Файлове на проекта запазени в GitHub
+                            хранилище </h4>
+
+                        <p class="subtitle">
+                            <span class="url">{{ project.repo }}</span>
+                        </p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="info partners">
+            <h3 class="heading">Съдействат ни:</h3>
+            <ul class="partners stripped">
+                <li class="">
+                    <a href="{{ project.repo }}">
+                        <img src="/static/img/logos/codeforamerica.png"
+                             alt="mySociety лого"
+                             class="basic-transition"/>
+                        <h4>GreenTech</h4>
+
+                        <p class="subtitle">
+                            Добавят местата за рециклиране
+                        </p>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="{{ project.repo }}">
+                        <img src="/static/img/logos/mysociety.png"
+                             alt="mySociety лого"
+                             class="basic-transition"/>
+                        <h4>GreenTech</h4>
+
+                        <p class="subtitle">
+                            Добавят местата за рециклиране
+                        </p>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="{{ project.repo }}">
+                        <img src="/static/img/logos/codeforamerica.png"
+                             alt="mySociety лого"
+                             class="basic-transition"/>
+                        <h4>GreenTech</h4>
+
+                        <p class="subtitle">
+                            Добавят местата за рециклиране
+                        </p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+<section id="why" class="main">
+    <div class="bg-reset">
+        <header>
+            <h2 class="heading">Защо </h2>
+
+            <p class="subtitle">Защо започнахме проекта? Каква е ползата
+                от {{ project.name }}? Защо заслужава финансиране?</p>
+        </header>
+        <ul class="stripped reasons">
+            <li><i class="fi flaticon-finger6 bullet"></i>
+
+                <p>Повишава информираността за Правото на достъп до
+                    информация</p>
+            </li>
+            <li><i class="fi flaticon-finger6 bullet"></i>
+
+                <p>Улеснява гражданина като предлага целия процес под
+                    формата на уеб приложение</p></li>
+        </ul>
+        <div class="alert financing">
+            <i class="fi flaticon-warning18"></i>
+
+            <p>Проектът {{ project.name }} е без никакво финансиране</p>
+        </div>
+        <a class="button standard green action" href="wip.html"><b>Подкрепи
+            проекта</b></a>
+    </div>
+</section>
+<section id="how" class="main">
+    <div class="bg-reset">
+        <header>
+            <h2 class="heading">Как</h2>
+
+            <p class="subtitle">Примерна употреба. Как се ползва
+                {{ project.name }}? </p>
+        </header>
+
+        <ul class="stripped steps">
+            <li><i class="fi flaticon-ripped bullet"></i>
+
+                <p>Петър има насъбрани стари списания, вестници и изписани
+                    тетрадки</p></li>
+            <li><i class="fi flaticon-search4 bullet"></i>
+
+                <p>Влиза в {{ project.name }} и търси "хартия" </p></li>
+            <li><i class="fi flaticon-map25 bullet"></i>
+
+                <p>Показват му се близките до него пунктове за рециклиране
+                    на
+                    хартия</p></li>
+        </ul>
+        <a class="button standard blue action" href="wip.html"><b>Виж
+            прототипа</b></a>
+    </div>
+</section>

@@ -9,7 +9,7 @@
     $.extend($.fn.select2.defaults, {
         formatNoMatches: function (e) {
             var hasMore = this.element.find(':not(option:selected)').length > 0
-            return hasMore ? "Хм, пробвай с нещо друго" : "Това е, ще помагаш със всичко!";
+            return hasMore ? "Хм, пробвай с нещо друго" : "Ще помагаш със всичко! Ура!";
         },
         formatInputTooShort: function (input, min) {
             var n = min - input.length;
