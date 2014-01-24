@@ -143,10 +143,18 @@ CACHES = {
 
 MEMBER_POSITIONS = {
     "design": "дизайн",
+    "photography": "фотография",
+    "illustrations": "илюстрации",
+    "accounting": "счетоводство",
+    "law": "юридическа знания",
+    "fund gathering": "фондонабиране",
     "code": "код",
     "business analysis": "бизнес анализа",
     "copyright": "копирайт",
     "pr": "PR",
+    "marketing": "маркетинг",
+    "ideas": "идеи",
+    "donation": "дарение",
 }
 
 FAKE_DB = SortedDict()
