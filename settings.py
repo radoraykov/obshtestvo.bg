@@ -153,6 +153,7 @@ FAKE_DB = SortedDict()
 FAKE_DB["openparliament"] = {
     "name": "Отворен Парламент",
     "name_full": "Отворен Парламент",
+    "preview": "openparliament.png",
     "fb_group": "https://www.facebook.com/groups/obshtestvo.parlament/",
     "repo": "https://github.com/obshtestvo/rating-gov-representatives",
     "homepage": 1,
@@ -162,6 +163,7 @@ FAKE_DB["pitaigi"] = {
     "name": "Pitaigi.bg",
     "name_full": "Pitaigi.bg (Питай ги)",
     "url": "http://foi.obshtestvo.bg/",
+    "preview": "pitaigi.jpg",
     "fb_group": "https://www.facebook.com/groups/pitaigi.bg/",
     "repo": "https://github.com/obshtestvo/alaveteli-bulgaria",
     "homepage": 2,
@@ -171,14 +173,16 @@ FAKE_DB["grada.me"] = {
     "name": "Grada.me",
     "name_full": "Grada.me (Града ми)",
     "url": "http://www.grada.me/",
+    "preview": "gradame.jpg",
     "fb_group": "https://www.facebook.com/groups/obshtestvo.reallife.bug.tracker/",
-    "repo": "rrrrrrrr",
+    "repo": "https://github.com/obshtestvo-idei/real-life-bug-tracker",
     "homepage": 3,
     "slug": "grada.me"
 }
 FAKE_DB["recycle"] = {
     "name": "RE:CYCLE",
     "name_full": "RE:CYCLE",
+    "preview": "recycle.jpg",
     "url": "http://recycle.obshtestvo.bg/",
     "fb_group": "https://www.facebook.com/groups/obshtestvo.recycle/",
     "repo": "https://github.com/obshtestvo/recycle",
@@ -189,6 +193,7 @@ FAKE_DB["knowyourmp"] = {
     "name": "Опознай депутата",
     "name_full": "Alerts",
     "url": "http://deputati.obshtestvo.bg/",
+    "preview": "knowyourmp.jpg",
     "fb_group": "https://www.facebook.com/groups/567844279938127/",
     "repo": "https://github.com/obshtestvo/knowyourmp",
     "homepage": 5,
@@ -198,17 +203,19 @@ FAKE_DB["howto"] = {
     "name": "Howto.bg",
     "name_full": "Howto.bg (Как да ... в България)",
     "url": "http://www.howto.bg/",
+    "preview": "howto.jpg",
     "homepage": 6,
     "fb_group": "https://www.facebook.com/groups/oficialen.sait.na.grazhdanina.qna/",
     "repo": "rrrrrrrr",
     "slug": "howto"
 }
 FAKE_DB["alerts"] = {
-    "name": "Alerts",
+    "name": "Обществени Известия",
     "name_full": "Alerts",
     "url": "http://alerts.obshtestvo.bg/",
+    "preview": "alerts.jpg",
     "repo": "https://github.com/obshtestvo/state-alerts",
-    "fb_group": "asdad",
+    "fb_group": "None",
     "homepage": False,
     "slug": "alerts"
 }

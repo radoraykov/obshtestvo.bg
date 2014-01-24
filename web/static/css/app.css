@@ -1851,11 +1851,11 @@ nav.main .sub.waiting li {
 .inner .masthead #sidebar .toc {
     clear: both;
     float: right;
-    width: 100%;
+    width: 92.8%;
     max-width: 710px;
     text-align: right;
     padding-right: 3.6%;
-    margin-left: 3.6%;
+    padding-left: 3.6%;
     margin-top: 24px;
     background: #fff;
     opacity: 1;
@@ -2002,7 +2002,8 @@ nav.main .sub.waiting li {
 
 .inner .txt section.main {
     margin-right: -20%;
-    padding-top: 60px;
+    padding-top: 80px;
+    page-break-after: always;
 }
 
 .inner .txt section.main .bg-reset {
@@ -2034,7 +2035,7 @@ nav.main .sub.waiting li {
 .inner .txt > section#concept h2 {
     line-height: 1.1em;
     letter-spacing: -0.03em;
-    color: #344C5C;
+    color: #108eba;
 }
 
 .inner .txt h3.heading,
@@ -2179,7 +2180,7 @@ nav.main .sub.waiting li {
 
 .inner ul.partners li img {
     float: left;
-    max-width: 20%;
+    width: 14%;
     margin-right: 3%;
 }
 
@@ -2601,6 +2602,43 @@ footer .quick-contacts li a {
     }
 }
 
+@media (max-width: 724px) {
+    .inner .masthead .head {
+        width: auto;
+        float: none;
+        margin-left: 0;
+        text-align: left;
+    }
+
+    .inner .masthead #sidebar {
+        margin-top: 0.5em;
+        width: auto;
+        position: static;
+    }
+
+    .inner .masthead #sidebar.fixed {
+        position: static;
+        top: 0;
+    }
+
+    .half-layout {
+        width: auto;
+        margin-left: 0;
+        float: none;
+        max-width: auto;
+    }
+
+    .inner .txt {
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .inner .masthead #sidebar .screen img {
+        width: 100%;
+    }
+}
+
 @media print,
 (-o-min-device-pixel-ratio: 5/4),
 (-webkit-min-device-pixel-ratio: 1.25),
@@ -2728,9 +2766,16 @@ footer .quick-contacts li a {
      * Don't show links for images, or javascript/internal links
      */
     .ir a:after,
+    ul.channels li a:after,
+    a[href^="mailto:"]:after,
     a[href^="javascript:"]:after,
     a[href^="#"]:after {
         content: "";
+    }
+
+    footer .quick-contacts li a[href]:after {
+        font-size: 0.8em;
+        float: right;
     }
 
     pre,
@@ -2766,5 +2811,23 @@ footer .quick-contacts li a {
     h2,
     h3 {
         page-break-after: avoid;
+    }
+
+    .inner .txt section.main .button,
+    .inner .masthead #sidebar .head.static,
+    .inner.about .masthead #sidebar .screen .step1 .overlay,
+    form.join,
+    nav.main,
+    .project-actions,
+    .inner .masthead #sidebar .toc {
+        display: none;
+    }
+
+    .inner header.masthead {
+        padding-top: 10px;
+    }
+
+    .inner ul.partners li img {
+        width: 90px;
     }
 }

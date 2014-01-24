@@ -14,7 +14,7 @@ $(function () {
         var scrollTop = $(window).scrollTop();
         var abstop = $sidebar.outerHeight() + 92 + $footer.outerHeight();
         var scrollPass = ($(document).height() - scrollTop) < abstop
-        var shouldFix = isResize || !$sidebar.hasClass('bottom-hit');
+        var shouldFix = (isResize || !$sidebar.hasClass('bottom-hit')) && $sidebar.css('position') != 'static';
         if (scrollPass && shouldFix) {
             $sidebar.addClass('bottom-hit')
             $sidebar.css({
@@ -55,6 +55,7 @@ $(function () {
     $headclone.appendTo($sidebar.find('.nav'))
 
     $('.half-layout').waypoint(function (dir) {
+        if ($sidebar.css('position') == 'static') return;
         if (dir == 'down') {
             $headclone.unbind('.fix')
             $toc.unbind('.fix')
@@ -78,6 +79,7 @@ $(function () {
     var $step2 = $sidebar.find('.step2')
     if ($step2.length == 0) return;
     $('.half-layout').waypoint(function (dir) {
+        if ($sidebar.css('position') == 'static') return;
         if (dir == 'down') {
             $step2.unbind('.fix')
             showAnimated($step2)

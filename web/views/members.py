@@ -15,15 +15,15 @@ class MembersView(View):
         if form.is_valid():
             try:
                 # send email
-                send_mail(
-                    'Включи се нов участник',
-                    u'Проект: ' + form.cleaned_data['project'] + "\n" +
-                    u'Email: ' + form.cleaned_data['email'] + "\n" +
-                    u'Умения: ' + ", ".join(form.cleaned_data['position']) + "\n",
-                    'noreply@obshtestvo.bg',
-                    ['antitoxic@gmail.com'],
-                    fail_silently=False
-                )
+                # send_mail(
+                #     'Включи се нов участник',
+                #     u'Проект: ' + form.cleaned_data['project'] + "\n" +
+                #     u'Email: ' + form.cleaned_data['email'] + "\n" +
+                #     u'Умения: ' + ", ".join(form.cleaned_data['position']) + "\n",
+                #     'noreply@obshtestvo.bg',
+                #     ['antitoxic@gmail.com'],
+                #     fail_silently=False
+                # )
                 message = 'Ура! Веднага можете да се включите във Facebook или Github.'
             except:
                 status = 400

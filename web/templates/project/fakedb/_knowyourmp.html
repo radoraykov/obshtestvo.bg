@@ -1,28 +1,45 @@
 <section id="concept" class="main">
     <div class="bg-reset">
-        <p>Карта с пунктове, депа, места са хвърляне на батерии, скрап, и
-            (акоима) други. Всеки посетител ще има
-            възможността да добави нов пункт. Вече има идеи за
-            допълнителни функционалности в бъдещи версии.</p>
+        <p>Уеб-базирана игра, в която трябва да познаете от коя партия е всеки
+            депутат.</p>
 
-        <p>Вярваме, че много хора не харесват условията, в които живеят -
-            разбити улици, липсващо или неработещо осветление,
-            занемарени зелени площи, нерегламентирани сметища …
-            информация и попълване на формуляри.</p>
+        <p>Причината да съществува тази игра е, че ние, гражданите, не познаваме дори
+            поименно и визуално хората, които формално сме избрали да ни управляват. </p>
 
-        <p>Сигналите ще достигат отговорните държавни органи, но също така
-            ще свързват заинтересованите, от решение на
-            проблема, граждани - тези споделящи блок, квартал, град или
-            маршрут.</p>
+        <p>Отнася се и до липсата на модерни и интересни начини, чрез които да се
+            запознаят жителите със своята държава и нейните структури, в свят които хората
+            са свикнали все по-новаторски начини да бъдат изпозвани, за да се обърне
+            внимание на нещо.</p>
 
-        <p>Ще присъстват социални инструменти, които ще позволят на всеки
-            да:</p>
+        <p>В следствие от играта ще съществуват класации и статистики над:</p>
+
         <ul>
-            <li>Види проблемите на неговата улица, квартал</li>
-            <li>Да намери, съседи, които също искат да оправят тези
-                проблеми
-            </li>
+            <li>най-добрите играчи</li>
+            <li>най-грешени парламентарни представители</li>
+            <li>най-познавани (известни) представители</li>
         </ul>
+        <p>Списъкът с депутати ще е винаги актуален, чрез автоматични обновления, което ще
+            отразява напускането или смяната на народни представители и ще поддържа
+            съдържанието в играта динамично.</p>
+
+        <p>Надграждане над базовата функциолналност описана по-горе може да бъдат:</p>
+
+        <ul>
+            <li>познай депутати от твоя регион</li>
+            <li>познай комисии, където участва депутат</li>
+            <li>познай кой депутат каза “...”</li>
+            <li>и всяка друга информация, която може да представи интерес</li>
+        </ul>
+        <p>В надграждането въпросите могат да бъдат степенувани и така да бъде изграден
+            прогрес в играта. Всеки въпрос - носещ определен брой точки.</p>
+
+        <h2>Открито изпълнение</h2>
+
+        <p><strong>Опознай Депутата</strong> е проект с <strong>отворен код и
+            дизайн</strong> <em>(Open Source)</em>, което ще рече, че е отворен за
+            доработка, и че предлага техническото си изпълнение по прозрачен начин,
+            позволяващ на всеки заинтересован да разбере как работи. Включва и подробни
+            технически инструкции, за това как може да се подкара от трети лица.</p>
     </div>
 </section>
 <section id="who" class="main">
@@ -37,20 +54,26 @@
         </header>
 
         <ul class="stripped team clearfix">
-            <li class="clearfix">
-                <img width="35px"
-                     src="http://graph.facebook.com/kattodeva/picture?width=35&amp;height=35"
-                     title="Екатерина Тодева">
-                <strong class="name">Екатерина Тодева</strong>
-                <strong class="position">Дизайн, идеи</strong>
-            </li>
-            <li class="clearfix">
-                <img width="35px"
-                     src="http://graph.facebook.com/kattodeva/picture?width=35&amp;height=35"
-                     title="Екатерина Тодева">
-                <strong class="name">Екатерина Тодева</strong>
-                <strong class="position">Дизайн, идеи</strong>
-            </li>
+            <li><img width="35px"
+                     src="http://graph.facebook.com/mitio/picture?width=35&amp;height=35"
+                     title="Димитър Димитров">
+                <strong class="name">Димитър Димитров</strong>
+                <strong class="position">Софт. разработка, идеи, координация</strong></li>
+            <li><img width="35px"
+                     src="http://graph.facebook.com/hambai/picture?width=35&amp;height=35"
+                     title="Камен Станев">
+                <strong class="name">Камен Станев</strong>
+                <strong class="position">Софт. разработка, идеи, координация</strong></li>
+            <li><img width="35px"
+                     src="http://graph.facebook.com/petyaraykovska/picture?width=35&amp;height=35"
+                     title="Петя Райковска">
+                <strong class="name">Петя Райковска</strong>
+                <strong class="position">Софт. разработка, идеи</strong></li>
+            <li><img width="35px"
+                     src="http://graph.facebook.com/angel.velikov.370/picture?width=35&amp;height=35"
+                     title="Ангел Великов">
+                <strong class="name">Ангел Великов</strong>
+                <strong class="position">Дизайн</strong></li>
         </ul>
         {% include 'project/_join.html' %}
         <div class="info work">
@@ -79,47 +102,6 @@
                 </li>
             </ul>
         </div>
-        <div class="info partners">
-            <h3 class="heading">Съдействат ни:</h3>
-            <ul class="partners stripped">
-                <li class="">
-                    <a href="{{ project.repo }}">
-                        <img src="/static/img/logos/codeforamerica.png"
-                             alt="mySociety лого"
-                             class="basic-transition"/>
-                        <h4>GreenTech</h4>
-
-                        <p class="subtitle">
-                            Добавят местата за рециклиране
-                        </p>
-                    </a>
-                </li>
-                <li class="">
-                    <a href="{{ project.repo }}">
-                        <img src="/static/img/logos/mysociety.png"
-                             alt="mySociety лого"
-                             class="basic-transition"/>
-                        <h4>GreenTech</h4>
-
-                        <p class="subtitle">
-                            Добавят местата за рециклиране
-                        </p>
-                    </a>
-                </li>
-                <li class="">
-                    <a href="{{ project.repo }}">
-                        <img src="/static/img/logos/codeforamerica.png"
-                             alt="mySociety лого"
-                             class="basic-transition"/>
-                        <h4>GreenTech</h4>
-
-                        <p class="subtitle">
-                            Добавят местата за рециклиране
-                        </p>
-                    </a>
-                </li>
-            </ul>
-        </div>
     </div>
 </section>
 <section id="why" class="main">
@@ -131,15 +113,13 @@
                 от {{ project.name }}? Защо заслужава финансиране?</p>
         </header>
         <ul class="stripped reasons">
+
             <li><i class="fi flaticon-finger6 bullet"></i>
 
-                <p>Повишава информираността за Правото на достъп до
-                    информация</p>
-            </li>
+                <p>Замисля гражданите за своите познания над важни теми</p></li>
             <li><i class="fi flaticon-finger6 bullet"></i>
 
-                <p>Улеснява гражданина като предлага целия процес под
-                    формата на уеб приложение</p></li>
+                <p>Повишава информираността за народните представители</p></li>
         </ul>
         <div class="alert financing">
             <i class="fi flaticon-warning18"></i>
@@ -160,20 +140,15 @@
         </header>
 
         <ul class="stripped steps">
-            <li><i class="fi flaticon-ripped bullet"></i>
+            <li><i class="fi flaticon-browser18 bullet"></i>
 
-                <p>Петър има насъбрани стари списания, вестници и изписани
-                    тетрадки</p></li>
-            <li><i class="fi flaticon-search4 bullet"></i>
+                <p>Петър влиза в сайта и започва нова игра</p></li>
+            <li><i class="fi flaticon-bust bullet"></i>
 
-                <p>Влиза в {{ project.name }} и търси "хартия" </p></li>
-            <li><i class="fi flaticon-map25 bullet"></i>
+                <p>Показва му се снимка и име на народен представител</p></li>
+            <li><i class="fi flaticon-browser18fi flaticon-target6 bullet"></i>
 
-                <p>Показват му се близките до него пунктове за рециклиране
-                    на
-                    хартия</p></li>
+                <p>Петър избира партия за показания депутат</p></li>
         </ul>
-        <a class="button standard blue action" href="wip.html"><b>Виж
-            прототипа</b></a>
     </div>
 </section>

@@ -1,28 +1,20 @@
 <section id="concept" class="main">
     <div class="bg-reset">
-        <p>Карта с пунктове, депа, места са хвърляне на батерии, скрап, и
-            (акоима) други. Всеки посетител ще има
-            възможността да добави нов пункт. Вече има идеи за
-            допълнителни функционалности в бъдещи версии.</p>
+        <p>Уеб сайт, който автоматизирано събира информация от държавни документи и ги
+            стандартизира под формат лесен за търсене и идентифициране.</p>
 
-        <p>Вярваме, че много хора не харесват условията, в които живеят -
-            разбити улици, липсващо или неработещо осветление,
-            занемарени зелени площи, нерегламентирани сметища …
-            информация и попълване на формуляри.</p>
+        <p>Всеки може лесно да се абонира и получава по email нови документи, в които
+            присъства ключовата дума представляваща интерес.</p>
 
-        <p>Сигналите ще достигат отговорните държавни органи, но също така
-            ще свързват заинтересованите, от решение на
-            проблема, граждани - тези споделящи блок, квартал, град или
-            маршрут.</p>
+        <p>.... до сега не е имало среща или дискусия за развитието на проекта... </p>
 
-        <p>Ще присъстват социални инструменти, които ще позволят на всеки
-            да:</p>
-        <ul>
-            <li>Види проблемите на неговата улица, квартал</li>
-            <li>Да намери, съседи, които също искат да оправят тези
-                проблеми
-            </li>
-        </ul>
+        <h2>Открито изпълнение</h2>
+
+        <p><strong>HowTo.bg</strong> е проект с <strong>отворен код и дизайн</strong> <em>(Open
+            Source)</em>, което ще рече, че е отворен за доработка, и че предлага
+            техническото си изпълнение по прозрачен начин, позволяващ на всеки
+            заинтересован да разбере как работи. Включва и подробни технически инструкции,
+            за това как може да се подкара от трети лица.</p>
     </div>
 </section>
 <section id="who" class="main">
@@ -37,20 +29,12 @@
         </header>
 
         <ul class="stripped team clearfix">
-            <li class="clearfix">
-                <img width="35px"
-                     src="http://graph.facebook.com/kattodeva/picture?width=35&amp;height=35"
-                     title="Екатерина Тодева">
-                <strong class="name">Екатерина Тодева</strong>
-                <strong class="position">Дизайн, идеи</strong>
-            </li>
-            <li class="clearfix">
-                <img width="35px"
-                     src="http://graph.facebook.com/kattodeva/picture?width=35&amp;height=35"
-                     title="Екатерина Тодева">
-                <strong class="name">Екатерина Тодева</strong>
-                <strong class="position">Дизайн, идеи</strong>
-            </li>
+            <li class="clearfix"><img width="35px"
+                                      src="http://graph.facebook.com/bozhidar.bozhanov/picture?width=35&amp;height=35"
+                                      title="Божидар Божанов">
+                <strong class="name">Божидар Божанов</strong>
+                <strong class="position">Цялостно ръководство и разработка,
+                    всичко</strong></li>
         </ul>
         {% include 'project/_join.html' %}
         <div class="info work">
@@ -79,47 +63,6 @@
                 </li>
             </ul>
         </div>
-        <div class="info partners">
-            <h3 class="heading">Съдействат ни:</h3>
-            <ul class="partners stripped">
-                <li class="">
-                    <a href="{{ project.repo }}">
-                        <img src="/static/img/logos/codeforamerica.png"
-                             alt="mySociety лого"
-                             class="basic-transition"/>
-                        <h4>GreenTech</h4>
-
-                        <p class="subtitle">
-                            Добавят местата за рециклиране
-                        </p>
-                    </a>
-                </li>
-                <li class="">
-                    <a href="{{ project.repo }}">
-                        <img src="/static/img/logos/mysociety.png"
-                             alt="mySociety лого"
-                             class="basic-transition"/>
-                        <h4>GreenTech</h4>
-
-                        <p class="subtitle">
-                            Добавят местата за рециклиране
-                        </p>
-                    </a>
-                </li>
-                <li class="">
-                    <a href="{{ project.repo }}">
-                        <img src="/static/img/logos/codeforamerica.png"
-                             alt="mySociety лого"
-                             class="basic-transition"/>
-                        <h4>GreenTech</h4>
-
-                        <p class="subtitle">
-                            Добавят местата за рециклиране
-                        </p>
-                    </a>
-                </li>
-            </ul>
-        </div>
     </div>
 </section>
 <section id="why" class="main">
@@ -131,15 +74,15 @@
                 от {{ project.name }}? Защо заслужава финансиране?</p>
         </header>
         <ul class="stripped reasons">
+
             <li><i class="fi flaticon-finger6 bullet"></i>
 
-                <p>Повишава информираността за Правото на достъп до
-                    информация</p>
+                <p>Позволява лесен достъп до иначе разнороден формат
+                    от държавни документи</p>
             </li>
             <li><i class="fi flaticon-finger6 bullet"></i>
 
-                <p>Улеснява гражданина като предлага целия процес под
-                    формата на уеб приложение</p></li>
+                <p>Демонистрира новаторски подход за по-открито управление</p></li>
         </ul>
         <div class="alert financing">
             <i class="fi flaticon-warning18"></i>
@@ -160,20 +103,19 @@
         </header>
 
         <ul class="stripped steps">
-            <li><i class="fi flaticon-ripped bullet"></i>
 
-                <p>Петър има насъбрани стари списания, вестници и изписани
-                    тетрадки</p></li>
-            <li><i class="fi flaticon-search4 bullet"></i>
+            <li><i class="fi flaticon-browser18 bullet"></i>
 
-                <p>Влиза в {{ project.name }} и търси "хартия" </p></li>
-            <li><i class="fi flaticon-map25 bullet"></i>
+                <p>Петър влиза в alerts.obshtestvo.bg</p></li>
+            <li><i class="fi flaticon-eye50 bullet"></i>
 
-                <p>Показват му се близките до него пунктове за рециклиране
-                    на
-                    хартия</p></li>
+                <p>Търси "бюджет"</p></li>
+            <li><i class="fi flaticon-mouse3 bullet"></i>
+
+                <p>Вижда резултатите сред редица държавни документи</p></li>
+            <li><i class="fi flaticon-eye50 bullet"></i>
+
+                <p>Абонира се да получава нови документи съвпадащи с търснето му</p></li>
         </ul>
-        <a class="button standard blue action" href="wip.html"><b>Виж
-            прототипа</b></a>
     </div>
 </section>
