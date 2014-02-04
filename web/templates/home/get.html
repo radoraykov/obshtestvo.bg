@@ -1,4 +1,5 @@
 {% extends "layout.html" %}
+{% load staticfiles %}<!DOCTYPE html>
 {% block content %}
 
     <header class="masthead">
@@ -12,7 +13,8 @@
             <span class="connection">държава <i class="fi flaticon-exchange1"></i> гражданин</span>
         </p>
         <ul class="important-actions stripped">
-            <li class="join"><a href="{% url 'wip' %}" class="button standard green"><b>Включи
+            <li class="join"><a href="{% url 'support' %}#time"
+                                class="button standard green"><b>Включи
                 се</b></a></li>
             <li class="learn"><a href="{% url 'wip' %}" class="button standard blue"><b>Какво
                 правим</b></a></li>
@@ -55,7 +57,7 @@
                 class="fi flaticon-arrow462 "></i><span
                 class="text hidden">Виж предишния проект</span></span>
                     <span class="indicator">
-                        <img src="static/img/home-slider-indicator-bg.png" alt=""
+                        <img src="{% static 'img/home-slider-indicator-bg.png' %}" alt=""
                              class="scope"/>
                         <span class="light center"></span>
                     </span>

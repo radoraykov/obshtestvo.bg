@@ -9,9 +9,9 @@
                 originalWidth = null,
                 options = $.extend({}, {
                     beforeShow: undefined,
-                    beforeShow: undefined,
                     step: undefined,
                     width: true,
+                    parallel: false,
                     height: true
                 }, o),
                 targetHeight = null,
@@ -77,6 +77,9 @@
                     duration: options.speed,
                     complete: function () {
                         $toHide.hide();
+                        if (options.parallel) {
+                            return;
+                        }
                         if ($.isFunction(options.beforeShow)) {
                             options.beforeShow(show);
                         } else {
@@ -107,7 +110,6 @@
                     height: targetHeight,
                     width: targetWidth
                 };
-                console.log(targetAnimation, options)
                 if (!options.width) delete targetAnimation.width
                 if (!options.height) delete targetAnimation.height
 
@@ -122,6 +124,7 @@
                 });
             }
             hide();
+            show();
         });
     };
 

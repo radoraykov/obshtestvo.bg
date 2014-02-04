@@ -29,7 +29,7 @@ class MembersView(View):
                 status = 400
                 message = 'Изникна грешка при получаването на вашата информацията. Моля, опитайте по-късно'
         else:
-            status = 500
+            status = 400
             message = 'Данните които попълнихте не са валидни'
 
         return {'status': message}, status

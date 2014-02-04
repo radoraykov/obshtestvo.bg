@@ -146,7 +146,7 @@ MEMBER_POSITIONS = {
     "photography": "фотография",
     "illustrations": "илюстрации",
     "accounting": "счетоводство",
-    "law": "юридическа знания",
+    "law": "юридически знания",
     "fund gathering": "фондонабиране",
     "code": "код",
     "business analysis": "бизнес анализа",
