@@ -18,7 +18,7 @@ class ContactView(View):
                 send_mail(
                     'Контакт от сайта на obshtestvo.bg',
                     u'Тип контакт: ' + form.cleaned_data['type'] + "\n" +
-                    u'Организация: ' + ", ".join(form.cleaned_data['name']) + "\n" +
+                    u'Организация: ' + form.cleaned_data['name'] + "\n" +
                     u'Проект: ' + form.cleaned_data['project'] + "\n" +
                     u'Email: ' + form.cleaned_data['email'] + "\n" +
                     u'Предложена помощ: ' + form.cleaned_data['help'] + "\n",
