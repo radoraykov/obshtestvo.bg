@@ -160,7 +160,8 @@
 
             <p>Проектът {{ project.name }} е без никакво финансиране</p>
         </div>
-        <a class="button standard green action" href="wip.html"><b>Подкрепи
+        <a class="button standard green action"
+           href="{% url 'support' %}?project={{ project.slug }}#sponsorship"><b>Подкрепи
             проекта</b></a>
     </div>
 </section>

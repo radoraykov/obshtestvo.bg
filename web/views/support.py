@@ -9,5 +9,6 @@ class SupportView(View):
         return {
             "page": "inner about support",
             "projects": settings.FAKE_DB,
+            "selectedProject": request.params.get('project'),
             "positions": settings.MEMBER_POSITIONS
         }

@@ -2138,7 +2138,11 @@ nav.main .sub.waiting li {
     height: 0;
     overflow: hidden;
     position: relative;
-    top: -75px;
+    top: -210px;
+}
+
+.inner.support .txt > section#act .option.donation a.adjust {
+    top: -240px;
 }
 
 .inner.support .txt > section#act .option:first-child {
@@ -2654,8 +2658,8 @@ form.pgateway {
 
 .inner .txt #who a[name="join"] {
     display: block;
-    margin-top: -45px;
-    padding-bottom: 45px;
+    position: relative;
+    top: -120px
 }
 
 .inner .txt #who .join {
