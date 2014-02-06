@@ -1,0 +1,126 @@
+{% extends "layout.html" %}
+{% load staticfiles %}
+{% block headTag %}
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'css/lib/select2/select2.css' %}">
+{% endblock %}
+{% block footerTag %}
+    <script src="{% static 'js/lib/select2/select2.min.js' %}"></script>
+    <script src="{% static 'js/lib/select2/select2_locale_bg.js' %}"></script>
+{% endblock %}
+{% block content %}
+    {% include '_header_inner.html' with screen_tmpl="faq/_screen.html" headnav_tmpl="faq/_headnav.html" toc_tmpl="faq/_toc.html" page_title="Въпроси и Отговори" %}
+    <div class="half-layout">
+        <div class="padder">
+            <article class="txt">
+                <section id="concept" class="main">
+                    <div class="bg-reset">
+                        <p>Тук добавяме въпроси, които често ни задават,
+                            и описваме техните отговори</p>
+
+
+                        <h2>Как работим</h2>
+
+                        <p>А проектите са ни са напълно открито изпълнение. Всеки проект с
+                            <strong>отворен код и дизайн</strong> <em>(Open Source)</em>,
+                            което ще рече че е отворен за доработка, и че предлага
+                            техническото си изпълнение по прозрачен начин, позволяващ на
+                            всеки заинтересован да разбере как работи. Включва подробни
+                            технически инструкции как може да се подкара от трети лица.
+                        </p>
+
+                        <h2>Компании +
+                            Общество</h2>
+
+                        <p>За фирмите, намаляването на бюрокрацията пести време и пари.
+                            Намаляването на бюрокрацията от своя страна значи работа с
+                            олекотени, нормални процедури, справедливи държавни търгове с
+                            високи и изисквания и възможност за фокус върху пряката
+                            работа, а не върху административните процедури. </p>
+
+                        <h3>Това, което
+                            създаваме, е за всички</h3>
+
+                        <p>Инструментите ни са подходящи за широк кръг от потребители. Те
+                            са еднакво полезни и достъпни за граждани, фирми, организации
+                            и институции.</p>
+
+                        <h3>”Мотивационни
+                            лагери”</h3>
+
+                        <p>Вярваме, че обмяната на идеи е начина, по който се реализират
+                            добрите проекти. Общество.бг е място, където човек може да се
+                            учи и да обучава от професионалисти в различни области. За
+                            целта предлагаме мотивационни лагери, в които компании ни
+                            „заемат” професионалисти, които да работят съвместно с нас по
+                            проекти за даден период от време. Всеки, който желае да даде
+                            своя принос за реализирането на идеята за една по-добра
+                            административна система е добре дошъл. </p>
+
+                        <h2>Донори +
+                            Общество</h2>
+
+                        <p>Вярваме, че бъдещето принадлежи на отговорния бизнес. На онези
+                            компании, които влагат ресурси и усилия в изграждането на едно
+                            по-справедливо и по-функционално общество. Сигурни сме, че в
+                            България има много компании, които могат и искат да допринесат
+                            за нашата кауза.
+                            Харесвате ли някой проект? Виждате ли полза от него? Бихте ли
+                            искали той да работи? Ние сме на разположение за да отговорим
+                            на всичките ви въпроси. Ще се радваме да работим заедно.</p>
+
+                        <h2>Държавата +
+                            Общество</h2>
+
+                        <p>Подобряването на вида на обществените услуги е от ключово
+                            значение за изграждането на доверие в държавните органи.
+                            Администрацията не бива да бъде враг на българскяит жител.
+                            Вярваме, че тя трябва да е негов партньор. Общество.бг е начин
+                            това партньорство да бъде постигнато. Чрез своя добър
+                            интерфейс и дизайн нашите проекти създават доверие, лоялност и
+                            добавена стойност за потребителите. </p>
+                    </div>
+                </section>
+
+                <section id="who" class="main">
+                    <div class="bg-reset">
+                        <header>
+                            <h2 class="heading">Идентичност</h2>
+
+                            <p class="subtitle">Екипът изграждащ нашата идентичност. </p>
+                        </header>
+
+                        <ul class="stripped team clearfix">
+                            <li class="clearfix"><img width="35px"
+                                                      src="http://graph.facebook.com/anton.stoychev.12/picture?width=35&amp;height=35"
+                                                      title="Антон Стойчев">
+                                <strong class="name">Антон Стойчев</strong>
+                                <strong class="position">Софт. разработка, дизайн, идеи,
+                                    copywrite, координация</strong></li>
+                            <li><img width="35px"
+                                     src="http://graph.facebook.com/dgyurov/picture?width=35&amp;height=35"
+                                     title="Димитър Гюров"><strong class="name">Димитър
+                                Гюров</strong>
+                                <strong class="position">Лого, дизайн, идеи</strong></li>
+                            <li><img width="35px"
+                                     src="http://graph.facebook.com/evelina.jeliazkova/picture?width=35&amp;height=35"
+                                     title="Евелина Желязкова"><strong class="name">Евелина
+                                Желязкова</strong>
+                                <strong class="position">Илюстрации</strong></li>
+                            <li><img width="35px"
+                                     src="http://graph.facebook.com/ysabeva/picture?width=35&amp;height=35"
+                                     title="Яна Събева"><strong class="name">Яна
+                                Събева</strong>
+                                <strong class="position">Copywrite, PR</strong></li>
+                            <li><img width="35px"
+                                     src="http://graph.facebook.com/balkantron/picture?width=35&amp;height=35"
+                                     title="Дими Деянски"><strong class="name">Дими
+                                Деянски</strong>
+                                <strong class="position">Лого</strong></li>
+                        </ul>
+                    </div>
+                </section>
+            </article>
+        </div>
+    </div>
+{% endblock %}

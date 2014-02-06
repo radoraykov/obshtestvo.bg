@@ -1,11 +1,12 @@
 from django.conf.urls import patterns, url
 
-from web.views import home, wip, about, project, support, members, contact
+from web.views import home, wip, about, project, support, members, contact, faq
 
 urlpatterns = patterns('',
                        url(r'^$', home.HomeView.as_view(), name='home'),
                        url(r'^wip\.html$', wip.WipView.as_view(), name='wip'),
                        url(r'^about\.html$', about.AboutView.as_view(), name='about'),
+                       url(r'^faq\.html$', faq.FaqView.as_view(), name='faq'),
                        url(r'^support\.html$', support.SupportView.as_view(),
                            name='support'),
                        url(r'^members$', members.MembersView.as_view(), name='members'),

@@ -1800,6 +1800,15 @@ nav.main .sub.waiting li {
     max-width: 293px;
 }
 
+.inner.support .masthead #sidebar .screen .overlay img {
+    width: 80%;
+    max-width: 402px;
+    float: right;
+    margin-right: 7.32%;
+    margin-bottom: -5%;
+}
+
+.inner.support .masthead #sidebar .screen,
 .inner.about .masthead #sidebar .screen {
     position: relative;
 }
@@ -1816,12 +1825,14 @@ nav.main .sub.waiting li {
     right: 0;
 }
 
+.inner.support .masthead #sidebar .screen .overlay,
 .inner.about .masthead #sidebar .screen .overlay {
     position: absolute;
     font-size: 17px;
     line-height: 1.2em;
 }
 
+.inner.support .masthead #sidebar .screen .step1 .overlay,
 .inner.about .masthead #sidebar .screen .step1 .overlay {
     background: rgba(16, 142, 186, 0.82);
     text-align: center;
@@ -1830,6 +1841,67 @@ nav.main .sub.waiting li {
     left: 0;
     right: 0;
     padding-top: 18.37%;
+}
+
+.inner.support .masthead #sidebar .screen .step1 .overlay {
+    background: rgba(16, 142, 186, 0.65);
+    text-align: left;
+    padding-top: 0;
+}
+
+.inner.support .masthead #sidebar .screen .step1 .overlay h2 {
+    font-size: 44.48px;
+    font-weight: 700;
+    line-height: 0.9em;
+    letter-spacing: -0.06em;
+    clear: both;
+    width: 76%;
+    max-width: 476px;
+    margin: 0;
+    margin-left: 8%;
+}
+
+@media (max-width: 1324px) {
+    .inner.support .masthead #sidebar .screen .step1 .overlay h2 {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 930px) {
+    .inner.support .masthead #sidebar .screen .step1 .overlay h2 {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 724px) {
+    .inner.support .masthead #sidebar .screen .step1 .overlay h2 {
+        font-size: 35px;
+    }
+}
+
+.inner.support .masthead #sidebar .screen .step1 .overlay p {
+    color: #142f3a;
+    width: 80%;
+    max-width: 500px;
+    margin-left: 8%;
+}
+
+@media (max-width: 1150px) {
+    .inner.support .masthead #sidebar .screen .step1 .overlay p {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .inner.support .masthead #sidebar .screen .step1 .overlay p {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 724px) {
+    .inner.support .masthead #sidebar .screen .step1 .overlay p {
+        font-size: 17px;
+    }
 }
 
 .inner.about .masthead #sidebar .screen .step2 .overlay {

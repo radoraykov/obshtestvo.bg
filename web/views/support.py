@@ -7,7 +7,7 @@ from django.conf import settings
 class SupportView(View):
     def get(self, request):
         return {
-            "page": "inner about support",
+            "page": "inner support",
             "projects": settings.FAKE_DB,
             "selectedProject": request.params.get('project'),
             "positions": settings.MEMBER_POSITIONS

@@ -30,6 +30,11 @@ function SupportPage($context) {
         });
     })
 
+
+    var sidebar = new Sidebar($('#sidebar'), {
+        $waypoint: app.$content
+    });
+
 }
 
 SupportPage.prototype = {

@@ -6,7 +6,7 @@ var Sidebar = function ($el, options) {
         step2: {
             $waypoint: null,
             offset: null
-        },
+        }
     }, options)
 
     this.$el = $el;
