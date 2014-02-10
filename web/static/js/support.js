@@ -12,6 +12,7 @@ function SupportPage($context) {
     this._finance($options)
     this._media($options)
     this._fellowship($options)
+    this._partnership($options)
     this._physical($options)
     this._donation($options)
 
@@ -56,6 +57,10 @@ SupportPage.prototype = {
     },
     _fellowship: function ($options) {
         var $form = $options.filter('.fellowship').find('form');
+        new AjaxForm($form)
+    },
+    _partnership: function ($options) {
+        var $form = $options.filter('.partners').find('form');
         new AjaxForm($form)
     },
     _physical: function ($options) {
