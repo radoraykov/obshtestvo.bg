@@ -2,7 +2,11 @@ var Sidebar = function ($el, options) {
     options = $.extend(true, {
         headSelector: '.head',
         $waypoint: null,
-        offset: -150,
+        re: -150,
+        offsets: {
+            headClone: false,
+            screenReduce: 70
+        },
         step2: {
             $waypoint: null,
             offset: null
@@ -17,7 +21,8 @@ var Sidebar = function ($el, options) {
     this._initFixing()
 
     this.$head = $(options.headSelector).clone().addClass('hidden waiting').addClass('basic-transition-2x');
-    this._initHeadCloning()
+    if (options.offsets.headClone) this._initHeadCloning(options.offsets.headClone)
+    if (options.offsets.screenReduce) this._initReducing(options.offsets.screenReduce)
     this._initStepsAnimation(options.step2.$waypoint, options.step2.offset)
 }
 
@@ -45,7 +50,7 @@ Sidebar.prototype = {
         });
     },
 
-    _initHeadCloning: function () {
+    _initHeadCloning: function (offset) {
         var self = this;
         self.$head.appendTo(self.$el.find('.nav'))
         self.$waypoint.waypoint(function (dir) {
@@ -68,7 +73,18 @@ Sidebar.prototype = {
                 self.$head.addClass('waiting')
                 hideAfterTransition(self.$head)
             }
-        }, {offset: self.offset})
+        }, {"offset": offset})
+    },
+
+    _initReducing: function (offset) {
+        var self = this;
+        self.$waypoint.waypoint(function (dir) {
+            if (dir == 'down') {
+                self.$el.addClass('reduced')
+            } else {
+                self.$el.removeClass('reduced')
+            }
+        }, {"offset": offset})
     },
 
     preventFooterCollision: function (isResize) {

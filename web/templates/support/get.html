@@ -14,7 +14,7 @@
     <script src="{% static 'js/lib/spin.js' %}"></script>
 {% endblock %}
 {% block content %}
-    {% include '_header_inner.html' with screen_tmpl="support/_screen.html" headnav_tmpl="support/_headnav.html" toc_tmpl="support/_toc.html" page_title="Подкрепа" %}
+    {% include '_header_inner.html' with extra_sidebar_classes="fixed reduced" toc_title="Начини да ни подкрепите" screen_tmpl="support/_screen.html" headnav_tmpl="support/_headnav.html" toc_tmpl="support/_toc.html" page_title="Подкрепа" %}
     <div class="half-layout">
     <div class="padder">
     <article class="txt">
@@ -39,7 +39,7 @@
                         href="mailto:info@obshtestvo.bg">info@obshtestvo.bg</a>.
                     Алтернативно, оставете
                     вашите детайли по-долу, за да се свържем ние с
-                    Вас, или прочетете <a href="{% url 'wip' %}">защо
+                    Вас, или прочетете <a href="{% url 'faq' %}#worthy">защо
                         заслужаваме</a> подрепата Ви.</p>
 
                 <form class="small support basic-transition-2x"
@@ -103,8 +103,9 @@
             <div class="info-holder"></div>
             <div class="info-content">
                 <p>
-                    Страхотно! Може да видиш <a href="{% url 'wip' %}">как ще
-                    работим заедно</a> и <a href="{% url 'wip' %}">каква е целта</a>.
+                    Страхотно! Може да видиш <a href="{% url 'faq' %}#gettingthingsdone">как
+                    ще
+                    работим заедно</a> и <a href="{% url 'faq' %}#goals">каква е целта</a>.
                     Само кажи с какво искаш да се включиш и дали имаш
                     избран проект - и вече си се присъединил!
                 </p>
@@ -327,7 +328,8 @@
                         href="mailto:info@obshtestvo.bg">info@obshtestvo.bg</a>.
                     Алтернативно, оставете
                     вашите детайли по-долу, за да се свържем ние с
-                    Вас, или прочетете какво <a href="{% url 'wip' %}"> сме написали като
+                    Вас, или прочетете какво <a href="{% url 'about' %}"> сме написали
+                        като
                         прес-инфо</a>.</p>
 
                 <form class="small support basic-transition-2x"
@@ -397,7 +399,8 @@
                         href="mailto:info@obshtestvo.bg">info@obshtestvo.bg</a>.
                     Алтернативно, оставете
                     вашите детайли по-долу, за да се свържем ние с
-                    Вас или <a href="{% url 'wip' %}">прочетете какво точно предлагаме</a>.
+                    Вас или <a href="{% url 'about' %}#fellowship">прочетете какво точно
+                        предлагаме</a>.
                 </p>
 
                 <form class="small support basic-transition-2x"
@@ -482,6 +485,75 @@
                             <input name="project" type="hidden" value="-"/>
                             <input name="name" type="hidden" value="-"/>
                             <input name="type" type="hidden" value="freebie"/>
+                            <button type="submit"
+                                    class="button small green"><b>Изпрати</b>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="option clearfix partners">
+        <a class="adjust" id="partners"></a>
+        <header class="basic-transition-2x">
+            <h2 class="basic-transition-2x">Опит и експертиза</h2>
+
+            <p class="basic-transition-2x">Вие сте част организация с опит по тема
+                засегната от наш проект</p>
+            <i class="fi flaticon-check1"></i>
+        </header>
+        <div class="info">
+            <div class="info-holder"></div>
+            <div class="info-content hidden">
+                <p>Email адресът ни е <a
+                        href="mailto:info@obshtestvo.bg">info@obshtestvo.bg</a>.
+                    Алтернативно, оставете
+                    вашите детайли по-долу, за да се свържем ние с
+                    Вас или <a href="{% url 'about' %}#partners">прочетете какъв е
+                        процеса</a>.
+                </p>
+
+                <form class="small support basic-transition-2x"
+                      method="post" action="{% url 'contact' %}">
+                    <div class="animation-container">
+                        <div class="msg hidden">
+
+                        </div>
+                        <div class="controls">
+                            <label for="fellowshipName" class="placeholder">Името на
+                                Вашата компания:</label>
+                            <input type="text" name="name"
+                                   id="fellowshipName"
+                                   class="round basic-transition-2x organisation"
+                                   placeholder="името на Вашата компания"
+                                   data-rule-required="true"
+                                    />
+                            <span class="err name"></span>
+                            <label for="joinProject" class="placeholder">Кой проект е от
+                                интерес:</label>
+                            <select name="project"
+                                    id="joinProject"
+                                    class="project"
+                                    data-rule-required="true"
+                                    data-placeholder="кой проект?"
+                                    >
+                                <option value=""></option>
+                                {% include 'support/_projects.html' %}
+                            </select>
+                            <span class="err project"></span>
+                            <label for="mediaEmail" class="placeholder">Е-mail адрес (за
+                                връзка):</label>
+                            <input type="text" name="email"
+                                   id="mediaEmail"
+                                   class="round email basic-transition-2x"
+                                   placeholder="email адрес (за връзка)"
+                                   data-rule-required="true"
+                                   data-rule-email="true"/>
+                            <span class="err email"></span>
+                            <input name="project" type="hidden" value="-"/>
+                            <input name="help" type="hidden" value="-"/>
+                            <input name="type" type="hidden" value="fellowship"/>
                             <button type="submit"
                                     class="button small green"><b>Изпрати</b>
                             </button>

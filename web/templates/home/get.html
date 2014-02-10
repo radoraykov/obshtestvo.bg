@@ -16,7 +16,7 @@
             <li class="join"><a href="{% url 'support' %}#time"
                                 class="button standard green"><b>Включи
                 се</b></a></li>
-            <li class="learn"><a href="{% url 'wip' %}" class="button standard blue"><b>Какво
+            <li class="learn"><a href="{% url 'faq' %}#what" class="button standard blue"><b>Какво
                 правим</b></a></li>
         </ul>
         <aside>
@@ -30,7 +30,8 @@
                             <li>и <strong>комфорт</strong> в гражданската активност</li>
                         </ul>
                     </div>
-                    <a class="more" href="{% url 'wip' %}">Как ще ги постигнем</a>
+                    <a class="more" href="{% url 'faq' %}#approach">Как ще ги
+                        постигнем</a>
                 </li>
                 <li class="act">
                     <div class="txt">
@@ -41,7 +42,8 @@
                             да сме свободни и да вършим интересни неща
                         </p>
                     </div>
-                    <a class="more" href="{% url 'wip' %}">Как работим</a>
+                    <a class="more" href="{% url 'faq' %}#gettingthingsdone">Как
+                        работим</a>
                 </li>
             </ul>
         </aside>
@@ -92,7 +94,7 @@
                 <div class="layout">
                     <h3 class="heading"
                             ><a
-                            href="wip.html"
+                            href="{% url "about" %}#gov"
                             class="basic-transition-2x"
                             >Държавната<br/>
                         Администрация
@@ -103,18 +105,20 @@
 
                     <p>Да подсилим опитите за <br/> приветливи публични услуги</p>
                     <ul class="stripped">
-                        <li class="more"><a href="{% url 'wip' %}"
+                        <li class="more"><a href="{% url "faq" %}#worthy"
                                             class="button standard green single"><b>Как
                             можем да
                             помогнем</b></a></li>
-                        <li class="contact"><a href="{% url 'wip' %}">Директна връзка <i
-                                class="fi flaticon-chevron18"></i></a></li>
+                        <li class="contact"><a href="{% url 'support' %}#sponsorship">Директна
+                            връзка <i
+                                    class="fi flaticon-chevron18"></i></a></li>
                     </ul>
                 </div>
             </li>
             <li class="even clearfix rows1x3 force">
                 <div class="layout">
-                    <h3 class="heading"><a href="wip.html" class=" basic-transition-2x">Корпорации
+                    <h3 class="heading"><a href="{% url "about" %}#business"
+                                           class=" basic-transition-2x">Корпорации
                         <span class="subtitle basic-transition-mid"><strong title="и"
                                 >+</strong> Общество</span
                                 ></a></h3>
@@ -122,47 +126,52 @@
                     <p>Да отпуснем служителите с нашите мотивационни лагери и своевременно<br/>
                         това да бъде CSR</p>
                     <ul class="stripped">
-                        <li class="more"><a href="{% url 'wip' %}"
+                        <li class="more"><a href="{% url 'about' %}#fellowship"
                                             class="button standard green single"><b>Какво
                             предлагаме</b></a></li>
-                        <li class="contact"><a href="{% url 'wip' %}">Директна връзка <i
-                                class="fi flaticon-chevron18"></i></a></li>
+                        <li class="contact"><a href="{% url 'support' %}#fellowship">Директна
+                            връзка <i
+                                    class="fi flaticon-chevron18"></i></a></li>
                     </ul>
                 </div>
             </li>
             <li class="odd clearfix rows1x3 force">
                 <div class="layout">
-                    <h3 class="heading"><a href="wip.html" class=" basic-transition-2x">Донори
+                    <h3 class="heading"><a href="{% url 'about' %}#donors"
+                                           class=" basic-transition-2x">Донори
                         <span class="subtitle basic-transition-mid"><strong title="и"
                                 >+</strong> Общество</span
                                 ></a></h3>
 
                     <p>Да поддържаме каузата жива чрез<br/> подпомагане от корпорации,
-                        фондове<br/> или crowdfunding</a></p>
+                        фондове<br/> или crowdfunding</p>
                     <ul class="stripped">
-                        <li class="more"><a href="{% url 'wip' %}"
+                        <li class="more"><a href="{% url 'faq' %}#worthy"
                                             class="button standard green single"><b>Защо
                             заслужаваме</b></a></li>
-                        <li class="contact"><a href="{% url 'wip' %}">Директна връзка <i
-                                class="fi flaticon-chevron18"></i></a></li>
+                        <li class="contact"><a href="{% url 'support' %}#sponsorship">Директна
+                            връзка <i
+                                    class="fi flaticon-chevron18"></i></a></li>
                     </ul>
                 </div>
             </li>
             <li class="even clearfix rows2x2 force">
                 <div class="layout">
-                    <h3 class="heading"><a href="wip.html" class=" basic-transition-2x">Партниращи<br/>организации
+                    <h3 class="heading"><a href="{% url 'about' %}#partners"
+                                           class=" basic-transition-2x">Партниращи<br/>организации
                         <span class="subtitle basic-transition-mid"><strong title="и"
                                 >+</strong> Общество</span
                                 ></a></h3>
 
                     <p>Да правим проектите по-силни и<br/> обменяме опит</p>
                     <ul class="stripped">
-                        <li class="more"><a href="{% url 'wip' %}"
+                        <li class="more"><a href="{% url 'about' %}#partners"
                                             class="button standard green single"><b>Какъв
                             е
                             процеса</b></a></li>
-                        <li class="contact"><a href="{% url 'wip' %}">Директна връзка <i
-                                class="fi flaticon-chevron18"></i></a></li>
+                        <li class="contact"><a href="{% url 'faq' %}#partners">Директна
+                            връзка <i
+                                    class="fi flaticon-chevron18"></i></a></li>
                     </ul>
                 </div>
             </li>
@@ -237,7 +246,8 @@
                     <p>Великобритания</p>
                 </li>
             </ul>
-            <a class="more continue" href="{% url 'wip' %}"><i class="eclipse">...</i> още
+            <a class="more continue" href="http://government.github.com/"><i
+                    class="eclipse">...</i> още
                 <i
                         class="fi flaticon-chevron18"></i></a>
         </section>

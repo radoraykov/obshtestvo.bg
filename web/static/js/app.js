@@ -36,6 +36,9 @@ $(function () {
 
     var about = $innerPage.filter('.about');
     if (about.length) about = new AboutPage(project);
+
+    var report = $innerPage.filter('.report');
+    if (report.length) report = new ReportPage(report);
 });
 
 
@@ -68,6 +71,15 @@ function AboutPage($context) {
         step2: {
             $waypoint: app.$content,
             offset: -400
+        }
+    });
+}
+
+function ReportPage($context) {
+    var sidebar = new Sidebar($('#sidebar'), {
+        $waypoint: app.$content,
+        offsets: {
+            screenReduce: false
         }
     });
 }

@@ -573,7 +573,7 @@ input.button.small {
 
 header.masthead .project-actions li.see .button:after {
     font-family: Flaticon;
-    content: "\e005"; /*.flaticon-chevron18*/
+    content: "\e005"; /*.flaticon-chevron15*/
     font-size: 95px;
     line-height: 35px;
     position: absolute;
@@ -1763,12 +1763,71 @@ nav.main .sub.waiting li {
     top: 92px
 }
 
+.inner .masthead #sidebar .screen-collapser {
+    overflow: hidden;
+    max-height: 343px;
+    -webkit-transition: all 200ms ease-in-out;
+    -moz-transition: all 200ms ease-in-out;
+    -ms-transition: all 200ms ease-in-out;
+    -o-transition: all 200ms ease-in-out;
+    transition: all 200ms ease-in-out;
+}
+
 .inner .masthead #sidebar .screen-wrapper {
     /*position: absolute;*/
     /*left: 3.6%;*/
     /*right: 3.6%;*/
     width: 100%;
     float: right;
+    -webkit-transition: all 200ms ease-in-out;
+    -moz-transition: all 200ms ease-in-out;
+    -ms-transition: all 200ms ease-in-out;
+    -o-transition: all 200ms ease-in-out;
+    transition: all 200ms ease-in-out;
+    -webkit-transform-origin: right top;
+    -moz-transform-origin: right top;
+    -o-transform-origin: right top;
+}
+
+.inner .masthead #sidebar.fixed.reduced .toc {
+    margin-top: 5px;
+}
+
+.inner .masthead #sidebar.fixed.reduced .screen-wrapper {
+    width: 205px;
+}
+
+.csstransforms .inner .masthead #sidebar.fixed.reduced .screen-wrapper {
+    width: 100%;
+    -webkit-transform: scale(0.29);
+    -moz-transform: scale(0.29);
+    -ms-transform: scale(0.29);
+    -o-transform: scale(0.29);
+    transform: scale(0.29);
+}
+
+.inner .masthead #sidebar.fixed.reduced .screen-collapser {
+    max-height: 100px;
+    margin-right: 3%
+}
+
+.inner .masthead #sidebar.fixed.reduced .screen-collapser:hover {
+    max-height: 343px;
+    margin-right: 0
+}
+
+.inner .masthead #sidebar.fixed.reduced .screen-collapser:hover .toc {
+    margin-top: 24px;
+}
+
+.inner .masthead #sidebar.fixed.reduced .screen-collapser:hover .screen-wrapper {
+    width: 100%;
+    opacity: 1;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
 }
 
 .inner .masthead #sidebar .screen {
@@ -1795,6 +1854,7 @@ nav.main .sub.waiting li {
     max-width: 710px;
 }
 
+.inner.report .masthead #sidebar .screen img.logo,
 .inner.about .masthead #sidebar .screen img.logo {
     width: 80%;
     max-width: 293px;
@@ -1808,6 +1868,7 @@ nav.main .sub.waiting li {
     margin-bottom: -5%;
 }
 
+.inner.report .masthead #sidebar .screen,
 .inner.support .masthead #sidebar .screen,
 .inner.about .masthead #sidebar .screen {
     position: relative;
@@ -1825,6 +1886,7 @@ nav.main .sub.waiting li {
     right: 0;
 }
 
+.inner.report .masthead #sidebar .screen .overlay,
 .inner.support .masthead #sidebar .screen .overlay,
 .inner.about .masthead #sidebar .screen .overlay {
     position: absolute;
@@ -1832,6 +1894,7 @@ nav.main .sub.waiting li {
     line-height: 1.2em;
 }
 
+.inner.report .masthead #sidebar .screen .step1 .overlay,
 .inner.support .masthead #sidebar .screen .step1 .overlay,
 .inner.about .masthead #sidebar .screen .step1 .overlay {
     background: rgba(16, 142, 186, 0.82);
@@ -1913,6 +1976,7 @@ nav.main .sub.waiting li {
     width: 55%;
 }
 
+.inner.report .masthead #sidebar .screen .step1 strong.name,
 .inner.about .masthead #sidebar .screen .step1 strong.name {
     display: block;
     font-weight: normal;
@@ -1920,12 +1984,14 @@ nav.main .sub.waiting li {
     padding-bottom: 1.84%;
 }
 
+.inner.report .masthead #sidebar .screen .step1 li,
 .inner.about .masthead #sidebar .screen .step1 li {
     width: 200px;
     margin: 0 auto;
     text-align: left;
 }
 
+.inner.report .masthead #sidebar .screen .step1 li em,
 .inner.about .masthead #sidebar .screen .step1 li em {
     width: 50px;
     float: left;
@@ -1971,7 +2037,7 @@ nav.main .sub.waiting li {
     opacity: 1;
 }
 
-.inner.support .masthead #sidebar .toc {
+.inner.report .masthead #sidebar .toc {
     display: none;
 }
 
@@ -2010,7 +2076,7 @@ nav.main .sub.waiting li {
 }
 
 .inner .masthead #sidebar .toc li a:after {
-    content: "\e005";
+    content: "\e006"; /*.flaticon-chevron18*/
     position: absolute;
     right: -3px;
     top: 0;
@@ -2128,17 +2194,23 @@ nav.main .sub.waiting li {
     line-height: 1.26em;
 }
 
+.inner .txt ol a,
+.inner .txt ul a,
 .inner .txt p a {
     color: #0498cc;
     position: relative;
     top: 0;
 }
 
+.inner .txt ol a:hover,
+.inner .txt ul a:hover,
 .inner .txt p a:hover {
     text-decoration: none;
     color: #03beff;
 }
 
+.inner .txt ol a:active,
+.inner .txt ul a:active,
 .inner .txt p a:active {
     text-decoration: none;
     color: #519cb6;
@@ -2211,6 +2283,16 @@ nav.main .sub.waiting li {
     overflow: hidden;
     position: relative;
     top: -210px;
+}
+
+.inner.about .txt h3 a.adjust,
+.inner.about .txt h2 a.adjust,
+.inner.faq .txt h2 a.adjust {
+    display: block;
+    position: relative;
+    top: -90px;
+    height: 0;
+    overflow: hidden;
 }
 
 .inner.support .txt > section#act .option.donation a.adjust {
@@ -2289,7 +2371,7 @@ nav.main .sub.waiting li {
 
 .inner.support .txt > section#act .option header:after {
     font-family: Flaticon;
-    content: "\e005"; /*.flaticon-chevron18*/
+    content: "\e005"; /*.flaticon-chevron15*/
     font-size: 150px;
     line-height: 35px;
     position: absolute;
@@ -3171,6 +3253,29 @@ footer .quick-contacts li a {
 
     .inner .masthead #sidebar .screen img {
         width: 100%;
+    }
+
+    .inner .masthead #sidebar.fixed.reduced .toc {
+        margin-top: 24px;
+    }
+
+    .inner .masthead #sidebar.fixed.reduced .screen-wrapper {
+        width: 100%;
+        opacity: 1;
+    }
+
+    .csstransforms .inner .masthead #sidebar.fixed.reduced .screen-wrapper {
+        width: 100%;
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+        transform: scale(1);
+    }
+
+    .inner .masthead #sidebar.fixed.reduced .screen-collapser {
+        max-height: 343px;
+        margin-right: 0
     }
 }
 

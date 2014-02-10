@@ -4,6 +4,7 @@ function SupportPage($context) {
     var $infos = $options.find('.info');
 
     this._detectSelected($anchors, $options, $infos)
+    this._initContentNav($anchors);
 
 
     $('.msg.hidden').css('display', 'none').removeClass('hidden')
@@ -32,7 +33,10 @@ function SupportPage($context) {
 
 
     var sidebar = new Sidebar($('#sidebar'), {
-        $waypoint: app.$content
+        $waypoint: app.$content,
+        offsets: {
+            screenReduce: 120
+        }
     });
 
 }
@@ -88,7 +92,7 @@ SupportPage.prototype = {
                 e.preventDefault()
                 e.stopPropagation()
                 document.location.hash = 'sponsorship';
-                $options.filter('.finance').click()
+                $options.filter('.finance').find('header').click()
                 return;
             }
             if ($project.val() != 'any') topic = topic + " за " + $project.find("option:selected").text();
@@ -102,27 +106,39 @@ SupportPage.prototype = {
             var $veil = $form.find('.blockOverlay');
             AjaxForm._genSpinner().spin($veil.get(0))
             pay[$type.filter(':checked').val()](amount, topic);
-            ''
         })
     },
     _detectSelected: function ($anchors, $options, $infos) {
         var $target = $anchors.filter(window.location.hash);
-        if ($target.length) {
-            $options.removeClass('basic-transition-2x')
-            $options.find('header p, header h2').removeClass('basic-transition-2x')
-            $options.removeClass('active')
-            $infos.find('.info-content').addClass('hidden')
-            var $targetOption = $target.parent();
-            $targetOption.find('.info-content').removeClass('hidden')
-            $targetOption.addClass('active')
-            $options.addClass('basic-transition-2x')
-            $options.find('header p, header h2').addClass('basic-transition-2x')
+        console.log(!$target.length)
+        if (!$target.length) {
+            $target = $anchors.filter('#time');
+            document.location.hash = 'time';
         }
+        $options.removeClass('basic-transition-2x')
+        $options.find('header p, header h2').removeClass('basic-transition-2x')
+        $options.removeClass('active')
+        $infos.find('.info-content').addClass('hidden')
+        var $targetOption = $target.parent();
+        $targetOption.find('.info-content').removeClass('hidden')
+        $targetOption.addClass('active')
+        $options.addClass('basic-transition-2x')
+        $options.find('header p, header h2').addClass('basic-transition-2x')
+    },
+
+    _initContentNav: function ($anchors) {
+        $('.toc a').click(function (e) {
+            e.preventDefault()
+            var $target = $anchors.filter($(this).attr('href'));
+            var $targetOption = $target.parent();
+            $targetOption.find('header').click()
+        })
     },
 
     _initAccordion: function ($options) {
         $options.find('header').each(function () {
-            var $this = $(this).parent();
+            var $header = $(this);
+            var $this = $header.parent();
             var $infoNone = $this.find('.info-holder');
             var $infoContent = $this.find('.info-content');
             if ($infoContent.hasClass('hidden')) $infoContent.css('display', 'none').removeClass('hidden')
@@ -130,7 +146,7 @@ SupportPage.prototype = {
             var hash = $this.find('.adjust').attr('id')
             var $otherOptions = $options.not($this)
 
-            $this.click(function () {
+            $header.click(function () {
                 changeHashWithoutScrolling(hash)
                 if ($this.hasClass('active')) return;
                 var $activeOption = $otherOptions.filter('.active');
@@ -143,6 +159,7 @@ SupportPage.prototype = {
                     parallel: true,
                     final: function () {
                         toggleFixedHeight($activeInfo, false)
+                        $("html, body").animate({ scrollTop: $this.find('.adjust').offset().top }, {duration: 200});
                     }
                 });
                 $info.animateContentSwitch($infoNone, $infoContent, {
