@@ -2290,7 +2290,7 @@ nav.main .sub.waiting li {
 .inner.faq .txt h2 a.adjust {
     display: block;
     position: relative;
-    top: -90px;
+    top: -65px;
     height: 0;
     overflow: hidden;
 }
