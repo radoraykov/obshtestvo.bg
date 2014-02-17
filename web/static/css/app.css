@@ -398,7 +398,57 @@ header.masthead h1 {
     padding-top: 20px;
 }
 
+header.masthead h1 a.logo {
+    width:293px;
+    display: inline-block;
+    line-height: 46px;
+    height: 46px;
+    position: relative;
+    top:-6px;
+}
+header.masthead h1 a.logo:after {
+    font-size: 15px;
+    font-weight: normal;
+}
+header.masthead h1 a.logo i {
+    line-height: 46px;
+    height: 46px;
+    display: inline-block;
+    position: relative;
+    top:10px;
+    background: url("../img/logo.png") no-repeat left top;
+    -webkit-transition: all 150ms cubic-bezier(0.600, 0.040, 0.980, 0.335);
+   -moz-transition: all 150ms cubic-bezier(0.600, 0.040, 0.980, 0.335);
+     -o-transition: all 150ms cubic-bezier(0.600, 0.040, 0.980, 0.335);
+        transition: all 150ms cubic-bezier(0.600, 0.040, 0.980, 0.335); /* easeInCirc */
+}
+header.masthead h1 a.logo i.left.bracket {
+    width:24px;
+}
+header.masthead h1 a.logo i.right.bracket {
+    width:24px;
+    background-position: right top;
+}
+header.masthead h1 a.logo i.obshtestvo {
+    width:245px;
+    background-position: center top;
+}
+header.masthead h1 a.logo:hover i.obshtestvo {
+    width:0;
+}
+
+header.masthead h1 a.logo:hover i.bracket {
+    -webkit-animation: pulsate 1s linear;
+    -webkit-animation-iteration-count: infinite;
+}
+@-webkit-keyframes pulsate {
+    0% {-webkit-filter: brightness(1) contrast(1); opacity:1}
+    50% {-webkit-filter: brightness(1.5) contrast(1.5);opacity:0.7}
+    100% {-webkit-filter: brightness(1) contrast(1);opacity:1}
+}
+
 header.masthead .subtitle {
+    margin-top: 13px;
     padding-top: 9px;
     padding-bottom: 44px;
     font-size: 22px;

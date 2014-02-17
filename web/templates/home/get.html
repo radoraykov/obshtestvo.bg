@@ -3,9 +3,13 @@
 {% block content %}
 
     <header class="masthead">
-        <h1><a class="logo" href="/"><img src="static/img/logo.png"
-                                          alt="Obshtestvo.bg - Civic Hacking в България"/></a>
-        </h1>
+        <h1><a
+                class="logo hint--info hint--top"
+                href="{% url 'faq' %}#what"
+                data-hint="Технологии за цялото гражданско общество"><i
+                    class="left bracket"></i><i
+                    class="obshtestvo"></i><i
+                    class="right bracket"></i></a></h1>
 
         <p class="subtitle">Независими създатели на електронни инструменти за
             информираност с функция: удобна, приятна и
