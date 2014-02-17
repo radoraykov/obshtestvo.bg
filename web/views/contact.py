@@ -6,7 +6,7 @@ from django.core.mail import send_mail
 from django import forms
 
 
-@restful_view_templates('contact')
+@restful_view_templates
 class ContactView(View):
     def post(self, request):
         form = Form(data=request.params)

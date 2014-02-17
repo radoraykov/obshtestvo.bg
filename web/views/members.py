@@ -6,7 +6,7 @@ from django.core.mail import send_mail
 from django import forms
 
 
-@restful_view_templates('members')
+@restful_view_templates
 class MembersView(View):
     def post(self, request):
         form = Form(data=request.params)

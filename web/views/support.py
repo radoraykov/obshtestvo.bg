@@ -3,7 +3,7 @@ from restful.decorators import restful_view_templates
 from django.conf import settings
 
 
-@restful_view_templates('support')
+@restful_view_templates
 class SupportView(View):
     def get(self, request):
         return {

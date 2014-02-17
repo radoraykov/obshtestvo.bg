@@ -3,7 +3,7 @@ from django.views.generic.base import View
 from restful.decorators import restful_view_templates
 
 
-@restful_view_templates('home')
+@restful_view_templates
 class HomeView(View):
     def get(self, request):
         return {

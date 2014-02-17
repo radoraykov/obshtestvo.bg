@@ -29,11 +29,8 @@ def restful_template(dirname, name, func=None):
     return decorator
 
 
-def restful_view_templates(dirname):
-    def dectheclass(cls):
-        for name, m in inspect.getmembers(cls, inspect.ismethod):
-            if name in View.http_method_names:
-                setattr(cls, name, restful_template(dirname, name, func=m))
-        return cls
-
-    return dectheclass
+def restful_view_templates(cls):
+    for name, m in inspect.getmembers(cls, inspect.ismethod):
+        if name in View.http_method_names:
+            setattr(cls, name, restful_template(cls.__name__[:-4].lower(), name, func=m))
+    return cls

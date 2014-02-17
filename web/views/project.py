@@ -6,7 +6,7 @@ from restful.decorators import restful_view_templates
 import os
 
 
-@restful_view_templates('project')
+@restful_view_templates
 class ProjectView(View):
     def get(self, request, name):
         project = settings.FAKE_DB[name]
