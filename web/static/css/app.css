@@ -3253,6 +3253,7 @@ footer .quick-contacts li a {
     margin-left: 50%;
     float: left;
     max-width: 710px;
+    overflow: hidden;
 }
 
 .half-layout .padder {
