@@ -12,6 +12,7 @@ from django.core.urlresolvers import reverse
 import reversion
 from suit.admin import SortableTabularInline, SortableModelAdmin
 from django.db import models
+from django.templatetags.static import static
 
 def close_link(instance):
     if not instance.id:
@@ -20,6 +21,13 @@ def close_link(instance):
         instance._meta.app_label,  instance._meta.module_name),  args=[instance.id] ) + 'tools/' + 'toolfunc'
     return mark_safe(u'<a href="{u}">Close</a>'.format(u=url))
 
+
+def avatar(obj):
+    if (obj.facebook):
+        url = u'http://graph.facebook.com/%s/picture?width=40&amp;height=40' % obj.facebook.split('/')[-1]
+    else:
+        url = static('img/user-silhouette.png')
+    return mark_safe(u'<img width="40" height="40" src="%s" />' % url)
 
 
 # from guardian.admin import GuardedModelAdmin
@@ -282,7 +290,7 @@ class MemberAdmin(admin.ModelAdmin):
     search_fields = ['name']
     list_editable = ('is_active','is_available')
     list_filter = ('projects_interests','is_active','is_available','types','skills','last_contacted_at','is_paid_only')
-    list_display = ('name', 'facebook', 'email', 'is_active', 'is_available')
+    list_display = (avatar, 'name', 'facebook', 'email', 'is_active', 'is_available')
     suit_form_tabs = (
         ('general', _('General')),
         ('specifics', _('Specifics')),
