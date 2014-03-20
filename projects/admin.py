@@ -24,7 +24,7 @@ def close_link(instance):
 
 def avatar(obj):
     if (obj.facebook):
-        url = u'http://graph.facebook.com/%s/picture?width=40&amp;height=40' % obj.facebook.split('/')[-1]
+        url = u'http://graph.facebook.com/%s/picture?width=40&amp;height=40' % obj.facebook.split('=' if 'profile.php' in obj.facebook else '/')[-1]
     else:
         url = static('img/user-silhouette.png')
     return mark_safe(u'<img width="40" height="40" src="%s" />' % url)
