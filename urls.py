@@ -19,4 +19,4 @@ urlpatterns = patterns('',
                        url(r'^project/(?P<name>[^/]+)\.html$',
                            project.ProjectView.as_view(),
                            name='project'),
-) + [url(r'^autocomplete/', include('autocomplete_light.urls')),] + [url(r'^select2/', include('django_select2.urls')),]
+)
