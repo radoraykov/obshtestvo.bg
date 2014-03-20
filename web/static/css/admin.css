@@ -1,0 +1,17 @@
+#footer {
+    height: 30px;
+}
+.footer .content  {
+    border: 0;
+}
+.footer .content .copyright,
+.footer .content .tools,
+.footer .content .branding {
+    padding: 7px 10px 0 10px;
+}
+#wrap {
+    margin-bottom: -30px;
+}
+.left-nav>ul>li ul li a:first-letter {
+    text-transform: uppercase;
+}

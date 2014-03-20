@@ -1,10 +1,8 @@
 # coding=utf-8
 # Django settings for mysite project.
 from django.utils.datastructures import SortedDict
+from django.utils.translation import ugettext_lazy as _
 from server.settings_app import *
-
-DEBUG = True
-TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
 # ('Your Name', 'your_email@example.com'),
@@ -14,10 +12,6 @@ MANAGERS = ADMINS
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 SESSION_ENGINE = "django.contrib.sessions.backends.file"
 
-# Hosts/domain names that are valid for this site; required if DEBUG is False
-# See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = []
-
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
@@ -26,7 +20,7 @@ TIME_ZONE = 'Europe/Sofia'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'bg'
 
 SITE_ID = 1
 
@@ -54,6 +48,8 @@ STATIC_URL = '/static/'
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    # other finders..
+    'compressor.finders.CompressorFinder',
     #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
@@ -93,25 +89,28 @@ TEMPLATE_DIRS = (
 )
 
 INSTALLED_APPS = (
+    'web',
+    "django_select2",
+    "autocomplete_light",
+    "projects",
+    'django_object_actions',
+    'suit',
     'django.contrib.auth',
+    'django.contrib.admin',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # Uncomment the next line to enable the admin:
-    'django.contrib.admin',
-    # Uncomment the next line to enable admin documentation:
-    # 'django.contrib.admindocs',
-    'restful',
-    'web',
+    'social.apps.django_app.default',
+    "restful",
+    "auth",
+    'reversion',
+    'guardian',
+    "compressor",
+    "pagedown",
 )
-
-# A sample logging configuration. The only tangible logging
-# performed by this configuration is to send an email to
-# the site admins on every HTTP 500 error when DEBUG=False.
-# See http://docs.djangoproject.com/en/dev/topics/logging for
-# more details on how to customize your logging configuration.
+ANONYMOUS_USER_ID = -1
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -226,4 +225,96 @@ FAKE_DB["alerts"] = {
     "fb_group": "None",
     "homepage": False,
     "slug": "alerts"
+}
+
+
+
+SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.debug',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.media',
+    'django.contrib.messages.context_processors.messages',
+    'social.apps.django_app.context_processors.backends',
+    'django.core.context_processors.request',
+)
+
+AUTHENTICATION_BACKENDS = (
+    'social.backends.facebook.FacebookOAuth2',
+    'social.backends.google.GoogleOpenId',
+    'social.backends.google.GooglePlusAuth',
+    'social.backends.open_id.OpenIdAuth',
+    'social.backends.email.EmailAuth',
+    'django.contrib.auth.backends.ModelBackend',
+    'guardian.backends.ObjectPermissionBackend',
+)
+
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/done/'
+URL_PATH = ''
+SOCIAL_AUTH_STRATEGY = 'social.strategies.django_strategy.DjangoStrategy'
+SOCIAL_AUTH_STORAGE = 'social.apps.django_app.default.models.DjangoStorage'
+SOCIAL_AUTH_GOOGLE_OAUTH_SCOPE = [
+    'https://www.googleapis.com/auth/drive',
+    'https://www.googleapis.com/auth/userinfo.profile'
+]
+# SOCIAL_AUTH_EMAIL_FORM_URL = '/signup-email'
+SOCIAL_AUTH_EMAIL_FORM_HTML = 'email_signup.html'
+SOCIAL_AUTH_EMAIL_VALIDATION_FUNCTION = 'auth.mail.send_validation'
+SOCIAL_AUTH_EMAIL_VALIDATION_URL = '/email-sent/'
+# SOCIAL_AUTH_USERNAME_FORM_URL = '/signup-username'
+SOCIAL_AUTH_USERNAME_FORM_HTML = 'username_signup.html'
+SOCIAL_AUTH_PIPELINE = (
+    'social.pipeline.social_auth.social_details',
+    'social.pipeline.social_auth.social_uid',
+    'social.pipeline.social_auth.auth_allowed',
+    'social.pipeline.social_auth.social_user',
+    'auth.pipeline.require_email',
+    'social.pipeline.mail.mail_validation',
+    'social.pipeline.user.get_username',
+    # 'social.pipeline.social_auth.associate_by_email',
+    'social.pipeline.user.create_user',
+    'social.pipeline.social_auth.associate_user', # creates a social user record
+    'social.pipeline.social_auth.load_extra_data', # adds provider metadata like "expire" or "id"
+    'social.pipeline.user.user_details' # tops up User model fields with what's available in "details" parameter
+)
+
+SOCIAL_AUTH_FACEBOOK_KEY = '587878011289347'
+SOCIAL_AUTH_FACEBOOK_SECRET = 'f648ffde60c93685060ae1152816108d'
+SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {'locale': 'bg_BG'}
+EMAIL_FROM = 'info@obshtestvo.bg'
+AUTH_USER_MODEL = 'projects.User'
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email', 'user_education_history', 'user_interests']
+
+SUIT_CONFIG = {
+    'ADMIN_NAME': 'Obshtestvo.bg',
+    'MENU': (
+        {'label': _('coordination'), 'icon':'icon-heart', 'models': (
+            {'model': 'projects.member', 'label': _('members')},
+            {'model': 'projects.membertype', 'label': _('member types')},
+            {'model': 'projects.skill', 'label': _('skills')},
+        )},
+        {'label': _('Partners & Funding'), 'icon':'icon-bookmark', 'models': (
+            {'model': 'projects.organisation', 'label': _('organisations')},
+        )},
+        {
+            'app': 'projects',
+            'label': _('projects'),
+            'icon': 'icon-tasks',
+            'models': (
+                'project',
+                {'model': 'projectactivity', 'label': _('activities')},
+                # {'model': 'projectactivitytemplate', 'label': _('activity templates')},
+                'task',
+            )
+        },
+        {'label': _('System users'), 'icon':'icon-user', 'models': (
+            {'model': 'projects.user', 'label': _('users')},
+            {'model': 'projects.userprojectpause', 'label': _('project pauses')},
+            {'model': 'projects.useractivity', 'label': _('activities')},
+            'auth.group',
+        )},
+    )
 }

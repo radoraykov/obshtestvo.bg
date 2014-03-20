@@ -1,0 +1,427 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-20 09:55+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: admin.py:54
+msgid "Personal info"
+msgstr ""
+
+#: admin.py:58
+msgid "Permissions"
+msgstr ""
+
+#: admin.py:64
+msgid "Important dates"
+msgstr ""
+
+#: admin.py:68
+msgid "Custom"
+msgstr ""
+
+#: admin.py:287 admin.py:340
+msgid "General"
+msgstr "Главното"
+
+#: admin.py:288
+msgid "Specifics"
+msgstr "Специфика"
+
+#: admin.py:302
+msgid "Expectations"
+msgstr "Очаквания"
+
+#: admin.py:306
+msgid "Member's preferences"
+msgstr "Желан начин на участие"
+
+#: admin.py:310
+msgid "Self-description & Comments"
+msgstr "Само-описание & Коментари"
+
+#: admin.py:318
+msgid "Conditions"
+msgstr "Условия"
+
+#: admin.py:322
+msgid "Communication"
+msgstr "Комуникация"
+
+#: admin.py:353
+msgid "Contact"
+msgstr "Информация за контакт"
+
+#: admin.py:357
+msgid "About"
+msgstr "Инфо"
+
+#: admin.py:361
+msgid "Partner"
+msgstr "Партньор"
+
+#: models.py:22
+msgid "organisation"
+msgstr "организация"
+
+#: models.py:23
+msgid "organisations"
+msgstr "организации"
+
+#: models.py:24 models.py:44 models.py:53 models.py:79 models.py:185
+#: models.py:248 models.py:270 models.py:282 models.py:296
+msgid "name"
+msgstr "име"
+
+#: models.py:25 models.py:186
+msgid "strategy"
+msgstr "стратегия"
+
+#: models.py:27
+msgid "middle men"
+msgstr "Посредници"
+
+#: models.py:28
+msgid "Representative"
+msgstr "Представител"
+
+#: models.py:30
+msgid "Found via"
+msgstr "Намерено чрез"
+
+#: models.py:31
+msgid "contact info"
+msgstr "Информация за контакт"
+
+#: models.py:32 models.py:87
+msgid "comment"
+msgstr "Коментар"
+
+#: models.py:33
+msgid "Also working with"
+msgstr "Също така, работи и със:"
+
+#: models.py:35
+msgid "Has funding programme?"
+msgstr "Спонсорира проекти?"
+
+#: models.py:37
+msgid "partnered project"
+msgstr "партнира по"
+
+#: models.py:38
+msgid "Provided help"
+msgstr "Предоставяна помощ"
+
+#: models.py:42
+msgid "skill"
+msgstr "умение"
+
+#: models.py:43 models.py:84
+msgid "skills"
+msgstr "умения"
+
+#: models.py:51
+msgid "member type"
+msgstr "вид участник"
+
+#: models.py:52
+msgid "member types"
+msgstr "видове участници"
+
+#: models.py:60
+msgid "member"
+msgstr "участник"
+
+#: models.py:61
+msgid "members"
+msgstr "участници"
+
+#: models.py:76
+msgid "Daily sync from associated user?"
+msgstr ""
+
+#: models.py:78
+msgid "date joined"
+msgstr "Дата на включване"
+
+#: models.py:80
+msgid "email address"
+msgstr "email"
+
+#: models.py:81
+msgid "facebook profile"
+msgstr ""
+
+#: models.py:82
+msgid "Active right now?"
+msgstr "Активен в момента?"
+
+#: models.py:86
+msgid "intro"
+msgstr "интро"
+
+#: models.py:88
+msgid "Type of helped offered"
+msgstr "Тип предложена помощ"
+
+#: models.py:90
+msgid "Available for work?"
+msgstr "На разположение?"
+
+#: models.py:91 models.py:126
+msgid "available after"
+msgstr "На разположение след"
+
+#: models.py:93
+msgid "last contact"
+msgstr "последна връзка"
+
+#: models.py:94
+msgid "latest answer"
+msgstr "последният отговор"
+
+#: models.py:98
+msgid "Contact frequency"
+msgstr "Честота на комуникацията"
+
+#: models.py:100
+msgid "Ever going to help?"
+msgstr "Ще се включи ли по проектите някога"
+
+#: models.py:101
+msgid "Paid only"
+msgstr "Само срещу заплащане"
+
+#: models.py:102
+msgid "Relation to Obshtestvo"
+msgstr "Отношения с Общество"
+
+#: models.py:103
+msgid "Projects interested in"
+msgstr ""
+
+#: models.py:124 models.py:137
+msgid "profession"
+msgstr "професия"
+
+#: models.py:125
+msgid "Is the user available for work"
+msgstr ""
+
+#: models.py:127
+msgid "has confirmed custom data"
+msgstr ""
+
+#: models.py:128
+msgid "biography"
+msgstr ""
+
+#: models.py:129
+msgid "avatar"
+msgstr ""
+
+#: models.py:136 models.py:297
+msgid "points"
+msgstr ""
+
+#: models.py:155
+msgid "progress made"
+msgstr ""
+
+#: models.py:156
+msgid "active"
+msgstr "активен"
+
+#: models.py:157
+msgid "last time user stopped working on this"
+msgstr ""
+
+#: models.py:159
+msgid "user needs replacement"
+msgstr ""
+
+#: models.py:183
+msgid "project"
+msgstr "проект"
+
+#: models.py:184
+msgid "projects"
+msgstr "проекти"
+
+#: models.py:187 models.py:215
+msgid "description"
+msgstr "описание"
+
+#: models.py:189
+msgid "facebook group"
+msgstr ""
+
+#: models.py:190
+msgid "github repository"
+msgstr ""
+
+#: models.py:191
+msgid "project management URL"
+msgstr ""
+
+#: models.py:192
+msgid "url"
+msgstr ""
+
+#: models.py:193
+msgid "slug"
+msgstr ""
+
+#: models.py:194
+msgid "Is featured"
+msgstr ""
+
+#: models.py:197
+msgid "logo"
+msgstr ""
+
+#: models.py:198
+msgid "logo styled to fit obshtestvo.bg"
+msgstr ""
+
+#: models.py:199
+msgid "cover image"
+msgstr ""
+
+#: models.py:212
+msgid "project milestone"
+msgstr ""
+
+#: models.py:213
+msgid "project milestones"
+msgstr ""
+
+#: models.py:216
+msgid "target date"
+msgstr ""
+
+#: models.py:217
+msgid "actual date happened"
+msgstr ""
+
+#: models.py:218
+msgid "done"
+msgstr "готов"
+
+#: models.py:219
+msgid "technical"
+msgstr "техническо"
+
+#: models.py:220
+msgid "Show at"
+msgstr ""
+
+#: models.py:249
+msgid "organisation related"
+msgstr ""
+
+#: models.py:251
+msgid "template activity"
+msgstr ""
+
+#: models.py:253
+msgid "Max people"
+msgstr ""
+
+#: models.py:258
+msgid "project activity"
+msgstr "дейност"
+
+#: models.py:259
+msgid "project activities"
+msgstr "дейности"
+
+#: models.py:267
+msgid "project motive"
+msgstr "мотив"
+
+#: models.py:268
+msgid "project motives"
+msgstr "мотиви"
+
+#: models.py:279
+msgid "project usage example step"
+msgstr "стъпка при примерна употреба"
+
+#: models.py:280
+msgid "project usage example steps"
+msgstr "стъпка при примерна употреба"
+
+#: models.py:284
+msgid "icon"
+msgstr "иконка"
+
+#: models.py:285
+msgid "Example number"
+msgstr "Номер"
+
+#: models.py:293
+msgid "task"
+msgstr "задача"
+
+#: models.py:294
+msgid "tasks"
+msgstr "задачи"
+
+#: models.py:298
+msgid "is this complete"
+msgstr "готова?"
+
+#: templates/admin/index.html:22
+msgid "My Actions"
+msgstr "Моите действия"
+
+#: templates/admin/index.html:27
+msgid "None available"
+msgstr "Няма налични"
+
+#: templates/admin/index.html:36
+msgid "added"
+msgstr "добавно"
+
+#: templates/admin/index.html:37
+msgid "changed"
+msgstr "променено"
+
+#: templates/admin/index.html:38
+msgid "deleted"
+msgstr "изтрито"
+
+#: templates/admin/index.html:44
+msgid "Unknown content"
+msgstr ""
+
+msgid "System"
+msgstr "Системни"
+
+msgid "Partners & Funding"
+msgstr "Партьори & Финансиране"
+
+msgid "coordination"
+msgstr "координация"
+
+msgid "activities"
+msgstr "дейности"
+
+msgid "activity"
+msgstr "дейност"

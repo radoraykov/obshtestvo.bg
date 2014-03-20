@@ -1,0 +1,12 @@
+{
+  "name": "obshtestvo.projects",
+  "version": "1.0.0",
+  "main": "static/css/main.css",
+  "ignore": [
+    ".jshintrc",
+    "**/*.txt"
+  ],
+  "dependencies": {
+    "select2": "*"
+  }
+}

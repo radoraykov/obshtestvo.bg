@@ -2,6 +2,8 @@
 SECRET_KEY = '%bfij+9c-xb&$kdtc_q-rhj=ii!%mc_()c5%!c$p-w65q^jhz9'
 DATABASES = {
     'default': {
+        # CREATE DATABASE obshtestvo CHARACTER SET utf8 COLLATE utf8_general_ci;
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': 'obshtestvo', # Or path to database file if using sqlite3.
         'USER': 'fernando',
         'PASSWORD': ')(!JIOWQLKMDASiksajajw8218sa#Wndo',
@@ -27,3 +29,11 @@ STATICFILES_DIRS = (
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/var/www/example.com/media/"
 MEDIA_ROOT = '/home/ubuntu/projects/fontc'
+
+
+# Hosts/domain names that are valid for this site; required if DEBUG is False
+# See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
+ALLOWED_HOSTS = ['.obshtestvo.bg']
+
+DEBUG = True
+TEMPLATE_DEBUG = DEBUG

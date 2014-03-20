@@ -1,0 +1,13 @@
+MySQL-python
+django>=1.4
+python-social-auth
+django-compressor
+jsmin
+fabric
+django-suit
+django-reversion
+django-pagedown
+django-guardian
+django-object-actions
+django-taggit
+django-autocomplete-light
