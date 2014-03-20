@@ -90,7 +90,6 @@ TEMPLATE_DIRS = (
 
 INSTALLED_APPS = (
     'web',
-    "django_select2",
     "autocomplete_light",
     "projects",
     'django_object_actions',
