@@ -5,7 +5,6 @@ from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.utils.translation import ugettext_lazy as _
 from suit.widgets import *
 from pagedown.widgets import AdminPagedownWidget
-import autocomplete_light
 from .models import *
 from django import forms
 from django.utils.safestring import mark_safe
@@ -267,7 +266,7 @@ class ProjectActivityTemplateAdmin(ProjectActivityAdminBase):
         return self.model.objects.filter(is_template=True)
 
 
-class MemberAdminFrom(autocomplete_light.FixedModelForm):
+class MemberAdminFrom(forms.ModelForm):
     class Meta:
         widgets = {
             'facebook':EnclosedInput(prepend='icon-share'),
@@ -363,10 +362,6 @@ class OrganisationAdmin(admin.ModelAdmin):
             'fields': ('partnered_project', 'provided_help',)
         }),
     )
-
-autocomplete_light.register(MemberType, search_fields=['name'], autocomplete_js_attributes={'placeholder': 'Start typing...',},)
-autocomplete_light.register(Skill, search_fields=['name'], autocomplete_js_attributes={'placeholder': 'Start typing...',},)
-autocomplete_light.register(Project, search_fields=['name'], autocomplete_js_attributes={'placeholder': 'Start typing...',},)
 
 admin.site.register(Organisation, OrganisationAdmin)
 admin.site.register(Member, MemberAdmin)
