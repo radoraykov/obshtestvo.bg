@@ -13,6 +13,8 @@ import reversion
 from suit.admin import SortableTabularInline, SortableModelAdmin
 from django.db import models
 from django.templatetags.static import static
+from django.utils.html import urlize
+from django.utils.html import format_html
 
 def close_link(instance):
     if not instance.id:
@@ -290,7 +292,7 @@ class MemberAdmin(admin.ModelAdmin):
     search_fields = ['name']
     list_editable = ('is_active','is_available')
     list_filter = ('projects_interests','is_active','is_available','types','skills','last_contacted_at','is_paid_only')
-    list_display = (avatar, 'name', 'facebook', 'email', 'is_active', 'is_available')
+    list_display = (avatar, 'name', 'facebook_as_link', 'email', 'is_active', 'is_available')
     suit_form_tabs = (
         ('general', _('General')),
         ('specifics', _('Specifics')),
@@ -301,6 +303,10 @@ class MemberAdmin(admin.ModelAdmin):
         models.DateTimeField: {'widget': SuitSplitDateTimeWidget},
         models.DateField: {'widget': SuitDateWidget},
     }
+
+    def facebook_as_link(self, obj):
+        return format_html(urlize(obj.facebook))
+    facebook_as_link.short_description = 'Facebook'
 
     fieldsets = (
         (None, {
