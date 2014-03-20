@@ -221,15 +221,15 @@ nav.main > div {
 
 nav.main ul.top {
     margin: 0 auto;
-    width: 300px;
-    padding-right: 26px;
+    width: 430px;
+    padding-right: 10px;
     height: 48px;
     position: relative;
     left: 0;
 }
 
 nav.main ul.top.about {
-    left: 78px
+    left: 110px
 }
 
 nav.main ul.top.about li {

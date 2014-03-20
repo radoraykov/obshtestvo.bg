@@ -392,32 +392,32 @@ msgstr "задачи"
 msgid "is this complete"
 msgstr "готова?"
 
-#~ msgid "My Actions"
-#~ msgstr "Моите действия"
+msgid "My Actions"
+msgstr "Моите действия"
 
-#~ msgid "None available"
-#~ msgstr "Няма налични"
+msgid "None available"
+msgstr "Няма налични"
 
-#~ msgid "added"
-#~ msgstr "добавно"
+msgid "added"
+msgstr "добавно"
 
-#~ msgid "changed"
-#~ msgstr "променено"
+msgid "changed"
+msgstr "променено"
 
-#~ msgid "deleted"
-#~ msgstr "изтрито"
+msgid "deleted"
+msgstr "изтрито"
 
-#~ msgid "System"
-#~ msgstr "Системни"
+msgid "System"
+msgstr "Системни"
 
-#~ msgid "Partners & Funding"
-#~ msgstr "Партьори & Финансиране"
+msgid "Partners & Funding"
+msgstr "Партьори & Финансиране"
 
-#~ msgid "coordination"
-#~ msgstr "координация"
+msgid "coordination"
+msgstr "координация"
 
-#~ msgid "activities"
-#~ msgstr "дейности"
+msgid "activities"
+msgstr "дейности"
 
-#~ msgid "activity"
-#~ msgstr "дейност"
+msgid "activity"
+msgstr "дейност"
