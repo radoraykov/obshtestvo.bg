@@ -85,7 +85,9 @@ class Member(models.Model):
 
     intro = models.TextField(_('intro'), blank=True)
     comment = models.TextField(_('comment'), blank=True)
-    offered_help = models.TextField(_('Type of helped offered'), blank=True)
+    offered_help = models.TextField(_('Type of helped offered'),
+                                    blank=True,
+                                    help_text=_("If it's a consultant or other non-member, you can add some description here"))
 
     is_available = models.BooleanField(_('Available for work?'), default=False)
     available_after = models.DateField(_('available after'), blank=True, null=True)
@@ -97,7 +99,7 @@ class Member(models.Model):
                                       default=DAILY,
                                       verbose_name=_("Contact frequency"))
 
-    will_help = models.BooleanField(_('Ever going to help?'), default=False)
+    will_help = models.BooleanField(_('Ever going to help?'), default=True)
     is_paid_only = models.BooleanField(_('Paid only'), default=False)
     types = models.ManyToManyField('MemberType', related_name="members", blank=True, verbose_name=_("Relation to Obshtestvo"))
     projects_interests = models.ManyToManyField('Project', blank=True, related_name="interested_members", verbose_name=_("Projects interested in"))

@@ -280,8 +280,9 @@ class MemberAdmin(admin.ModelAdmin):
     model = Member
     form = MemberAdminFrom
     search_fields = ['name']
-    list_filter = ('is_active','is_available','types','skills','last_contacted_at','is_paid_only')
-    list_display = ('name', 'facebook', 'email', 'is_active', 'is_available')
+    list_editable = ('is_active','is_available','will_help')
+    list_filter = ('projects_interests','is_active','is_available','types','skills','last_contacted_at','is_paid_only')
+    list_display = ('name', 'facebook', 'email', 'is_active', 'is_available','will_help')
     suit_form_tabs = (
         ('general', _('General')),
         ('specifics', _('Specifics')),
