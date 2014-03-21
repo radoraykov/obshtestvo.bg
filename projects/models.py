@@ -33,6 +33,7 @@ class Organisation(models.Model):
     working_with = models.TextField(_('Also working with'), blank=True)
 
     is_sponsor = models.BooleanField(_('Has funding programme?'), default=False)
+    is_provider = models.BooleanField(_('Provides free product?'), default=False)
 
     partnered_project = models.ForeignKey('Project', related_name="partners", blank=True, null=True, verbose_name=_("partnered project"))
     provided_help = models.TextField(_('Provided help'), blank=True)

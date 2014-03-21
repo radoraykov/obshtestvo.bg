@@ -2,7 +2,6 @@ from django.contrib import admin
 from django.forms import ModelForm
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
-from django.utils.translation import ugettext_lazy as _
 from suit.widgets import *
 from pagedown.widgets import AdminPagedownWidget
 from .models import *
@@ -15,6 +14,8 @@ from django.db import models
 from django.templatetags.static import static
 from django.utils.html import urlize
 from django.utils.html import format_html
+from django.utils.translation import ugettext_lazy as _
+
 
 def close_link(instance):
     if not instance.id:
@@ -362,7 +363,7 @@ class OrganisationAdmin(admin.ModelAdmin):
     fieldsets = (
         (None, {
             'classes': ('suit-tab suit-tab-general',),
-            'fields': ('name', 'is_sponsor', 'strategy')
+            'fields': ('name', 'is_sponsor', 'is_provider', 'strategy')
         }),
         (_('Contact'), {
             'classes': ('suit-tab suit-tab-general',),
