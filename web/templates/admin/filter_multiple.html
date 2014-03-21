@@ -1,5 +1,5 @@
 {% load i18n %}
-<select data-name="{{ field_name }}" class="auto-width search-filter" style="max-width: 200px">
+<select data-name="{{ field_name }}" class="auto-width search-filter" style="max-width: 200px" multiple>
   {% for choice in choices %}
     {% if forloop.first %}
       <option value="">{{ title|capfirst }}</option>

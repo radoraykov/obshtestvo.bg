@@ -288,14 +288,11 @@ AUTH_USER_MODEL = 'projects.User'
 SOCIAL_AUTH_FACEBOOK_SCOPE = ['email', 'user_education_history', 'user_interests']
 
 SUIT_CONFIG = {
+    'SEARCH_URL': '',
     'ADMIN_NAME': 'Obshtestvo.bg',
     'MENU': (
         {'label': _('coordination'), 'icon':'icon-heart', 'models': (
-            {'model': 'projects.member', 'label': _('members')},
-            {'model': 'projects.membertype', 'label': _('member types')},
-            {'model': 'projects.skill', 'label': _('skills')},
-        )},
-        {'label': _('Partners & Funding'), 'icon':'icon-bookmark', 'models': (
+            {'model': 'projects.member', 'label': _('contacts')},
             {'model': 'projects.organisation', 'label': _('organisations')},
         )},
         {
@@ -307,6 +304,15 @@ SUIT_CONFIG = {
                 {'model': 'projectactivity', 'label': _('activities')},
                 # {'model': 'projectactivitytemplate', 'label': _('activity templates')},
                 'task',
+            )
+        },
+        {
+            'label': _('settings'),
+            'icon': 'icon-cog',
+            'models': (
+                {'model': 'projects.membertype', 'label': _('member types')},
+                {'model': 'projects.organisationtype', 'label': _('organisation types')},
+                {'model': 'projects.skill', 'label': _('skills')},
             )
         },
         {'label': _('System users'), 'icon':'icon-user', 'models': (

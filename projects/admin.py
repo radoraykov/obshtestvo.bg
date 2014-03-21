@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.contrib.contenttypes.generic import GenericTabularInline
 from django.forms import ModelForm
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
@@ -15,24 +16,72 @@ from django.templatetags.static import static
 from django.utils.html import urlize
 from django.utils.html import format_html
 from django.utils.translation import ugettext_lazy as _
+from django.utils.encoding import smart_text
+from django.core.exceptions import ValidationError
+from django.contrib.admin.options import IncorrectLookupParameters
+
+def prepare_lookup_value(key, value):
+    if key.endswith('__in') and type(value) == 'str':
+        value = value.split(',')
+    if key.endswith('__isnull'):
+        value = not (value.lower() in ('', 'false', '0'))
+    return value
 
 
-class MultipleSkillFilter(admin.SimpleListFilter):
-    title = _('skills')
-    parameter_name = 'skills'
+class MultipleFilter(admin.RelatedFieldListFilter):
+    # title = _('skills')
+    # parameter_name = 'skills'
+    template = 'admin/filter_multiple.html'
 
-    def lookups(self, request, model_admin):
-        return (
-            ('80s', _('in the eighties')),
-            ('90s', _('in the nineties')),
-        )
+    def __init__(self, field, request, params, model, model_admin, field_path):
+        super(MultipleFilter, self).__init__(
+            field, request, params, model, model_admin, field_path)
+        self.lookup_val = request.GET.getlist(self.lookup_kwarg, None)
+        self.used_parameters = {}
+        for p in self.expected_parameters():
+            if p in request.GET:
+                value = request.GET.getlist(p) if self.lookup_kwarg == p else request.GET.get(p)
+                self.used_parameters[p] = prepare_lookup_value(p, value)
+
     def queryset(self, request, queryset):
-        if self.value() == '80s':
-            return queryset.filter(birthday__gte=date(1980, 1, 1),
-                                    birthday__lte=date(1989, 12, 31))
-        if self.value() == '90s':
-            return queryset.filter(birthday__gte=date(1990, 1, 1),
-                                    birthday__lte=date(1999, 12, 31))
+        try:
+            if self.lookup_kwarg in self.used_parameters:
+                for lookup in self.used_parameters[self.lookup_kwarg]:
+                    value = {self.lookup_kwarg: lookup}
+                    queryset = queryset.filter(**value)
+            else:
+                queryset.filter(**self.used_parameters)
+            return queryset
+        except ValidationError as e:
+            raise IncorrectLookupParameters(e)
+
+    def choices(self, cl):
+        from django.contrib.admin.views.main import EMPTY_CHANGELIST_VALUE
+        yield {
+            'selected': self.lookup_val is None and not self.lookup_val_isnull,
+            'query_string': cl.get_query_string({},
+                [self.lookup_kwarg, self.lookup_kwarg_isnull]),
+            'display': _('All'),
+        }
+        for pk_val, val in self.lookup_choices:
+            yield {
+                'selected': smart_text(pk_val) in self.lookup_val,
+                'query_string': cl.get_query_string({
+                    self.lookup_kwarg: pk_val,
+                }, [self.lookup_kwarg_isnull]),
+                'display': val,
+            }
+        if (isinstance(self.field, models.related.RelatedObject)
+                and self.field.field.null or hasattr(self.field, 'rel')
+                    and self.field.null):
+            yield {
+                'selected': bool(self.lookup_val_isnull),
+                'query_string': cl.get_query_string({
+                    self.lookup_kwarg_isnull: 'True',
+                }, [self.lookup_kwarg]),
+                'display': EMPTY_CHANGELIST_VALUE,
+            }
+
 
 
 def close_link(instance):
@@ -311,7 +360,7 @@ class MemberAdmin(admin.ModelAdmin):
     ordering = ('name',)
     search_fields = ['name']
     list_editable = ('is_active','is_available')
-    list_filter = ('projects_interests','is_active','is_available','types','skills','last_contacted_at','is_paid_only')
+    list_filter = ('projects_interests','is_active','is_available','types', ('skills', MultipleFilter),'last_contacted_at','is_paid_only')
     list_display = (avatar, 'name', 'facebook_as_link', 'email', 'is_active', 'is_available')
     suit_form_tabs = (
         ('general', _('General')),
@@ -365,13 +414,26 @@ class MemberAdmin(admin.ModelAdmin):
 
 
 
+# from guardian.admin import GuardedModelAdmin
+class UpdateInline(GenericTabularInline):
+    model = Update
+    suit_classes = 'suit-tab suit-tab-updates'
+    extra = 1
+    formfield_overrides = {
+        models.TextField: {'widget': AutosizedTextarea(attrs={'rows':1, 'cols':100})},
+        models.DateTimeField: {'widget': SuitSplitDateTimeWidget},
+        models.DateField: {'widget': SuitDateWidget},
+    }
+
 class OrganisationAdmin(admin.ModelAdmin):
     model = Organisation
-    list_filter = ('middlemen','is_sponsor')
-    list_display = ('name','representatives','is_sponsor')
+    inlines = (UpdateInline,)
+    list_filter = ('middlemen',('types', MultipleFilter))
+    list_display = ('name','representatives')
     search_fields = ['name']
     suit_form_tabs = (
         ('general', _('General')),
+        ('updates', _('Updates')),
     )
     formfield_overrides = {
         models.TextField: {'widget': AutosizedTextarea(attrs={'rows':3, 'cols':70})},
@@ -382,7 +444,7 @@ class OrganisationAdmin(admin.ModelAdmin):
     fieldsets = (
         (None, {
             'classes': ('suit-tab suit-tab-general',),
-            'fields': ('name', 'is_sponsor', 'is_provider', 'strategy')
+            'fields': ('name', 'types','strategy')
         }),
         (_('Contact'), {
             'classes': ('suit-tab suit-tab-general',),
@@ -400,6 +462,7 @@ class OrganisationAdmin(admin.ModelAdmin):
 
 admin.site.register(Organisation, OrganisationAdmin)
 admin.site.register(Member, MemberAdmin)
+admin.site.register(OrganisationType)
 admin.site.register(MemberType)
 admin.site.register(Skill)
 admin.site.register(UserProjectPause)

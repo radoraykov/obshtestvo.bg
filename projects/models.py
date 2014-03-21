@@ -5,6 +5,7 @@ from django.db.models.signals import post_save, pre_delete
 from django.dispatch import receiver
 from guardian.shortcuts import assign_perm
 from django.utils import timezone
+from django.contrib.contenttypes.generic import GenericForeignKey, GenericRelation, ContentType
 # from django.contrib.contenttypes.models import ContentType
 # from django.db.models import Q
 # from guardian.models import UserObjectPermission, GroupObjectPermission
@@ -16,6 +17,18 @@ from django.utils import timezone
 #     UserObjectPermission.objects.filter(filters).delete()
 #     GroupObjectPermission.objects.filter(filters).delete()
 
+class Update(models.Model):
+    class Meta:
+        verbose_name = _('update')
+        verbose_name_plural = _('updates')
+    change = models.TextField(_('change'), blank=True)
+    date = models.DateTimeField(_('date'), default=timezone.now)
+    content_type = models.ForeignKey(ContentType)
+    object_id = models.PositiveIntegerField()
+    content_object = GenericForeignKey('content_type', 'object_id')
+
+    def __unicode__(self):
+        return self.name
 
 class Organisation(models.Model):
     class Meta:
@@ -31,12 +44,20 @@ class Organisation(models.Model):
     contact = models.TextField(_('contact info'), blank=True)
     comment = models.TextField(_('comment'), blank=True)
     working_with = models.TextField(_('Also working with'), blank=True)
-
-    is_sponsor = models.BooleanField(_('Has funding programme?'), default=False)
-    is_provider = models.BooleanField(_('Provides free product?'), default=False)
+    types = models.ManyToManyField('OrganisationType', related_name="organisations", blank=True, verbose_name=_("Type of organisation"))
+    updates = GenericRelation(Update, verbose_name=_("Updates"), blank=True)
 
     partnered_project = models.ForeignKey('Project', related_name="partners", blank=True, null=True, verbose_name=_("partnered project"))
     provided_help = models.TextField(_('Provided help'), blank=True)
+
+class OrganisationType(models.Model):
+    class Meta:
+        verbose_name = _('organisation type')
+        verbose_name_plural = _('organisation types')
+    name = models.CharField(_('name'), max_length=200,)
+
+    def __unicode__(self):
+        return self.name
 
 class Skill(models.Model):
     class Meta:

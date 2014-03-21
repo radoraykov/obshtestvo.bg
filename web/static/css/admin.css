@@ -15,3 +15,9 @@
 .left-nav>ul>li ul li a:first-letter {
     text-transform: uppercase;
 }
+.search-container .select2-container,
+.search-container select,
+.search-container input {
+    vertical-align: top;
+    margin-top: 5px;
+}
