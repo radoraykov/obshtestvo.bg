@@ -418,7 +418,7 @@ class MemberAdmin(admin.ModelAdmin):
 class UpdateInline(GenericTabularInline):
     model = Update
     suit_classes = 'suit-tab suit-tab-updates'
-    extra = 1
+    extra = 0
     formfield_overrides = {
         models.TextField: {'widget': AutosizedTextarea(attrs={'rows':1, 'cols':100})},
         models.DateTimeField: {'widget': SuitSplitDateTimeWidget},
