@@ -17,6 +17,24 @@ from django.utils.html import format_html
 from django.utils.translation import ugettext_lazy as _
 
 
+class MultipleSkillFilter(admin.SimpleListFilter):
+    title = _('skills')
+    parameter_name = 'skills'
+
+    def lookups(self, request, model_admin):
+        return (
+            ('80s', _('in the eighties')),
+            ('90s', _('in the nineties')),
+        )
+    def queryset(self, request, queryset):
+        if self.value() == '80s':
+            return queryset.filter(birthday__gte=date(1980, 1, 1),
+                                    birthday__lte=date(1989, 12, 31))
+        if self.value() == '90s':
+            return queryset.filter(birthday__gte=date(1990, 1, 1),
+                                    birthday__lte=date(1999, 12, 31))
+
+
 def close_link(instance):
     if not instance.id:
         return ''
@@ -290,6 +308,7 @@ class MemberAdminFrom(forms.ModelForm):
 class MemberAdmin(admin.ModelAdmin):
     model = Member
     form = MemberAdminFrom
+    ordering = ('name',)
     search_fields = ['name']
     list_editable = ('is_active','is_available')
     list_filter = ('projects_interests','is_active','is_available','types','skills','last_contacted_at','is_paid_only')
