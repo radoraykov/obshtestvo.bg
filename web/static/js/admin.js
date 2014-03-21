@@ -3,7 +3,7 @@ $(function() {
 
     $('select').each(function() {
         var $select = $(this)
-        if (!$select.is('.change-form select') && $select.find('option').length < 7) return;
+        if (!$select.is('.change-form select') && !$select.is('[multiple]') && $select.find('option').length < 7) return;
 
         if ($select.is('[multiple]')) {
             $select.siblings('.help-inline').addClass('hide')
