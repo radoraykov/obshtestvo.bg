@@ -25,9 +25,9 @@ class Organisation(models.Model):
     strategy = models.TextField(_('strategy'), blank=True)
     middlemen = models.ManyToManyField('Member', related_name="middleman_organisations", blank=True,null=True,
                                       verbose_name=_("middle men"))
-    representatives = models.CharField(_('Representative'), max_length=30, blank=False)
+    representatives = models.CharField(_('Representative'), max_length=30, blank=True)
 
-    found_via = models.CharField(_('Found via'), max_length=30, blank=False)
+    found_via = models.CharField(_('Found via'), max_length=30, blank=True)
     contact = models.TextField(_('contact info'), blank=True)
     comment = models.TextField(_('comment'), blank=True)
     working_with = models.TextField(_('Also working with'), blank=True)
@@ -79,7 +79,7 @@ class Member(models.Model):
     name = models.CharField(_('name'), max_length=30, blank=False)
     email = models.EmailField(_('email address'), blank=True)
     facebook = models.CharField(_('facebook profile'), max_length=255, blank=True)
-    # working_on = models.ForeignKey('Project', related_name="working_members", blank=True, null=True, verbose_name=_("working on"))
+    working_on = models.ForeignKey('Project', related_name="working_members", blank=True, null=True, verbose_name=_("working on"))
     is_active = models.BooleanField(_('Active right now?'), default=False)
     skills = models.ManyToManyField('Skill', related_name="members", blank=True,
                                       verbose_name=_("skills"))

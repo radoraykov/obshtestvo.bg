@@ -52,6 +52,8 @@ python manage.py schemamigration projects --initial
 # on changes:
 python manage.py schemamigration projects --auto
 python manage.py migrate projects
+# update last migraiton:
+python manage.py schemamigration projects --auto --update
 ```
 
 #### Когато вече сайта е готов и е пуснат / Production server
