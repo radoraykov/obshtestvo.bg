@@ -25,6 +25,12 @@ class Migration(SchemaMigration):
         ))
         db.send_create_signal(u'projects', ['Update'])
 
+        # Deleting field 'Organisation.is_provider'
+        db.delete_column(u'projects_organisation', 'is_provider')
+
+        # Deleting field 'Organisation.is_sponsor'
+        db.delete_column(u'projects_organisation', 'is_sponsor')
+
         # Adding M2M table for field types on 'Organisation'
         m2m_table_name = db.shorten_name(u'projects_organisation_types')
         db.create_table(m2m_table_name, (
@@ -41,6 +47,16 @@ class Migration(SchemaMigration):
 
         # Deleting model 'Update'
         db.delete_table(u'projects_update')
+
+        # Adding field 'Organisation.is_provider'
+        db.add_column(u'projects_organisation', 'is_provider',
+                      self.gf('django.db.models.fields.BooleanField')(default=False),
+                      keep_default=False)
+
+        # Adding field 'Organisation.is_sponsor'
+        db.add_column(u'projects_organisation', 'is_sponsor',
+                      self.gf('django.db.models.fields.BooleanField')(default=False),
+                      keep_default=False)
 
         # Removing M2M table for field types on 'Organisation'
         db.delete_table(db.shorten_name(u'projects_organisation_types'))
@@ -103,8 +119,6 @@ class Migration(SchemaMigration):
             'contact': ('django.db.models.fields.TextField', [], {'blank': 'True'}),
             'found_via': ('django.db.models.fields.CharField', [], {'max_length': '30', 'blank': 'True'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'is_provider': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
-            'is_sponsor': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
             'middlemen': ('django.db.models.fields.related.ManyToManyField', [], {'blank': 'True', 'related_name': "'middleman_organisations'", 'null': 'True', 'symmetrical': 'False', 'to': u"orm['projects.Member']"}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '200'}),
             'partnered_project': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'related_name': "'partners'", 'null': 'True', 'to': u"orm['projects.Project']"}),
