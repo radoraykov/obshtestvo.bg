@@ -107,6 +107,7 @@ INSTALLED_APPS = (
     'guardian',
     "compressor",
     "pagedown",
+    "south",
 )
 ANONYMOUS_USER_ID = -1
 LOGGING = {

@@ -31,7 +31,7 @@ workon obshtestvobg
 pip install django # even if you have django, install it in the virtual env
 pip install mysql-python # mysql...
 # sudo ln -s ~/.virtualenvs/obshtestvobg/lib/python2.7/site-packages/django/contrib/admin/static/admin ./static/
-python manage.py collectstatic
+python manage.py collectstatic -l
 ```
 
 ### Подкарване
@@ -39,7 +39,19 @@ python manage.py collectstatic
 
 ```
 django-admin.py runserver --settings=settings --pythonpath=/home/ubuntu/projects/obshtestvo.bg  --insecure
+```
 
+```
+# initial:
+python manage.py syncdb
+# and
+python manage.py convert_to_south projects
+python manage.py migrate projects 0001 --fake
+# OR
+python manage.py schemamigration projects --initial
+# on changes:
+python manage.py schemamigration projects --auto
+python manage.py migrate projects
 ```
 
 #### Когато вече сайта е готов и е пуснат / Production server

@@ -9,5 +9,4 @@ django-reversion
 django-pagedown
 django-guardian
 django-object-actions
-django-taggit
-django-autocomplete-light
+South

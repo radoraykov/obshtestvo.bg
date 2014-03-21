@@ -79,6 +79,7 @@ class Member(models.Model):
     name = models.CharField(_('name'), max_length=30, blank=False)
     email = models.EmailField(_('email address'), blank=True)
     facebook = models.CharField(_('facebook profile'), max_length=255, blank=True)
+    # working_on = models.ForeignKey('Project', related_name="working_members", blank=True, null=True, verbose_name=_("working on"))
     is_active = models.BooleanField(_('Active right now?'), default=False)
     skills = models.ManyToManyField('Skill', related_name="members", blank=True,
                                       verbose_name=_("skills"))
@@ -132,6 +133,7 @@ class User(AbstractUser):
 
     class Meta(AbstractUser.Meta):
         swappable = 'AUTH_USER_MODEL'
+        abstract = False
 
 class UserPointSpending(models.Model):
     person = models.ForeignKey('User', related_name="spendings")
