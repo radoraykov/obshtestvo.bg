@@ -470,3 +470,7 @@ msgstr "настройки"
 
 msgid "contacts"
 msgstr "контакти"
+
+
+msgid "relation type"
+msgstr "тип връзка"

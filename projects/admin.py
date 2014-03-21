@@ -429,7 +429,7 @@ class OrganisationAdmin(admin.ModelAdmin):
     model = Organisation
     inlines = (UpdateInline,)
     list_filter = ('middlemen',('types', MultipleFilter))
-    list_display = ('name','representatives')
+    list_display = ('name','representatives', 'types_display')
     search_fields = ['name']
     suit_form_tabs = (
         ('general', _('General')),
@@ -440,6 +440,9 @@ class OrganisationAdmin(admin.ModelAdmin):
         models.DateTimeField: {'widget': SuitSplitDateTimeWidget},
         models.DateField: {'widget': SuitDateWidget},
     }
+    def types_display(self, org):
+        return ', '.join([obj.name for obj in org.types.all()])
+    types_display.short_description = _('relation type')
 
     fieldsets = (
         (None, {
