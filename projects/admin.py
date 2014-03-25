@@ -511,7 +511,7 @@ class EventAdmin(admin.ModelAdmin):
     ordering = ('name',)
     search_fields = ['name']
     list_filter = ('date', ('organizers', MultipleFilter))
-    list_display = (avatar, 'name', 'date')
+    list_display = ('name', 'date')
     suit_form_tabs = (
         ('general', _('General')),
         # ('integration', _('System')),
