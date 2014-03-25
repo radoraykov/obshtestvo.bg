@@ -17,6 +17,20 @@ from django.contrib.contenttypes.generic import GenericForeignKey, GenericRelati
 #     UserObjectPermission.objects.filter(filters).delete()
 #     GroupObjectPermission.objects.filter(filters).delete()
 
+
+class Event(models.Model):
+    class Meta:
+        verbose_name = _('event')
+        verbose_name_plural = _('events')
+    name = models.CharField(_('name'), max_length=200,)
+    date = models.DateField(_('date'), blank=True, null=True)
+    organizers = models.ManyToManyField('Organisation', related_name="events", blank=True, verbose_name=_("organizers"))
+    contact = models.TextField(_('contact info'), blank=True)
+    comment = models.TextField(_('comment'), blank=True)
+    strategy = models.TextField(_('strategy'), blank=True)
+
+
+
 class Update(models.Model):
     class Meta:
         verbose_name = _('update')
@@ -29,6 +43,7 @@ class Update(models.Model):
 
     def __unicode__(self):
         return self.name
+
 
 class Organisation(models.Model):
     class Meta:
@@ -49,6 +64,10 @@ class Organisation(models.Model):
 
     partnered_project = models.ForeignKey('Project', related_name="partners", blank=True, null=True, verbose_name=_("partnered project"))
     provided_help = models.TextField(_('Provided help'), blank=True)
+
+    def __unicode__(self):
+        return self.name
+
 
 class OrganisationType(models.Model):
     class Meta:

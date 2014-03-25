@@ -359,9 +359,8 @@ class MemberAdmin(admin.ModelAdmin):
     form = MemberAdminFrom
     ordering = ('name',)
     search_fields = ['name']
-    list_editable = ('is_active','is_available')
     list_filter = ('projects_interests', ('skills', MultipleFilter),'types', 'last_contacted_at')
-    list_display = (avatar, 'name', 'facebook_as_link', 'email', 'is_active', 'is_available')
+    list_display = (avatar, 'name', 'facebook_as_link', 'email', 'skills_display')
     suit_form_tabs = (
         ('general', _('General')),
         ('specifics', _('Specifics')),
@@ -372,6 +371,9 @@ class MemberAdmin(admin.ModelAdmin):
         models.DateTimeField: {'widget': SuitSplitDateTimeWidget},
         models.DateField: {'widget': SuitDateWidget},
     }
+    def skills_display(self, member):
+        return ', '.join([obj.name for obj in member.skills.all()])
+    skills_display.short_description = _('skills')
 
     def facebook_as_link(self, obj):
         return format_html(urlize(obj.facebook))
@@ -502,7 +504,36 @@ class ReaderMemberAdmin(MemberAdmin):
     def queryset(self, request):
         return self.model.objects.filter(will_help=False)
 
+
+
+class EventAdmin(admin.ModelAdmin):
+    model = Event
+    ordering = ('name',)
+    search_fields = ['name']
+    list_filter = ('date', ('organizers', MultipleFilter))
+    list_display = (avatar, 'name', 'date')
+    suit_form_tabs = (
+        ('general', _('General')),
+        # ('integration', _('System')),
+    )
+    formfield_overrides = {
+        models.TextField: {'widget': AutosizedTextarea(attrs={'rows':2, 'cols':50})},
+        models.DateTimeField: {'widget': SuitSplitDateTimeWidget},
+        models.DateField: {'widget': SuitDateWidget},
+    }
+    fieldsets = (
+        (None, {
+            'classes': ('suit-tab suit-tab-general',),
+            'fields': ('name', 'date', 'contact')
+        }),
+        (_('details'), {
+            'classes': ('suit-tab suit-tab-general',),
+            'fields': ( 'strategy', 'organizers', 'comment')
+        }),
+    )
+
 admin.site.register(Organisation, OrganisationAdmin)
+admin.site.register(Event, EventAdmin)
 admin.site.register(Member, MemberAdmin)
 admin.site.register(ReaderMember, ReaderMemberAdmin)
 admin.site.register(AvailableMember, AvailableMemberAdmin)

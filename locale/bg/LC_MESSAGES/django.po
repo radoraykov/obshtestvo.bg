@@ -56,3 +56,6 @@ msgstr "всички"
 
 msgid "only looking"
 msgstr "Само следят"
+
+msgid "Partnership & Events"
+msgstr "Организаци и Събития"
