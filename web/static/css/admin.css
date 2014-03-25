@@ -21,3 +21,9 @@
     vertical-align: top;
     margin-top: 5px;
 }
+
+.select2-container .info {
+    font-style: normal;
+    font-size: 10px;
+    opacity: 0.5;
+}

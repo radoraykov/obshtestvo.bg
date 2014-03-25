@@ -360,7 +360,7 @@ class MemberAdmin(admin.ModelAdmin):
     ordering = ('name',)
     search_fields = ['name']
     list_editable = ('is_active','is_available')
-    list_filter = ('projects_interests','is_active','is_available','types', ('skills', MultipleFilter),'last_contacted_at','is_paid_only')
+    list_filter = ('projects_interests', ('skills', MultipleFilter),'types', 'last_contacted_at')
     list_display = (avatar, 'name', 'facebook_as_link', 'email', 'is_active', 'is_available')
     suit_form_tabs = (
         ('general', _('General')),
@@ -463,8 +463,50 @@ class OrganisationAdmin(admin.ModelAdmin):
         }),
     )
 
+
+class AvailableMember(Member):
+    class Meta:
+        proxy = True
+        verbose_name = Member._meta.verbose_name
+        verbose_name_plural = Member._meta.verbose_name
+
+class AvailableMemberAdmin(MemberAdmin):
+    def has_add_permission(self, request):
+        return False
+    def queryset(self, request):
+        return self.model.objects.filter(is_available=True)
+
+
+class PaidMember(Member):
+    class Meta:
+        proxy = True
+        verbose_name = Member._meta.verbose_name
+        verbose_name_plural = Member._meta.verbose_name
+
+class PaidMemberAdmin(MemberAdmin):
+    def has_add_permission(self, request):
+        return False
+    def queryset(self, request):
+        return self.model.objects.filter(is_paid_only=True)
+
+
+class ReaderMember(Member):
+    class Meta:
+        proxy = True
+        verbose_name = Member._meta.verbose_name
+        verbose_name_plural = Member._meta.verbose_name
+
+class ReaderMemberAdmin(MemberAdmin):
+    def has_add_permission(self, request):
+        return False
+    def queryset(self, request):
+        return self.model.objects.filter(will_help=False)
+
 admin.site.register(Organisation, OrganisationAdmin)
 admin.site.register(Member, MemberAdmin)
+admin.site.register(ReaderMember, ReaderMemberAdmin)
+admin.site.register(AvailableMember, AvailableMemberAdmin)
+admin.site.register(PaidMember, PaidMemberAdmin)
 admin.site.register(OrganisationType)
 admin.site.register(MemberType)
 admin.site.register(Skill)

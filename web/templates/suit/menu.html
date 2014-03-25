@@ -12,13 +12,13 @@
           <li class="separator"></li>
         {% else %}
           <li{{ app.is_active|yesno:' class=active,' }}>
-            <a href="{{ app.url }}{% if app.models.0.name == 'projects.member' %}?q=&is_available__exact=1&is_paid_only__exact=0{% endif %}"{{ app.blank|yesno:' target=_blank,' }}><i class="{% firstof app.icon 'icon-chevron-right' %}"></i>{% trans app.label|capfirst %}
+            <a href="{{ app.url }}"{{ app.blank|yesno:' target=_blank,' }}><i class="{% firstof app.icon 'icon-chevron-right' %}"></i>{% trans app.label|capfirst %}
             </a>
             {% if app.models %}
               <ul>
                 {% for model in app.models %}
                   <li{{ model.is_active|yesno:' class=active,' }}>
-                    <a href="{{ model.url }}{% if model.name == 'projects.member' %}?q=&is_available__exact=1&is_paid_only__exact=0{% endif %}"{{ model.blank|yesno:' target=_blank,' }}>{{ model.label }}</a></li>
+                    <a href="{{ model.url }}"{{ model.blank|yesno:' target=_blank,' }}>{{ model.label }}</a></li>
                 {% endfor %}
               </ul>
             {% endif %}

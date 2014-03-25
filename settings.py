@@ -286,14 +286,21 @@ SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {'locale': 'bg_BG'}
 EMAIL_FROM = 'info@obshtestvo.bg'
 AUTH_USER_MODEL = 'projects.User'
 SOCIAL_AUTH_FACEBOOK_SCOPE = ['email', 'user_education_history', 'user_interests']
+LOCALE_PATHS = ['locale',]
 
 SUIT_CONFIG = {
     'SEARCH_URL': '',
     'ADMIN_NAME': 'Obshtestvo.bg',
     'MENU': (
-        {'label': _('coordination'), 'icon':'icon-heart', 'models': (
-            {'model': 'projects.member', 'label': _('contacts')},
+        {'label': _('community'), 'icon':'icon-star', 'models': (
+            {'model': 'projects.member', 'label': _('all')},
+            {'model': 'projects.availablemember', 'label': _('ready to help')},
+            {'model': 'projects.readermember', 'label': _('only looking')},
+            {'model': 'projects.paidmember', 'label': _('only paid work')},
+        )},
+        {'label': _('Partnership & Events'), 'icon':'icon-heart', 'models': (
             {'model': 'projects.organisation', 'label': _('organisations')},
+            {'model': 'projects.event', 'label': _('events')},
         )},
         {
             'app': 'projects',
@@ -323,3 +330,4 @@ SUIT_CONFIG = {
         )},
     )
 }
+ROSETTA_STORAGE_CLASS = 'rosetta.storage.SessionRosettaStorage'

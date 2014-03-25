@@ -3,15 +3,30 @@ $(function() {
 
     $('select').each(function() {
         var $select = $(this)
-        if (!$select.is('.change-form select') && !$select.is('[multiple]') && $select.find('option').length < 7) return;
+        var options = {}
+        if ($select.find('option').length < 7) {
+            options['minimumResultsForSearch'] = -1
+        }
 
         if ($select.is('[multiple]')) {
             $select.siblings('.help-inline').addClass('hide')
+        } else {
+            options['formatSelection'] =  function (item) {
+                return item.text + ' <i class="info">('+$select.data('placeholder')+')</i>';
+            }
         }
-        $select.select2({
-            width: $select.width()
-        })
+        $select.select2($.extend({
+            width: $select.width(),
+            allowClear: true
+        },options))
     })
+    $('.select2-chosen').on('mouseenter', function(){
+        var $this = $(this);
+
+        if(this.offsetWidth < this.scrollWidth && !$this.attr('title')){
+            $this.attr('title', $this.text());
+    }
+});
 })
 
 function dismissAddAnotherPopup(win, newId, newRepr) {

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-21 18:00+0200\n"
+"POT-Creation-Date: 2014-03-25 16:29+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -70,15 +70,20 @@ msgstr "Комуникация"
 msgid "Updates"
 msgstr ""
 
-#: admin.py:449
+#: admin.py:445
+#, fuzzy
+msgid "relation type"
+msgstr "тип организация"
+
+#: admin.py:452
 msgid "Contact"
 msgstr "Информация за контакт"
 
-#: admin.py:453
+#: admin.py:456
 msgid "About"
 msgstr "Инфо"
 
-#: admin.py:457
+#: admin.py:460
 msgid "Partner"
 msgstr "Партньор"
 
@@ -106,12 +111,12 @@ msgstr "организация"
 msgid "organisations"
 msgstr "организации"
 
-#: models.py:37 models.py:60 models.py:69 models.py:78 models.py:104
-#: models.py:214 models.py:277 models.py:299 models.py:311 models.py:325
+#: models.py:37 models.py:57 models.py:66 models.py:75 models.py:101
+#: models.py:211 models.py:274 models.py:296 models.py:308 models.py:322
 msgid "name"
 msgstr "име"
 
-#: models.py:38 models.py:215
+#: models.py:38 models.py:212
 msgid "strategy"
 msgstr "стратегия"
 
@@ -131,7 +136,7 @@ msgstr "Намерено чрез"
 msgid "contact info"
 msgstr "Информация за контакт"
 
-#: models.py:45 models.py:113
+#: models.py:45 models.py:110
 msgid "comment"
 msgstr "Коментар"
 
@@ -144,333 +149,288 @@ msgid "Type of organisation"
 msgstr "Тип връзка"
 
 #: models.py:50
-msgid "Has funding programme?"
-msgstr "Спонсорира проекти?"
-
-#: models.py:51
-msgid "Provides free product?"
-msgstr ""
-
-#: models.py:53
 msgid "partnered project"
 msgstr "партнира по"
 
-#: models.py:54
+#: models.py:51
 msgid "Provided help"
 msgstr "Предоставяна помощ"
 
-#: models.py:58
+#: models.py:55
 msgid "organisation type"
 msgstr "организация"
 
-#: models.py:59
+#: models.py:56
 msgid "organisation types"
 msgstr "видове организации"
 
-#: models.py:67
+#: models.py:64
 msgid "skill"
 msgstr "умение"
 
-#: models.py:68 models.py:110
+#: models.py:65 models.py:107
 msgid "skills"
 msgstr "умения"
 
-#: models.py:76
+#: models.py:73
 msgid "member type"
 msgstr "вид контакт"
 
-#: models.py:77
+#: models.py:74
 msgid "member types"
 msgstr "видове контакти"
 
-#: models.py:85
+#: models.py:82
 msgid "member"
 msgstr "контакт"
 
-#: models.py:86
+#: models.py:83
 msgid "members"
 msgstr "контакти"
 
-#: models.py:101
+#: models.py:98
 msgid "Daily sync from associated user?"
 msgstr ""
 
-#: models.py:103
+#: models.py:100
 msgid "date joined"
 msgstr "Дата на включване"
 
-#: models.py:105
+#: models.py:102
 msgid "email address"
 msgstr "email"
 
-#: models.py:106
+#: models.py:103
 msgid "facebook profile"
 msgstr ""
 
-#: models.py:107
+#: models.py:104
 msgid "working on"
 msgstr ""
 
-#: models.py:108
+#: models.py:105
 msgid "Active right now?"
 msgstr "Активен в момента?"
 
-#: models.py:112
+#: models.py:109
 msgid "intro"
 msgstr "интро"
 
-#: models.py:114
+#: models.py:111
 msgid "Type of helped offered"
 msgstr "Предложена помощ"
 
-#: models.py:116
+#: models.py:113
 msgid ""
 "If it's a consultant or other non-member, you can add some description here"
 msgstr ""
 "Ако е консултант или друго общо название, може да добавите малко яснота "
 "точно с какво помага или иска да помага"
 
-#: models.py:118
+#: models.py:115
 msgid "Available for work?"
 msgstr "На разположение?"
 
-#: models.py:119 models.py:154
+#: models.py:116 models.py:151
 msgid "available after"
 msgstr "На разположение след"
 
-#: models.py:121
+#: models.py:118
 msgid "last contact"
 msgstr "последна връзка"
 
-#: models.py:122
+#: models.py:119
 msgid "latest answer"
 msgstr "последният отговор"
 
-#: models.py:126
+#: models.py:123
 msgid "Contact frequency"
 msgstr "Честота на комуникацията"
 
-#: models.py:128
+#: models.py:125
 msgid "Ever going to help?"
 msgstr "Ще се включи ли по проектите някога"
 
-#: models.py:129
+#: models.py:126
 msgid "Paid only"
 msgstr "Само срещу заплащане"
 
-#: models.py:130
+#: models.py:127
 msgid "Relation to Obshtestvo"
 msgstr "В общество като"
 
-#: models.py:131
+#: models.py:128
 msgid "Projects interested in"
 msgstr "Интересува се от"
 
-#: models.py:152 models.py:166
+#: models.py:149 models.py:163
 msgid "profession"
 msgstr "професия"
 
-#: models.py:153
+#: models.py:150
 msgid "Is the user available for work"
 msgstr ""
 
-#: models.py:155
+#: models.py:152
 msgid "has confirmed custom data"
 msgstr ""
 
-#: models.py:156
+#: models.py:153
 msgid "biography"
 msgstr ""
 
-#: models.py:157
+#: models.py:154
 msgid "avatar"
 msgstr ""
 
-#: models.py:165 models.py:326
+#: models.py:162 models.py:323
 msgid "points"
 msgstr ""
 
-#: models.py:184
+#: models.py:181
 msgid "progress made"
 msgstr ""
 
-#: models.py:185
+#: models.py:182
 msgid "active"
 msgstr "активен"
 
-#: models.py:186
+#: models.py:183
 msgid "last time user stopped working on this"
 msgstr ""
 
-#: models.py:188
+#: models.py:185
 msgid "user needs replacement"
 msgstr ""
 
-#: models.py:212
+#: models.py:209
 msgid "project"
 msgstr "проект"
 
-#: models.py:213
+#: models.py:210
 msgid "projects"
 msgstr "проекти"
 
-#: models.py:216 models.py:244
+#: models.py:213 models.py:241
 msgid "description"
 msgstr "описание"
 
-#: models.py:218
+#: models.py:215
 msgid "facebook group"
 msgstr ""
 
-#: models.py:219
+#: models.py:216
 msgid "github repository"
 msgstr ""
 
-#: models.py:220
+#: models.py:217
 msgid "project management URL"
 msgstr ""
 
-#: models.py:221
+#: models.py:218
 msgid "url"
 msgstr ""
 
-#: models.py:222
+#: models.py:219
 msgid "slug"
 msgstr ""
 
-#: models.py:223
+#: models.py:220
 msgid "Is featured"
 msgstr ""
 
-#: models.py:226
+#: models.py:223
 msgid "logo"
 msgstr ""
 
-#: models.py:227
+#: models.py:224
 msgid "logo styled to fit obshtestvo.bg"
 msgstr ""
 
-#: models.py:228
+#: models.py:225
 msgid "cover image"
 msgstr ""
 
-#: models.py:241
+#: models.py:238
 msgid "project milestone"
 msgstr ""
 
-#: models.py:242
+#: models.py:239
 msgid "project milestones"
 msgstr ""
 
-#: models.py:245
+#: models.py:242
 msgid "target date"
 msgstr ""
 
-#: models.py:246
+#: models.py:243
 msgid "actual date happened"
 msgstr ""
 
-#: models.py:247
+#: models.py:244
 msgid "done"
 msgstr "готов"
 
-#: models.py:248
+#: models.py:245
 msgid "technical"
 msgstr "техническо"
 
-#: models.py:249
+#: models.py:246
 msgid "Show at"
 msgstr ""
 
-#: models.py:278
+#: models.py:275
 msgid "organisation related"
 msgstr ""
 
-#: models.py:280
+#: models.py:277
 msgid "template activity"
 msgstr ""
 
-#: models.py:282
+#: models.py:279
 msgid "Max people"
 msgstr ""
 
-#: models.py:287
+#: models.py:284
 msgid "project activity"
 msgstr "дейност"
 
-#: models.py:288
+#: models.py:285
 msgid "project activities"
 msgstr "дейности"
 
-#: models.py:296
+#: models.py:293
 msgid "project motive"
 msgstr "мотив"
 
-#: models.py:297
+#: models.py:294
 msgid "project motives"
 msgstr "мотиви"
 
-#: models.py:308
+#: models.py:305
 msgid "project usage example step"
 msgstr "стъпка при примерна употреба"
 
-#: models.py:309
+#: models.py:306
 msgid "project usage example steps"
 msgstr "стъпка при примерна употреба"
 
-#: models.py:313
+#: models.py:310
 msgid "icon"
 msgstr "иконка"
 
-#: models.py:314
+#: models.py:311
 msgid "Example number"
 msgstr "Номер"
 
-#: models.py:322
+#: models.py:319
 msgid "task"
 msgstr "задача"
 
-#: models.py:323
+#: models.py:320
 msgid "tasks"
 msgstr "задачи"
 
-#: models.py:327
+#: models.py:324
 msgid "is this complete"
 msgstr "готова?"
-
-msgid "My Actions"
-msgstr "Моите действия"
-
-msgid "None available"
-msgstr "Няма налични"
-
-msgid "added"
-msgstr "добавно"
-
-msgid "deleted"
-msgstr "изтрито"
-
-msgid "System"
-msgstr "Системни"
-
-msgid "Partners & Funding"
-msgstr "Партьори & Финансиране"
-
-msgid "coordination"
-msgstr "координация"
-
-msgid "activities"
-msgstr "дейности"
-
-msgid "activity"
-msgstr "дейност"
-
-msgid "settings"
-msgstr "настройки"
-
-msgid "contacts"
-msgstr "контакти"
-
-
-msgid "relation type"
-msgstr "тип връзка"
