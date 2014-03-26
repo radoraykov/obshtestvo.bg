@@ -386,7 +386,7 @@ class MemberAdmin(admin.ModelAdmin):
         }),
         (_('Expectations'), {
             'classes': ('suit-tab suit-tab-general',),
-            'fields': ( 'is_active', 'is_available', 'available_after', )
+            'fields': ( 'availability', 'available_after', )
         }),
         (_("Member's preferences"), {
             'classes': ('suit-tab suit-tab-general',),
@@ -395,14 +395,6 @@ class MemberAdmin(admin.ModelAdmin):
         (_('Self-description & Comments'), {
             'classes': ('suit-tab suit-tab-general',),
             'fields': ('intro', 'comment')
-        }),
-        (None, {
-            'classes': ('suit-tab suit-tab-specifics',),
-            'fields': ('will_help',)
-        }),
-        (_('Conditions'), {
-            'classes': ('suit-tab suit-tab-specifics',),
-            'fields': ('is_paid_only',)
         }),
         (_('Communication'), {
             'classes': ('suit-tab suit-tab-specifics',),
@@ -476,7 +468,7 @@ class AvailableMemberAdmin(MemberAdmin):
     def has_add_permission(self, request):
         return False
     def queryset(self, request):
-        return self.model.objects.filter(is_available=True)
+        return self.model.objects.filter(availability=Member.AVAILABLE)
 
 
 class PaidMember(Member):
@@ -489,7 +481,7 @@ class PaidMemberAdmin(MemberAdmin):
     def has_add_permission(self, request):
         return False
     def queryset(self, request):
-        return self.model.objects.filter(is_paid_only=True)
+        return self.model.objects.filter(availability=Member.ONLY_PAID)
 
 
 class ReaderMember(Member):
@@ -502,7 +494,7 @@ class ReaderMemberAdmin(MemberAdmin):
     def has_add_permission(self, request):
         return False
     def queryset(self, request):
-        return self.model.objects.filter(will_help=False)
+        return self.model.objects.filter(availability=Member.ONLY_READER)
 
 
 

@@ -106,12 +106,25 @@ class Member(models.Model):
     EVERY_MONTH = '1m'
     EVERY_QUARTER = '2w'
     CONTACT_FREQUENCY_CHOICE = (
-        (DAILY, 'Almost every day'),
-        (WEEKLY, 'Once a week'),
-        (EVERY_TWO_WEEKS, 'Every two weeks'),
-        (EVERY_MONTH, 'Once a month'),
-        (EVERY_QUARTER, 'Once a couple of months'),
+        (DAILY, _('Almost every day')),
+        (WEEKLY, _('Once a week')),
+        (EVERY_TWO_WEEKS, _('Every two weeks')),
+        (EVERY_MONTH, _('Once a month')),
+        (EVERY_QUARTER, _('Once a couple of months')),
     )
+    ONLY_READER = 'reader'
+    ONLY_PAID = 'paid_only'
+    AVAILABLE = 'available'
+    AVAILABILITY_CHOICE = (
+        (AVAILABLE, _('Available')),
+        (ONLY_PAID, _('Member will work but not volunteer')),
+        (ONLY_READER, _('Member only looking')),
+    )
+    projects_active = models.ManyToManyField('Project', blank=True, related_name="active_members", verbose_name=_("Working on projects"))
+    availability = models.CharField(max_length=20,
+                                      choices=AVAILABILITY_CHOICE,
+                                      default=ONLY_READER,
+                                      verbose_name=_("Availability"))
 
     user = models.ForeignKey('User', related_name="member", blank=True, null=True)
     update_from_user = models.BooleanField(_('Daily sync from associated user?'), default=False)
@@ -121,7 +134,6 @@ class Member(models.Model):
     email = models.EmailField(_('email address'), blank=True)
     facebook = models.CharField(_('facebook profile'), max_length=255, blank=True)
     working_on = models.ForeignKey('Project', related_name="working_members", blank=True, null=True, verbose_name=_("working on"))
-    is_active = models.BooleanField(_('Active right now?'), default=False)
     skills = models.ManyToManyField('Skill', related_name="members", blank=True,
                                       verbose_name=_("skills"))
 
@@ -141,7 +153,6 @@ class Member(models.Model):
                                       default=DAILY,
                                       verbose_name=_("Contact frequency"))
 
-    will_help = models.BooleanField(_('Ever going to help?'), default=True)
     is_paid_only = models.BooleanField(_('Paid only'), default=False)
     types = models.ManyToManyField('MemberType', related_name="members", blank=True, verbose_name=_("Relation to Obshtestvo"))
     projects_interests = models.ManyToManyField('Project', blank=True, related_name="interested_members", verbose_name=_("Projects interested in"))

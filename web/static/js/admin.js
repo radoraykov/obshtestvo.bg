@@ -3,6 +3,7 @@ $(function() {
 
     $('select').each(function() {
         var $select = $(this)
+        var placeholder = $select.data('placeholder')
         var options = {}
         if ($select.find('option').length < 7) {
             options['minimumResultsForSearch'] = -1
@@ -10,9 +11,9 @@ $(function() {
 
         if ($select.is('[multiple]')) {
             $select.siblings('.help-inline').addClass('hide')
-        } else {
+        } else if (placeholder  ) {
             options['formatSelection'] =  function (item) {
-                return item.text + ' <i class="info">('+$select.data('placeholder')+')</i>';
+                return item.text + ' <i class="info">('+placeholder+')</i>';
             }
         }
         $select.select2($.extend({
