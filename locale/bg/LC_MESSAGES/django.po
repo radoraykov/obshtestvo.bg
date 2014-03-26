@@ -59,3 +59,12 @@ msgstr "Само следят"
 
 msgid "Partnership & Events"
 msgstr "Организаци и Събития"
+
+msgid "all organisations"
+msgstr "Всички организации"
+
+msgid "partners"
+msgstr "Партьори"
+
+msgid "sponsorship"
+msgstr "Предлагащи спонсорство"

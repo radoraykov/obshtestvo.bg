@@ -299,7 +299,9 @@ SUIT_CONFIG = {
             {'model': 'projects.paidmember', 'label': _('only paid work')},
         )},
         {'label': _('Partnership & Events'), 'icon':'icon-heart', 'models': (
-            {'model': 'projects.organisation', 'label': _('organisations')},
+            {'model': 'projects.organisation', 'label': _('all organisations')},
+            {'model': 'projects.sponsororg', 'label': _('sponsorship')},
+            {'model': 'projects.partnerorg', 'label': _('partners')},
             {'model': 'projects.event', 'label': _('events')},
         )},
         {

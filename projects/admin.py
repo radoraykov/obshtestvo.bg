@@ -458,6 +458,32 @@ class OrganisationAdmin(admin.ModelAdmin):
     )
 
 
+class SponsorOrg(Organisation):
+    class Meta:
+        proxy = True
+        verbose_name = Organisation._meta.verbose_name
+        verbose_name_plural = Organisation._meta.verbose_name
+
+class SponsorOrgAdmin(OrganisationAdmin):
+    def has_add_permission(self, request):
+        return False
+    def queryset(self, request):
+        return self.model.objects.filter(types__id=2)
+
+
+class PartnerOrg(Organisation):
+    class Meta:
+        proxy = True
+        verbose_name = Organisation._meta.verbose_name
+        verbose_name_plural = Organisation._meta.verbose_name
+
+class PartnerOrgAdmin(OrganisationAdmin):
+    def has_add_permission(self, request):
+        return False
+    def queryset(self, request):
+        return self.model.objects.exclude(partnered_project=None)
+
+
 class AvailableMember(Member):
     class Meta:
         proxy = True
@@ -525,6 +551,8 @@ class EventAdmin(admin.ModelAdmin):
     )
 
 admin.site.register(Organisation, OrganisationAdmin)
+admin.site.register(SponsorOrg, SponsorOrgAdmin)
+admin.site.register(PartnerOrg, PartnerOrgAdmin)
 admin.site.register(Event, EventAdmin)
 admin.site.register(Member, MemberAdmin)
 admin.site.register(ReaderMember, ReaderMemberAdmin)
