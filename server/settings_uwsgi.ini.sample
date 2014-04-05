@@ -17,3 +17,4 @@ plugins = python
 # clear environment on exit
 vacuum = true
 post-buffering = 1
+touch-reload = /path/to/deployment/obshtestvo.bg/app.wsgi
