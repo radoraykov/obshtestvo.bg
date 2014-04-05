@@ -79,7 +79,6 @@ workon obshtestvobg
 pip install django # even if you have django, install it in the virtual env
 pip install mysql-python # mysql...
 pip install -r requirements.txt # for the required packages
-# sudo ln -s ~/.virtualenvs/obshtestvobg/lib/python2.7/site-packages/django/contrib/admin/static/admin static
 python manage.py collectstatic -l
 ```
 
