@@ -37,7 +37,7 @@ def run_migrations():
 
 def restart_app_server():
     with cd(env.project_root):
-        run('touch web.wsgi')
+        run('touch app.wsgi')
 
 def deploy():
     deploy_code()
