@@ -10,3 +10,4 @@ django-pagedown
 django-guardian
 django-object-actions
 South
+gfm
