@@ -64,25 +64,17 @@ python manage.py collectstatic -l
 Сложете настройките на базата данни;
 Вероятно може да закоментирате STATICFILES_DIRS;
 
-#### Когато още се разработва
+#### Начални стъпки да може да се разработва
 
 ```
 django-admin.py runserver --settings=settings --pythonpath=/home/ubuntu/projects/obshtestvo.bg  --insecure
 ```
 
 ```
-# initial:
+# initial database installation
+# for production you just can get the DB from the running site
 python manage.py syncdb
-# and
-python manage.py convert_to_south projects
-python manage.py migrate projects 0001 --fake
-# OR
-python manage.py schemamigration projects --initial
-# on changes:
-python manage.py schemamigration projects --auto
-python manage.py migrate projects
-# update last migraiton:
-python manage.py schemamigration projects --auto --update
+python manage.py migrate
 ```
 
 #### Когато вече сайта е готов и е пуснат / Production server
