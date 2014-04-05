@@ -18,14 +18,6 @@ DATABASES = {
 # Example: "/var/www/example.com/static/"
 STATIC_ROOT = '/home/kris/Work/python/Django/mysite/static'
 
-# Additional locations of static files
-STATICFILES_DIRS = (
-	"/home/kris/Work/python/Django/mysite/static"
-    # Put strings here, like "/home/html/static" or "C:/www/django/static".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-)
-
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/var/www/example.com/media/"
 MEDIA_ROOT = '/home/ubuntu/projects/fontc'
