@@ -6,12 +6,12 @@ master = true
 #processes = 10
 # the socket (use the full path to be safe)
 # with appropriate permissions - *may* be needed
-socket = /home/ubuntu/projects/obshtestvo.bg-sync/server/obshtestvo.sock
+socket = /path/to/deployment/obshtestvo.bg/server/obshtestvo.sock
 chmod-socket = 777
-chdir = /home/ubuntu/projects/obshtestvo.bg-sync
+chdir = /path/to/deployment/obshtestvo.bg
 module = server.wsgi
 # the virtualenv
-virtualenv = /home/ubuntu/.virtualenvs/obshtestvobg
+virtualenv = /path/to/.virtualenvs/obshtestvobg
 # make sure all required plugins are loaded
 plugins = python
 # clear environment on exit

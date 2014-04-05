@@ -41,9 +41,9 @@
         Deny from all
         Allow from 127.0.0.0/255.0.0.0 ::1/128
     </Directory>
-    WSGIScriptAlias / /home/kris/Work/python/Django/mysite/app/wsgi.py
+    WSGIScriptAlias / /path/to/deployment/obshtestvo.bg/server/wsgi.py
 
-    <Directory /home/kris/Work/python/Django/mysite/app>
+    <Directory /path/to/deployment/obshtestvo.bg/server>
     Order deny,allow
     Allow from all
     </Directory>

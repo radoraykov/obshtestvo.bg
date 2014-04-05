@@ -1,5 +1,5 @@
 upstream django {
-  server unix:///home/ubuntu/projects/obshtestvo.bg-sync/server/obshtestvo.sock;
+  server unix:///path/to/deployment/obshtestvo.bg/server/obshtestvo.sock;
   keepalive 64;
 }
 
@@ -7,16 +7,16 @@ server {
     listen 80;
 
     server_name www.obshtestvodev.bg;
-    access_log /home/ubuntu/projects/obshtestvo.bg-sync/server/access.log;
+    access_log /path/to/deployment/obshtestvo.bg/server/access.log;
 
     location ~ ^/(?:static/|upload/) {
-      root /home/ubuntu/projects/obshtestvo.bg-sync;
+      root /path/to/deployment/obshtestvo.bg;
       access_log off;
       expires max;
     }
 
     location ~ ^/(?:robots.txt|humans.txt|favicon.ico|favicon.png) {
-      root /home/ubuntu/projects/obshtestvo.bg-sync/static;
+      root /path/to/deployment/obshtestvo.bg/static;
       access_log off;
       expires max;
     }
