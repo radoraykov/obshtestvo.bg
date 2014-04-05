@@ -1,3 +1,5 @@
+import os
+
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'your-super-secret-key'
 DATABASES = {
@@ -16,7 +18,7 @@ DATABASES = {
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/var/www/example.com/static"
-STATIC_ROOT = '/some/path/static'
+STATIC_ROOT = os.path.realpath(os.path.join(os.path.dirname(__file__), '../static'))
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
