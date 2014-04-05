@@ -15,58 +15,50 @@
 5. Заредете командите на virtualenvwrapper: `source /usr/local/bin/virtualenvwrapper.sh` – дава достъп до `mkvirtualenv` и други.
 6. `mkvirtualenv obshtestvobg --no-site-packages` – ще създаде виртуална среда за инсталиране на pip пакети в `~/.virtualenvs/obshtestvobg`.
 7. `workon obshtestvobg` за да превключите на това обкръжение.
-8. Зависимостите на проекта: `pip install -r requirements.txt`
+8. Клонирайте хранилището и влезте в директорията на проекта.
+9. Зависимостите на проекта: `pip install -r requirements.txt`
 
     Ако компилацията на MySQL адаптера не мине, може да се наложи да се изпълни `export CFLAGS=-Qunused-arguments` ([реф.](http://stackoverflow.com/questions/22313407/clang-error-unknown-argument-mno-fused-madd-python-package-installation-fa)) и да се стартира отново командата.
-
-9. Създайте база данни в MySQL:
+10. Създайте база данни в MySQL:
 
         CREATE DATABASE obshtestvo CHARACTER SET utf8 COLLATE utf8_general_ci
+11. Създайте файл със специфичните за локалното ви копие настройки, като копирате `server/settings_app.py.sample` като `server/settings_app.py` и въведете там параметрите за достъп до MySQL базата данни.
+12. Подгответе базата за първото пускане на миграциите: `python manage.py syncdb`
+13. Пуснете миграциите: `python manage.py migrate`
+14. Направете си админ потребител с `python manage.py createsuperuser`
+15. Пуснете си сървър с `python manage.py runserver`
 
-10. Създайте файл със специфичните за локалното ви копие настройки, като копирате `server/settings_app.py.sample` като `server/settings_app.py` и въведете в копието:
-
-    - данните за достъп до MySQL базата данни
-    - редактирайте пътя в `STATIC_ROOT`
-
-11. Подгответе базата за първото пускане на миграциите: `python manage.py syncdb`
-12. Пуснете миграциите: `python manage.py migrate`
-13. Направете си админ потребител с `python manage.py createsuperuser`
-14. Пуснете си сървър с `python manage.py runserver`
-15. Deploy those files by configuring your webserver of choice to serve the files in STATIC_ROOT at STATIC_URL.
+Би трябвало да може да достъпите приложението на [http://localhost:8000/](http://localhost:8000/).
 
 ### Production
 
-- По време на deployment: `python manage.py collectstatic -l`
-- Генерирайте нова стойност на `SECRET_KEY`.
-- Променете `DEBUG = True` на `DEBUG = False`.
+Инсталирайте приложението, използвайки инструкциите в предишната секция, с тези разлики:
 
+1. В `server/settings_app.py`:
 
-#### Общи
- - pip (python package manager)
- - django
- - virtualenvwrapper
- - mysql driver and its dependencies
+	- Променете `DEBUG = True` на `DEBUG = False`.
+	- Генерирайте нова стойност на `SECRET_KEY`.
 
-#### Production
- - nginx server
- - uwsgi server
- - uwsgi python plugin
+2. Настройте уеб сървъра си да сервира статичните файлове, намиращи се в `STATIC_ROOT` (обикновено папката `static/` в корена на проекта) на URL `/static/`.
+3. Уверете се, че по време на deployment се изпълнява командата `python manage.py collectstatic -l`, за да се копират статичните файлове от приложението в `STATIC_ROOT`.
+4. Използвайте Nginx или Apache сървър, плюс uwsgi server и uwsgi python plugin. Могат да се използват съответните конфигурационни файлове в папка `server/`.
 
-#### Инсталация на изискванията (на debian-базирана машина)
+### Примерна инсталация на Debian-базирана машина
 
-##### Генерални
+Общи пакети за development и production:
 
 ```sh
 sudo apt-get install nginx-full uwsgi uwsgi-plugin-python python-pip
 sudo pip install django virtualenvwrapper
 ```
-и за mysql:
+
+MySQL:
 
 ```sh
 sudo apt-get install libmysqlclient-dev python-dev
 ```
 
-##### За production
+Пакети, необходими само на production:
 
 ```sh
 apt-get install nginx-full uwsgi uwsgi-plugin-python
@@ -78,7 +70,7 @@ apt-get install nginx-full uwsgi uwsgi-plugin-python
 apt-get install nginx uwsgi uwsgi-plugin-python
 ```
 
-### Инсталация на проекта
+Подкарване на проекта:
 
 ```sh
 source /usr/local/bin/virtualenvwrapper.sh # to have the mkvirtualenv commands, etc.
@@ -91,30 +83,8 @@ pip install -r requirements.txt # for the required packages
 python manage.py collectstatic -l
 ```
 
-### Подкарване
+#### Настройки на Nginx и uwsgi в production
 
-
-Копирайте си server/settings_app.py.sample като server/settings_app.py и оправете в него настройките:
-
-- Генерирайте нов SECRET_KEY (apg -m32 например);
-- Сложете настройките на базата данни;
-- Вероятно може да закоментирате STATICFILES_DIRS;
-- Ако ще го разработвате, сложете DEBUG=True;
-
-#### Начални стъпки да може да се разработва
-
-```
-django-admin.py runserver --settings=settings --pythonpath=/home/ubuntu/projects/obshtestvo.bg  --insecure
-```
-
-```
-# initial database installation
-# for production you just can get the DB from the running site
-python manage.py syncdb
-python manage.py migrate
-```
-
-#### Когато вече сайта е готов и е пуснат / Production server
 Редактирайте домейна в `settings_nginx.optimised.conf` и `settings_nginx.basic.conf`.
 
 ##### Настройки за `nginx`
@@ -127,7 +97,8 @@ sudo ln -s /home/ubuntu/projects/obshtestvo.bg/server/settings_nginx.basic.conf 
 # optimised
 sudo ln -s /home/ubuntu/projects/obshtestvo.bg/server/settings_nginx.optimised.conf /etc/nginx/sites-enabled/obshtestvobg.conf
 ```
-При nginx от официалното ngix repo:
+
+При nginx от официалното nginx repo:
 
 ```sh
 # basic (no caching, no tweaking):
@@ -136,8 +107,8 @@ sudo ln -s /home/ubuntu/projects/obshtestvo.bg/server/settings_nginx.basic.conf 
 sudo ln -s /home/ubuntu/projects/obshtestvo.bg/server/settings_nginx.optimised.conf /etc/nginx/conf.d/obshtestvobg.conf
 ```
 
-
 Които се активират с :
+
 ```sh
 sudo service nginx restart
 ```
@@ -153,7 +124,8 @@ sudo ln -s /home/ubuntu/projects/obshtestvo.bg/server/settings_uwsgi.ini /etc/uw
 sudo ln -s /home/ubuntu/projects/obshtestvo.bg/server/settings_uwsgi.ini /etc/uwsgi.d/obshtestvobg.ini
 ```
 
-Които се активират с :
+Които се активират с:
+
 ```
 sudo service uwsgi restart
 ```
