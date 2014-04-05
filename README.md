@@ -1,9 +1,45 @@
-Сайт за http://www.obshtestvo.bg
+# Публичен сайт на Общество
 
+Публичният сайт на http://www.obshtestvo.bg.
 
-## Инсталация (за програмисти)
+## Инсталация на проекта (за програмисти)
 
-### Изисквания
+Проектът е написан на Python и Django и използва MySQL.
+
+### В среда за разработване (development)
+
+1. Нужен ви е Python 2.7. Проектът не е тестван на други версии.
+2. Трябва да имате MySQL 5.x, плюс header файлове.
+3. Инсталирайте pip, ако нямате – `easy_install pip` или `sudo easy_install pip`
+4. Инсталирайте virtualenvwrapper – `pip install virtualenvwrapper` или `sudo pip install virtualenvwrapper`.
+5. Заредете командите на virtualenvwrapper: `source /usr/local/bin/virtualenvwrapper.sh` – дава достъп до `mkvirtualenv` и други.
+6. `mkvirtualenv obshtestvobg --no-site-packages` – ще създаде виртуална среда за инсталиране на pip пакети в `~/.virtualenvs/obshtestvobg`.
+7. `workon obshtestvobg` за да превключите на това обкръжение.
+8. Зависимостите на проекта: `pip install -r requirements.txt`
+
+    Ако компилацията на MySQL адаптера не мине, може да се наложи да се изпълни `export CFLAGS=-Qunused-arguments` ([реф.](http://stackoverflow.com/questions/22313407/clang-error-unknown-argument-mno-fused-madd-python-package-installation-fa)) и да се стартира отново командата.
+
+9. Създайте база данни в MySQL:
+
+        CREATE DATABASE obshtestvo CHARACTER SET utf8 COLLATE utf8_general_ci
+
+10. Създайте файл със специфичните за локалното ви копие настройки, като копирате `server/settings_app.py.sample` като `server/settings_app.py` и въведете в копието:
+
+    - данните за достъп до MySQL базата данни
+    - редактирайте пътя в `STATIC_ROOT`
+
+11. Подгответе базата за първото пускане на миграциите: `python manage.py syncdb`
+12. Пуснете миграциите: `python manage.py migrate`
+13. Направете си админ потребител с `python manage.py createsuperuser`
+14. Пуснете си сървър с `python manage.py runserver`
+15. Deploy those files by configuring your webserver of choice to serve the files in STATIC_ROOT at STATIC_URL.
+
+### Production
+
+- По време на deployment: `python manage.py collectstatic -l`
+- Генерирайте нова стойност на `SECRET_KEY`.
+- Променете `DEBUG = True` на `DEBUG = False`.
+
 
 #### Общи
  - pip (python package manager)
