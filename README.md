@@ -92,18 +92,18 @@ python manage.py collectstatic -l
 
 ```sh
 # basic (no caching, no tweaking):
-sudo ln -s /home/ubuntu/projects/obshtestvo.bg/server/settings_nginx.basic.conf /etc/nginx/sites-enabled/obshtestvobg.conf
+sudo cp /path/to/projects/obshtestvo.bg/server/settings_nginx.basic.conf.sample /etc/nginx/sites-enabled/obshtestvobg.conf
 # optimised
-sudo ln -s /home/ubuntu/projects/obshtestvo.bg/server/settings_nginx.optimised.conf /etc/nginx/sites-enabled/obshtestvobg.conf
+sudo cp /path/to/projects/obshtestvo.bg/server/settings_nginx.optimised.conf.sample /etc/nginx/sites-enabled/obshtestvobg.conf
 ```
 
 При nginx от официалното nginx repo:
 
 ```sh
 # basic (no caching, no tweaking):
-sudo ln -s /home/ubuntu/projects/obshtestvo.bg/server/settings_nginx.basic.conf /etc/nginx/conf.d/obshtestvobg.conf
+sudo cp /path/to/projects/obshtestvo.bg/server/settings_nginx.basic.conf.sample /etc/nginx/conf.d/obshtestvobg.conf
 # optimised
-sudo ln -s /home/ubuntu/projects/obshtestvo.bg/server/settings_nginx.optimised.conf /etc/nginx/conf.d/obshtestvobg.conf
+sudo cp /path/to/projects/obshtestvo.bg/server/settings_nginx.optimised.conf.sample /etc/nginx/conf.d/obshtestvobg.conf
 ```
 
 Които се активират с :
@@ -118,9 +118,9 @@ sudo service nginx restart
 
 ```sh
 # debian/ubuntu/mint...:
-sudo ln -s /home/ubuntu/projects/obshtestvo.bg/server/settings_uwsgi.ini /etc/uwsgi/apps-enabled/obshtestvobg.ini
+sudo cp /path/to/projects/obshtestvo.bg/server/settings_uwsgi.ini.sample /etc/uwsgi/apps-enabled/obshtestvobg.ini
 # fedora/centos/redhat...
-sudo ln -s /home/ubuntu/projects/obshtestvo.bg/server/settings_uwsgi.ini /etc/uwsgi.d/obshtestvobg.ini
+sudo cp /path/to/projects/obshtestvo.bg/server/settings_uwsgi.ini.sample /etc/uwsgi.d/obshtestvobg.ini
 ```
 
 Които се активират с:
