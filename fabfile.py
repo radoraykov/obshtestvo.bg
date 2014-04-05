@@ -1,9 +1,10 @@
 from fabric.api import *
 
-env.hosts            = ['obshtestvo@tmp.obshtestvo.bg']
-env.project_root     = '/home/obshtestvo/obshtestvo.bg'
-env.repository_url   = 'https://github.com/obshtestvo/obshtestvo.bg.git'
-env.virtual_env_name = 'obshtestvobg' # leave blank if you don't use virtualenvwrapper
+try:
+    import fabric_settings
+except ImportError:
+    print("Please create a fabric_settings.py file in order to use fab.")
+    exit(1)
 
 def run_within_virtual_env(command):
     with cd(env.project_root):
