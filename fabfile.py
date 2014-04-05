@@ -1,5 +1,4 @@
 from fabric.api import *
-from fabric.contrib.console import confirm
 
 env.hosts            = ['obshtestvo@tmp.obshtestvo.bg']
 env.project_root     = '/home/obshtestvo/obshtestvo.bg'
