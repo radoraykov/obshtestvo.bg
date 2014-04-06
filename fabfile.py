@@ -26,7 +26,8 @@ def deploy_code():
         if run('test -d %s' % env.project_root).failed:
             run('git clone %s %s' % (env.repository_url, env.project_root))
     with cd(env.project_root):
-        run('git pull')
+        run('git checkout %s' % env.deploy_branch)
+        run('git pull origin %s' % env.deploy_branch)
 
 def install_dependencies():
     run_within_virtual_env('pip install -r requirements.txt')
