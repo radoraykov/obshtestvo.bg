@@ -45,7 +45,7 @@ workon $PROJECT_NAME
 pip install -r $VAGRANT_DIR/requirements.dev.txt
 
 # django database init
-python /vagrant/manage.py syncdb --noinput
+python $VAGRANT_DIR/manage.py syncdb --noinput
 python $VAGRANT_DIR/manage.py migrate
 expect -c "spawn python $VAGRANT_DIR/manage.py createsuperuser --username=admin --email=" -c "expect \"Password:\"" -c "send \"admin\n\"" -c "expect \"Password (again):\"" -c "send \"admin\n\"" -c "expect eof"
 
