@@ -4,9 +4,38 @@
 
 ## Инсталация на проекта (за програмисти)
 
-Проектът е написан на Python и Django и използва MySQL.
+Проектът е написан на Python и Django, и използва MySQL.
 
 ### Development среда
+#### Автоматича настройка
+
+Нужни са ви единствено:
+
+ - [Vagrant](http://www.vagrantup.com/), ако нямате - [сваляте и инсталирате](
+https://ww.vagrantup.com/downloads.html)
+ - [VirtualBox](https://www.virtualbox.org/), ако нямате - [сваляте и инсталирате](https://www.virtualbox.org/wiki/Downloads)
+
+В директория на проекта пускате 1 команда:
+
+```sh
+vagrant up
+```
+
+Това може да отнеме няколко минути, след което имате работещ сайта на адрес:  [http://localhost:8888/](http://localhost:8888/)
+
+Администратор на сайта е `admin` с парола `admin`, чрез който имате достъп до [административния панел](http://localhost:8888/admin/).
+
+##### Детайли
+Автоматичната настройка създава виртуална машина s заемаща 370mb. Може да я спирате и пускате с команди от директорията на проекта:
+
+```sh
+vagrant halt # изключва
+vagrant up # включва
+```
+
+За още дейтали [вижте какво се инсталира в нея](bootstrap.sh).
+
+#### Ръчна настройка
 
 1. Нужен ви е Python 2.7. Проектът не е тестван на други версии.
 2. Трябва да имате MySQL 5.x, плюс header файлове.
@@ -23,7 +52,7 @@
 
         CREATE DATABASE obshtestvo CHARACTER SET utf8 COLLATE utf8_general_ci
 11. Създайте файл със специфичните за локалното ви копие настройки, като копирате `server/settings_app.py.sample` като `server/settings_app.py` и въведете там параметрите за достъп до MySQL базата данни.
-12. Подгответе базата за първото пускане на миграциите: `python manage.py syncdb`
+12. Подгответе базата за първото пускане на миграциите: `python manage.py syncdb  --noinput`
 13. Пуснете миграциите: `python manage.py migrate`
 14. Направете си админ потребител с `python manage.py createsuperuser`
 15. Пуснете си сървър с `python manage.py runserver`
@@ -32,7 +61,7 @@
 
 ### Production среда
 
-Инсталирайте приложението, използвайки инструкциите в предишната секция, с тези разлики:
+Инсталирайте приложението, използвайки инструкциите в предишната секция за ръчни настройки, с тези разлики:
 
 1. В `server/settings_app.py`:
 
@@ -42,6 +71,12 @@
 2. Настройте уеб сървъра си да сервира статичните файлове, намиращи се в `STATIC_ROOT` (обикновено папката `static/` в корена на проекта) на URL `/static/`.
 3. Уверете се, че по време на deployment се изпълнява командата `python manage.py collectstatic -l`, за да се копират статичните файлове от приложението в `STATIC_ROOT`.
 4. Използвайте Nginx или Apache сървър, плюс uwsgi server и uwsgi python plugin. Могат да се използват съответните конфигурационни файлове в папка `server/`.
+
+##### Почистване на кеша на production системата
+
+```
+find /var/cache/nginx/ -type f | xargs rm
+```
 
 ### Deployment
 
@@ -55,98 +90,4 @@
 
 ### Примерна инсталация на Debian-базирана машина
 
-Общи пакети за development и production:
-
-```sh
-sudo apt-get install nginx-full uwsgi uwsgi-plugin-python python-pip
-sudo pip install django virtualenvwrapper
-```
-
-MySQL:
-
-```sh
-sudo apt-get install libmysqlclient-dev python-dev
-```
-
-Пакети, необходими само на production:
-
-```sh
-apt-get install nginx-full uwsgi uwsgi-plugin-python
-```
-
-Ако се ползва външното repository за debian на nginx (за по-нова версия):
-
-```sh
-apt-get install nginx uwsgi uwsgi-plugin-python
-```
-
-Подкарване на проекта:
-
-```sh
-source /usr/local/bin/virtualenvwrapper.sh # to have the mkvirtualenv commands, etc.
-mkvirtualenv obshtestvobg --no-site-packages #this will create a virtual environment at ~/.virtualenvs/obshtestvobg
-workon obshtestvobg
-pip install django # even if you have django, install it in the virtual env
-pip install mysql-python # mysql...
-pip install -r requirements.txt # for the required packages
-python manage.py collectstatic -l
-```
-
-#### Настройки на Nginx и uwsgi в production
-
-Редактирайте домейна в `settings_nginx.optimised.conf` и `settings_nginx.basic.conf`.
-
-##### Настройки за `nginx`
-
-Проверете и в двата файла дали има да настройвате пътища.
-
-```sh
-# basic (no caching, no tweaking):
-sudo cp /path/to/projects/obshtestvo.bg/server/settings_nginx.basic.conf.sample /etc/nginx/sites-enabled/obshtestvobg.conf
-# optimised
-sudo cp /path/to/projects/obshtestvo.bg/server/settings_nginx.optimised.conf.sample /etc/nginx/sites-enabled/obshtestvobg.conf
-```
-
-При nginx от официалното nginx repo:
-
-```sh
-# basic (no caching, no tweaking):
-sudo cp /path/to/projects/obshtestvo.bg/server/settings_nginx.basic.conf.sample /etc/nginx/conf.d/obshtestvobg.conf
-# optimised
-sudo cp /path/to/projects/obshtestvo.bg/server/settings_nginx.optimised.conf.sample /etc/nginx/conf.d/obshtestvobg.conf
-```
-
-Които се активират с :
-
-```sh
-sudo service nginx restart
-```
-
-##### Настройки за `uwsgi`
-
-Проверете какво има да настроите във файла.
-
-```sh
-# debian/ubuntu/mint...:
-sudo cp /path/to/projects/obshtestvo.bg/server/settings_uwsgi.ini.sample /etc/uwsgi/apps-enabled/obshtestvobg.ini
-# fedora/centos/redhat...
-sudo cp /path/to/projects/obshtestvo.bg/server/settings_uwsgi.ini.sample /etc/uwsgi.d/obshtestvobg.ini
-```
-
-Които се активират с:
-
-```
-sudo service uwsgi restart
-```
-
-##### Опресняване на направени промени
-
-```
-sudo service uwsgi reload && sudo service nginx reload
-```
-
-##### Почистване на кеша на production системата
-
-```
-find /var/cache/nginx/ -type f | xargs rm
-```
+Вижте командите в [инсталационния файл](bootstrap.sh) за Vagrant.
