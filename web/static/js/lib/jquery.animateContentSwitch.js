@@ -124,7 +124,7 @@
                 });
             }
             hide();
-            show();
+            if (options.parallel) show();
         });
     };
 

@@ -1,5 +1,5 @@
-function ProgressBar($parent) {
-    this.time = 7;
+function ProgressBar($parent, time) {
+    this.time = time | 7;
     this.$parent = $parent;
 }
 
@@ -79,9 +79,11 @@ ProgressBar.prototype = {
 
 function Carousel(options) {
     this.options = options = $.extend(true, {
+        extraSliderOptions: {},
         containerSelector: null,
         sliderSelector: '.slider',
         speed: 500,
+        progressTime: 7,
         paginationSpeed: 400,
         pauseBelow: {
             $waypoint: null,
@@ -110,19 +112,21 @@ Carousel.prototype = {
         var self = this;
 
         self.slidesCount = self.$container.find('.item').length;
-        self.progressbar = new ProgressBar(this.$nav);
-        self.slider = self.$el.owlCarousel({
+        self.progressbar = new ProgressBar(this.$nav, this.options.progressTime);
+        self.slider = self.$el.owlCarousel($.extend({
             navigation: false,
             pagination: false,
             autoHeight: true,
-            slideSpeed: this.options.speed,
-            paginationSpeed: 400,
+            slideSpeed: self.options.speed,
+            paginationSpeed: self.options.paginationSpeed,
             singleItem: true,
             afterAction: function () {
                 self.$el.trigger('owl.afterAction', [this.owl])
-                setTimeout(function () {
-                    $.waypoints('refresh');
-                }, 500)
+                if ($.waypoints) {
+                    setTimeout(function () {
+                        $.waypoints('refresh');
+                    }, 500)
+                }
             },
             afterInit: function ($elem) {
                 self.progressbar.init($elem)
@@ -134,7 +138,7 @@ Carousel.prototype = {
             startDragging: function () {
                 self.progressbar.pauseOnDragging()
             }
-        });
+        }, self.options.extraSliderOptions));
         if (this.options.pauseBelow.$waypoint) {
             this._initPausingBelowSlider(this.options.pauseBelow.$waypoint, this.options.pauseBelow.offset)
         }

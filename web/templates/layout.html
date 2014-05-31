@@ -20,13 +20,13 @@
     <!--<script src="{% static 'js/lib/modernizr.custom.js' %}"></script>-->
     <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
 </head>
-<body>
+<body class="{{ page }}">
 <!--[if lt IE 8]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
     your browser</a> to improve your experience.</p>
 <![endif]-->
 
-<div class="{{ page }} container">
+<div class="container">
 
     <nav class="main">
         <div class="container">
@@ -47,6 +47,7 @@
                     <li class="basic-transition-mid"><a href="{% url 'support' %}#online">Подкрепи
                         проектите</a></li>
                 </ul>
+                {% block navExtra %}{% endblock %}
                 <div class="slider-nav-wrapper basic-transition hidden waiting">
                     <div class="slider-nav clearfix">
                         <span class="nav prev basic-transition round"><i
@@ -89,7 +90,6 @@
     <footer>
         <div class="sep"><i class="logo"></i></div>
         {# <img class="logo-alternative" src="{% static 'img/logo-alternative.png' %}" alt="Фондация Obshtestvo.bg"/> #}
-Независими създатели на електронни инструменти
         <p>Независими създатели на електронни <br/>
             инструменти за <strong>бърза</strong> и <strong>удобна</strong> връзка
             <br/><span class="connection">държава <i
@@ -119,7 +119,7 @@
     </footer>
 </div>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="{% static 'js/lib/owl-carousel/owl.carousel.min.js' %}"></script>
 <script src="{% static 'js/lib/waypoints.js' %}"></script>
 {% block footerTag %}{% endblock %}

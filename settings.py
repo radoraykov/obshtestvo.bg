@@ -2,7 +2,6 @@
 # Django settings for mysite project.
 from django.utils.datastructures import SortedDict
 from django.utils.translation import ugettext_lazy as _
-from server.settings_app import *
 
 ADMINS = (
 # ('Your Name', 'your_email@example.com'),
@@ -103,10 +102,11 @@ INSTALLED_APPS = (
     'social.apps.django_app.default',
     "restful",
     "auth",
+    "login",
     'reversion',
-    'guardian',
     "compressor",
     "pagedown",
+    'guardian',
     "south",
 )
 ANONYMOUS_USER_ID = -1
@@ -238,6 +238,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.messages.context_processors.messages',
     'social.apps.django_app.context_processors.backends',
     'django.core.context_processors.request',
+    'web.context_processors.public_settings',
 )
 
 AUTHENTICATION_BACKENDS = (
@@ -250,8 +251,8 @@ AUTHENTICATION_BACKENDS = (
     'guardian.backends.ObjectPermissionBackend',
 )
 
-LOGIN_URL = '/login/'
-LOGIN_REDIRECT_URL = '/done/'
+LOGIN_URL = '/join/'
+LOGIN_REDIRECT_URL = '/dashboard/'
 URL_PATH = ''
 SOCIAL_AUTH_STRATEGY = 'social.strategies.django_strategy.DjangoStrategy'
 SOCIAL_AUTH_STORAGE = 'social.apps.django_app.default.models.DjangoStorage'
@@ -266,28 +267,31 @@ SOCIAL_AUTH_EMAIL_VALIDATION_URL = '/email-sent/'
 # SOCIAL_AUTH_USERNAME_FORM_URL = '/signup-username'
 SOCIAL_AUTH_USERNAME_FORM_HTML = 'username_signup.html'
 SOCIAL_AUTH_PIPELINE = (
+    'auth.pipeline.load_user',
     'social.pipeline.social_auth.social_details',
     'social.pipeline.social_auth.social_uid',
     'social.pipeline.social_auth.auth_allowed',
     'social.pipeline.social_auth.social_user',
-    'auth.pipeline.require_email',
-    'social.pipeline.mail.mail_validation',
     'social.pipeline.user.get_username',
+    'auth.pipeline.user_password',
+    'auth.pipeline.require_extra_data',
+    'social.pipeline.mail.mail_validation',
     # 'social.pipeline.social_auth.associate_by_email',
     'social.pipeline.user.create_user',
+    'auth.pipeline.save_extra_data',
     'social.pipeline.social_auth.associate_user', # creates a social user record
     'social.pipeline.social_auth.load_extra_data', # adds provider metadata like "expire" or "id"
     'social.pipeline.user.user_details' # tops up User model fields with what's available in "details" parameter
 )
 
-SOCIAL_AUTH_FACEBOOK_KEY = '587878011289347'
-SOCIAL_AUTH_FACEBOOK_SECRET = 'f648ffde60c93685060ae1152816108d'
+SOCIAL_AUTH_FACEBOOK_KEY = '1489028994643386'
 SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {'locale': 'bg_BG'}
 EMAIL_FROM = 'info@obshtestvo.bg'
 AUTH_USER_MODEL = 'projects.User'
-SOCIAL_AUTH_FACEBOOK_SCOPE = ['email', 'user_education_history', 'user_interests']
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
+# SOCIAL_AUTH_FACEBOOK_SCOPE = ['email', 'user_education_history', 'user_interests']
 LOCALE_PATHS = ['locale',]
-
+#
 SUIT_CONFIG = {
     'SEARCH_URL': '',
     'ADMIN_NAME': 'Obshtestvo.bg',
@@ -322,14 +326,18 @@ SUIT_CONFIG = {
                 {'model': 'projects.membertype', 'label': _('member types')},
                 {'model': 'projects.organisationtype', 'label': _('organisation types')},
                 {'model': 'projects.skill', 'label': _('skills')},
+                {'model': 'projects.skillgroup', 'label': _('skill groups')},
             )
         },
         {'label': _('System users'), 'icon':'icon-user', 'models': (
             {'model': 'projects.user', 'label': _('users')},
             {'model': 'projects.userprojectpause', 'label': _('project pauses')},
             {'model': 'projects.useractivity', 'label': _('activities')},
+            {'model': 'default.usersocialauth', 'label': _('social auth')},
+            {'model': 'default.association', 'label': _('social associations')},
             'auth.group',
         )},
     )
 }
-ROSETTA_STORAGE_CLASS = 'rosetta.storage.SessionRosettaStorage'
+PUBLIC_SETTINGS = ['SOCIAL_AUTH_FACEBOOK_KEY', 'SOCIAL_AUTH_FACEBOOK_SCOPE']
+from server.settings_app import *

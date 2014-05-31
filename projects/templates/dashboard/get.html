@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% load staticfiles %}
+{% block content %}
+    {% include 'about/_whatheader.html' %}
+    {% include 'dashboard/_get.html' %}
+{% endblock %}
+{% block navExtra %}
+    {% include 'user/_nav.html' %}
+{% endblock %}
+
+
+{% block headTag %}
+    <link rel="stylesheet" type="text/css" href="{% static 'libs/magnific-popup/dist/magnific-popup.css' %}">
+{% endblock %}
+{% block footerTag %}
+    <script src="{% static 'libs/magnific-popup/dist/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'js/lib/spin.js' %}"></script>
+    <script src="{% static 'js/lib/jquery.blockUI.js' %}"></script>
+    <script src="{% static 'js/projectPicker.js' %}"></script>
+    <script src="{% static 'js/whatCarousel.js' %}"></script>
+    {#{% include '_fbbutton.html' %}#}
+{% endblock %}

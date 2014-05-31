@@ -13,12 +13,25 @@ import reversion
 from suit.admin import SortableTabularInline, SortableModelAdmin
 from django.db import models
 from django.templatetags.static import static
-from django.utils.html import urlize
-from django.utils.html import format_html
+from django.utils.html import urlize, format_html
 from django.utils.translation import ugettext_lazy as _
 from django.utils.encoding import smart_text
 from django.core.exceptions import ValidationError
 from django.contrib.admin.options import IncorrectLookupParameters
+
+from guardian.models import UserObjectPermission, GroupObjectPermission
+from django.db.models.signals import post_save, pre_delete
+from django.dispatch import receiver
+@receiver(post_save, sender=User)
+def user_perobject_permissions(sender, instance, created, **kwargs):
+    if created:
+        assign_perm('change_user', instance, instance)
+
+
+@receiver(pre_delete, sender=User)
+def remove_user_perobject_permissions(sender, instance, **kwargs):
+    UserObjectPermission.objects.filter(user_id=instance.pk).delete()
+
 
 def prepare_lookup_value(key, value):
     if key.endswith('__in') and type(value) == 'str':
@@ -234,11 +247,12 @@ class ProjectAdminForm(ModelForm):
         }
 
 class ProjectAdmin(reversion.VersionAdmin, SortableModelAdmin):
-    list_display = ('name', 'users',)
+    list_display = ('name',)
     sortable = 'order'
     form = ProjectAdminForm
     search_fields = ['name']
     list_filter = ['is_featured']
+    prepopulated_fields = {"slug": ("name",)}
     inlines = [
         ProjectActivityInline,
         ProjectMotiveInline,
@@ -255,10 +269,13 @@ class ProjectAdmin(reversion.VersionAdmin, SortableModelAdmin):
         ('motives', 'Motives'),
         ('usage-examples', 'Usage examples steps'),
     )
+    formfield_overrides = {
+        models.TextField: {'widget': AutosizedTextarea(attrs={'rows':2, 'cols':50})},
+    }
     fieldsets = (
         (None, {
             'classes': ('suit-tab suit-tab-general',),
-            'fields': ('name', 'slug', 'url',)
+            'fields': ('name', 'slug', 'url',  'short_description', 'is_forced_active','is_public','has_static_page',)
         }),
         ('Management', {
             'classes': ('suit-tab suit-tab-general',),
@@ -269,7 +286,9 @@ class ProjectAdmin(reversion.VersionAdmin, SortableModelAdmin):
             'fields': (
                 'logo',
                 'logo_styled',
+                'logo_thumb',
                 'cover_image',
+                'complimenting_color',
             )
         }),
         ('Homepage', {
@@ -302,7 +321,7 @@ class ProjectActivityAdminBase(admin.ModelAdmin):
         pass
     toolfunc.label = "Close"  # optional
     toolfunc.short_description = "This will be the tooltip of the button"  # optional
-    objectactions = ('toolfunc', )
+    hobjectactions = ('toolfunc', )
 
 
 class ProjectActivityAdmin(ProjectActivityAdminBase, reversion.VersionAdmin):
@@ -535,7 +554,7 @@ class EventAdmin(admin.ModelAdmin):
         # ('integration', _('System')),
     )
     formfield_overrides = {
-        models.TextField: {'widget': AutosizedTextarea(attrs={'rows':2, 'cols':50})},
+        models.TextField: {'widget': AutosizedTextarea(attrs={'rows':2, 'cols':60})},
         models.DateTimeField: {'widget': SuitSplitDateTimeWidget},
         models.DateField: {'widget': SuitDateWidget},
     }
@@ -561,6 +580,7 @@ admin.site.register(PaidMember, PaidMemberAdmin)
 admin.site.register(OrganisationType)
 admin.site.register(MemberType)
 admin.site.register(Skill)
+admin.site.register(SkillGroup)
 admin.site.register(UserProjectPause)
 admin.site.register(ProjectActivity, ProjectActivityAdmin)
 admin.site.register(ProjectActivityTemplate, ProjectActivityTemplateAdmin)

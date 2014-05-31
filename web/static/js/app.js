@@ -5,7 +5,30 @@ var app = {
     $content: null,
     panels: {}
 };
-
+if ($.blockUI) {
+    $.blockUI.defaults.css = {};
+    $.blockUI.defaults.overlayCSS =  {
+        backgroundColor: '#09232c',
+        opacity:         0.95,
+        cursor:          'wait'
+    }
+}
+if ($.magnificPopup) {
+    $.extend(true, $.magnificPopup.defaults, {
+        enableEscapeKey: false,
+        removalDelay: 300,
+        closeOnBgClick: false,
+        mainClass: 'mfp-zoom-in',
+        callbacks: {
+            open: function() {
+                $('nav.main > div').css('padding-right', $('html').css('margin-right'));
+            },
+            close: function() {
+                $('nav.main > div').css('padding-right',0)
+            }
+        }
+    });
+}
 $(function () {
     if (Modernizr.input.placeholder) $('html').addClass('placeholder')
 
@@ -46,10 +69,12 @@ function ProjectPage($context) {
 
     var $form = $context.find('form.join');
     $form.find('.msg.hidden').css('display', 'none').removeClass('hidden')
-    var joinForm = new AjaxForm($form, {}, function () {
-        $form.css({
-            "background-image": 'url(http://www.gravatar.com/avatar/' + md5($form.find('#joinEmail').val()) + '.jpg?s=35&d=http%3A%2F%2Fwww.obshtestvo.bg%2Fstatic%2Fimg%2Fuser-silhouette.png)'
-        })
+    var joinForm = new AjaxForm($form, {
+        success: function () {
+            $form.css({
+                "background-image": 'url(http://www.gravatar.com/avatar/' + md5($form.find('#joinEmail').val()) + '.jpg?s=35&d=http%3A%2F%2Fwww.obshtestvo.bg%2Fstatic%2Fimg%2Fuser-silhouette.png)'
+            })
+        }
     })
     var $joinPosition = $('#joinPosition')
     $joinPosition

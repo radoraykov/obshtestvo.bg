@@ -1,8 +1,15 @@
-var AjaxForm = function ($container, extraValidationOptions, success, error) {
+var AjaxForm = function ($container, options) {
+    var defaults = {
+        success: null,
+        dataType: 'json',
+        pjax: false,
+        error: null,
+        determineSuccess: function() {return true},
+        extraValidation: {}
+    }
     this.$container = $container;
-    this.success = success;
-    this.error = error;
-    this._activateValidation(extraValidationOptions);
+    this.options = $.extend(defaults, options)
+    this._activateValidation(this.options.extraValidation);
     this._ajaxify()
 }
 
@@ -27,8 +34,7 @@ $.extend($.validator.messages, {
 });
 AjaxForm.prototype = {
     $container: null,
-    success: null,
-    error: null,
+    options: null,
 
     block: function () {
         this.$container.block({
@@ -66,36 +72,61 @@ AjaxForm.prototype = {
     _ajaxify: function () {
         var self = this;
         var $form = self.$container;
-        var handler = function (e) {
+        var handler = function(e) {
             e.preventDefault();
             if (!$form.valid()) {
                 return false;
             }
             self.block();
-            $.ajax({
+            var requestOptions = {
                 type: $form.find('input[name="X-Method"]').val() || $form.attr('method'),
                 url: $form.attr('action'),
                 data: $form.serialize(),
-                dataType: "json",
+                dataType: self.options.dataType,
                 success: function (data) {
-                    if ($.isFunction(self.success)) self.success(data);
-                    $form.find('.msg').html(data.Status)
-                    $form.addClass('success')
+                    if (self.options.determineSuccess(data)) {
+                        if ($.isFunction(self.options.success)) self.options.success(data);
+                        self.applySuccess(data.Status)
+                    } else {
+                        self.applyError(data)
+                    }
                 },
                 error: function (xhr, status, err) {
                     var error = xhr.responseJSON ? xhr.responseJSON.Status : err
-                    if ($.isFunction(self.error)) self.error(error);
-                    $form.find('.msg').html(error)
-                    $form.addClass('error')
+                    if ($.isFunction(self.options.error)) self.options.error(error);
+                    self.applyError(error)
                 },
                 complete: function () {
-                    self.unblock();
-                    self._switchContent($form.find('.controls'), $form.find('.msg'), 100)
+                    self.showResult();
                 }
-            });
+            }
+            if (self.options.pjax) {
+                requestOptions.headers = {"x-pjax": 1}
+            }
+            $.ajax(requestOptions);
         };
         $form.find('button').click(handler)
         $form.submit(handler);
+    },
+
+    applyResult: function(msg, klass) {
+        var $form = this.$container;
+        $form.find('.msg').html(msg)
+        $form.addClass(klass)
+    },
+
+    applySuccess: function(msg) {
+        this.applyResult(msg, 'success')
+    },
+
+    applyError: function(error) {
+        this.applyResult(error, 'error')
+    },
+
+    showResult: function() {
+        var $form = this.$container;
+        this.unblock();
+        this._switchContent($form.find('.controls'), $form.find('.msg'), 100)
     },
 
     _activateValidation: function (extraValidationOptions) {
@@ -103,7 +134,9 @@ AjaxForm.prototype = {
         var $form = self.$container;
         $form.validate($.extend({}, {
             errorPlacement: function ($err, $el) {
-                $err.appendTo($el.siblings('span.' + $el.attr('name') + '.err'))
+                var name = $el.attr('name')
+                if (!name) name = $el.nextAll('input').eq(0).attr('name')
+                $err.appendTo($el.siblings('span.' +name + '.err'))
             }
         }, extraValidationOptions));
         $form.find(':text').on('input', function (e) {

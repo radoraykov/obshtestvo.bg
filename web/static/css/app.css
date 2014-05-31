@@ -130,6 +130,8 @@ body {
 
 .select2-results li,
 .inner .txt p a,
+.blockUI.blockMsg.blockPage a,
+.mfp-content a,
 .home #forces li.contact a,
 .home #forces li.contact a .fi,
 a.continue.more .fi,
@@ -147,6 +149,7 @@ a.continue.more,
 .inner.support .txt > section#act .option header .fi,
 .select2-container-multi .select2-choices,
 .select2-container-multi .select2-choices,
+.bulky:after,
 .inner .masthead #sidebar .toc li a:after,
 .inner.support .txt > section#act .option header:after,
 header.masthead aside a.more:before,
@@ -187,10 +190,11 @@ nav.main li.logo a:after,
     transition: all 300ms ease-in-out;
 }
 
-.inner.container {
+.inner > .container {
     overflow: hidden;
 }
 
+ol.stripped,
 ul.stripped {
     margin: 0;
     padding: 0;
@@ -210,7 +214,7 @@ nav.main {
     width: 100%;
     height: 48px;
     padding-bottom: 3px;
-    z-index: 99999;
+    z-index: 1000;
     background: url("../img/main-nav-border.png") no-repeat center bottom;
     background-size: 120% 4px;
 }
@@ -342,6 +346,7 @@ nav.main ul.top > li > a {
     top: 0;
 }
 
+nav.main .user a:hover,
 nav.main ul.top > li > a:hover {
     color: #4FB2D4;
 }
@@ -350,6 +355,7 @@ nav.main ul.top.about > li > a:hover {
     color: #94a8af;
 }
 
+nav.main .user a:active,
 nav.main ul.top > li > a:active {
     top: 1px;
     color: #108eba;
@@ -360,6 +366,70 @@ nav.main ul.top > li > a:active {
     color: #94a8af;
 }
 
+nav.main .user {
+    float:right;
+    padding-top: 14px;
+    height: 34px;
+    margin-top: -48px;
+    position: relative;
+    right: 19px;
+    color: #94a8af;
+    font-size: 17px;
+}
+@media (max-width: 877px) {
+    nav.main .user {
+        display: none;
+    }
+}
+
+nav.main .user img {
+    margin-left: 30px;
+    position: relative;
+    vertical-align: top;
+    top:-12px;
+}
+
+nav.main .user a.dash:active img {
+    top:-13px;
+}
+
+nav.main .user a {
+    color: #94a8af;
+    position: relative;
+    text-decoration: none;
+}
+nav.main .user a.dash {
+    display: block;
+    overflow: visible;
+    height: 20px;
+    margin-top: 7px;
+    line-height: 17px;
+}
+nav.main .user a.dash:after {
+    content:"";
+    background:#7bc142;
+    width: 14px;
+    height: 14px;
+    -webkit-border-radius: 50%; /* Android ≤ 1.6, iOS 1-3.2, Safari 3-4 */
+    border-radius: 50%;
+    position: absolute;
+    top:-3px;
+    right:41px;
+}
+nav.main .user a.dash:active:after {
+    top:-4px;
+}
+nav.main .user a.logout {
+    position: absolute;
+    top:2px;
+    font-size: 14px;
+    text-transform: lowercase;
+    right:65px;
+}
+
+nav.main .user a.logout:active {
+    top:2px;
+}
 header.masthead {
     background: #2a4650 url("../img/header-bg.jpg") no-repeat bottom center;
     -webkit-background-size: cover;
@@ -479,6 +549,7 @@ header.masthead .project-actions li {
     text-transform: uppercase;
     font-weight: 700;
     color: white;
+    cursor: pointer;
     text-decoration: none;
     letter-spacing: -0.025em;
     -webkit-border-radius: 2px; /* Android ≤ 1.6, iOS 1-3.2, Safari 3-4 */
@@ -558,6 +629,14 @@ input.button.small {
     background: #7bc142;
 }
 
+.button.orange {
+    background: #ff7e00;
+}
+
+.button.red {
+    background: #c14242;
+}
+
 .donation .button.green.more {
     background: #89A275;
 }
@@ -586,6 +665,26 @@ input.button.small {
 .button.green:active {
     background: #CAE0B9;
     color: #469704;
+}
+
+.button.orange:focus,
+.button.orange:hover {
+    background:#d65600;
+}
+
+.button.orange:active {
+    background:#ffc389;
+    color: #d65600;
+}
+
+.button.red:focus,
+.button.red:hover {
+    background:#9d2727;
+}
+
+.button.red:active {
+    background:#fe9797;
+    color: #9d2727;
 }
 
 .button.blue:focus,
@@ -714,13 +813,21 @@ header.masthead aside .act {
     padding-left: 13px;
 }
 
+.bulky,
 header.masthead aside a.more {
     text-decoration: none;
     font-size: 13px;
     letter-spacing: 0.01em;
     text-transform: uppercase;
-    padding-top: 10px;
     font-weight: 900;
+    color: #2296c1;
+    cursor: pointer;
+}
+.bulky.more {
+    position: relative;
+}
+header.masthead aside a.more {
+    padding-top: 10px;
     display: inline-block;
     position: relative;
     z-index: 1;
@@ -850,10 +957,16 @@ header.masthead .quick-info li.act p {
     margin-top: -1px;
     z-index: 1
 }
+#explanations .slider-nav .progress {
+    background: #286076;
+}
 
 .slider-nav .progress .bar {
     height: 1px;
     background: #1b3640;
+}
+#explanations .slider-nav .progress .bar {
+    background: #108eba;
 }
 
 .home .slider article {
@@ -1097,10 +1210,14 @@ a.continue.more .eclipse {
     letter-spacing: 0;
 }
 
+
 .home .slider-nav {
     border-top: 1px solid #e5e5e5;
     position: relative;
     margin: 0 2% 0 2%;
+}
+.inner.entry header.masthead .slider-nav {
+    position: relative;
 }
 
 .home nav.main .slider-nav {
@@ -1199,6 +1316,10 @@ a.continue.more .eclipse {
     position: relative;
 }
 
+.layout.center {
+    text-align: center;
+}
+
 .home nav.main .slider-nav span.nav .fi {
     font-size: 23px;
     margin-top: 4px;
@@ -1237,6 +1358,30 @@ a.continue.more .eclipse {
     left: 6px;
 }
 
+#explanations {
+    max-width: 430px;
+    margin: 0 auto;
+    padding-bottom: 54px;
+}
+
+#explanations .progress {
+    margin-bottom: 13px;
+}
+#explanations .slider .owl-item {
+    height:120px;
+    line-height: 120px;
+}
+#explanations .slider blockquote {
+    display: inline-block;
+    color:#dde3e6;
+    font-style: italic;
+    line-height: 1.2em;
+    font-size: 20px;
+    margin:0 10%;
+    vertical-align: bottom;
+    margin-bottom: 20px;
+}
+
 .home nav.main .title-holder {
     position: absolute;
     top: 0;
@@ -1267,6 +1412,10 @@ a.continue.more .eclipse {
     text-align: center;
 }
 
+.divider.vivid.section-heading {
+    color:#85959a;
+}
+
 .section-heading-secondary {
     margin: 0;
     padding-top: 25px;
@@ -1293,6 +1442,12 @@ a.continue.more .eclipse {
 .divider {
     padding-bottom: 24px;
     border-bottom: 1px solid #e5e5e5;
+    position: relative;
+}
+
+.divider.vivid {
+    padding-bottom: 24px;
+    border-bottom: 1px solid #bac9ce;
     position: relative;
 }
 
@@ -1483,10 +1638,12 @@ article .bullet.fi.flaticon-start1 {
     top: -1px;
 }
 
+.bulky:hover,
 .home #forces li.contact a:hover {
     color: #08aee8;
 }
 
+.bulky:active,
 .home #forces li.contact a:active {
     color: #197A9E;
 }
@@ -1496,6 +1653,7 @@ article .bullet.fi.flaticon-start1 {
     left: -3px
 }
 
+.bulky.more:active,
 .home #forces li.contact a:active {
     left: 2px;
 }
@@ -2139,6 +2297,7 @@ nav.main .sub.waiting li {
     padding-right: 11px;
 }
 
+.bulky.more:after,
 .inner .masthead #sidebar .toc li a:after {
     content: "\e006"; /*.flaticon-chevron18*/
     position: absolute;
@@ -2149,6 +2308,12 @@ nav.main .sub.waiting li {
     font-family: Flaticon;
 }
 
+.bulky.more:after  {
+    right: -14px;
+    top: 0;
+    font-size: 10px;
+}
+
 .inner .masthead #sidebar .toc li a:hover {
     color: #08aee8;
 }
@@ -2157,15 +2322,20 @@ nav.main .sub.waiting li {
     color: #197A9E;
 }
 
+.bulky.more:hover:after,
 .inner .masthead #sidebar .toc li a:hover:after {
     color: #2296c1;
     right: -2px
+}
+.bulky.more:hover:after {
+    right: -13px;
 }
 
 .inner .masthead #sidebar .toc li a:active {
     left: 2px;
 }
 
+.bulky.more:active:after,
 .inner .masthead #sidebar .toc li a:active:after {
     color: #4ACEFF;
     -webkit-transform: scale(1.2);
@@ -2175,6 +2345,10 @@ nav.main .sub.waiting li {
     transform: scale(1.2);
     right: -4px;
     top: -1px
+}
+.bulky.more:active:after {
+    top: 0;
+    right: -14px;
 }
 
 .inner .masthead .head {
@@ -2216,6 +2390,7 @@ nav.main .sub.waiting li {
     color: #108eba;
 }
 
+.inner h1.center,
 .inner .masthead .head h1.wide {
     clear: both;
     margin-left: 4.22%;
@@ -2226,6 +2401,15 @@ nav.main .sub.waiting li {
     padding-top: 11px;
     font-size: 64px;
 }
+.inner h1.center {
+    font-size: 42px;
+}
+.inner.entry h1.center {
+    margin: 0;
+    padding: 0;
+    padding-top: 31px;
+}
+
 
 .inner .masthead #sidebar .head h1.wide {
     font-size: 39px;
@@ -2237,6 +2421,8 @@ nav.main .sub.waiting li {
     font-weight: normal;
 }
 
+.blockUI.blockMsg.blockPage,
+.inner .start,
 .inner .txt {
     color: #546f79;
     font-size: 17px;
@@ -2260,6 +2446,10 @@ nav.main .sub.waiting li {
 
 .inner .txt ol a,
 .inner .txt ul a,
+.blockUI.blockMsg.blockPage a,
+#explanations .slider blockquote a,
+.inner .start .context a,
+.mfp-content a,
 .inner .txt p a {
     color: #0498cc;
     position: relative;
@@ -2268,6 +2458,10 @@ nav.main .sub.waiting li {
 
 .inner .txt ol a:hover,
 .inner .txt ul a:hover,
+.blockUI.blockMsg.blockPage a:hover,
+.mfp-content a:hover,
+.inner .start .context a:hover,
+#explanations .slider blockquote a:hover,
 .inner .txt p a:hover {
     text-decoration: none;
     color: #03beff;
@@ -2275,6 +2469,10 @@ nav.main .sub.waiting li {
 
 .inner .txt ol a:active,
 .inner .txt ul a:active,
+.blockUI.blockMsg.blockPage a:active,
+.inner .start .context a:active,
+.mfp-content a:active,
+#explanations .slider blockquote a:active,
 .inner .txt p a:active {
     text-decoration: none;
     color: #519cb6;
@@ -2584,6 +2782,212 @@ form.small p.almost-label.pgateway {
 
 .placeholder form.small label.placeholder {
     display: none;
+}
+
+form.small label .help {
+    font-size: 13px;
+    color: #888;
+    line-height: 15px;
+    display: block;
+    margin-top: -1px;
+}
+form.small h2 {
+    padding-bottom: 0;
+    color: #108EBA;
+    margin-top: 0;
+    padding-top: 0;
+    margin-bottom: 0;
+}
+form.small h3 {
+    padding-bottom: 0;
+    color: #108EBA;
+    font-weight: normal;
+    line-height: 1.1em;
+    margin-bottom: 0;
+}
+
+form.small.signup {
+    position: relative;
+}
+form.small.signup .picker__holder {
+    max-width:394px;
+}
+form.small.signup .picker__day--highlighted {
+    max-width:394px;
+    border-color:#108eba;
+    color:#fff;
+    background:#108eba;
+}
+form.small.signup .picker__nav--next:before {
+    border-left-color:#197A9E;
+}
+form.small.signup .picker__nav--prev:before {
+    border-right-color:#197A9E;
+}
+form.small.signup .picker__nav--disabled, .picker__nav--disabled:before,
+form.small.signup .picker__nav--disabled:before:hover, .picker__nav--disabled:hover {
+    border-right-color: #f5f5f5;
+    border-left-color: #f5f5f5;
+}
+
+form.small.signup label {
+    display: block;
+}
+form.small.signup .control {
+    padding: 23px;
+}
+form.small.signup .control.focus {
+    background: #10303c;
+    -moz-border-radius-bottomleft: 0;
+    -moz-border-radius-bottomright: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+form.small.signup .control.focus .select2-container-multi .select2-choices{
+    border-width: 2px;
+    border-color: #108eba;
+}
+form.small.signup .control.focus.error .select2-container-multi .select2-choices {
+    border-color: #D50000;
+}
+form.small.signup .control.focus.error .select2-container-multi.select2-dropdown-open .select2-choices,
+.error .select2-container-multi.select2-dropdown-open .select2-choices {
+    border-color: #108eba;
+}
+form.small.signup .control.faded {
+    background: #ebebeb;
+    border-bottom: 1px solid #c2c7c9;
+}
+form.small.signup .control.focus.date {
+    padding-bottom: 26px;
+}
+form.small.signup .control.focus > label {
+    color: #108eba!important;
+    font-weight: bold;
+}
+form.small.signup .control.faded > label {
+    color:#607d89;
+}
+form.small.signup .control.focus span.err {
+    top:0;
+}
+form.small.signup .control.focus > label .help {
+    color: #9ba9ad!important
+}
+form.small.signup .control.faded > label .help {
+    color: #9ba9ad;
+}
+form.small.signup .control.skills  {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+form.small.signup .control.skills > label {
+    padding-bottom: 5px;
+    font-size: 18px;
+    letter-spacing: -0.015em;
+    color:#607d89;
+}
+form.small.signup .control.skills.focus > label {
+    letter-spacing: -0.04em;
+}
+form.small.signup .control.skills > label.secondary {
+    padding-bottom: 0;
+}
+form.small.signup .control.skills > label strong {
+    text-decoration: underline;
+}
+form.small.signup .control.skills > label .help {
+    letter-spacing: 0;
+    padding-top: 5px;
+    color:#7C8E94;
+}
+form.small.signup .control.name input,
+form.small.signup .control.email input {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    height: 36px;
+}
+form.small.signup select[multiple] {
+    width:100%
+}
+form.small.signup .control.date input.error {
+    border:2px solid #D50000;
+}
+form.small.signup .control.date input.error:focus,
+form.small.signup .control.date input {
+    width: 100%;
+    font-size: 28px;
+    height: 50px;
+    color:#10303c;
+    border:2px solid #108eba;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+form.small.signup .control.date > label {
+    font-size: 27px;
+    line-height: 1em;
+    font-weight: bold;
+    letter-spacing: -0.04em;
+    padding-bottom: 5px;
+    padding-top: 0;
+}
+form.small.signup .control.date label .help {
+    letter-spacing: 0;
+    padding-top: 6px;
+    padding-bottom: 3px;
+}
+form.small.signup .control label .help{
+    font-weight: normal;
+    font-size: 14px;
+}
+
+form.small.signup .control.personal  {
+    padding-top: 16px;
+    padding-bottom: 9px;
+    background: #fff;
+    -moz-border-radius-topleft: 0;
+    -moz-border-radius-topright: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+form.small.signup .control.personal strong {
+    display: block;
+    font-weight: normal;
+    line-height: 1.2em;
+    color:#607a84;
+    font-size: 17px;
+}
+form.small.signup .control.personal em {
+    display: block;
+    color:#9ba9ad;
+    line-height: 1.2em;
+    font-size: 14px;
+    font-style: normal;
+}
+form.small.signup .control.personal a {
+    font-size: 14px;
+    position: relative;
+    display: inline-block;
+    top: -4px;
+    line-height: 1.2em;
+}
+form.small.signup .control.personal .inputs {
+    padding-bottom: 10px;
+}
+form.small.signup .control.personal input {
+    min-width:190px
+}
+
+form.small.signup .personal .button {
+    float: right;
+}
+
+form.small.signup .select2 {
+    font-size: 14px;
 }
 
 form.pgateway {
@@ -2933,6 +3337,8 @@ form.small span.err label {
     background-clip: padding-box; /* Android 2.2+, Chrome, Firefox 4+, IE 9+, iOS 4+, Opera 1*/
     -moz-border-radius-topleft: 0;
     -moz-border-radius-topright: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
     padding: 2px 4px;
 }
 
@@ -2978,9 +3384,12 @@ form.small .select2.joinPosition {
 .select2-dropdown-open.select2-drop-above .select2-choices,
 .select2-container-multi .select2-choices {
     border: 1px solid #b5b5b5;
+    padding-right: 4px;
+    overflow: inherit;
     background: #fff;
 }
 
+.error .select2-container-multi .select2-choices,
 .select2-dropdown-open.select2-drop-above.error .select2-choices,
 .select2-container.error .select2-choice,
 .select2-container-multi.error .select2-choices {
@@ -3085,8 +3494,21 @@ form.small .select2.joinPosition {
 .select2-container-multi .select2-search-choice-close,
 .select2-search-choice-close {
     background: url('../img/select2.png') right top no-repeat;
-    left: 4px;
-    top: 3px;
+    left: 4px!important;
+    top: 3px!important;
+    position: absolute!important;
+    -webkit-transition: none!important;
+    -moz-transition: none!important;
+    transition: none!important;
+}
+.select2-results .select2-result-label {
+    min-height: 25px;
+    padding: 3px 7px 4px 7px;
+    line-height: 25px;
+}
+
+.select2-drop {
+    color: #194352;
 }
 
 form.small select[multiple] {
@@ -3129,7 +3551,15 @@ form.small input[type="text"]:focus {
     -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
+form.small .select2 input[type="text"]:focus {
+    outline: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
 
+form.small .control.error input,
+form.small .control.error input,
 form.small input[type="text"].error:focus,
 form.small input[type="text"].error {
     border-color: #D50000;
@@ -3162,6 +3592,10 @@ form.small .organisation {
     position: relative;
     top: 2px;
 }
+form.small.signup .date ::-webkit-input-placeholder {
+    font-size: 21px;
+    line-height: 28px;
+}
 
 :-moz-placeholder {
     /* Firefox 18- */
@@ -3171,6 +3605,11 @@ form.small .organisation {
     color: #a4a3a3;
     position: relative;
     top: 2px;
+}
+form.small.signup .date :-moz-placeholder {
+    /* Firefox 19+ */
+    font-size: 24px;
+    line-height: 24px;
 }
 
 ::-moz-placeholder {
@@ -3182,6 +3621,11 @@ form.small .organisation {
     position: relative;
     top: 2px;
 }
+form.small.signup .date ::-moz-placeholder {
+    /* Firefox 19+ */
+    font-size: 24px;
+    line-height: 24px;
+}
 
 :-ms-input-placeholder {
     font-style: italic;
@@ -3190,6 +3634,10 @@ form.small .organisation {
     color: #a4a3a3;
     position: relative;
     top: 2px;
+}
+form.small.signup .date :-ms-input-placeholder {
+    font-size: 24px;
+    line-height: 24px;
 }
 
 .inner .txt #who {
@@ -3206,6 +3654,466 @@ form.small .organisation {
 
 .inner .txt section.main .action {
     margin-top: 10px;
+}
+
+.inner .start {
+    max-width: none;
+    padding-top: 53px;
+    text-align: center;
+}
+
+.inner h2.prompt {
+    color:#79939e;
+    text-align: center;
+    font-size: 27px;
+    font-weight: normal;
+    letter-spacing: -0.04em;
+}
+.inner h2.prompt strong {
+    color:#108eba;
+    font-size: 26px;
+    display: block;
+    position: relative;
+    letter-spacing: -0.045em;
+    top: 1px;
+    line-height: 27px;
+    left: 2px;
+}
+
+.inner .start .login {
+    display: inline-block;
+    padding: 20px 0 18px 0;
+}
+.inner .start .login p {
+    width: 250px;
+    text-align: right;
+    line-height: 33px;
+    margin:0;
+    padding: 0 8px 0 0;
+    float:left;
+}
+.inner .start .login li {
+    text-align: left;
+    width:500px;
+    overflow: hidden;
+    padding-bottom: 8px;
+}
+.inner .start .context {
+    max-width: 500px;
+    text-align: center;
+    margin:0 auto;
+    font-size: 14px;
+    padding-bottom: 50px;
+}
+
+.inner .start .context p {
+    color: #94a1a6;
+    line-height: 1.2em;
+    margin: 0;
+    padding: 16px 0 19px 0;
+}
+
+.inner .start .context .sep {
+    display: inline-block;
+    height: 0;
+    width:154px;
+    border-top: 1px solid #abc8d3;
+}
+.alert {
+    background: #eef0f1;
+    font-size: 14px;
+    line-height: 1.2em;
+    color: #85979e;
+    padding: 15px 0 17px 0;
+    text-align: center;
+    margin-top: -19px;
+}
+.inner.dash #projects,
+.inner.entry #projects {
+    padding-top: 46px;
+}
+#projects .alert {
+    border-top: 1px solid #bac9ce;
+}
+.alert.center p {
+    display: inline-block;
+    margin: 0;
+    vertical-align: top;
+}
+.alert.center p.left {
+    width:45%;
+    text-align: right;
+}
+.alert.center i.fi {
+    width:5%;
+    display: inline-block;
+    padding-top: 7px;
+    vertical-align: top;
+    font-size: 20px;
+    color: #f4902e ;
+}
+.alert.center p.right {
+    width:45%;
+    text-align: left;
+}
+#projects .divider.section-heading {
+    margin:36px 0 19px 0;
+    border:0;
+}
+
+.project-picker-container {
+    max-width: 970px;
+    margin: 0 auto;
+}
+.project-picker h2 {
+    color: #194352;
+    font-weight: normal;
+    font-size: 21px;
+    margin: 11px 0 7px 0;
+    line-height: 24px;
+}
+
+.project-picker.stripped {
+    margin-right: -5.3%;
+    padding-top: 40px;
+}
+.project-picker .project {
+    max-width: 203px;
+    min-width: 150px;
+    float:left;
+    width: 19.8%;
+    margin-right: 5.2%;
+    position: relative;
+}
+.project-picker .project .desc {
+    height: 146px;
+    padding-left: 3px;
+}
+.project-picker .project .desc p {
+    font-size: 14px;
+    line-height: 18px;
+    margin:0 -5% 0 0;
+    color:#879296;
+    position: relative;
+    overflow: hidden;
+    height: 72px;       /* 3x line height */
+}
+/* Used to push down .dots. Can't use absolute positioning, since that
+   would stop the floating. Can't use relative positioning, since that
+   would cause floating in the wrong (namely: original) place. Can't
+   change height of #dots, since it would have the full width, and
+   thus cause early wrapping on all lines. */
+.project-picker .project .desc p .showdots {
+    float: right;
+    height: 54px;  /* 2x line height (one less than visible lines) */
+}
+
+/* hides the dots if the text has *exactly* 3 lines */
+.project-picker .project .desc p .hidedots {
+    background: white;
+    width:100%;
+    height: 18px;       /* line height */
+    position: absolute; /* otherwise, because of the width, it'll be wrapped */
+}
+/* hides the dots if the text has *exactly* 3 lines */
+.project-picker .project .desc p:after {
+    background: white;
+    content:"";
+    width:100%;
+    height: 72px;       /* 3x line height, to ensure hiding even if empty */
+    position: absolute; /* ensures we're above the dots */
+}
+
+/* hides the dots if the text has *exactly* 3 lines */
+.project-picker .project .desc a.more.clamp {
+    float:right;
+    top:-18px;
+    left: -11px;
+}
+/* hides the dots if the text has *exactly* 3 lines */
+.project-picker .project .desc a.more.clamp:active {
+    left: -10px;
+}
+
+/* hides the dots if the text has *less than* 3 lines */
+.project-picker .project .desc p:after  {
+    background: white;
+    width: 150px;
+    height: 72px;       /* 3x line height, to ensure hiding even if empty */
+    position: absolute; /* ensures we're above the dots */
+}
+
+.project-picker .project .desc p .dots {
+    width: 69px;
+    float: right; /* to make the text wrap around the dots */
+    clear: right; /* to push us below (not next to) .pre-dots */
+}
+.project-picker .project .preview {
+    background: #7bc142;
+    position: relative;
+    border: 1px solid #abc8d3;
+    display: block;
+}
+.project-picker .project.faded .preview {
+    border-color: #d2dce1;
+}
+.project-picker .project.add .preview {
+    background: #f3f7f8;
+    border: 1px solid #a1d3eb;
+}
+.project-picker .project.add .preview img {
+    visibility: hidden;
+}
+.project-picker .project .preview {
+    cursor: pointer;
+}
+.project-picker .project.add .preview .new {
+    width:59%;
+    height:59%;
+    margin-top:-29%;
+    margin-left:-29%;
+    border-radius: 50%;
+    display: block;
+    background: #f9f9f9;
+    left:50%;
+    top:50%;
+    position: absolute;
+    border:1px solid #7badc6;
+}
+.project-picker .project.add .preview .new:before,
+.project-picker .project.add .preview .new:after {
+    content:"";
+    display: block;
+    position: absolute;
+    background: #5fb0f5;
+    height:1px;
+    margin-top:-1px;
+    width:54.7%;
+    margin-left:-27.35%;
+    top:50%;
+    left:50%;
+}
+
+.project-picker .project.add .preview .new:before {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    writing-mode: lr-tb;
+}
+.project-picker .project.add h2 {
+    font-style: italic;
+    color: #6c98a8;
+}
+
+.project-picker .project img {
+    display: block;
+    width: 100%;
+}
+.project-picker .project .fi {
+    position: absolute;
+    top:-15px;
+    right:-15px;
+    height: 29px;
+    width: 29px;
+    font-size: 30px;
+    z-index: 3;
+    color:#7bc142;
+    background: #fff;
+    border-radius: 50%;
+    display: none;
+}
+.project-picker .project.active .fi {
+    display: block;
+}
+.project-picker .project.active .preview,
+.project-picker .project .preview:hover {
+    border:3px solid #7bc142!important;
+    margin-left:-4px;
+    top:2px;
+    left:2px;
+    margin-top:-4px;
+}
+.project-picker .project.add .preview:hover {
+    background: rgba(123, 193, 66, 0.13)
+}
+.project-picker .project.add .preview:hover .new {
+    border-color: rgba(123, 193, 66, 0.86)
+}
+.project-picker .project.add .preview:hover .new:before,
+.project-picker .project.add .preview:hover .new:after {
+    background: rgba(123, 193, 66, 0.86)
+}
+.project-picker .project.add.active .preview .new:before,
+.project-picker .project.add.active .preview .new:after {
+    background: #fff;
+}
+.project-picker .project.add.active .preview .new {
+    border-color: rgb(123, 193, 66);
+    background: rgb(123, 193, 66)
+}
+.project-picker .project.wait .preview {
+    border: 1px solid rgba(123, 193, 66, 0.13)!important;
+    top:0;
+    left:0;
+    margin: 0;
+}
+.project-picker .project.wait .fi {
+    display: none;
+}
+.project-picker .project.add.active .preview {
+    background: rgba(123, 193, 66, 0.26)
+}
+.project-picker .project .preview:hover img {
+    opacity:0.92;
+}
+.project-picker .project.active .preview img {
+    opacity: 0.68;
+}
+
+.mfp-content .txt {
+    background: #fff;
+    padding:23px
+}
+.mfp-content {
+    vertical-align: top;
+    margin-top: 5%;
+}
+
+/* text-based popup styling */
+.transparent-popup {
+    position: relative;
+    background: none;
+    /*padding: 25px;*/
+    width: auto;
+    max-width: 440px;
+    margin: 0 auto;
+    -webkit-box-shadow: 0 0 100px 3px rgba(0,0,0,0.31);
+    -moz-box-shadow: 0 0 100px 3px rgba(0,0,0,0.31);
+    box-shadow: 0 0 100px 3px rgba(0,0,0,0.31);
+}
+
+.mfp-zoom-in .mfp-with-anim {
+    opacity: 0;
+    -webkit-transition: all 0.15s ease-out;
+    -moz-transition: all 0.15s ease-out;
+    transition: all 0.15s ease-out;
+    -webkit-transform: scale(0.8);
+    -moz-transform: scale(0.8);
+    -ms-transform: scale(0.8);
+    -o-transform: scale(0.8);
+    transform: scale(0.8);
+}
+.mfp-zoom-in.mfp-bg {
+    opacity: 0;
+    -webkit-transition: all 0.15s ease-out;
+    -moz-transition: all 0.15s ease-out;
+    transition: all 0.15s ease-out;
+}
+
+.mfp-zoom-in.mfp-ready .mfp-with-anim {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+}
+
+.mfp-bg {
+    background: #09232c;
+}
+.mfp-zoom-in.mfp-ready.mfp-bg {
+    opacity: 0.95;
+}
+
+.mfp-zoom-in.mfp-removing .mfp-with-anim {
+    -webkit-transform: scale(0.8);
+    -moz-transform: scale(0.8);
+    -ms-transform: scale(0.8);
+    -o-transform: scale(0.8);
+    transform: scale(0.8);
+    opacity: 0;
+}
+.mfp-close-btn-in .mfp-close,
+.mfp-close {
+    color:#fff;
+    top:-35px;
+    width:30px;
+    font-weight: bold;
+    height:30px;
+    line-height: 30px;
+    right:-30px;
+}
+
+.mfp-zoom-in.mfp-removing.mfp-bg {
+    opacity: 0;
+}
+
+
+.select2-group {
+    background: #8bbaca;
+    color:#fff;
+}
+
+.select2-group span {
+    float:right;
+    margin-right: 3px;
+    font-weight: bold;
+    font-size: 1.5em;
+    line-height: 22px;
+}
+
+.select2-group.select2-highlighted {
+    background: #108eba;
+}
+
+.select2-result .badge {
+    background: #108eba;
+    color:#fff;
+    display: inline-block;
+    margin-right: 4px;
+    height: 18px;
+    line-height: 18px;
+    padding: 0 4px;
+    text-transform: lowercase;
+}
+.select2-results .select2-highlighted .badge {
+    background: #10303c;
+}
+.select2-result .badge {
+    background: #108eba;
+    color:#fff;
+    display: inline-block;
+    margin-right: 4px;
+    height: 18px;
+    line-height: 18px;
+    padding: 0 4px;
+    text-transform: lowercase;
+}
+
+.select2-result .badge.new {
+    background: #7bc142;
+}
+
+.blockUI.blockMsg.blockPage {
+    padding: 0px;
+    margin: 0px;
+    width: 30%;
+    top: 40%;
+    left: 35%;
+    font-size: 18px;
+    text-align: center;
+    color: #bdebfd;
+}
+.blockUI.blockMsg.blockPage .message {
+    padding-top: 25px;
+    padding-bottom: 20px;
+}
+.blockUI.blockMsg.blockPage .spinner {
+    display: inline-block;
+}
+.inner.entry .blockUI.blockMsg.blockPage .message .button {
+    margin-top: 15px;
 }
 
 footer {
@@ -3430,13 +4338,14 @@ footer .quick-contacts li a {
  * 2. The use of `table` rather than `block` is only necessary if using
  *    `:before` to contain the top-margins of child elements.
  */
-
+.select2-container-multi .select2-choices:after,
+.select2-container-multi .select2-choices:before,
 .clearfix:before,
 .clearfix:after {
     content: " "; /* 1 */
     display: table; /* 2 */
 }
-
+.select2-container-multi .select2-choices:after,
 .clearfix:after {
     clear: both;
 }

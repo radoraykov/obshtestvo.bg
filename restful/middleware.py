@@ -69,4 +69,9 @@ class ResponseFormatDetection(object):
             ext = ''
 
         response.template_name += ext
+
+        if request.is_ajax() and (request.META.get('HTTP_X_PJAX') or request.params.get('X-Pjax')):
+            path, filename = os.path.split(response.template_name)
+            response.template_name = os.path.join(path, '_' + filename)
+
         return response

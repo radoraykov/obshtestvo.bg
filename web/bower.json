@@ -7,6 +7,8 @@
     "**/*.txt"
   ],
   "dependencies": {
-    "select2": "*"
+    "pickadate": "*",
+    "select2": "*",
+    "magnific-popup": "*"
   }
 }

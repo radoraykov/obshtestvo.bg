@@ -1,3 +1,4 @@
+import os
 import inspect
 from functools import wraps
 
@@ -11,9 +12,9 @@ def restful_template(dirname, name, func=None):
         # maintain correct stacktrace name and doc
         @wraps(action, assigned=available_attrs(action))
         def _restful(obj, request, *args, **kwargs):
-            template = dirname + '/' + name
+            template = os.path.join(dirname, name)
             data = action(obj, request, *args, **kwargs)
-            if not (isinstance(data, tuple) or isinstance(data, dict)):
+            if not (isinstance(data, tuple) or isinstance(data, dict) or data is None):
                 return data
             status = 200
             if isinstance(data, tuple):

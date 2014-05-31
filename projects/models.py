@@ -1,14 +1,11 @@
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.models import AbstractUser
 from django.db import models
-from django.db.models.signals import post_save, pre_delete
-from django.dispatch import receiver
 from guardian.shortcuts import assign_perm
 from django.utils import timezone
 from django.contrib.contenttypes.generic import GenericForeignKey, GenericRelation, ContentType
 # from django.contrib.contenttypes.models import ContentType
 # from django.db.models import Q
-# from guardian.models import UserObjectPermission, GroupObjectPermission
 
 
 # def remove_perobject_permissions(sender, instance, **kwargs):
@@ -82,6 +79,18 @@ class Skill(models.Model):
     class Meta:
         verbose_name = _('skill')
         verbose_name_plural = _('skills')
+        ordering = ['name']
+    name = models.CharField(_('name'), max_length=200,)
+    groups = models.ManyToManyField('SkillGroup', related_name="skills", blank=True, verbose_name=_("groups"))
+
+
+    def __unicode__(self):
+        return self.name
+
+class SkillGroup(models.Model):
+    class Meta:
+        verbose_name = _('skill group')
+        verbose_name_plural = _('skill groups')
     name = models.CharField(_('name'), max_length=200,)
 
     def __unicode__(self):
@@ -173,7 +182,7 @@ class Member(models.Model):
         pass
 
 def user_file_name(instance, filename):
-    return '/'.join(['static/upload', 'user', filename])
+    return '/'.join(['user', filename])
 
 class User(AbstractUser):
     profession = models.CharField(_('profession'), max_length=30, blank=False)
@@ -182,6 +191,9 @@ class User(AbstractUser):
     has_confirmed_data = models.BooleanField(_('has confirmed custom data'), default=True)
     bio = models.TextField(_('biography'))
     avatar = models.FileField(_('avatar'), upload_to=user_file_name)
+    skills = models.ManyToManyField('Skill', related_name="users", blank=True,
+                                      verbose_name=_("skills"))
+    projects_interests = models.ManyToManyField('Project', blank=True, related_name="interested_users", verbose_name=_("Projects that user's interested in"))
 
     class Meta(AbstractUser.Meta):
         swappable = 'AUTH_USER_MODEL'
@@ -191,18 +203,6 @@ class UserPointSpending(models.Model):
     person = models.ForeignKey('User', related_name="spendings")
     points = models.PositiveIntegerField(_('points'), max_length=10)
     product = models.CharField(_('profession'), max_length=30, blank=False)
-
-
-# @receiver(post_save, sender=User)
-# def user_perobject_permissions(sender, instance, **kwargs):
-#     assign_perm('change_user', instance, instance)
-#
-#
-# @receiver(pre_delete, sender=User)
-# def remove_user_perobject_permissions(sender, instance, **kwargs):
-#     UserObjectPermission.objects.filter(user_id=instance.pk).delete()
-#     GroupObjectPermission.objects.filter(user_id=instance.pk).delete()
-
 
 class UserActivity(models.Model):
     person = models.ForeignKey('User', related_name="activities")
@@ -222,37 +222,43 @@ class UserActivity(models.Model):
         return unicode(self.person.get_full_name() + ' on ' + self.project_activity.name)
 
 
-@receiver(post_save, sender=UserActivity)
-def user_activity_perobject_permissions(sender, instance, **kwargs):
-    assign_perm('change_useractivity', instance.person, instance)
-    assign_perm('add_useractivity', instance.person, instance)
+# @receiver(post_save, sender=UserActivity)
+# def user_activity_perobject_permissions(sender, instance, **kwargs):
+#     assign_perm('change_useractivity', instance.person, instance)
+#     assign_perm('add_useractivity', instance.person, instance)
 
 
 # pre_delete.connect(remove_perobject_permissions, UserActivity)
 
 def project_file_name(instance, filename):
-    return '/'.join(['static/upload', 'project', filename])
+    return '/'.join(['project', filename])
 
 
 class Project(models.Model):
     class Meta:
         verbose_name = _('project')
         verbose_name_plural = _('projects')
+        ordering = ['order']
     name = models.CharField(_('name'), max_length=30, blank=False)
     strategy = models.TextField(_('strategy'), blank=True)
     description = models.TextField(_('description'), blank=True)
+    short_description = models.TextField(_('short description'), blank=True)
 
     facebook_group = models.CharField(_('facebook group'), max_length=255, blank=True)
     github_repo = models.CharField(_('github repository'), max_length=255, blank=True)
     pm_url = models.CharField(_('project management URL'), max_length=255, blank=True)
     url = models.CharField(_('url'), max_length=255, blank=True)
-    slug = models.CharField(_('slug'), max_length=255, blank=True)
-    is_featured = models.BooleanField(_('Is featured'),
-                                            default=False)
+    slug = models.SlugField(_('slug'), max_length=255, blank=True)
+    is_featured = models.BooleanField(_('Is featured'), default=False)
+    is_forced_active = models.BooleanField(_('Is active (forced)'), default=False)
+    has_static_page = models.BooleanField(_('Does it have a static page'), default=False)
+    is_public = models.BooleanField(_('Is public'), default=True)
 
     logo = models.FileField(_('logo'), upload_to=project_file_name, blank=True)
     logo_styled = models.FileField(_('logo styled to fit obshtestvo.bg'), upload_to=project_file_name, blank=True)
+    logo_thumb = models.FileField(_('logo fit for usage in square-image gallery'), upload_to=project_file_name, blank=True, null=True)
     cover_image = models.FileField(_('cover image'), upload_to=project_file_name, blank=True)
+    complimenting_color = models.CharField(_('color that matches the style of the logo'), max_length=7, blank=True)
     order = models.PositiveIntegerField()
 
     def users(self):
@@ -262,6 +268,11 @@ class Project(models.Model):
 
     def __unicode__(self):
         return unicode(self.name)
+
+    # when fully implemented this function should consider how many people joined the project
+    # and whether the project has an "owner"
+    def is_active(self):
+        return self.is_forced_active
 
 class ProjectMilestone(models.Model):
     class Meta:
@@ -287,11 +298,11 @@ class UserProjectPause(models.Model):
         unique_together = ('project', 'person',)
 
 
-@receiver(post_save, sender=UserProjectPause)
-def user_pause_perobject_permissions(sender, instance, **kwargs):
-    assign_perm('add_userprojectpause', instance.person, instance)
-    assign_perm('delete_userprojectpause', instance.person, instance)
-    assign_perm('change_userprojectpause', instance.person, instance)
+# @receiver(post_save, sender=UserProjectPause)
+# def user_pause_perobject_permissions(sender, instance, **kwargs):
+#     assign_perm('add_userprojectpause', instance.person, instance)
+#     assign_perm('delete_userprojectpause', instance.person, instance)
+#     assign_perm('change_userprojectpause', instance.person, instance)
 
 
 # pre_delete.connect(remove_perobject_permissions, UserProjectPause)

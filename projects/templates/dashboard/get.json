@@ -1,0 +1,2 @@
+{% load restful %}
+{ "projects": {{ projects|jsonify|safe }}, "auth":{% if user.is_authenticated %}"yes"{% endif %} }
