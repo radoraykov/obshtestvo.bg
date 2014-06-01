@@ -3679,9 +3679,12 @@ form.small.signup .date :-ms-input-placeholder {
     display: block;
     position: relative;
     letter-spacing: -0.045em;
-    top: -2px;
+    top: 1px;
     line-height: 27px;
     left: 2px;
+}
+.start h2.prompt strong {
+    top:-5px;
 }
 
 .inner .start .login {
