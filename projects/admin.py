@@ -312,12 +312,6 @@ class SkillGroupAdmin(SortableModelAdmin):
     list_display = ('name',)
     sortable = 'order'
 
-    fieldsets = (
-        (None, {
-            'fields': ('name', 'skills',)
-        }),
-    )
-
 class ProjectActivityAdminBase(admin.ModelAdmin):
     inlines = (UserActivityInline, TaskInline)
 
