@@ -34,6 +34,9 @@ var Select2Grouped;
                     var isCat = this['id'] < 0;
                     return options.matcher(options.term, this.text + ' '+ this.group) && ((!expanded && isCat) || (expanded && (this['group'] == activeGroup || isCat)))
                 }).get()
+                if (!d.length) {
+                    d = [{id:options.term, text: options.term}]
+                }
                 options.callback({
                     results: d
                 });
@@ -51,6 +54,7 @@ var Select2Grouped;
             },
 
             formatResult: function format(state, $el, q, escape) {
+                console.log(state)
                 if (typeof state.id == 'string') return "<span class='badge new'>създай:</span>" + state.text;
                 if (state.id < 0) {
                     var mark = state.group == activeGroup && expanded ? '–' : '+';
