@@ -79,7 +79,7 @@ class Skill(models.Model):
     class Meta:
         verbose_name = _('skill')
         verbose_name_plural = _('skills')
-        ordering = ['name']
+        ordering = ['-id']
     name = models.CharField(_('name'), max_length=200,)
     groups = models.ManyToManyField('SkillGroup', related_name="skills", blank=True, verbose_name=_("groups"))
 
