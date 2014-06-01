@@ -91,7 +91,9 @@ class SkillGroup(models.Model):
     class Meta:
         verbose_name = _('skill group')
         verbose_name_plural = _('skill groups')
+        ordering = ['order']
     name = models.CharField(_('name'), max_length=200,)
+    order = models.PositiveIntegerField()
 
     def __unicode__(self):
         return self.name
@@ -239,7 +241,7 @@ class Project(models.Model):
         verbose_name = _('project')
         verbose_name_plural = _('projects')
         ordering = ['order']
-    name = models.CharField(_('name'), max_length=30, blank=False)
+    name = models.CharField(_('name'), max_length=140, blank=False)
     strategy = models.TextField(_('strategy'), blank=True)
     description = models.TextField(_('description'), blank=True)
     short_description = models.TextField(_('short description'), blank=True)

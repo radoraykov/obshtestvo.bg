@@ -175,7 +175,7 @@ FAKE_DB["pitaigi"] = {
     "homepage": 2,
     "slug": "pitaigi"
 }
-FAKE_DB["grada.me"] = {
+FAKE_DB["gradame"] = {
     "name": "Grada.me",
     "name_full": "Grada.me (Града ми)",
     "url": "http://www.grada.me/",
@@ -183,7 +183,7 @@ FAKE_DB["grada.me"] = {
     "fb_group": "https://www.facebook.com/groups/obshtestvo.reallife.bug.tracker/",
     "repo": "https://github.com/obshtestvo-idei/real-life-bug-tracker",
     "homepage": 3,
-    "slug": "grada.me"
+    "slug": "gradame"
 }
 FAKE_DB["recycle"] = {
     "name": "RE:CYCLE",

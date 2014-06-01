@@ -3964,10 +3964,10 @@ form.small.signup .date :-ms-input-placeholder {
     background: rgba(123, 193, 66, 0.26)
 }
 .project-picker .project .preview:hover img {
-    opacity:0.92;
+    opacity:0.7;
 }
 .project-picker .project.active .preview img {
-    opacity: 0.68;
+    opacity: 0.4;
 }
 
 .mfp-content .txt {

@@ -308,6 +308,9 @@ class ProjectAdmin(reversion.VersionAdmin, SortableModelAdmin):
     )
 
 
+class SkillGroupAdmin(SortableModelAdmin):
+    list_display = ('name',)
+    sortable = 'order'
 
 class ProjectActivityAdminBase(admin.ModelAdmin):
     inlines = (UserActivityInline, TaskInline)
@@ -580,7 +583,7 @@ admin.site.register(PaidMember, PaidMemberAdmin)
 admin.site.register(OrganisationType)
 admin.site.register(MemberType)
 admin.site.register(Skill)
-admin.site.register(SkillGroup)
+admin.site.register(SkillGroup, SkillGroupAdmin)
 admin.site.register(UserProjectPause)
 admin.site.register(ProjectActivity, ProjectActivityAdmin)
 admin.site.register(ProjectActivityTemplate, ProjectActivityTemplateAdmin)
