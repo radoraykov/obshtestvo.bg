@@ -94,7 +94,7 @@ $(function() {
         var $availableAfter = $('#availabelAfter');
         var selected = $skills.data('selection');
         if (selected && selected.length > 0) {
-            selected = selected.split('|')
+            selected = selected.toString().split('|')
         }
         new Select2Grouped($skills, $skills.data('choices'), selected)
         $availableAfter.pickadate({
