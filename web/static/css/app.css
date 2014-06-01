@@ -388,6 +388,7 @@ nav.main .user img {
     vertical-align: top;
     width:31px;
     height:31px;
+    display: inline-block;
     top:-12px;
 }
 
