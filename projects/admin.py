@@ -312,7 +312,7 @@ class SkillGroupAdmin(SortableModelAdmin):
     list_display = ('name',)
     sortable = 'order'
 
-class SkillAdmin(SortableModelAdmin):
+class SkillAdmin(admin.ModelAdmin):
     list_display = ('name',)
     search_fields = ['name']
 
