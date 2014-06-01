@@ -31,7 +31,7 @@
                         class="preview round"
                         {% if project.complimenting_color %} style="border-color: {{ project.complimenting_color }}"{% endif %}
                     >
-                        <img src="{% if project.logo %}{{ MEDIA_URL }}/static/temp_upload/{{ project.logo }}{% else %}{% static 'img/nologo-thumb.png'%}{% endif %}" alt="" />
+                        <img src="{% if project.logo_thumb %}{{ MEDIA_URL }}{{ project.logo_thumb }}{% else %}{% static 'img/nologo-thumb.png'%}{% endif %}" alt="" />
                     </span>
                     <div class="desc">
                         <h2>{{ project.name }}</h2>
@@ -84,7 +84,7 @@
                         class="preview round"
                         {% if project.complimenting_color %} style="border-color: {{ project.complimenting_color }}"{% endif %}
                     >
-                        <img src="{% if project.logo %}{{ MEDIA_URL }}{{ project.logo }}{% else %}{% static 'img/nologo-thumb.png'%}{% endif %}" alt="" />
+                        <img src="{% if project.logo_thumb %}{{ MEDIA_URL }}{{ project.logo_thumb }}{% else %}{% static 'img/nologo-thumb.png'%}{% endif %}" alt="" />
                         {% if project.slug == 'user'%} <span class="new"></span>{% endif %}
                     </span>
                     <div class="desc">
