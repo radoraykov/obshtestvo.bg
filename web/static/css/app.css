@@ -3863,6 +3863,9 @@ form.small.signup .date :-ms-input-placeholder {
 .project-picker .project.add .preview {
     background: #f3f7f8;
     border: 1px solid #a1d3eb;
+    -webkit-box-shadow: 0 0 100px 2px rgba(83,221,255,0.11);
+    -moz-box-shadow: 0 0 100px 2px rgba(83,221,255,0.11);
+    box-shadow: 0 0 100px 2px rgba(83,221,255,0.11);
 }
 .project-picker .project.add .preview img {
     visibility: hidden;
