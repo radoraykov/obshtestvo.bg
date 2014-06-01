@@ -315,7 +315,7 @@ class SkillGroupAdmin(SortableModelAdmin):
     fieldsets = (
         (None, {
             'fields': ('name', 'skills',)
-        })
+        }),
     )
 
 class ProjectActivityAdminBase(admin.ModelAdmin):
