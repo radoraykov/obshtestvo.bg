@@ -59,7 +59,6 @@ var Select2Grouped;
             },
 
             formatResult: function format(state, $el, q, escape) {
-                console.log(state)
                 if (typeof state.id == 'string') return "<span class='badge new'>създай:</span>" + state.text;
                 if (state.id < 0) {
                     var mark = state.group == activeGroup && expanded ? '–' : '+';

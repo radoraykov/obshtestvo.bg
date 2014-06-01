@@ -73,7 +73,6 @@ $(function() {
             url: $container.data('userGateway'),
             dataType: "json",
             success: function(response, status, xhr) {
-                console.log(response)
             },
             complete: function(xhr, status) {
                 $item.removeClass('wait').removeClass('adding')
