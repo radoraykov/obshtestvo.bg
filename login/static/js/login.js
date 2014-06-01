@@ -93,7 +93,7 @@ $(function() {
         var $skills = $('#joinSkills');
         var $availableAfter = $('#availabelAfter');
         var selected = $skills.data('selection');
-        if (selected) {
+        if (selected && selected.length > 0) {
             selected = selected.split('|')
         }
         new Select2Grouped($skills, $skills.data('choices'), selected)

@@ -9,8 +9,12 @@ from projects.models import Skill, Member, User, SkillGroup
 class ExtraDataView(View):
     def get(self, request):
         details = request.session['partial_pipeline']['kwargs']['details']
-        member = Member.objects.select_related('skills').get(name=details["first_name"]+' '+details["last_name"])
         skills_options = []
+        member = None
+        try:
+            member = Member.objects.select_related('skills').get(name=details["first_name"]+' '+details["last_name"])
+        except:
+            pass
 
         for sgroup in SkillGroup.objects.select_related('skills').all():
             skills_options.append({
