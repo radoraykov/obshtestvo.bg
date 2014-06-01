@@ -1370,9 +1370,13 @@ a.continue.more .eclipse {
 #explanations .progress {
     margin-bottom: 13px;
 }
-#explanations .slider .owl-item {
+#explanations .slider {
+    overflow: hidden;
     height:120px;
     line-height: 120px;
+}
+#explanations .slider .owl-item {
+    height:120px;
 }
 #explanations .slider blockquote {
     display: inline-block;
@@ -1380,7 +1384,7 @@ a.continue.more .eclipse {
     font-style: italic;
     line-height: 1.2em;
     font-size: 20px;
-    margin:0 10%;
+    margin:0 5%;
     vertical-align: bottom;
     margin-bottom: 20px;
 }
@@ -3685,6 +3689,7 @@ form.small.signup .date :-ms-input-placeholder {
 }
 .start h2.prompt strong {
     top:-5px;
+    font-size: 28px;
 }
 
 .inner .start .login {
