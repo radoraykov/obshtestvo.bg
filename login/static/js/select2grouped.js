@@ -56,7 +56,7 @@ var Select2Grouped;
                     var mark = state.group == activeGroup && expanded ? '–' : '+';
                     return state.text + '<span>'+mark+'</span>'
                 }
-                return "<span class='badge'>" + state.group.slice(10) + "...</span>" +
+                return "<span class='badge'>" + (state.group.length>10 ? state.group.slice(0, 10)+'...' :  state.group) + "</span>" +
                     $.fn.select2.defaults.formatResult(state, $el, q, escape);
             },
             multiple: true
