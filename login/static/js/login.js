@@ -92,7 +92,11 @@ $(function() {
         });
         var $skills = $('#joinSkills');
         var $availableAfter = $('#availabelAfter');
-        new Select2Grouped($skills, $skills.data('choices'), $skills.data('selection').split('|'))
+        var selected = $skills.data('selection');
+        if (selected) {
+            selected = selected.split('|')
+        }
+        new Select2Grouped($skills, $skills.data('choices'), selected)
         $availableAfter.pickadate({
             today: '',
             clear: '',

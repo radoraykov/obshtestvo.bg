@@ -89,7 +89,9 @@ var Select2Grouped;
         }).on('select2-focus', function(e) {
             $el.select2('open')
         })
-        $el.select2('val', selected)
+        if (selected) {
+            $el.select2('val', selected)
+        }
     }
     var fixHighlight = function(i) {
         var $results = $('.select2-result:not(.select2-selected)');
