@@ -24,8 +24,8 @@
             {% endif %}
             <div class="control skills clearfix {% if usecase == 'notnow' %}faded{% else %}focus round{% endif %}">
                 <label for="joinSkills">
-                    В каква дейност <strong>бихте искате</strong> да се включите?
-                    <span class="help">Не е нужно да бъде това което умеете най-добре.</span>
+                    В какви {% if member %} други {% endif %} дейности <strong>бихте искате</strong> да се включите?
+                    <span class="help">{% if member %} Попълнено е това, с което сте се представили. Добавете още. {% endif %} Не е нужно да бъде това което умеете най-добре.</span>
                 </label>
                 <input type="hidden" id="joinSkills" name="skills" data-rule-required="true" style="width:100%" value="" data-selection="{% for s in member.skills.all %}{{s.id}}{% if not forloop.last %}|{% endif %}{% endfor %}" data-choices="{{ skills_options|jsonify }}"/>
                 <span class="err skills"></span>

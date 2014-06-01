@@ -2897,6 +2897,7 @@ form.small.signup .control.skills > label {
 form.small.signup .control.skills.focus > label {
     letter-spacing: -0.04em;
     line-height: 1.1em;
+    margin-right: -0.2em;
 }
 form.small.signup .control.skills > label.secondary {
     padding-bottom: 0;
