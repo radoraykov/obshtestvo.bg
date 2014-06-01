@@ -35,6 +35,11 @@ var Select2Grouped;
                     return options.matcher(options.term, this.text + ' '+ this.group) && ((!expanded && isCat) || (expanded && (this['group'] == activeGroup || isCat)))
                 }).get()
                 if (!d.length) {
+                    d = $(data).filter(function () {
+                        return options.matcher(options.term, this.text + ' '+ this.group)
+                    }).get()
+                }
+                if (!d.length) {
                     d = [{id:options.term, text: options.term}]
                 }
                 options.callback({
