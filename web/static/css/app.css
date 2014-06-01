@@ -2892,6 +2892,7 @@ form.small.signup .control.skills > label {
 }
 form.small.signup .control.skills.focus > label {
     letter-spacing: -0.04em;
+    line-height: 1.1em;
 }
 form.small.signup .control.skills > label.secondary {
     padding-bottom: 0;
@@ -3678,7 +3679,7 @@ form.small.signup .date :-ms-input-placeholder {
     display: block;
     position: relative;
     letter-spacing: -0.045em;
-    top: 1px;
+    top: -2px;
     line-height: 27px;
     left: 2px;
 }
@@ -4117,6 +4118,9 @@ form.small.signup .date :-ms-input-placeholder {
 }
 .blockUI.blockMsg.blockPage .spinner {
     display: inline-block;
+}
+.inner.entry .blockUI.blockMsg.blockPage .message p {
+    margin:0;
 }
 .inner.entry .blockUI.blockMsg.blockPage .message .button {
     margin-top: 15px;

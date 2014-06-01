@@ -39,7 +39,7 @@ var FacebookAuth;
             urlParser.href = url;
             var domain = urlParser.hostname;
             if (domain.indexOf(fDomain) !== -1 && $.inArray(popup, FacebookAuth.popups) === -1) {
-                if (typeof popup == 'undefined') {
+                if (popup==null || typeof popup == 'undefined') {
                     blocked()
                 } else {
                     FacebookAuth.popups.push(popup);
