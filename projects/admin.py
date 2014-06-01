@@ -312,6 +312,10 @@ class SkillGroupAdmin(SortableModelAdmin):
     list_display = ('name',)
     sortable = 'order'
 
+class SkillAdmin(SortableModelAdmin):
+    list_display = ('name',)
+    search_fields = ['name']
+
 class ProjectActivityAdminBase(admin.ModelAdmin):
     inlines = (UserActivityInline, TaskInline)
 
@@ -582,7 +586,7 @@ admin.site.register(AvailableMember, AvailableMemberAdmin)
 admin.site.register(PaidMember, PaidMemberAdmin)
 admin.site.register(OrganisationType)
 admin.site.register(MemberType)
-admin.site.register(Skill)
+admin.site.register(Skill, SkillAdmin)
 admin.site.register(SkillGroup, SkillGroupAdmin)
 admin.site.register(UserProjectPause)
 admin.site.register(ProjectActivity, ProjectActivityAdmin)
