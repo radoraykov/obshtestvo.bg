@@ -48,6 +48,9 @@
                         проектите</a></li>
                 </ul>
                 {% block navExtra %}{% endblock %}
+                {% if user.is_authenticated %}
+                    {% include 'user/_nav.html' %}
+                {% endif %}
                 <div class="slider-nav-wrapper basic-transition hidden waiting">
                     <div class="slider-nav clearfix">
                         <span class="nav prev basic-transition round"><i
