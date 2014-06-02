@@ -131,11 +131,25 @@ class MyUserAdmin(UserAdmin):
     form = MyUserChangeForm
     inlines = (UserActivityInline,)
     add_form = MyUserCreationForm
+    list_filter = ('projects_interests', ('skills', MultipleFilter))
+    list_display = ('full_name_display', 'email', 'available_after', 'skills_display')
+    ordering = ('first_name',)
     suit_form_tabs = (
         ('system', 'System'),
         ('common', 'Common'),
         ('activities', 'Activities'),
     )
+    def skills_display(self, user):
+        result = ''
+        for s in user.skills.all():
+            result += '<span class="badge">'+s.name+'</span> '
+        return mark_safe(result)
+    skills_display.short_description = _('skills')
+
+    def full_name_display(self, user):
+        return user.get_full_name()
+    full_name_display.short_description = _('full name')
+
     fieldsets = (
         (None, {
             'classes': ('suit-tab suit-tab-system',),
