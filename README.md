@@ -7,13 +7,14 @@
 Проектът е написан на Python и Django, и използва MySQL.
 
 ### Development среда
-#### Автоматича настройка
+#### Автоматична настройка
 
 Нужни са ви единствено:
 
- - [Vagrant](http://www.vagrantup.com/), ако нямате - [сваляте и инсталирате](
-https://ww.vagrantup.com/downloads.html)
- - [VirtualBox](https://www.virtualbox.org/), ако нямате - [сваляте и инсталирате](https://www.virtualbox.org/wiki/Downloads)
+ - [Vagrant](http://www.vagrantup.com/), ако нямате – [сваляте и инсталирате](
+https://www.vagrantup.com/downloads.html)
+ - [VirtualBox](https://www.virtualbox.org/), ако нямате – [сваляте и инсталирате](https://www.virtualbox.org/wiki/Downloads)
+ - hashicorp/precise32 VM, ако нямате – `vagrant box add hashicorp/precise32 https://vagrantcloud.com/hashicorp/precise32/version/1/provider/virtualbox.box`
 
 В директорията на проекта пускате 1 команда:
 
@@ -26,14 +27,14 @@ vagrant up
 Администратор на сайта е `admin` с парола `admin`, чрез който имате достъп до [административния панел](http://localhost:8888/admin/).
 
 ##### Детайли
-Автоматичната настройка създава виртуална машина s заемаща 370mb. Може да я спирате и пускате с команди от директорията на проекта:
+Автоматичната настройка създава виртуална машина заемаща 384MB RAM памет и 2GB на диска. Може да я спирате и пускате с команди от директорията на проекта:
 
 ```sh
 vagrant halt # изключва
 vagrant up # включва
 ```
 
-За още дейтали [вижте какво се инсталира в нея](bootstrap.sh).
+За още детайли [вижте какво се инсталира в нея](bootstrap.sh).
 
 #### Ръчна настройка
 
