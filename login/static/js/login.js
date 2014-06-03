@@ -159,7 +159,7 @@ $(function() {
                 var $msg1 = $('<div class="message">').append($this.data('greeting'));
                 var $msg2 = $('<div class="message">').append($loginOptions.data('waitingAuthMsg')).css('display', 'none')
                 var $msg3 = $('<div class="message">')
-                    .append($('<p>').append('Препятствие! Интернет браузърът Ви блокира изкочилия прозорец, който служи за връзка с Facebook. Натиснете бутона по-долу:'))
+                    .append($('<p>').append('Препятствие! Интернет браузърът Ви блокира изскочилия прозорец, който служи за връзка с Facebook. Натиснете бутона по-долу:'))
                     .append('<span class="button standard blue fb-fallback">Facebook</span>')
                     .css('display', 'none')
                 var $msg =  $('<div class="animation-container">').append($msg1, $msg2, $msg3)
