@@ -46,8 +46,36 @@ $(function() {
             }
         });
 
+
+        var $skills = $('#joinSkills');
+        var $availableAfter = $('#availabelAfter');
+        var selected = $skills.data('selection');
+        if (selected) {
+            selected = selected.toString().split('|')
+        }
+        new Select2Grouped($skills, $skills.data('choices'), selected)
+        var $personalSwap = $('.personal .animation-container');
+        var $personalChangeSlides =$personalSwap.find('>div')
+        var personalFieldsRevealed = false;
+        var revalPersonalFields = function() {
+            toggleFixedHeight($personalSwap, true)
+            $personalSwap.animateContentSwitch($personalChangeSlides.eq(0), $personalChangeSlides.eq(1), {
+                width: false,
+                speed: 100,
+                final: function () {
+                    toggleFixedHeight($personalSwap, false)
+                }
+            });
+        }
+        $skills.on('change', function() {
+            $skills.valid()
+        })
+        $personalSwap.find('a.change').click(function(e){
+            e.preventDefault()
+            revalPersonalFields()
+        })
         var $form = $('form.signup')
-        uid = $form.data('uid')
+        var uid = $form.data('uid')
         $form.find('.msg.hidden, .personal .hidden').css('display', 'none').removeClass('hidden')
         new AjaxForm($form, {
             dataType: "html",
@@ -76,6 +104,10 @@ $(function() {
             extraValidation: {
                 ignore: '.ignore',
                 highlight: function(input, a) {
+                    if (!personalFieldsRevealed) {
+                        revalPersonalFields();
+                        personalFieldsRevealed = true
+                    }
                     var $input = $(input);
                     var $control = $input.closest('.control');
                     if ($input.attr('type') != 'text' && $control.length) {
@@ -90,13 +122,6 @@ $(function() {
                 }
             }
         });
-        var $skills = $('#joinSkills');
-        var $availableAfter = $('#availabelAfter');
-        var selected = $skills.data('selection');
-        if (selected) {
-            selected = selected.toString().split('|')
-        }
-        new Select2Grouped($skills, $skills.data('choices'), selected)
         $availableAfter.pickadate({
             today: '',
             clear: '',
@@ -106,22 +131,6 @@ $(function() {
             min: 1,
             hiddenName: true,
             formatSubmit: 'yyyy-mm-dd'
-        })
-        $skills.on('change', function() {
-            $skills.valid()
-        })
-        var $personalSwap = $('.personal .animation-container');
-        var $personalChangeSlides =$personalSwap.find('>div')
-        $personalSwap.find('a.change').click(function(e){
-            e.preventDefault()
-            toggleFixedHeight($personalSwap, true)
-            $personalSwap.animateContentSwitch($personalChangeSlides.eq(0), $personalChangeSlides.eq(1), {
-                width: false,
-                speed: 100,
-                final: function () {
-                    toggleFixedHeight($personalSwap, false)
-                }
-            });
         })
     }
 
