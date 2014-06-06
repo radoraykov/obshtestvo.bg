@@ -131,8 +131,8 @@ class MyUserAdmin(UserAdmin):
     form = MyUserChangeForm
     inlines = (UserActivityInline,)
     add_form = MyUserCreationForm
-    list_filter = ('projects_interests', ('skills', MultipleFilter))
-    list_display = ('full_name_display', 'email', 'available_after', 'skills_display')
+    list_filter = ('projects_interests', ('skills', MultipleFilter), ('projects_interests', MultipleFilter))
+    list_display = ('full_name_display', 'email', 'available_after', 'skills_display', 'projects_interests_display')
     ordering = ('first_name',)
     suit_form_tabs = (
         ('system', 'System'),
@@ -145,6 +145,13 @@ class MyUserAdmin(UserAdmin):
             result += '<span class="badge">'+s.name+'</span> '
         return mark_safe(result)
     skills_display.short_description = _('skills')
+
+    def projects_interests_display(self, user):
+        result = ''
+        for p in user.projects_interests.all():
+            result += '<span class="label label-info">'+p.name+'</span> '
+        return mark_safe(result)
+    skills_display.short_description = _('projects interested in')
 
     def full_name_display(self, user):
         return user.get_full_name()
