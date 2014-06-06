@@ -30,7 +30,7 @@
                 <input type="hidden" id="joinSkills" name="skills" data-rule-required="true" style="width:100%" value="" data-selection="{% for s in member.skills.all %}{{s.id}}{% if not forloop.last %}|{% endif %}{% endfor %}" data-choices="{{ skills_options|jsonify }}"/>
                 <span class="err skills"></span>
                 <label for="joinSkills" class="secondary">
-                    <span class="help">Ако не виждате това, което искате, просто го напишете и натиснете “Enter”, за да го добавите.
+                    <span class="help">Ако не виждате това, което искате, просто го напишете и натиснете „Enter“, за да го добавите.
                     </span>
                 </label>
             </div>
