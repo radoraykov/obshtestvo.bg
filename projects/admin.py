@@ -131,7 +131,7 @@ class MyUserAdmin(UserAdmin):
     form = MyUserChangeForm
     inlines = (UserActivityInline,)
     add_form = MyUserCreationForm
-    list_filter = ('projects_interests', ('skills', MultipleFilter), ('projects_interests', MultipleFilter))
+    list_filter = (('skills', MultipleFilter), ('projects_interests', MultipleFilter))
     list_display = ('full_name_display', 'email', 'available_after', 'skills_display', 'projects_interests_display')
     ordering = ('first_name',)
     suit_form_tabs = (

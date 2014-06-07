@@ -154,7 +154,6 @@ MEMBER_POSITIONS = {
     "ideas": "идеи",
     "donation": "дарение",
 }
-
 FAKE_DB = SortedDict()
 FAKE_DB["openparliament"] = {
     "name": "Отворен Парламент",

@@ -14,7 +14,6 @@
  - [Vagrant](http://www.vagrantup.com/), ако нямате – [сваляте и инсталирате](
 https://www.vagrantup.com/downloads.html)
  - [VirtualBox](https://www.virtualbox.org/), ако нямате – [сваляте и инсталирате](https://www.virtualbox.org/wiki/Downloads)
- - hashicorp/precise32 VM, ако нямате – `vagrant box add hashicorp/precise32 https://vagrantcloud.com/hashicorp/precise32/version/1/provider/virtualbox.box`
 
 В директорията на проекта пускате 1 команда:
 
@@ -25,6 +24,15 @@ vagrant up
 Това може да отнеме няколко минути, след което имате работещ сайта на адрес:  [http://localhost:8888/](http://localhost:8888/)
 
 Администратор на сайта е `admin` с парола `admin`, чрез който имате достъп до [административния панел](http://localhost:8888/admin/).
+
+##### Ако има проблеми
+
+Може би vagrant не може да намери основата на която базираме автоматичната инсталация (*hashicorp/precise32 VM*). В този случай изпълнете:
+
+```
+vagrant box add hashicorp/precise32 https://vagrantcloud.com/hashicorp/precise32/version/1/provider/virtualbox.box
+```
+
 
 ##### Детайли
 Автоматичната настройка създава виртуална машина заемаща 384MB RAM памет и 2GB на диска. Може да я спирате и пускате с команди от директорията на проекта:
