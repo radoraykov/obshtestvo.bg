@@ -16,7 +16,7 @@ git clone git://github.com/zsh-users/zsh-syntax-highlighting.git  $HOME/.oh-my-z
 sudo chsh -s `which zsh` vagrant
 sed -i.bak 's/^plugins=(.*/plugins=(git django python pip virtualenvwrapper emoji-clock zsh-syntax-highlighting bower)/' $HOME/.zshrc
 echo "export LC_ALL=en_US.UTF-8" >> $HOME/.zshrc
-echo "export LANG=en_US.UTF-8" >> .zshrc
+echo "export LANG=en_US.UTF-8" >> $HOME/.zshrc
 
 
 # settings
