@@ -6,80 +6,233 @@
 {% block content %}
     {% include '_masthead_sample.html' %}
 
-    <section>
-        <p><strong>Главната идеята на тази страница</strong>, както е по PSD, да се показват всички участници и да може да се филтрират
-            по дейности и проекти, по това дали са избрали проекти и дали са свободни.</p>
-        <p>По-долу са дадени технически примери и инфо за frontend-a.</p>
-    </section>
-    <section>
-        <div class="layout">
-            пример за съдържание орграничено в layout
-        </div>
-    </section>
-    <section>
-        пример за съдържание извън layout
-    </section>
-    <section>
-        <div class="layout">
-            пример за dropdown-a за дейностите
-            <input type="hidden" id="joinSkills" name="skills" data-rule-required="true" style="width:100%" value=""
-                   data-selection="
-                           {% for s in member.skills.all %}{{ s.id }}{% if not forloop.last %}|{% endif %}{% endfor %}"
-                   data-choices="{{ skills_options|jsonify }}"/>
-        </div>
-    </section>
-    <section>
-        <p>Главния CSS файл "грамадан" се намира в <code>web/static/css/app.css</code>. Препоръки по ре-структурирането
-            или convert-ването му в LESS са добре дошли</p>
+    <section class="users">
+        <aside class="filter">
+            <ul class="filter-simple">
+                <li class="label">Само тези на разположение</li>
+                <li><input type="checkbox" /></li>
+                <li class="label">Покажи в категории спрямо дейност</li>
+                <li><input type="checkbox" /></li>
+            </ul>
+            <div class="filter-advanced">
+                <h3 class="title-primary">Интерес към проекти:</h3>
+                <h4 class="title-info">Намерете човек спрямо интереса му към дадени проекти</h4>
+                <input type="text" />
+                <div class="users-free">
+                    Участници неизбрали проекти <input type="checkbox" />
+                </div>
 
-        <p>Повечето JS файлове се намират <code>web/static/js</code></p>
+                <h3 class="title-primary">Избрани дейности:</h3>
+                <h4 class="title-info">Намерете човек според дейността, в която иска да се включи</h4>
+                <input type="text" />
+            </div>
+        </aside>
+        <section class="list">
+            <nav class="nav-tabs">
+                <a class="selected" href="">Хора</a>
+                <a href="#">Юридическа</a>
+                <a href="#">Място</a>
+                <a href="#">Оборудване</a>
+                <a href="#">Експертиза</a>
+                <a href="#">Вдъхновение</a>
+            </nav>
+            <ul class="users-list">
+                <li>
+                    <section class="user-popup">
+                        <a class="close-popup" href="#nogo">&#x2715;</a>
+                        <h2 class="user-names">Нейчо Михайлов</h2>
+                        <div class="avatar">
+                            <figure>
+                                <a href="#"><img src="{% static 'img/temp/user-avatar.jpg' %}" alt="" /></a>
+                            </figure>
+                            <a href="#">попитай</a>
+                        </div>
+                        <div class="user-desription">
+                            Участвам в Общество.бг, понеже желая да
+                        </div>
+                        <ul class="activities-all">
+                            <li>Андроид (код)</li>
+                            <li>Проектово ръководство</li>
+                            <li>Проектово ръководство и координация и (кво ли не друго казвам на баба си, докато събирал изпопадалите зелки)</li>
+                        </ul>
+                        <ol class="user-projects">
+                            <li>
+                                <a href="#">
+                                    <img src="{% static 'img/temp/project-1.jpg' %}" alt="" />
+                                    Pitaigi.bg
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="{% static 'img/temp/project-2.jpg' %}" alt="" />
+                                    RE:CYCLE
+                                </a>
+                            </li>
+                        </ol>
+                    </section>
 
-        <p>Някой JS/CSS библиотеки се намират <code>web/static/libs</code></p>
-
-        <p>HTML файлът за тази страница се намира в <code>projects/templates/users/get.html</code></p>
-
-        <p>Вътре във файла има примери как се добавят допълнителни CSS или JS файлове</p>
+                    <h2 class="user-names">Нейчо Михайлов</h2>
+                    <div class="avatar">
+                        <figure>
+                            <a href="#"><img src="{% static 'img/temp/user-avatar.jpg' %}" alt="" /></a>
+                        </figure>
+                        <a href="#">попитай</a>
+                    </div>
+                    <ul>
+                        <li><a class="more-activities" href="#">и още 3 дейности</a></li>
+                        <li>Андроид (код)</li>
+                        <li>Проектово ръково....</li>
+                        <li>Проектово ръково....</li>
+                        <li>Проектово ръково....</li>
+                        <li>Проектово ръково....</li>
+                    </ul>
+                    <ol class="user-projects">
+                        <li><a href="#"><img src="{% static 'img/temp/project-1.jpg' %}" alt="" /></a></li>
+                        <li><a href="#"><img src="{% static 'img/temp/project-2.jpg' %}" alt="" /></a></li>
+                        <li><a href="#"><img src="{% static 'img/temp/project-3.jpg' %}" alt="" /></a></li>
+                    </ol>
+                </li>
+                <li>
+                    <h2 class="user-names">Бойко Благоев</h2>
+                    <div class="avatar">
+                        <figure>
+                            <a href="#"><img src="{% static 'img/temp/user-avatar.jpg' %}" alt="" /></a>
+                        </figure>
+                        <a href="#">попитай</a>
+                    </div>
+                    <ul>
+                        <li><a class="more-activities" href="#">и още 3 дейности</a></li>
+                        <li>Андроид (код)</li>
+                        <li>Проектово ръково....</li>
+                        <li>Проектово ръково....</li>
+                        <li>Проектово ръково....</li>
+                        <li>Проектово ръково....</li>
+                    </ul>
+                    <h6 class="no-projects">няма избрани проекти</h6>
+                </li>
+                <li>
+                    <h2 class="user-names">Цветелина Константинова</h2>
+                    <div class="avatar">
+                        <figure>
+                            <a href="#"><img src="{% static 'img/temp/user-avatar.jpg' %}" alt="" /></a>
+                        </figure>
+                        <a href="#">попитай</a>
+                    </div>
+                    <ul>
+                        <li><a class="more-activities" href="#">и още 3 дейности</a></li>
+                        <li>Андроид (код)</li>
+                        <li>Проектово ръково....</li>
+                        <li>Проектово ръково....</li>
+                        <li>Проектово ръково....</li>
+                        <li>Проектово ръково....</li>
+                    </ul>
+                     <ol class="user-projects">
+                        <li><a href="#"><img src="{% static 'img/temp/project-1.jpg' %}" alt="" /></a></li>
+                        <li><a href="#"><img src="{% static 'img/temp/project-2.jpg' %}" alt="" /></a></li>
+                        <li><a href="#"><img src="{% static 'img/temp/project-3.jpg' %}" alt="" /></a></li>
+                    </ol>
+                    <a class="user-project-all" href="#">още</a>
+                </li>
+                <li>
+                    <h2 class="user-names">Цветелина Константинова</h2>
+                    <div class="avatar">
+                        <figure>
+                            <a href="#"><img src="{% static 'img/temp/user-avatar.jpg' %}" alt="" /></a>
+                        </figure>
+                        <a href="#">попитай</a>
+                    </div>
+                    <ul>
+                        <li><a class="more-activities" href="#">и още 3 дейности</a></li>
+                        <li>Андроид (код)</li>
+                        <li>Проектово ръково....</li>
+                        <li>Проектово ръково....</li>
+                        <li>Проектово ръково....</li>
+                        <li>Проектово ръково....</li>
+                    </ul>
+                     <ol class="user-projects">
+                        <li><a href="#"><img src="{% static 'img/temp/project-1.jpg' %}" alt="" /></a></li>
+                        <li><a href="#"><img src="{% static 'img/temp/project-2.jpg' %}" alt="" /></a></li>
+                        <li><a href="#"><img src="{% static 'img/temp/project-3.jpg' %}" alt="" /></a></li>
+                    </ol>
+                    <a class="user-project-all" href="#">още</a>
+                </li>
+                <li>
+                    <h2 class="user-names">Цветелина Константинова</h2>
+                    <div class="avatar">
+                        <figure>
+                            <a href="#"><img src="{% static 'img/temp/user-avatar.jpg' %}" alt="" /></a>
+                        </figure>
+                        <a href="#">попитай</a>
+                    </div>
+                    <ul>
+                        <li><a class="more-activities" href="#">и още 3 дейности</a></li>
+                        <li>Андроид (код)</li>
+                        <li>Проектово ръково....</li>
+                        <li>Проектово ръково....</li>
+                        <li>Проектово ръково....</li>
+                        <li>Проектово ръково....</li>
+                    </ul>
+                     <ol class="user-projects">
+                        <li><a href="#"><img src="{% static 'img/temp/project-1.jpg' %}" alt="" /></a></li>
+                        <li><a href="#"><img src="{% static 'img/temp/project-2.jpg' %}" alt="" /></a></li>
+                        <li><a href="#"><img src="{% static 'img/temp/project-3.jpg' %}" alt="" /></a></li>
+                    </ol>
+                    <a class="user-project-all" href="#">още</a>
+                </li>
+                <li>
+                    <h2 class="user-names">Цветелина Константинова</h2>
+                    <div class="avatar">
+                        <figure>
+                            <a href="#"><img src="{% static 'img/temp/user-avatar.jpg' %}" alt="" /></a>
+                        </figure>
+                        <a href="#">попитай</a>
+                    </div>
+                    <ul>
+                        <li><a class="more-activities" href="#">и още 3 дейности</a></li>
+                        <li>Андроид (код)</li>
+                        <li>Проектово ръково....</li>
+                        <li>Проектово ръково....</li>
+                        <li>Проектово ръково....</li>
+                        <li>Проектово ръково....</li>
+                    </ul>
+                     <ol class="user-projects">
+                        <li><a href="#"><img src="{% static 'img/temp/project-1.jpg' %}" alt="" /></a></li>
+                        <li><a href="#"><img src="{% static 'img/temp/project-2.jpg' %}" alt="" /></a></li>
+                        <li><a href="#"><img src="{% static 'img/temp/project-3.jpg' %}" alt="" /></a></li>
+                    </ol>
+                    <a class="user-project-all" href="#">още</a>
+                </li>
+                <li>
+                    <h2 class="user-names">Цветелина Константинова</h2>
+                    <div class="avatar">
+                        <figure>
+                            <a href="#"><img src="{% static 'img/temp/user-avatar.jpg' %}" alt="" /></a>
+                        </figure>
+                        <a href="#">попитай</a>
+                    </div>
+                    <ul>
+                        <li><a class="more-activities" href="#">и още 3 дейности</a></li>
+                        <li>Андроид (код)</li>
+                        <li>Проектово ръково....</li>
+                        <li>Проектово ръково....</li>
+                        <li>Проектово ръково....</li>
+                        <li>Проектово ръково....</li>
+                    </ul>
+                     <ol class="user-projects">
+                        <li><a href="#"><img src="{% static 'img/temp/project-1.jpg' %}" alt="" /></a></li>
+                        <li><a href="#"><img src="{% static 'img/temp/project-2.jpg' %}" alt="" /></a></li>
+                        <li><a href="#"><img src="{% static 'img/temp/project-3.jpg' %}" alt="" /></a></li>
+                    </ol>
+                    <a class="user-project-all" href="#">още</a>
+                </li>
+            </ul>
+        </section>
     </section>
-    <section>
-        <p>Ако трябва да се style-не нещо което го има на сайта вече, най-лесно е да се inspect-не елемента
-            в сайта и да се види кои класове му дават стила</p>
-    </section>
-    <section>
-        <p>Някои Javascript и css библиотеки и plugin-и които се ползват:</p>
-        <ul>
-            <li><a href="http://necolas.github.io/normalize.css/">normalise.css</a></li>
-            <li><a href="http://jqueryvalidation.org/">jquery validation</a></li>
-            <li><a href="http://ivaynberg.github.io/select2/">select2</a> - за по-добри dropdown, имаме и надградена опция за
-                това в <code>/home/ubuntu/projects/obshtestvo.bg/login/static/js/select2grouped.js</code>, която се
-                ползва за дейностите.
-            </li>
-            <li><a href="http://malsup.com/jquery/block/">block ui</a> - за да се блокира част от екрана докато нещо
-                зарежда или нещо се анимира, така че потребителя да не кликне друго и да се счупи
-            </li>
-            <li><a href="http://dimsemenov.com/plugins/magnific-popup/">magnific-popup</a> - за modal прозорци, подобие на lightbox
-            </li>
-            <li><a href="http://fgnass.github.io/spin.js/">spin.js</a> - за preloader анимацийка, това кръгчето което се върти
-            </li>
-            <li><a href="http://os.alfajango.com/easytabs/">easytabs</a> - за табове
-            </li>
-            <li><a href="http://os.alfajango.com/easytabs/">easytabs</a> - за табове
-            </li>
-            <li><a href="http://isotope.metafizzy.co/filtering.html">istotope</a> - за анимирано филтриране (като това на хорат в PSD-то)
-            </li>
-            <li><a href="http://www.flaticon.com/">http://www.flaticon.com/</a> -  за генратор на иконки като шрифт</li>
-            <li><a href="http://kushagragour.in/lab/hint/">HINT.css</a> -  за ефектни tooltip-и</li>
-            <li><a href="http://www.owlgraphic.com/owlcarousel/">owl carousel</a></li>
-            <li><a href="http://imakewebthings.com/jquery-waypoints/#get-started">waypoints</a></li>
-            <li>... може спокойно да се добавят други.
-            </li>
-        </ul>
-        <p>За това как се ползват разгледайте кода или питайте.</p>
-    </section>
-
 {% endblock %}
 
 {% block headTag %}
     {#    Тук се добавят допълнителни CSS файлове по примера на долния ред #}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/lib/select2/select2.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/lib/select2/select2.css' %}">
     {#    Горния ред търси във всяка папка на горно ниво в проекта (auth, locale, login, projects..) файл вътре в нея #}
     {#    за файл вътре в нея "static/css/lib/select2/select2.css" #}
