@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% load staticfiles %}
+
+{% block content %}
+    {% include '_masthead_sample.html' %}
+
+    <section>
+        <div class="layout">
+            пример за съдържание орграничено в layout
+        </div>
+    </section>
+    <section>
+        пример за съдържание извън layout
+    </section>
+    <section>
+        <p>Главния CSS файл "грамадан" се намира в <code>web/static/css/app.css</code></p>
+        <p>Повечето JS файлове се намират <code>web/static/js</code></p>
+        <p>Някой JS/CSS библиотеки се намират <code>web/static/libs</code></p>
+        <p>HTML файлът за тази страница се намира в <code>projects/templates/users/get.html</code></p>
+        <p>Вътре във файла има примери как се добавят допълнителни CSS или JS файлове</p>
+    </section>
+
+{% endblock %}
+
+{% block headTag %}
+{#    Тук се добавят css допълнителни CSS файлове по примера на долния ред, но без коментарите #}
+{#    <link rel="stylesheet" type="text/css" href="{% static 'libs/magnific-popup/dist/magnific-popup.css' %}">#}
+{% endblock %}
+{% block footerTag %}
+{#    Тук се добавят css допълнителни javascript файлове по примера на долния ред, но без коментарите #}
+{#    <script src="{% static 'js/projectPicker.js' %}"></script>#}
+{% endblock %}

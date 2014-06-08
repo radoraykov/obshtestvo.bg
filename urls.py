@@ -3,7 +3,7 @@ from django.contrib import admin
 from web.views import home, wip, about, project, support, members, contact, faq, report
 from login.views import login
 from auth.views import extra_data, entry
-from projects.views import dashboard, user
+from projects.views import dashboard, user, users
 admin.autodiscover()
 
 urlpatterns = patterns('',
@@ -25,5 +25,6 @@ urlpatterns = patterns('',
     url(r'^logout/$', entry.LogoutView.as_view(), name='logout'),
     url(r'^join/$', login.LoginView.as_view()),
     url(r'^user/(?P<id>\d+)$', user.UserView.as_view(), name='user'),
+    url(r'^users/$', users.UsersView.as_view(), name='users'),
     url(r'^dashboard/$', dashboard.DashboardView.as_view(), name='dash'),
 )
