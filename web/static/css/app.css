@@ -4203,6 +4203,375 @@ footer .quick-contacts li a {
     margin-right: 4.22%;
 }
 
+
+.homepage-link {
+    color: #108eba;
+    text-decoration: none;
+}
+
+.homepage-link:hover {
+    color: #ccc;
+}
+
+
+.nav-tabs {
+    background: #102b36;
+}
+
+.nav-tabs a {
+    padding: 10px 15px;
+    display: inline-block;
+    color: #79939e;
+    font-size: 20px;
+    text-align: center;
+    text-decoration: none;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+.nav-tabs a:hover,
+.nav-tabs .selected {
+    background: #fff;
+}
+
+.nav-tabs .selected {
+    cursor: default;
+}
+
+.users {
+    position: relative;
+    min-height: 500px;
+    background: #eef0f1  url(../img/users-border.png) repeat-y 309px 0;
+}
+
+.users:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.users .filter {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    width: 310px;
+}
+
+.users .list {
+     margin-left: 310px;
+     background: #fff;
+}
+
+.filter-simple {
+    margin: 0;
+    padding: 84px 15px 27px 0px;
+    color: #108eba;
+    font-size: 15px;
+    background: #112c37;
+    list-style-type: none;
+    overflow: hidden;
+}
+
+.filter-simple li {
+    margin: 0;
+    padding: 0;
+    float: left;
+}
+
+.filter-simple li.label {
+    padding: 0 9px 0 0; 
+    width: 270px;
+    text-align: right;
+}
+
+.filter-advanced {
+    padding: 5px 13px 0 25px;
+}
+
+.filter-advanced input[type=text] {
+    margin: 10px 0 0 0;
+    display: inline-block;
+    width: 99%;
+    color: #607d89;
+    font-size: 14px;
+    border: solid 1px #b5b5b5;
+    border-radius: 3px;
+}
+
+.filter-advanced .title-primary {
+    margin: 30px 0 0 0;
+    padding: 0;
+    color: #607d89;
+    font-weight: normal;
+    font-size: 18px;
+}
+
+.filter-advanced .title-info {
+    margin: 0;
+    padding: 0;
+    color: #9ba9ad;
+    font-weight: normal;
+    font-size: 14px;
+}
+
+.filter-advanced .users-free {
+    padding: 5px 0 0 0;
+    font-size: 14px;
+    color: #607d89;
+    text-align: right;
+}
+
+.users-list {
+    margin: 0;
+    padding: 45px 30px;
+    list-style-type: none;
+}
+
+.users-list:after {
+    display: block;
+    content: "";
+    clear: both;
+}
+
+.users-list > li {
+    position: relative;
+    margin: 0 30px 40px 0;
+    padding: 0;
+    width: 265px;
+    height: 156px;
+    float: left;
+
+}
+
+.user-names {
+    margin: 0;
+    padding: 0;
+    height: 30px;
+    overflow: hidden;
+    font-weight: normal;
+    color: #194352;
+    font-size: 19px;
+}
+
+.users-list .avatar {
+    width: 95px;
+    height: 126px;
+    float: left;
+    overflow: hidden;
+}
+
+.users-list .avatar > a{
+    margin-top: 5px;
+    display: block;
+    width: 87px;
+    height: 34px;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    line-height: 34px;
+    font-size: 13px;
+    font-weight: bold;
+    border-radius: 3px;
+    background: #108eba; 
+    -webkit-transition: background-color 0.5s ease;
+    -moz-transition: background-color 0.5s ease;
+    -o-transition: background-color 0.5s ease;
+    transition: background-color 0.5s ease;
+}
+
+.users-list .avatar > a:hover {
+    background: #102b36;
+
+}
+
+.users-list li > ul {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    height: 94px;
+    float: left;
+    overflow: hidden;
+    list-style-type: none;
+}
+
+.users-list li > ul li {
+    padding: 0 0 0 15px;
+    position: relative;
+    font-size: 14px;
+    color: #3a768e;
+}
+
+.users-list li > ul li:first-child {
+    position: absolute; 
+    left: 0;
+    bottom: 0;
+    padding: 8px 0 0 0;
+    width: 100%;
+    height: 27px;
+    z-index: 5;
+    background: #fff;
+}
+
+.users-list li > ul li:first-child:before {
+    display: none;
+}
+
+.users-list li > ul li:before {
+    content: "\e006";
+    position: absolute;
+    left: 0;
+    top: 6px;
+    font-size: 9px;
+    color: #BAD3DE;
+    font-family: "Flaticon";
+}
+
+a.more-activities {
+    display: inline-block;
+    color: #0498cc;
+    font-size: 14px;
+    text-decoration: underline;
+}
+
+a.more-activities:hover {
+    text-decoration: none;
+}
+
+a.more-activities:before {
+    padding-right: 7px;
+    content: "...";
+    display:inline-block;
+    text-decoration: none;
+}
+
+a.more-activities:after {
+    content: "\e006";
+    display:inline-block;
+    text-decoration: none;
+    font-size: 9px;
+    color: #BAD3DE;
+    font-family: "Flaticon";
+}
+
+.user-projects {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    list-style-type: none;
+}
+.user-projects li {
+    display: inline-block;
+}
+
+.user-project-all {
+    color: #2296c1;
+    text-decoration: none;
+}
+.user-project-all:hover {
+    color: #3a768e;
+}
+
+.user-project-all:after {
+    content: "\e006";
+    display:inline-block;
+    text-decoration: none;
+    font-size: 9px;
+    color: #BAD3DE;
+    font-family: "Flaticon";
+}
+
+.no-projects { 
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+    line-height: 27px;
+    color: #85979e;
+}
+
+.user-popup {
+    position: absolute;
+    left: -20px; 
+    top: -15px;
+    z-index: 10;
+    padding: 15px 20px;
+    width: 300px;
+    box-shadow: 0 0 24px 0px #ccc;
+    background: #fff;
+}
+
+.close-popup {
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    display: block;
+    width: 23px;
+    height: 23px;
+    text-align: center;
+    color: #83949c;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.close-popup:hover {
+    color: #108eba;
+}
+
+.user-desription {
+    color: #879296;
+    font-size: 14px;
+}
+
+.activities-all {
+    margin: 0;
+    padding: 23px 0 0 0;
+    clear: both;
+    list-style-type: none;
+}
+
+.activities-all li {
+    position: relative;
+    margin: 0;
+    padding: 0 0 0 15px;
+    font-size: 14px;
+    color: #3A768E;
+}
+
+.activities-all li:before {
+    content: "\e006";
+    position: absolute;
+    left: 0;
+    top: 4px;
+    font-size: 9px;
+    color: #BAD3DE;
+    font-family: "Flaticon";
+
+}
+
+.user-popup .user-projects {
+    display: block;
+    padding-top: 30px;
+}
+
+.user-popup .user-projects li {
+    padding-bottom: 6px; 
+    display:  block;
+}
+
+.user-popup .user-projects a { 
+    color: #516c7a;
+    font-weight: 17;
+    text-decoration: none;
+}
+.user-popup .user-projects a:hover { 
+    color: #108EBA;
+}
+
+.user-popup .user-projects a img {
+    margin-right: 5px;
+} 
+
 /* Примерни media queries, в които се пише код за браузър със специфична резолюция или размер на пиксела */
 
 @media only screen and (min-width: 1200px) {
