@@ -10,16 +10,24 @@
         <aside class="filter">
             <ul class="filter-simple">
                 <li class="label">Само тези на разположение</li>
-                <li><input type="checkbox" /></li>
+                <li>
+                    <input class="checkbox" type="checkbox" id="check-users-free" />
+                    <label class="checkbox" for="check-users-free">custom checkbox</label>
+                </li>
                 <li class="label">Покажи в категории спрямо дейност</li>
-                <li><input type="checkbox" /></li>
+                <li>
+                    <input class="checkbox" type="checkbox" id="check-category" />
+                    <label class="checkbox" for="check-category">custom checkbox</label>
+                </li>
             </ul>
             <div class="filter-advanced">
                 <h3 class="title-primary">Интерес към проекти:</h3>
                 <h4 class="title-info">Намерете човек спрямо интереса му към дадени проекти</h4>
                 <input type="hidden" id="joinSkills" name="skills" style="width:100%" value="" data-choices="{{ skills_options|jsonify }}"/>
                 <div class="users-free">
-                    Участници неизбрали проекти <input type="checkbox" />
+                    Участници неизбрали проекти
+                    <input class="checkbox checkbox-second" type="checkbox" id="check-users-noprojects" />
+                    <label class="checkbox checkbox-second" for="check-users-noprojects">custom checkbox</label>
                 </div>
 
                 <h3 class="title-primary">Избрани дейности:</h3>

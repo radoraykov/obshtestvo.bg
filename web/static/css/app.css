@@ -4238,6 +4238,29 @@ footer .quick-contacts li a {
     cursor: default;
 }
 
+input.checkbox {
+    display: none;
+}
+
+input.checkbox:checked + label.checkbox {
+    background-position: 0 0;
+}
+
+label.checkbox {
+    display: inline-block;
+    width: 21px;
+    height: 21px;
+    text-indent: -9999px;
+    cursor: pointer;
+    background: url(../img/checkbox.png) no-repeat 0 -21px;
+}
+
+label.checkbox-second {
+    margin-left: 8px;
+    text-align: left;
+    background-image: url(../img/checkbox-2.png);
+}
+
 .users {
     position: relative;
     min-height: 500px;
@@ -4280,8 +4303,8 @@ footer .quick-contacts li a {
 }
 
 .filter-simple li.label {
-    padding: 0 9px 0 0; 
-    width: 270px;
+    padding: 0 9px 10px 0;
+    width: 264px;
     text-align: right;
 }
 
