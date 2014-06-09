@@ -3,6 +3,14 @@
 {% load url from future %}
 {% load restful %}
 
+
+{% block headTag %}
+    {#    Тук се добавят допълнителни CSS файлове по примера на долния ред #}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/lib/select2/select2.css' %}">
+    {#    Горния ред търси във всяка папка на горно ниво в проекта (auth, locale, login, projects..) файл вътре в нея #}
+    {#    за файл вътре в нея "static/css/lib/select2/select2.css" #}
+{% endblock %}
+
 {% block content %}
     {% include '_masthead_sample.html' %}
 
@@ -230,13 +238,6 @@
     </section>
 {% endblock %}
 
-{% block headTag %}
-    {#    Тук се добавят допълнителни CSS файлове по примера на долния ред #}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/lib/select2/select2.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/lib/select2/select2.css' %}">
-    {#    Горния ред търси във всяка папка на горно ниво в проекта (auth, locale, login, projects..) файл вътре в нея #}
-    {#    за файл вътре в нея "static/css/lib/select2/select2.css" #}
-{% endblock %}
 {% block footerTag %}
     <script src="{% static 'js/lib/select2/select2.mod.min.js' %}"></script>
     <script src="{% static 'js/select2grouped.js' %}"></script>
